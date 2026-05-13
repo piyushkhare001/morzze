@@ -1,164 +1,205 @@
-"use client";
+﻿"use client";
 
-import React, { useState } from 'react';
-import { Trash2, ShoppingCart, Star, Minus, Plus } from 'lucide-react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
+import {
+  IconShoppingBag,
+  IconStarFilled,
+  IconX,
+  IconHeart,
+  IconArrowRight,
+} from "@tabler/icons-react";
+import { useWishlist } from "@/context/WishlistContext";
+import { useCart } from "@/context/CartContext";
+import { products } from "@/data/products";
 
 const WishlistPage = () => {
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      slug: "farmhouse-apron-sink",
-      name: "Farmhouse Apron Sink",
-      category: "ROSE GOLD",
-      price: 20300, // Number for easier calculation
-      oldPrice: 27000,
-      rating: 4,
-      reviews: 47,
-      image: "/granite-basin.png",
-      quantity: 1
-    }
-  ]);
+  const { wishlistSlugs, toggleWishlist, loading } = useWishlist();
+  const { addToCart } = useCart();
 
-  // Quantity Handlers
-  const updateQuantity = (id: number, delta: number) => {
-    setItems(items.map(item =>
-      item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
-    ));
-  };
+  const wishlistItems = wishlistSlugs
+    .map((slug) => products.find((p) => p.slug === slug))
+    .filter(Boolean);
 
-  const removeItem = (id: number) => setItems(items.filter(i => i.id !== id));
+  if (loading) {
+    return (
+      // <div className="min-h-screen bg-black text-white px-4 md:px-8 py-10 font-inter">
+      //   <div className="flex items-center justify-between mb-10">
+      //     <div>
+      //       <h2 className="text-3xl font-semibold tracking-tight">
+      //         My Wishlist
+      //       </h2>
+      //       <p className="text-zinc-500 text-sm mt-1">
+      //         Loading your favourite products...
+      //       </p>
+      //     </div>
+      //   </div>
 
-  return (
-    <div>
-      figma me nhi h isliye build nhi kiya !!
-    </div>
-    // <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-10 md:py-20 bg-black min-h-screen">
-    //   <div className="mb-12">
-    //     <h1 className="text-white text-2xl md:text-4xl font-montserrat font-bold tracking-tight uppercase">
-    //       My Wishlist
-    //     </h1>
-    //     <p className="text-zinc-500 text-sm mt-2 uppercase tracking-[0.2em]">
-    //       {items.length} Item Saved
-    //     </p>
-    //   </div>
+      //   <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+      //     {[1, 2, 3, 4].map((i) => (
+      //       <div
+      //         key={i}
+      //         className="rounded-2xl overflow-hidden border border-white/10 bg-[#111111]"
+      //       >
+      //         <div className="aspect-square bg-zinc-900 animate-pulse" />
 
-    //   <div className="w-full">
-    //     {/* --- DESKTOP TABLE HEADER --- */}
-    //     <div className="hidden md:grid grid-cols-12 pb-6 border-b border-zinc-800 text-[11px] font-bold tracking-[0.2em] text-zinc-500 uppercase">
-    //       <div className="col-span-5">Product Details</div>
-    //       <div className="col-span-2 text-center">Price</div>
-    //       <div className="col-span-2 text-center">Quantity</div>
-    //       <div className="col-span-3 text-right">Action</div>
-    //     </div>
+      //         <div className="p-5 space-y-4">
+      //           <div className="h-3 w-20 bg-zinc-800 rounded animate-pulse" />
+      //           <div className="h-5 w-40 bg-zinc-800 rounded animate-pulse" />
+      //           <div className="h-4 w-28 bg-zinc-800 rounded animate-pulse" />
+      //           <div className="h-11 w-full bg-zinc-800 rounded-xl animate-pulse" />
+      //         </div>
+      //       </div>
+      //     ))}
+      //   </div>
+      // </div>
+      <div>
+        not in figma that's why not build yet
+      </div>
+    );
+  }
 
-    //     {items.length > 0 ? (
-    //       items.map((item) => (
-    //         <div key={item.id} className="group">
-    //           {/* --- DESKTOP VIEW --- */}
-    //           <div className="hidden md:grid grid-cols-12 py-10 border-b border-zinc-900 items-center">
-    //             <div className="col-span-5 flex gap-8">
-    //               <div className="w-32 h-32 bg-zinc-900 rounded-sm overflow-hidden shrink-0 border border-white/5">
-    //                 <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-    //               </div>
-    //               <div className="flex flex-col justify-center space-y-1">
-    //                 <p className="text-[#FDB813] text-[10px] font-bold tracking-widest uppercase">{item.category}</p>
-    //                 <h3 className="text-white text-lg font-medium font-montserrat">{item.name}</h3>
-    //                 <div className="flex items-center gap-1 text-[#FDB813]">
-    //                   {[...Array(5)].map((_, i) => (
-    //                     <Star key={i} size={12} fill={i < item.rating ? "currentColor" : "none"} className={i < item.rating ? "" : "text-zinc-700"} />
-    //                   ))}
-    //                   <span className="text-zinc-600 text-[10px] ml-1">({item.reviews} reviews)</span>
-    //                 </div>
-    //               </div>
-    //             </div>
+  // if (wishlistItems.length === 0) {
+  //   return (
+  //     <div className="min-h-screen bg-black text-white px-4 md:px-8 py-10 font-inter">
+  //       <div className="max-w-xl mx-auto flex flex-col items-center justify-center text-center py-24 border border-white/10 rounded-3xl bg-gradient-to-b from-[#111] to-[#0a0a0a]">
+  //         <div className="w-20 h-20 rounded-full bg-[#FFBF3F]/10 flex items-center justify-center mb-6">
+  //           <IconHeart size={40} className="text-[#FFBF3F]" />
+  //         </div>
 
-    //             {/* Price Column */}
-    //             <div className="col-span-2 text-center flex flex-col gap-1">
-    //               <span className="text-white text-xl font-bold">₹{item.price.toLocaleString()}</span>
-    //               <span className="text-zinc-600 text-sm line-through">₹{item.oldPrice.toLocaleString()}</span>
-    //             </div>
+  //         <h2 className="text-3xl font-semibold mb-3">
+  //           Your Wishlist is Empty
+  //         </h2>
 
-    //             {/* Desktop Quantity Selector */}
-    //             <div className="col-span-2 flex justify-center">
-    //               <div className="flex items-center border border-zinc-800 rounded-full px-2 py-1">
-    //                 <button onClick={() => updateQuantity(item.id, -1)} className="text-zinc-500 hover:text-white p-1">
-    //                   <Minus size={14} />
-    //                 </button>
-    //                 <span className="text-white text-sm w-8 text-center">{item.quantity}</span>
-    //                 <button onClick={() => updateQuantity(item.id, 1)} className="text-zinc-500 hover:text-white p-1">
-    //                   <Plus size={14} />
-    //                 </button>
-    //               </div>
-    //             </div>
+  //         <p className="text-zinc-500 text-sm max-w-md leading-6 mb-8">
+  //           Save your favourite products here and access them anytime easily.
+  //         </p>
 
-    //             <div className="col-span-3 text-right">
-    //               <div className="flex items-center justify-end gap-6">
-    //                 <button className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-none text-[11px] font-bold uppercase tracking-widest hover:bg-[#FDB813] transition-all active:scale-95">
-    //                   <ShoppingCart size={16} />
-    //                   Add to Cart
-    //                 </button>
-    //                 <button onClick={() => removeItem(item.id)} className="text-zinc-600 hover:text-red-500 transition-colors">
-    //                   <Trash2 size={20} />
-    //                 </button>
-    //               </div>
-    //             </div>
-    //           </div>
+  //         <Link
+  //           href="/products"
+  //           className="bg-[#FFBF3F] hover:bg-[#ffb31f] text-black font-semibold py-3 px-7 rounded-xl flex items-center gap-2 transition-all duration-300 hover:scale-[1.03]"
+  //         >
+  //           Browse Products
+  //           <IconArrowRight size={18} />
+  //         </Link>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
-    //           {/* --- MOBILE VIEW --- */}
-    //           <div className="md:hidden flex flex-col py-8 border-b border-zinc-900">
-    //             <div className="flex gap-4 mb-6">
-    //               <div className="w-24 h-24 bg-zinc-900 rounded-sm overflow-hidden shrink-0 border border-white/5">
-    //                 <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-    //               </div>
-    //               <div className="flex-1 space-y-2">
-    //                 <div className="flex justify-between items-start">
-    //                    <p className="text-[#FDB813] text-[9px] font-bold tracking-widest uppercase">{item.category}</p>
-    //                    <button onClick={() => removeItem(item.id)} className="text-zinc-700">
-    //                     <Trash2 size={18} />
-    //                   </button>
-    //                 </div>
-    //                 <h3 className="text-white text-base font-medium">{item.name}</h3>
+  // return (
+  //   <div className="min-h-screen bg-black text-white px-4 md:px-8 py-10 font-inter">
+  //     {/* Header */}
+  //     <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+  //       <div>
+  //         <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
+  //           My Wishlist
+  //         </h2>
 
-    //                 <div className="flex justify-between items-center">
-    //                   <div className="flex flex-col">
-    //                     <span className="text-white text-lg font-bold">₹{item.price.toLocaleString()}</span>
-    //                     <span className="text-zinc-600 text-xs line-through">₹{item.oldPrice.toLocaleString()}</span>
-    //                   </div>
+  //         <p className="text-zinc-500 text-sm mt-2">
+  //           {wishlistItems.length} product
+  //           {wishlistItems.length > 1 ? "s" : ""} saved
+  //         </p>
+  //       </div>
 
-    //                   {/* Mobile Quantity Selector */}
-    //                   <div className="flex items-center bg-zinc-900 border border-zinc-800 rounded-lg px-2 py-1">
-    //                     <button onClick={() => updateQuantity(item.id, -1)} className="text-zinc-400 p-1">
-    //                       <Minus size={12} />
-    //                     </button>
-    //                     <span className="text-white text-sm w-6 text-center">{item.quantity}</span>
-    //                     <button onClick={() => updateQuantity(item.id, 1)} className="text-zinc-400 p-1">
-    //                       <Plus size={12} />
-    //                     </button>
-    //                   </div>
-    //                 </div>
-    //               </div>
-    //             </div>
-    //             <button className="w-full bg-white text-black py-4 text-[11px] font-bold uppercase tracking-widest flex items-center justify-center gap-3 active:bg-[#FDB813]">
-    //               <ShoppingCart size={16} />
-    //               Add to Cart
-    //             </button>
-    //           </div>
-    //         </div>
-    //       ))
-    //     ) : (
-    //       <div className="py-20 text-center">
-    //         <p className="text-zinc-500 mb-6">Your wishlist is empty.</p>
-    //         <Link href={"/products"}>
-    //         <button className="border border-white/20 px-8 py-3 text-xs uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all">
-    //           Go to Shop
-    //         </button>
-    //         </Link>
-    //       </div>
-    //     )}
-    //   </div>
-    // </div>
-  );
+  //       <Link
+  //         href="/products"
+  //         className="text-sm text-[#FFBF3F] hover:text-white transition-colors flex items-center gap-2"
+  //       >
+  //         Continue Shopping
+  //         <IconArrowRight size={16} />
+  //       </Link>
+  //     </div>
+
+  //     {/* Products Grid */}
+  //     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-7">
+  //       {wishlistItems.map((item: any) => (
+  //         <div
+  //           key={item.slug}
+  //           className="group rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-b from-[#151515] to-[#0c0c0c] hover:border-[#FFBF3F]/40 transition-all duration-300 hover:-translate-y-1"
+  //         >
+  //           {/* Image Section */}
+  //           <div className="relative aspect-square overflow-hidden bg-[#0A0A0A]">
+  //             {item.isNew && (
+  //               <span className="absolute top-4 left-4 z-10 bg-[#FFBF3F] text-black text-[10px] font-bold px-2.5 py-1 rounded-full tracking-wide shadow-lg">
+  //                 NEW
+  //               </span>
+  //             )}
+
+  //             <button
+  //               onClick={() => toggleWishlist(item.slug, item.productId)}
+  //               className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/70 hover:text-red-400 hover:bg-red-500/10 transition-all"
+  //             >
+  //               <IconX size={18} />
+  //             </button>
+
+  //             <Link href={`/products/${item.slug}`}>
+  //               <img
+  //                 src={item.image}
+  //                 alt={item.name}
+  //                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+  //               />
+  //             </Link>
+  //           </div>
+
+  //           {/* Content */}
+  //           <div className="p-5">
+  //             <p className="text-[11px] text-[#FFBF3F] font-semibold tracking-[2px] uppercase mb-2">
+  //               {item.category}
+  //             </p>
+
+  //             <Link href={`/products/${item.slug}`}>
+  //               <h3 className="text-base font-medium text-white leading-6 hover:text-[#FFBF3F] transition-colors min-h-[48px]">
+  //                 {item.name}
+  //               </h3>
+  //             </Link>
+
+  //             {/* Ratings */}
+  //             <div className="flex items-center gap-1 mt-3">
+  //               {[...Array(5)].map((_, i) => (
+  //                 <IconStarFilled
+  //                   key={i}
+  //                   size={13}
+  //                   className={
+  //                     i < (item.rating || 4)
+  //                       ? "text-[#FFBF3F]"
+  //                       : "text-zinc-700"
+  //                   }
+  //                 />
+  //               ))}
+
+  //               <span className="text-[11px] text-zinc-500 ml-1">
+  //                 ({item.reviews || 0} reviews)
+  //               </span>
+  //             </div>
+
+  //             {/* Price */}
+  //             <div className="flex items-center gap-3 mt-4 mb-5">
+  //               <span className="text-2xl font-bold text-white">
+  //                 ₹{item.price}
+  //               </span>
+
+  //               {item.oldPrice && (
+  //                 <span className="text-sm text-zinc-600 line-through">
+  //                   ₹{item.oldPrice}
+  //                 </span>
+  //               )}
+  //             </div>
+
+  //             {/* Button */}
+  //             <button
+  //               onClick={() => addToCart(item.slug)}
+  //               className="w-full bg-[#FFBF3F] hover:bg-[#ffb31f] text-black font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 active:scale-95 hover:shadow-[0_0_25px_rgba(255,191,63,0.25)]"
+  //             >
+  //               <IconShoppingBag size={18} />
+  //               Add to Cart
+  //             </button>
+  //           </div>
+  //         </div>
+  //       ))}
+  //     </div>
+  //   </div>
+  // );
 };
 
 export default WishlistPage;

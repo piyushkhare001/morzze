@@ -55,7 +55,7 @@ export async function uploadFileToS3(file: File, folder: any): Promise<UploadRes
   if (!upload.ok) throw new Error("Upload failed");
 
   // ✅ IMPORTANT: build S3 public URL
-  const fileUrl = `https://potent-hygiene.s3.amazonaws.com/${fileKey}`;
+  const fileUrl = `https://av-morzze.s3.ap-south-1.amazonaws.com/${fileKey}`;
 
   return { fileKey, fileUrl };
 }

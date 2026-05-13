@@ -21,6 +21,12 @@ async function request<T>(
       ...options,
     });
 
+    // Guard: only parse JSON if the response is actually JSON
+    const contentType = res.headers.get("content-type") ?? "";
+    if (!contentType.includes("application/json")) {
+      throw new Error(`Unexpected response (${res.status}): ${res.statusText}`);
+    }
+
     const data = await res.json();
 
     if (!res.ok) {
