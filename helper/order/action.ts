@@ -37,6 +37,87 @@ export const fetchOrders = async ({
   });
 };
 
+/** Checkout payments linked to orders (purchase), with buyer details. */
+export const fetchPurchasePayments = async ({
+  page = 1,
+  pageSize = 10,
+  search = "",
+  paymentStatus = "",
+}) => {
+  const filters = [];
+
+  if (search && search.trim() !== "") {
+    const q = `%${search.trim()}%`;
+    filters.push(
+      or(
+        sql`${order.id}::text ILIKE ${q}`,
+        sql`${payment.paymentId} ILIKE ${q}`,
+        sql`${payment.paymentOrderId} ILIKE ${q}`,
+        sql`COALESCE(${users.email}, '') ILIKE ${q}`,
+        sql`COALESCE(${users.name}, '') ILIKE ${q}`,
+      ),
+    );
+  }
+
+  if (paymentStatus && paymentStatus.trim() !== "") {
+    filters.push(eq(payment.paymentStatus, paymentStatus));
+  }
+
+  const whereClause = filters.length ? and(...filters) : undefined;
+  const offset = (page - 1) * pageSize;
+
+  const baseSelect = () =>
+    db
+      .select({
+        payment,
+        order,
+        user: {
+          id: users.id,
+          name: users.name,
+          email: users.email,
+        },
+      })
+      .from(payment)
+      .innerJoin(order, eq(payment.orderId, order.id))
+      .leftJoin(users, eq(order.userId, users.id));
+
+  const rows = whereClause
+    ? await baseSelect()
+        .where(whereClause)
+        .orderBy(desc(payment.createdAt))
+        .limit(pageSize)
+        .offset(offset)
+    : await baseSelect()
+        .orderBy(desc(payment.createdAt))
+        .limit(pageSize)
+        .offset(offset);
+
+  const countQuery = db
+    .select({ count: sql<number>`count(*)::int` })
+    .from(payment)
+    .innerJoin(order, eq(payment.orderId, order.id))
+    .leftJoin(users, eq(order.userId, users.id));
+
+  const countResult = whereClause
+    ? await countQuery.where(whereClause)
+    : await countQuery;
+
+  const total = Number(countResult[0]?.count ?? 0);
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+
+  return {
+    data: rows,
+    meta: {
+      total,
+      totalPages,
+      page,
+      pageSize,
+      hasNext: page < totalPages,
+      hasPrev: page > 1,
+    },
+  };
+};
+
 export const fetchOrderDetails = async (orderId: string) => {
   try {
     const orderInfo = await db

@@ -13,6 +13,7 @@ export {
 // order
 export {
   fetchOrders,
+  fetchPurchasePayments,
   fetchOrderDetails,
   changeOrderStatus,
   updateOrderStatus,

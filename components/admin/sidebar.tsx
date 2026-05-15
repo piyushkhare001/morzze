@@ -42,7 +42,7 @@ const navItems = [
     href: "/admin/featured-categories",
     icon: Feather,
   },
-  { label: "Coupon", href: "/admin/coupon", icon: Code },
+  { label: "Coupons", href: "/admin/coupons", icon: Code },
   { label: "Settings", href: "/admin/settings", icon: Settings },
 ];
 
