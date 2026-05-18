@@ -31,12 +31,11 @@ const ProductClient = ({ product, slug }: any) => {
   console.log("Product Data in Client Component:", product);
   const router = useRouter()
   const { isInWishlist, toggleWishlist } = useWishlist()
-  const { addToCart } = useCart()
-  if (!product) return null;
+  const { addToCart, getItemQuantity } = useCart()
 
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedFinish, setSelectedFinish] = useState(
-    product.finishes?.[0] || ""
+    product?.finishes?.[0] || ""
   );
   const [quantity, setQuantity] = useState(1);
 
@@ -54,6 +53,9 @@ const images = [
   product.image,
   ...mediaImages,
 ].filter(Boolean);
+  if (!product) return null;
+
+  const images = [product.image, ...(product.images || [])];
 
   const wishlisted = isInWishlist(slug)
 
@@ -233,6 +235,7 @@ const images = [
             <div className="flex gap-3">
 
               <Button
+                type="button"
                 onClick={() => {
                   addToCart(slug, quantity, {
                     name: product.name,
@@ -243,12 +246,18 @@ const images = [
                     productId: product.id,
                   });
                 }}
-                className="flex-1 py-5 bg-[#FDB813] text-black"
+                disabled={getItemQuantity(product.slug) > 0}
+                className="flex-1 py-5 bg-[#FDB813] text-black disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <IconShoppingBag size={16} /> Add to Cart
+                {getItemQuantity(product.slug) > 0 ? (
+                  <><IconShoppingBag size={18} /> In Cart ✓</>
+                ) : (
+                  <><IconShoppingBag size={18} /> Add to cart</>
+                )}
               </Button>
 
               <Button
+                type="button"
                 onClick={() => {
                   addToCart(slug, quantity, {
                     name: product.name,
@@ -266,11 +275,12 @@ const images = [
               </Button>
 
               <Button
+                type="button"
                 variant="outline"
                 onClick={() => toggleWishlist(slug, product.id)}
                 className={cn(
-                  "bg-[#1F1F1F] border-[#2E2E2E] transition-all",
-                  wishlisted && "border-red-500/50 bg-red-500/10"
+                  "bg-[#FFBF3F] border-[#2E2E2E] transition-all",
+                  wishlisted && "border-red-500/50 bg-[#FFBF3F] "
                 )}
               >
                 {wishlisted ? (
