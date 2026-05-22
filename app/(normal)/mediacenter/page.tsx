@@ -11,7 +11,7 @@ const page = () => {
     <div>
       <MediaHero />
       <ExhibitionHighlightsSection />
-      <PressCoverageSection />
+      {/* <PressCoverageSection /> */}
       <BrandFilmsProductDemos />
       <ProductPhotographyGallery />
       {/* <PressKitRequestSection /> */}

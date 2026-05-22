@@ -98,6 +98,28 @@ export async function verifyOtp(payload: {
   });
 }
 
+// Phone / Mobile OTP endpoints (backend must expose these routes)
+export async function sendOtpToPhone(phone: string) {
+  return request("/send-otp-phone", {
+    method: "POST",
+    body: JSON.stringify({ phone }),
+  });
+}
+
+export async function verifyOtpPhone(payload: { phone: string; code: string }) {
+  return request("/verify-otp-phone", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function resendOtpPhone(phone: string) {
+  return request("/resend-otp-phone", {
+    method: "POST",
+    body: JSON.stringify({ phone }),
+  });
+}
+
 export async function refreshToken(payload: {
   refreshToken: string;
   idToken: string;

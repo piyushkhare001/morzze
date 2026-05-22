@@ -24,6 +24,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { signUp } from "@/helper";
 import { toast } from "sonner";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
+import Link from "next/link";
 
 const RegisterContent = () => {
   const params = useSearchParams();
@@ -140,12 +141,9 @@ const RegisterContent = () => {
     <section>
       <div className="w-full flex h-screen bg-black text-white ">
         <div className="hidden lg:block w-1/2 z-10">
-          <Image
-            src="/register.png"
-            alt="Register Image"
-            width={1300}
-            height={800}
-          />
+          <Link href="/">
+            <Image className="h-full" src="/login.png" alt="Login Image" width={1600} height={1300} />
+          </Link>
         </div>
         <div className=" space-y-4 px-4 lg:px-0 max-w-2xl mx-auto  justify-center text-left items-center my-auto">
           <div className="absolute  -top-20 right-0 w-40 h-40 blur-[110px] bg-[#FFDD00]"></div>

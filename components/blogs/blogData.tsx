@@ -92,7 +92,7 @@ export default function BlogDetailPage({
             >
               {blog.image && (
                 <img
-                  src={blog.image}
+                  src={`https://av-morzze.s3.ap-south-1.amazonaws.com/${blog.image}`}
                   alt={blog.title}
                   className="w-full h-full object-cover"
                 />
@@ -210,7 +210,8 @@ export default function BlogDetailPage({
                       <div className="relative w-[72px] h-[52px] rounded overflow-hidden bg-[#222222] shrink-0">
                         {item.image && (
                           <img
-                            src={item.image}
+                            src={`https://av-morzze.s3.ap-south-1.amazonaws.com/${blog.image}`}
+                 
                             alt={item.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                           />

@@ -35,7 +35,7 @@ const NotFound = () => {
       </div>
 
       {/* Search Bar Section */}
-      <div className="w-full max-w-xl mb-8">
+      {/* <div className="w-full max-w-xl mb-8">
         <div className="flex items-center bg-black border border-zinc-800 rounded-lg p-1.5 focus-within:border-zinc-600 transition-all">
           <div className="pl-4 text-zinc-500">
             <Search size={18} />
@@ -49,7 +49,7 @@ const NotFound = () => {
             Find it
           </button>
         </div>
-      </div>
+      </div> */}
 
       {/* Back to Home Button */}
       <Link href="/">

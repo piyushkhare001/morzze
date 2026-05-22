@@ -37,13 +37,13 @@ export default function ContactCTASection() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5">
           <motion.a
-            href="mailto:partnerships@morzze.com"
+            href="mailto:info@morzze.com"
             whileHover={{ y: -3, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="w-full sm:w-[255px] h-[48px] rounded-[6px] bg-[#e6aa12] text-black flex items-center justify-center gap-3 text-[14px] font-semibold shadow-[0_0_30px_rgba(230,170,18,0.12)]"
           >
             <Mail size={15} />
-            partnerships@morzze.com
+            info@morzze.com
           </motion.a>
 
           <motion.a

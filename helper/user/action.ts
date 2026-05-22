@@ -2,7 +2,7 @@
 "use server";
 import { db } from "@/db";
 import { address, subscriptionPayment, users } from "@/db/schema";
-import { eq, and } from "drizzle-orm";
+import { eq, and, sql } from "drizzle-orm";
 import { cookies } from "next/headers";
 import { CognitoJwtVerifier } from "aws-jwt-verify";
 import jwt from "jsonwebtoken";
@@ -176,6 +176,19 @@ async function getDbUserId(): Promise<string> {
 
   if (!result.length) throw new Error("User not found");
   return result[0].id;
+}
+
+export async function getUsersCount() {
+  try {
+    const result = await db
+      .select({ count: sql<number>`count(*)::int` })
+      .from(users);
+
+    return Number(result[0]?.count ?? 0);
+  } catch (error) {
+    console.error("getUsersCount failed:", error);
+    return 0;
+  }
 }
 
 export async function getAddresses() {

@@ -249,7 +249,7 @@ export default function CareersPositionsModal() {
           onClick={() => setApplicationOpen(true)}
           className="px-10 h-11 bg-[#e6aa12] text-black text-[13px] font-medium"
         >
-          careers@morzze.com
+          info@morzze.com
         </button>
       </div>
 

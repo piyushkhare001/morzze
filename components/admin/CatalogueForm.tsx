@@ -259,7 +259,6 @@ export default function CatalogueForm({ mode, initialData }: Props) {
                 onChange={(e) =>
                   setForm((p) => ({ ...p, shortDescription: e.target.value }))
                 }
-                required
               />
             </div>
 

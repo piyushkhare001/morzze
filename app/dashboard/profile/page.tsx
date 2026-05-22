@@ -225,7 +225,7 @@ export default function ProfilePage() {
       </Card>
 
       {/* Delete Account Section */}
-      <Card className="bg-[#141414] border-zinc-900 rounded-lg overflow-hidden">
+      {/* <Card className="bg-[#141414] border-zinc-900 rounded-lg overflow-hidden">
         <CardHeader className="pt-8 px-8 pb-2">
           <CardTitle className="text-xl font-medium text-red-500 font-montserrat tracking-tight">
             Delete Account
@@ -242,7 +242,7 @@ export default function ProfilePage() {
             Request Account Deletion
           </Button>
         </CardContent>
-      </Card>
+      </Card> */}
     </div>
   )
 }

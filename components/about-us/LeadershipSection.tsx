@@ -43,7 +43,7 @@ const LeadershipSection = () => {
                 
                 <div>
                   <h2 className="text-4xl md:text-5xl font-medium leading-tight  tracking-tight text-[#FEFFF1]">
-                    Rajesh Sharma
+                    Rajender Garg
                   </h2>
                   <p className="text-[#FEFFF1] font-inter italic text-lg md:text-xl mt-1 opacity-90">
                     Founder & Managing Director

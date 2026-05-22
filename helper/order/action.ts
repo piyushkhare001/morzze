@@ -171,6 +171,32 @@ export const changeOrderStatus = async (id: string, status: string) => {
   return result[0];
 };
 
+export async function getOrdersCount() {
+  try {
+    const result = await db
+      .select({ count: sql<number>`count(*)::int` })
+      .from(order);
+
+    return Number(result[0]?.count ?? 0);
+  } catch (error) {
+    console.error("getOrdersCount failed:", error);
+    return 0;
+  }
+}
+
+export async function getTotalRevenue() {
+  try {
+    const result = await db
+      .select({ total: sql<number>`coalesce(sum(${order.totalAmount}), 0)::int` })
+      .from(order);
+
+    return Number(result[0]?.total ?? 0);
+  } catch (error) {
+    console.error("getTotalRevenue failed:", error);
+    return 0;
+  }
+}
+
 export async function updateOrderStatus(id: string, status: string | any) {
   await changeOrderStatus(id, status);
   revalidatePath("/admin/order");

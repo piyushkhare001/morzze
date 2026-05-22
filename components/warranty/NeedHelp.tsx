@@ -26,7 +26,7 @@ const NeedHelp = () => {
             className="w-full sm:w-auto bg-[#FDB813] hover:bg-[#FFD700] text-black font-bold py-7 px-10 rounded-sm flex items-center gap-3 transition-all active:scale-95"
           >
             <IconPhone size={20} stroke={2.5} />
-            <span className="text-sm tracking-wide">+91 124 467 8900</span>
+            <span className="text-sm tracking-wide">+91-87503-13000</span>
           </Button>
 
           {/* Email Button - Outlined */}
@@ -35,7 +35,7 @@ const NeedHelp = () => {
             className="w-full sm:w-auto bg-transparent border-2 border-[#FDB813]/40 hover:border-[#FDB813] hover:bg-[#FDB813]/5 text-[#FDB813] font-bold py-7 px-10 rounded-sm flex items-center gap-3 transition-all active:scale-95"
           >
             <IconMail size={20} stroke={2} />
-            <span className="text-sm tracking-wide">warranty@morzze.com</span>
+            <span className="text-sm tracking-wide">info@morzze.com</span>
           </Button>
 
         </div>
@@ -43,5 +43,5 @@ const NeedHelp = () => {
     </section>
   );
 };
-
+    
 export default NeedHelp;

@@ -99,7 +99,7 @@ const page = () => {
       });
 
       toast.success("Login successful 🎉");
-      router.push("/dashboard");
+      router.push("/");
       setLoading(false);
     } catch (err: any) {
       setLoading(false);
@@ -116,15 +116,31 @@ const page = () => {
 
 
   const setupRecaptcha = () => {
-    if (!window.recaptchaVerifier) {
-      window.recaptchaVerifier = new RecaptchaVerifier(
-        auth,
-        "recaptcha-container",
-        {
-          size: "invisible",
+    // Wait for grecaptcha to be available and render verifier once
+    if (typeof window === "undefined") return;
+
+    const ensure = async () => {
+      // wait briefly for grecaptcha to load
+      for (let i = 0; i < 20; i++) {
+        // @ts-ignore
+        if (window.grecaptcha) break;
+        await new Promise((r) => setTimeout(r, 100));
+      }
+
+      if (!window.recaptchaVerifier) {
+        try {
+          window.recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container", {
+            size: "invisible",
+          });
+          console.debug("RecaptchaVerifier initialized");
+        } catch (err) {
+          console.error("Recaptcha initialization error:", err);
         }
-      );
-    }
+      }
+    };
+
+    // Kick off ensure but don't block caller
+    ensure();
   };
 
   const sendOtp = async () => {
@@ -166,7 +182,22 @@ const page = () => {
     try {
       setVerifyLoading(true);
 
-      await confirmationResult.confirm(otp);
+      const userCredential = await confirmationResult.confirm(otp);
+
+      // Exchange Firebase ID token with backend to create a session
+      try {
+        const currentUser = userCredential.user;
+        const idToken = await currentUser.getIdToken();
+
+        await fetch(`${process.env.NEXT_PUBLIC_BASE_AUTH_API_URL}/firebase-login`, {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ idToken }),
+        });
+      } catch (exchangeErr) {
+        console.warn("Token exchange failed:", exchangeErr);
+      }
 
       toast.success("Login successful 🎉");
 
@@ -186,8 +217,9 @@ const page = () => {
   return (
     <section>
       <div className="w-full flex min-h-screen bg-black text-white ">
-        <div className=" lg:block hidden  w-1/2 z-10">
-          <Image src="/login.png" alt="Login Image" width={1300} height={800} />
+        <div className=" lg:block hidden min-h-screen w-1/2 z-10">
+          <Link href="/">
+          <Image className="h-full" src="/login.png" alt="Login Image" width={1600} height={1300} /></Link>
         </div>
         <div className=" space-y-4  max-w-2xl mx-auto  justify-center text-left items-center my-auto">
           <div className="absolute  -top-20 right-0 w-40 h-40 blur-[110px] bg-[#FFDD00]"></div>

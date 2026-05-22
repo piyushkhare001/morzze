@@ -174,7 +174,7 @@ const handleFaqRedirect = () => {
       </div>
 
       {/* Contact Info Cards */}
-      <div className="flex flex-col lg:flex-row justify-center gap-20 px-4 lg:px-0 lg:-mt-20 mt-20 z-50 relative">
+      <div className="flex flex-col lg:flex-row justify-center gap-20 px-4 lg:px-0 lg:-mt-20 mt-20  relative">
         <div className="w-full lg:w-80 h-auto rounded-xl p-6 bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg shadow-black/30">
           <div className="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center mb-4">
             <MapPin className="text-black w-6 h-6" />
@@ -223,7 +223,7 @@ const handleFaqRedirect = () => {
             <span className="text-yellow-400">sales@morzze.com</span>
             <br />
             Support: <br />
-            <span className="text-yellow-400">support@morzze.com</span>
+            <span className="text-yellow-400">info@morzze.com</span>
           </p>
         </div>
       </div>
@@ -475,7 +475,7 @@ const handleFaqRedirect = () => {
       </div>
 
       {/* FAQ Section */}
-      <div className="px-4 lg:px-20">
+      {/* <div className="px-4 lg:px-20">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">
             Frequently Asked Questions
@@ -493,7 +493,7 @@ const handleFaqRedirect = () => {
             View All FAQs
           </Button>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

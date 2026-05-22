@@ -164,12 +164,15 @@ const VerifyOtpContent = () => {
     <section>
       <div className="w-full px-4 lg:px-0 flex h-screen bg-black text-white ">
         <div className=" hidden lg:block w-1/2 z-10">
+          <Link href="/">
           <Image
+            className="h-full"
             src="/verify.png"
             alt="Login Image"
             width={1300}
             height={800}
           />
+          </Link>
         </div>
         <div className=" space-y-4  max-w-2xl mx-auto  justify-center text-left items-center my-auto">
           <div className="absolute  -top-20 right-0 w-40 h-40 blur-[110px] bg-[#FFDD00]"></div>
@@ -182,7 +185,7 @@ const VerifyOtpContent = () => {
               className="w-full   border-none  text-center justify-center items-center my-auto"
             >
               <TabsList variant="line" className="w-full mb-4 justify-between">
-                <TabsTrigger
+                <TabsTrigger disabled
                   className=" !text-white data-[state=active]:!text-white border  data-[state=active]:!border-[#FDB813] after:absolute after:bg-[#FDB813] after:opacity-0 after:transition-opacity"
                   value="email"
                 >
@@ -251,12 +254,12 @@ const VerifyOtpContent = () => {
                 >
                   {emailLoading ? "Logging in..." : "Sign in"}
                 </Button>
-                <p className="">
+                {/* <p className="">
                   Don't have account?{" "}
                   <Link href="/register" className="text-[#FDB813] underline">
                     Create Account
                   </Link>
-                </p>
+                </p> */}
               </TabsContent>
               <TabsContent
                 value="phone"

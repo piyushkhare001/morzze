@@ -2,6 +2,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Button } from "@/components/ui/button"
+import Link from 'next/link'
 
 const StoreLocator = () => {
   return (
@@ -36,12 +37,15 @@ const StoreLocator = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            <Link href="/stores">
             <Button 
+              type="button"
               variant="outline"
               className="rounded-md border-[#CBA14D] font-montserrat text-[#CBA14D] hover:bg-[#CBA14D] hover:text-black font-bold uppercase tracking-[0.2em] md:px-10 md:h-14 transition-all duration-500 bg-transparent"
             >
               FIND A STORE NEAR YOU
             </Button>
+            </Link>
           </motion.div>
 
         </div>

@@ -1,6 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -8,16 +7,17 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyDPDCiGmNrX310W7QFEV9-1O6opqobHH5o",
-    authDomain: "authentication-896db.firebaseapp.com",
-    projectId: "authentication-896db",
-    storageBucket: "authentication-896db.firebasestorage.app",
-    messagingSenderId: "504810779206",
-    appId: "1:504810779206:web:8c3f7d708c5927a5675047",
-    measurementId: "G-F3GT4L9DH5"
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyC4_54RIvL365AI-icf4gPxrfda-kATCkI",
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "morzze-daaa1.firebaseapp.com",
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "morzze-daaa1",
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "morzze-daaa1.firebasestorage.app",
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "648307761338",
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:648307761338:web:6ce363bad697e65fbbe283",
+    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-17PG4XQ2EL",
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
-export const auth = getAuth(app);
+// Initialize Firebase only once (safe for Next.js SSR)
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+
+// Export auth only on the client to avoid server-side errors
+export const auth = typeof window !== "undefined" ? getAuth(app) : (null as any);

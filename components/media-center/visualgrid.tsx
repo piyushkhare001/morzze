@@ -6,13 +6,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Download } from "lucide-react";
 
 const tabs = [
-  "All",
-  "Bathroom & Kitchen Products",
-  "Experience Centers",
-  "Manufacturing",
-  "Events & Launches",
+ 
 ];
-const images = new Array(12).fill("/gallery-item.png");
+const images = [
+  "/Concept1.jpg",
+  "/Image_3.jpg",
+  "/22.jpeg",
+  "/Feature2.jpeg",
+  "/hand sprayer.jpg",
+  "/image_1 copy.jpg",
+  "/Food Disposer4.jpg",
+  "/2-1.jpg",
+  "/8050-1 copy 2.jpeg",
+  "/1.jpg",
+  "/SL-077H (8).jpg",
+  "/OB-M11 (1).jpg",
+];
 
 export default function ProductPhotographyGallery() {
   const [activeTab, setActiveTab] = useState("All");
@@ -30,7 +39,7 @@ export default function ProductPhotographyGallery() {
         {/* Tabs */}
         <div className="overflow-x-auto scrollbar-hide mb-10">
           <div className="flex gap-5 justify-center min-w-max px-2">
-            {tabs.map((tab, i) => (
+            {/* {tabs.map((tab, i) => (
               <button
                 key={i}
                 onClick={() => setActiveTab(tab)}
@@ -38,7 +47,7 @@ export default function ProductPhotographyGallery() {
               >
                 {tab}
               </button>
-            ))}
+            ))} */}
           </div>
         </div>
 

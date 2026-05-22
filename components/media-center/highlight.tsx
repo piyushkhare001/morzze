@@ -50,7 +50,7 @@ export default function ExhibitionHighlightsSection() {
                 <p className="text-[15px] text-white">
                   Architectural Digest India
                 </p>
-                <p className="text-[12px] text-[white]/80">March 15, 2024</p>
+                <p className="text-[12px] text-[white]/80">Feb, 2026</p>
               </div>
             </div>
 
@@ -65,10 +65,6 @@ export default function ExhibitionHighlightsSection() {
               functionality, and superior craftsmanship.
             </p>
 
-            <button className="flex items-center gap-2 text-[#d39b10] text-[13px] font-medium mb-4 hover:gap-3 transition-all">
-              Read Full Article <MoveRight size={13} />
-            </button>
-
             <p className="text-[14px] leading-8 text-white/60">
               From refined finishes to seamless flow and superior craftsmanship,
               our products reflect a perfect balance of functionality and
@@ -79,15 +75,68 @@ export default function ExhibitionHighlightsSection() {
 
           {/* Right */}
           <div className="relative w-full h-[240px] md:h-[320px] overflow-hidden">
-            <Image
-              src="/exhibition.png"
-              alt="Exhibition"
-              fill
-              className="object-cover"
+            <video
+              src="/archex-dehradun.mp4"
+             autoPlay
+              loop
+              muted
+              className="w-full h-full object-cover"
             />
           </div>
         </motion.div>
+ <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+          viewport={{ once: true }}
+          className="bg-[#121212] px-5 md:px-8 py-8 md:py-10 grid lg:grid-cols-2 gap-8 items-center text-left mb-10"
+        >
 
+ <div className="relative w-full h-[240px] md:h-[320px] overflow-hidden">
+            <video
+              src="/ludhiana-exhibition.mp4"
+             autoPlay
+              loop
+              muted
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Left */}
+          <div>
+            <span className="inline-block px-3 py-[4px] rounded-full bg-[#f4e8c7] text-[#9b5d00] text-[10px] mb-4">
+              Featured Story
+            </span>
+
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-9 h-9 bg-[#1a1a1a] flex items-center justify-center text-[#e6aa12] text-[11px] font-semibold">
+                LF
+              </div>
+              <div>
+                <p className="text-[15px] text-white">
+                  Ludiana Fest
+                </p>
+                <p className="text-[12px] text-[white]/80">March, 2024</p>
+              </div>
+            </div>
+
+            <h3 className="text-[30px] md:text-[36px] font-semibold mb-5">
+             Ludhiana Exhibition
+
+            </h3>
+
+            <p className="text-[14px] leading-8 text-white/70 mb-4">
+            Morzze proudly participated in the Ludhiana Exhibition, continuing to showcase its premium range of kitchen and sanitaryware solutions. Designed for modern homes and refined interiors, our products combine elegant aesthetics with everyday performance.
+            </p>
+
+            <p className="text-[14px] leading-8 text-white/60">
+              From high-quality stainless steel kitchen sinks to contemporary sanitaryware fittings, Morzze reflects precision craftsmanship, durability, and innovative design. Visitors experienced the finish, functionality, and detailing that set our solutions apart.
+            </p>
+          </div>
+
+          {/* Right */}
+         
+        </motion.div>
         {/* <button className="px-14 h-11 border border-[#d39b10] text-[#d39b10] text-[12px] hover:bg-[#d39b10] hover:text-black transition">
           VIEW ARTICLE
         </button> */}

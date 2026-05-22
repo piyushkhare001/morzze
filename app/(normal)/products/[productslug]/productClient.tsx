@@ -23,6 +23,7 @@ import ProductComparison from "@/components/product/ProductComparison";
 import CareAndMaintenance from "@/components/product/CareAndMaintenance";
 import AteliersGrid from "@/components/product/AteliersGrid";
 import CommonEnquiries from "@/components/product/CommonEnquiries";
+import RelatedProducts from "@/components/product/RelatedProducts";
 import { useRouter } from "next/navigation";
 import { useWishlist } from "@/context/WishlistContext";
 import { useCart } from "@/context/CartContext";
@@ -201,12 +202,12 @@ const ProductClient = ({ product, slug }: any) => {
             {/* PRICE */}
             <div className="flex items-baseline gap-4">
               <span className="text-3xl font-bold">₹{product.basePrice}</span>
-              <span className="text-lg text-[#555] line-through">
+              {/* <span className="text-lg text-[#555] line-through">
                 ₹{product.strikethroughPrice}
               </span>
               <span className="text-sm text-[#EF4444] font-bold">
                 {product.discount}
-              </span>
+              </span> */}
             </div>
 
             {/* DESC */}
@@ -451,6 +452,7 @@ const ProductClient = ({ product, slug }: any) => {
       <CareAndMaintenance />
       <AteliersGrid />
       <CommonEnquiries   faqs={product?.productFaqRes || []} />
+      <RelatedProducts slug={slug} />
     </>
   );
 };

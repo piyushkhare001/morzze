@@ -42,8 +42,8 @@ export default function CatalogueGridDownloads({ items }: Props) {
     <section className="w-full bg-black text-white">
       <div className="px-4 md:px-8 lg:px-10 py-10 md:py-14 max-w-7xl mx-auto">
         {/* Tabs */}
-        <div className="overflow-x-auto scrollbar-hidden  border-b border-[#1d1d1d] pb-5 mb-12">
-          <div className="flex  min-w-max">
+        <div className="overflow-x-auto scrollbar-hide border-b border-[#1d1d1d] pb-5 mb-12">
+          <div className="flex min-w-max">
             {tabs.map((tab) => (
               <button
                 key={tab}

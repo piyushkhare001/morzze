@@ -42,6 +42,13 @@ const certifications = [
     href: "/certificates/iso-45001.pdf",
     icon: <IconShieldCheck size={32} stroke={1.2} />,
   },
+  {
+    // year: "2018",
+    title: "Certificate Of Compliance",
+    org: "Kitchen Sink, Faucet, Drainage and accessories",
+    href: "/certificates/CE Certificate.pdf",
+    icon: <IconShieldCheck size={32} stroke={1.2} />,
+  },
 ];
 
 const RecognitionSection = () => {

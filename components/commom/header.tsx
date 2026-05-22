@@ -14,6 +14,7 @@ import {
   IconArrowRight,
 } from "@tabler/icons-react";
 import { useCart } from "@/context/CartContext";
+import { isUserLoggedIn } from "@/helper/auth/action";
 
 type SearchProduct = {
   id: string;
@@ -194,11 +195,27 @@ const Header = () => {
   const [searchCategories, setSearchCategories] = useState<SearchCategory[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const desktopInputRef = useRef<HTMLInputElement>(null);
   const mobileInputRef = useRef<HTMLInputElement>(null);
   const desktopWrapperRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout>>(null);
+
+  useEffect(() => {
+    let active = true;
+    isUserLoggedIn()
+      .then((loggedIn) => {
+        if (active) setIsAuthenticated(loggedIn);
+      })
+      .catch(() => {
+        if (active) setIsAuthenticated(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
 
   // Debounced search fetch
   const performSearch = useCallback((query: string) => {
@@ -406,11 +423,19 @@ const Header = () => {
                 <IconHeart size={20} stroke={1.5} />
               </button>
             </Link>
-            <Link href={"/dashboard/profile"}>
-              <button className="hidden lg:block hover:text-[#B88E2F] transition-colors">
-                <IconUser size={20} stroke={1.5} />
-              </button>
-            </Link>
+            {isAuthenticated ? (
+              <Link href={"/dashboard/profile"}>
+                <button className="hover:text-[#B88E2F] transition-colors">
+                  <IconUser size={20} stroke={1.5} />
+                </button>
+              </Link>
+            ) : (
+              <Link href={"/login"}>
+                <button className="text-sm px-3 py-2 border border-zinc-700 rounded-md hover:border-[#B88E2F] hover:text-[#B88E2F] transition-colors">
+                  Login
+                </button>
+              </Link>
+            )}
 
             {/* Cart with Badge */}
             <div className="relative mt-1">

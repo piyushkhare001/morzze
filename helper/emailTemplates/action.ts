@@ -198,10 +198,10 @@ Crafted for Modern Living          </h3>
 
             <p style="margin-top: 6px">
               <a
-                href="mailto:support@morzze.com"
+                href="mailto:info@morzze.com"
                 style="color: #fff; font-weight: bold; text-decoration: none"
               >
-                support@morzze.com
+                info@morzze.com
               </a>
             </p>
           </div>
@@ -402,10 +402,10 @@ We’re delighted to welcome you to a world of refined design, premium craftsman
             Need Help Getting Started?<br />
            If you have any questions about your order, feel free to reach out: 
             <a
-              href="mailto:support@morzze.com"
+              href="mailto:info@morzze.com"
               style="color: #fff; text-decoration: none; font-weight: bold"
             >
-              support@morzze.com
+              info@morzze.com
 
             </a>
           </p>
@@ -645,13 +645,13 @@ Stay connected and be the first to know about:            </p>
             "
           >
             Need Help ?<br />
-           If you have any questions about your order, feel free <br /> to reach out: support@Morzze.com
+           If you have any questions about your order, feel free <br /> to reach out: info@morzze.com
 
             <a
-              href="mailto:support@morzze.com"
+              href="mailto:info@morzze.com"
               style="color: #1b7f85; text-decoration: none; font-weight: bold"
             >
-              support@morzze.com
+              info@morzze.com
             </a>
           
           </p>
@@ -867,10 +867,10 @@ As a token of appreciation, you may receive exclusive offers, early product acce
             Need Help ?<br />
             Need help or facing any issue? Reach out to us at<br />
             <a
-              href="mailto:support@morzze.com"
+              href="mailto:info@morzze.com"
               style="color: #FDB813; text-decoration: none; font-weight: bold"
             >
-              support@morzze.com
+              info@morzze.com
             </a>
             – we're here for you.
           </p>
@@ -1095,7 +1095,7 @@ export async function sendShippingConfirmationEmail(
           
             For any shipment-related questions, write to care 
             </p>
-          support@morzze.com
+          info@morzze.com
           </p>
 
         </div>
@@ -1592,7 +1592,7 @@ Share your feedback and help others discover the Morzze experience.            <
             " >   
              If you have any questions or face any issues, we’re just an email away
             </p>
-            support@morzze.com
+            info@morzze.com
           </p>
 
          
@@ -2005,10 +2005,10 @@ export async function sendWelcomeEmail(email: string, name: string) {
             If you have any questions, feel free to reach us at<br />
 
             <a
-              href="mailto:support@morzze.com.com"
+              href="mailto:info@morzze.com.com"
               style="color: #fff; text-decoration: none; font-weight: bold"
             >
-              support@morzze.com
+              info@morzze.com
             </a>
           </p>
         </div>

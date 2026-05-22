@@ -225,7 +225,7 @@ export default function BlogForm() {
               onChange={(e) =>
                 setFormData({ ...formData, textArea: e.target.value })
               }
-              required
+              
             />
             </div>
 

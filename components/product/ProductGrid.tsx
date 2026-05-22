@@ -179,7 +179,7 @@ const ProductGrid = ({
                 </h3>
               </Link>
 
-              <div className="flex items-center gap-1 py-0.5">
+              {/* <div className="flex items-center gap-1 py-0.5">
                 {[...Array(5)].map((_, i) => (
                   <IconStarFilled
                     key={i}
@@ -193,16 +193,16 @@ const ProductGrid = ({
                 <span className="text-[10px] text-[#555] ml-1">
                   ({product.reviews})
                 </span>
-              </div>
+              </div> */}
 
-              <div className="flex items-center gap-3">
+              <div className="flex items-center mt-2 gap-3">
                 <span className="font-bold text-white font-inter text-sm md:text-base">
                   ₹{product.basePrice}
                 </span>
 
-                <span className="text-[11px] md:text-sm text-[#555] line-through">
+                {/* <span className="text-[11px] md:text-sm text-[#555] line-through">
                   ₹{product.strikethroughPrice}
-                </span>
+                </span> */}
               </div>
             </div>
           </div>

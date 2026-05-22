@@ -220,7 +220,7 @@ const Footer = ({ categories: _categories }: FooterProps) => {
                 { name: "Warranty", link: "/warranty" },
                 { name: "Become a Dealer", link: "/dealer" },
                 { name: "Find a Store", link: "/stores" },
-                { name: "Returns & Exchange", link: "/return-exchange" },
+                // { name: "Returns & Exchange", link: "/return-exchange" },
                 { name: "FAQ", link: "/support" },
               ].map((item) => (
                 <li key={item.name}>

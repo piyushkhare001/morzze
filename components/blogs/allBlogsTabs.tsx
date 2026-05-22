@@ -6,18 +6,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search } from "lucide-react";
 import { getBlogs } from "@/helper/blog/action";
 
-const tabs = [
-  "All",
-  "Air Taps",
-  "Bathroom Faucet",
-  "Food Waste Disposers",
-  "Floor Drainer",
-  "Granite Wash Basin",
-  "Kitchen Accessories",
-  "Kitchen Faucet",
-  "Steel Sinks",
-  "Towel Warmer",
-];
+// const tabs = [
+//   "All",
+//   "Air Taps",
+//   "Bathroom Faucet",
+//   "Food Waste Disposers",
+//   "Floor Drainer",
+//   "Granite Wash Basin",
+//   "Kitchen Accessories",
+//   "Kitchen Faucet",
+//   "Steel Sinks",
+//   "Towel Warmer",
+// ];
 
 export default function BlogGridTabs() {
   const [activeTab, setActiveTab] = useState("All");
@@ -48,25 +48,9 @@ export default function BlogGridTabs() {
       <div className="max-w-7xl mx-auto">
         {/* Top Controls */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 mb-10">
-          <div className="w-full overflow-x-auto no-scrollbar">
-            <div className="flex min-w-max gap-3 md:gap-5 pb-2">
-              {tabs.map((tab, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveTab(tab)}
-                  className={`shrink-0 px-7 h-10 rounded-full text-[13px] font-medium whitespace-nowrap transition-all duration-300 ${
-                    activeTab === tab
-                      ? "bg-[#e6aa12] text-black"
-                      : "text-white hover:text-[#e6aa12]"
-                  }`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-          </div>
+          
 
-          <div className="relative w-full lg:w-[250px]">
+          <div className="relative w-full mx-auto lg:max-w-xl lg:mb-4  ">
             <Search
               size={15}
               className="absolute left-4 top-1/2 -translate-y-1/2 text-[#666666]"
@@ -101,15 +85,15 @@ export default function BlogGridTabs() {
                   <div className="relative w-full h-[210px] md:h-[230px] overflow-hidden rounded-[6px] mb-5 bg-[#141414]">
                     {blog.image && (
                       <img
-                        src={blog.image}
+                        src={`https://av-morzze.s3.ap-south-1.amazonaws.com/${blog.image}`}
                         alt={blog.title || "Blog image"}
                         className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                       />
                     )}
 
-                    <span className="absolute top-3 left-3 px-3 py-[4px] rounded-full bg-[#efefef] text-black text-[10px]">
+                    {/* <span className="absolute top-3 left-3 px-3 py-[4px] rounded-full bg-[#efefef] text-black text-[10px]">
                       {blog.blogCategory || "Blog"}
-                    </span>
+                    </span> */}
                   </div>
 
                   <h3 className="text-[16px] font-semibold text-[#f5f2ea] mb-3 leading-7">

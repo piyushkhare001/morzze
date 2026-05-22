@@ -171,7 +171,7 @@ export default function PressKitRequestSection() {
               <div className="flex gap-3">
                 <Mail size={15} className="text-[#d39b10] mt-1" />
                 <div>
-                  <p className="text-[14px]">media@morzze.com</p>
+                  <p className="text-[14px]">info@morzze.com</p>
                   <p className="text-[12px] text-[#777777]">
                     For press inquiries
                   </p>

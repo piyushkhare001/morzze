@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X } from "lucide-react";
+import Link from "next/link";
 
 type VideoType = {
   id: string;
@@ -221,9 +222,11 @@ export default function VideoLibraryGrid() {
           installation tips, and exclusive content.
         </p>
 
-        <button className="px-8 h-11 bg-[#e3342f] rounded-[4px] text-white text-[13px] font-medium">
-          ▶ Subscribe on YouTube
-        </button>
+        <Link href="https://www.youtube.com/@MorzzeIndia/videos" target="_blank" rel="noopener noreferrer">
+          <button className="px-8 h-11 bg-[#e3342f] rounded-[4px] text-white text-[13px] font-medium">
+            ▶ Subscribe on YouTube
+          </button>
+        </Link>
       </div>
     </section>
   );
