@@ -29,7 +29,6 @@ import { useWishlist } from "@/context/WishlistContext";
 import { useCart } from "@/context/CartContext";
 
 const ProductClient = ({ product, slug }: any) => {
-  console.log("Product Data in Client Component:", product);
   const router = useRouter()
   const { isInWishlist, toggleWishlist } = useWishlist()
   const { addToCart, getItemQuantity } = useCart()
@@ -451,7 +450,7 @@ const ProductClient = ({ product, slug }: any) => {
       {/* <ProductComparison /> */}
       <CareAndMaintenance />
       <AteliersGrid />
-      <CommonEnquiries   faqs={product?.productFaqRes || []} />
+      <CommonEnquiries faqs={product?.productFaqRes || []} />
       <RelatedProducts slug={slug} />
     </>
   );

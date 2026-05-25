@@ -36,14 +36,13 @@ export default function EditCategory({ categoryInfo }: any) {
     name: categoryInfo.name,
     parent: categoryInfo.parentId ?? "",
     description: categoryInfo.description ?? "",
+    type: categoryInfo.type
   });
 
   const [categories, setCategories] = useState<{ id: string; name: string }[]>(
     [],
   );
-  const [selectedParent, setSelectedParent] = useState<string>(
-    categoryInfo.parentId ?? "", // Spelling fixed: parrentId -> parentId
-  );
+  const [selectedParent, setSelectedParent] = useState<string>(categoryInfo.type || "");
 
   // Existing image ko preview mein set kar rahe hain
   const [preview, setPreview] = useState<string | null>(
@@ -63,11 +62,12 @@ export default function EditCategory({ categoryInfo }: any) {
     const categoryData = {
       id: categoryInfo.id,
       name: form.name,
-      parentId: selectedParent,
+      type: selectedParent,
       description: form.description,
+      // type: form.type,
       bannerImage: preview, // Naya upload kiya hua URL ya purana URL
     };
-
+    console.log(categoryData)
     const response = await updateCategory(categoryData);
     if (response?.success == true) {
       toast.success(response.message ?? "Category updated successfully");
@@ -136,14 +136,16 @@ export default function EditCategory({ categoryInfo }: any) {
                   <Select
                     value={selectedParent}
                     onValueChange={(value) => setSelectedParent(value)}
+                    defaultValue={form.type}
+                    name="type"
                   >
-                    <SelectTrigger className="h-11">
+                    <SelectTrigger defaultValue={form.type} className="h-11">
                       <SelectValue placeholder="Select parent" />
                     </SelectTrigger>
                     <SelectContent>
-                      {categories.map((category) => (
-                        <SelectItem key={category.id} value={category.id}>
-                          {category.name}
+                      {["kitchen", "bathroom"].map((category) => (
+                        <SelectItem key={category} value={category}>
+                          {category}
                         </SelectItem>
                       ))}
                     </SelectContent>

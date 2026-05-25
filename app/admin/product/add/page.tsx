@@ -403,7 +403,6 @@ export default function AddProductForm() {
     formData.append("variants", JSON.stringify(payload));
 
     try {
-      console.log("PAYLOAD =>", JSON.stringify(payload, null, 2));
 
       await createProduct(formData);
       toast.success("Product created!");

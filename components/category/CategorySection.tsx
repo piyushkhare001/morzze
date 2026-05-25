@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import { useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 interface CategoryItem {
   id: string;
@@ -27,6 +29,19 @@ const SPAN_PATTERNS = [
 ];
 
 const CategorySection = ({ categories }: CategorySectionProps) => {
+  const searchP = useSearchParams();
+  const catType = searchP?.get("type");
+  const [filterCat, setFilterCat] = useState(categories);
+  useEffect(() => {
+    if (catType) {
+      const filtered = categories.filter(
+        (cat: any) => cat?.type?.toLowerCase() === catType.toLowerCase()
+      );
+      setFilterCat(filtered);
+    } else {
+      setFilterCat(categories);
+    }
+  }, [categories, catType]);
   return (
     <section
       id="category-section"
@@ -52,13 +67,13 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
           </h2>
         </div>
 
-        {categories.length === 0 ? (
+        {filterCat.length === 0 ? (
           <p className="text-white/50 text-center py-20 text-lg">
             No categories found.
           </p>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 auto-rows-[300px]">
-            {categories.map((cat, index) => {
+            {filterCat.map((cat, index) => {
               const spanClass =
                 SPAN_PATTERNS[index % SPAN_PATTERNS.length] ??
                 "lg:col-span-3 md:col-span-6";
