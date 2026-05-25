@@ -329,7 +329,7 @@ const Header = () => {
             />
           </Link>
         </div>
-        <div
+        {/* <div
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="cursor-pointer"
         >
@@ -341,7 +341,7 @@ const Header = () => {
             priority
             className="w-[120px] md:w-[150px]"
           />
-        </div>
+        </div> */}
 
         {/* -- WEB: Navigation Links -- */}
         <div className="hidden lg:flex items-center ml-15">

@@ -104,7 +104,7 @@ const OrderReview = ({ shippingData }: { shippingData?: any }) => {
       // Payment successful — clear cart and redirect
       clearCart()
       toast.success("Payment successful! Order placed.")
-      router.push("/dashboard/orders")
+      router.push("/dashboard/order")
     } catch (error: any) {
       console.error("Payment error:", error)
       toast.error(error?.description || error?.message || "Payment failed. Please try again.")
