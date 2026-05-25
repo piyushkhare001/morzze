@@ -292,7 +292,7 @@ const Header = () => {
     { name: "Home", href: "/" },
     { name: "Products", href: "/products" },
     { name: "Shop", href: "/category" },
-    { name: "Shop", href: "/category" },
+    // { name: "Shop", href: "/category" },
     { name: "Kitchen", href: "/category?type=kitchen" },
     { name: "Bathroom", href: "/category?type=bathroom" },
     { name: "About", href: "/about" },
