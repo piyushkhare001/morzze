@@ -127,12 +127,15 @@ export const coupons = pgTable("coupons", {
 
 // ================= CATEGORY =================
 
+export const categoryType = pgEnum("categoryType", ["kitchen", "bathroom"])
+
 export const category = pgTable("categories", {
   id: uuid("id").primaryKey().defaultRandom(),
   name: varchar("name").notNull(),
   slug: varchar("slug").unique().notNull(),
   bannerImage: varchar("banner_image"),
   description: varchar("description"),
+  type: categoryType("type"),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 

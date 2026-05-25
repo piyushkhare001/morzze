@@ -23,17 +23,17 @@ import { useRouter } from "next/navigation";
 import { createCategory, getAllCategoriesMeta } from "@/helper/category/action";
 import { toast } from "sonner";
 // Naya component import karein
-import ImageUpload from "@/components/ImageUpload"; 
+import ImageUpload from "@/components/ImageUpload";
 import { useFileUpload } from "@/helper";
 
 export default function AddCategoryForm() {
   const router = useRouter();
   const { upload, uploading } = useFileUpload();
   const bannerRef = useRef<HTMLInputElement>(null);
-  
+
   const [parentId, setParentId] = useState("");
   // 'preview' ki jagah hum 'bannerUrl' use karenge jo ImageKit se aayega
-  const [bannerUrl, setBannerUrl] = useState<string>(""); 
+  const [bannerUrl, setBannerUrl] = useState<string>("");
   const [categories, setCategories] = useState<{ id: string; name: string }[]>([]);
 
   useEffect(() => {
@@ -47,10 +47,10 @@ export default function AddCategoryForm() {
     const categoryData = {
       name: e.target.name.value,
       parentId: parentId,
-      description: e.target.description.value,
-      bannerImage: bannerUrl, // ImageKit ka URL yahan bhej rahe hain
+      description: e.target.description?.value,
+      bannerImage: bannerUrl, // ImageKit ka URL yahan bhej rahe hain,
+      type: e.target.type.value
     };
-
     const response = await createCategory(categoryData);
     if (response?.success === true) {
       toast.success(response.message ?? "Category added successfully");
@@ -60,7 +60,7 @@ export default function AddCategoryForm() {
     }
   };
 
-   const handleBanner = async (file?: File) => {
+  const handleBanner = async (file?: File) => {
     if (!file) return;
 
     try {
@@ -108,22 +108,25 @@ export default function AddCategoryForm() {
                   />
                 </div>
 
-                <div className="space-y-3">
-                  <Label className="text-slate-600 font-medium">Parent Category</Label>
-                  <Select onValueChange={setParentId}>
-                    <SelectTrigger className="h-11 text-slate-400">
-                      <SelectValue placeholder="Select Parent Category" />
+                <div className="space-y-1.5">
+                  <Label className="text-slate-600 font-medium">
+                    Parent Category
+                  </Label>
+                  <Select
+                    name="type"
+                  >
+                    <SelectTrigger className="h-11">
+                      <SelectValue placeholder="Select parent" />
                     </SelectTrigger>
                     <SelectContent>
-                      {categories.map((category) => (
-                        <SelectItem key={category.id} value={category.id}>
-                          {category.name}
+                      {["kitchen", "bathroom"].map((category) => (
+                        <SelectItem key={category} value={category}>
+                          {category}
                         </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
                 </div>
-
                 <div className="space-y-3">
                   <Label className="text-slate-600 font-medium">Description</Label>
                   <Textarea
@@ -138,7 +141,7 @@ export default function AddCategoryForm() {
               <div className="space-y-6">
                 <div className="space-y-3">
                   <Label className="text-slate-600 font-medium">Category Image</Label>
-                  
+
                   {/* Purana drag-drop div hata kar naya component dala hai */}
                   {/* <ImageUpload onUploadSuccess={(url) => setBannerUrl(url)} /> */}
                   <div
@@ -169,7 +172,7 @@ export default function AddCategoryForm() {
                     onChange={(e) => handleBanner(e.target.files?.[0])}
                   />
 
-                  
+
                   {bannerUrl && (
                     <p className="text-xs text-green-600 font-medium mt-2">
                       ✓ Image uploaded successfully

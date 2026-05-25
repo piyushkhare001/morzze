@@ -22,13 +22,14 @@ interface GetCategoriesOptions {
 }
 export async function createCategory(categoryData: any) {
   try {
-    const { name, description, parentId, bannerImage } = categoryData;
+    const { name, description, parentId, bannerImage, type } = categoryData;
     const slug = await generateUniqueSlug(db, name, category.slug);
     await db.insert(category).values({
       name,
       slug,
       description,
       bannerImage: bannerImage || null,
+      type
     });
 
     revalidatePath("/admin/category");
@@ -42,7 +43,7 @@ export async function createCategory(categoryData: any) {
 
 export async function updateCategory(categoryData: any) {
   try {
-    const { id, name, description, parentId, bannerImage } =
+    const { id, name, description, parentId, bannerImage, type } =
       categoryData;
 
     await db
@@ -52,7 +53,7 @@ export async function updateCategory(categoryData: any) {
         slug: slugify(name, { lower: true }),
         description,
         bannerImage: bannerImage || null,
-
+        type
       })
       .where(eq(category.id, id));
 

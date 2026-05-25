@@ -291,9 +291,15 @@ const Header = () => {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Products", href: "/products" },
+<<<<<<< Updated upstream
     { name: "Shop", href: "/category" },
     { name: "Kitchen", href: "/category" },
     { name: "Bathroom", href: "/category" },
+=======
+    { name: "Shop All", href: "/category" },
+    { name: "Kitchen", href: "/category?type=kitchen" },
+    { name: "Bathroom", href: "/category?type=bathroom" },
+>>>>>>> Stashed changes
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
@@ -313,6 +319,7 @@ const Header = () => {
         </div>
 
         {/* -- Logo -- */}
+<<<<<<< Updated upstream
       <div
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className="cursor-pointer"
@@ -328,6 +335,21 @@ const Header = () => {
         />
        </Link>
       </div>
+=======
+        <div
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="cursor-pointer"
+        >
+          <Image
+            src="/logo.png"
+            alt="Morzze Logo"
+            width={150}
+            height={50}
+            priority
+            className="w-[120px] md:w-[150px]"
+          />
+        </div>
+>>>>>>> Stashed changes
 
         {/* -- WEB: Navigation Links -- */}
         <div className="hidden lg:flex items-center ml-15">

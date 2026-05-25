@@ -14,12 +14,10 @@ const page = async ({
   // 1. Slug ko await karein
   const { productslug } = await params;
 
-  console.log("Fetching data for:", productslug);
 
   try {
     const product = await getFullProductDetails(productslug);
 
-    console.log("API Se Aaya Hua Product:", product);
 
     // 3. Agar data nahi mila toh direct 404
     if (!product || Object.keys(product).length === 0) {
