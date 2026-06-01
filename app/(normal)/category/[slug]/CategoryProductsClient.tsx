@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
+import Image from "next/image";
 
 const CategoryProductsClient = ({
   products,
@@ -87,12 +88,12 @@ const CategoryProductsClient = ({
                 )}
 
                 <Link href={`/products/${product.slug}`}>
-                  <motion.img
+                  <Image
                     src={product.bannerImage}
                     alt={product.name}
                     className="w-full h-full object-cover cursor-pointer"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.6 }}
+                    height={500}
+                    width={500}
                   />
                 </Link>
 
@@ -131,11 +132,10 @@ const CategoryProductsClient = ({
                         e.preventDefault();
                         toggleWishlist(product.slug, product.id);
                       }}
-                      className={`shrink-0 rounded-sm h-10 md:h-12 w-10 md:w-10 flex items-center justify-center transition-all ${
-                        isInWishlist(product.slug)
-                          ? "bg-[#FFBF3F] hover:bg-white "
-                          : "bg-[#FFBF3F] cursor-pointer"
-                      }`}
+                      className={`shrink-0 rounded-sm h-10 md:h-12 w-10 md:w-10 flex items-center justify-center transition-all ${isInWishlist(product.slug)
+                        ? "bg-[#FFBF3F] hover:bg-white "
+                        : "bg-[#FFBF3F] cursor-pointer"
+                        }`}
                     >
                       {isInWishlist(product.slug) ? (
                         <IconHeartFilled size={20} className="text-red-500" />

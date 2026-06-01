@@ -8,6 +8,9 @@ import {
   IconBrandFacebook,
   IconBrandYoutube,
   IconBrandLinkedin,
+  IconBrandPinterest,
+  IconBrandTwitter,
+  IconBrandX,
 } from "@tabler/icons-react";
 
 type Category = {
@@ -27,7 +30,7 @@ const companyLinks = [
   { name: "About Us", href: "/about" },
   { name: "Coupons", href: "/Promo-offer" },
   // { name: "Find a Store", href: "/stores" },
-{ name:"Videos", href:"/videos"},
+  { name: "Videos", href: "/videos" },
   { name: "Catalogue", href: "/catalogue" },
   { name: "Media", href: "/mediacenter" },
   { name: "Careers", href: "/career" },
@@ -92,6 +95,28 @@ const Footer = ({ categories: _categories }: FooterProps) => {
                 rel="noopener noreferrer"
               >
                 <IconBrandInstagram
+                  size={22}
+                  stroke={1.5}
+                  className="text-white/90 hover:text-[#CBA14D] cursor-pointer transition-colors"
+                />
+              </a>
+              <a
+                href="https://in.pinterest.com/morzzeindia"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconBrandPinterest
+                  size={22}
+                  stroke={1.5}
+                  className="text-white/90 hover:text-[#CBA14D] cursor-pointer transition-colors"
+                />
+              </a>
+              <a
+                href="https://x.com/Morzzeindia"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconBrandX
                   size={22}
                   stroke={1.5}
                   className="text-white/90 hover:text-[#CBA14D] cursor-pointer transition-colors"
@@ -221,7 +246,7 @@ const Footer = ({ categories: _categories }: FooterProps) => {
                 { name: "Become a Dealer", link: "/dealer" },
                 { name: "Find a Store", link: "/stores" },
                 // { name: "Returns & Exchange", link: "/return-exchange" },
-                { name: "FAQ's", link: "/support" },
+                { name: "Support", link: "/support" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link
