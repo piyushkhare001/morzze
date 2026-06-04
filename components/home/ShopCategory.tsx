@@ -5,12 +5,15 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { IconArrowRight } from "@tabler/icons-react";
 
+type CategoryType = "kitchen" | "bathroom" | null;
+
 interface CategoryItem {
   id: string;
   name: string;
   slug: string;
   bannerImage: string | null;
   description: string | null;
+  type: CategoryType;
 }
 
 interface ShopCategoryProps {
@@ -84,7 +87,7 @@ const ShopCategory = ({ categories = [] }: ShopCategoryProps) => {
                   className={`relative group cursor-pointer overflow-hidden rounded-sm bg-zinc-900 ${spanClass}`}
                 >
                   <Link
-                    href={`/category/${cat.slug}`}
+                    href={`/${cat.type}/${cat.slug}`}
                     className="block w-full h-full"
                   >
                     {cat.bannerImage ? (
