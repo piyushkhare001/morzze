@@ -6,7 +6,7 @@ import { db } from "@/lib/db";
 import slugify from "slugify";
 //import path from "path";
 import { redirect } from "next/navigation";
-import { desc, eq } from "drizzle-orm";
+import { desc, eq, isNull, or } from "drizzle-orm";
 import { revalidatePath, unstable_cache } from "next/cache";
 import { generateUniqueSlug } from "../slug/generateUniqueSlug";
 import { and, asc, ilike, sql } from "drizzle-orm";
@@ -244,7 +244,12 @@ export async function getAllProductsByCategorySlug(slug: string) {
             category,
             eq(category.id, productCategory.categoryId),
           )
-          .where(eq(category.slug, slug));
+          .where(
+            and(
+              eq(category.slug, slug),
+              or(eq(product.isHidden, false), isNull(product.isHidden))
+            )
+          );
 
         return products;
       } catch (error) {
@@ -303,7 +308,12 @@ export async function getCategoriesWithProducts(limit = 4) {
               })
               .from(product)
               .innerJoin(productCategory, eq(product.id, productCategory.productId))
-              .where(eq(productCategory.categoryId, cat.id))
+              .where(
+                and(
+                  eq(productCategory.categoryId, cat.id),
+                  or(eq(product.isHidden, false), isNull(product.isHidden))
+                )
+              )
               .limit(limit);
 
             return {

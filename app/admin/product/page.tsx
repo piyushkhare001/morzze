@@ -19,6 +19,7 @@ const Page = async ({ searchParams }: PageProps) => {
     pageSize: Number(PAGE_SIZE),
     search: params.search ?? "",
     category: params.category,
+    includeHidden: true,   // admin sees all products, including hidden ones
   });
 
 

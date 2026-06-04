@@ -3,7 +3,7 @@
 import { db } from "@/lib/db";
 
 import { revalidatePath, unstable_cache } from "next/cache";
-import { and, desc, asc, eq, gte, ilike, inArray, lte, ne, sql } from "drizzle-orm";
+import { and, desc, asc, eq, gte, ilike, inArray, isNull, lte, ne, or, sql } from "drizzle-orm";
 import { generateUniqueSlug } from "../slug/generateUniqueSlug";
 
 import {
@@ -45,6 +45,7 @@ interface GetProductsOptions {
   stock?: any;
   brand?: any;
   sort?: string;
+  includeHidden?: boolean;
 }
 
 function str(fd: FormData, key: string) {
@@ -393,6 +394,7 @@ export async function updateProduct(formData: FormData): Promise<void> {
             strikethroughPrice: variants.strikethroughPrice,
             bannerImage: variants.bannerImage || null,
             isInStock: variants.isInStock,
+            isHidden: variants.isHidden ?? false,
             hasVarientBox: variants.hasVarientBox,
             highlights: variants.highlights || [],
             updatedAt: new Date(),
@@ -523,7 +525,7 @@ export async function getFullProductDetails(identifier: string) {
         const [productDeails] = await db
           .select()
           .from(product)
-          .where(eq(product.slug, identifier))
+          .where(and(eq(product.slug, identifier), or(eq(product.isHidden, false), isNull(product.isHidden))))
           .limit(1);
 
         if (!productDeails) throw new Error("Product not found");
@@ -710,7 +712,11 @@ export async function getProductSimilarProducts(slug: string | any) {
           .innerJoin(productCategory, eq(productCategory.productId, product.id))
           .innerJoin(category, eq(category.id, productCategory.categoryId))
           .where(
-            and(eq(productCategory.categoryId, categoryId), ne(product.id, v.id)),
+            and(
+              eq(productCategory.categoryId, categoryId),
+              ne(product.id, v.id),
+              or(eq(product.isHidden, false), isNull(product.isHidden)),
+            ),
           )
           .limit(10);
 
@@ -814,10 +820,16 @@ export async function getProducts({
   stock = "",
   brand = "",
   sort = "",
+  includeHidden = false,
 }: GetProductsOptions) {
   return unstable_cache(
     async () => {
       const filters = [];
+
+      // Exclude hidden products unless the caller explicitly requests them (admin)
+      if (!includeHidden) {
+        filters.push(or(eq(product.isHidden, false), isNull(product.isHidden)));
+      }
 
       if (search.trim() !== "") {
         filters.push(ilike(product.name, `%${search}%`));
@@ -960,6 +972,7 @@ export async function getProducts({
         stock,
         brand,
         sort,
+        includeHidden,
       }),
     ],
     { revalidate: 3600, tags: [CACHE_TAGS.products, CACHE_TAGS.categories] },
@@ -1077,7 +1090,7 @@ export async function getBestSellingProducts() {
       .from(product)
       .innerJoin(productCategory, eq(productCategory.productId, product.id))
       .innerJoin(category, eq(category.id, productCategory.categoryId))
-      .where(eq(category.slug, bestSellingSlug))
+      .where(and(eq(category.slug, bestSellingSlug), or(eq(product.isHidden, false), isNull(product.isHidden))))
       .limit(4);
 
     // fallback
@@ -1092,6 +1105,7 @@ export async function getBestSellingProducts() {
           slug: product.slug,
         })
         .from(product)
+        .where(or(eq(product.isHidden, false), isNull(product.isHidden)))
         .limit(4);
     }
 
@@ -1115,7 +1129,7 @@ export async function getBrandBestSellingProducts(slug: any) {
         oldPrice: product.strikethroughPrice,
       })
       .from(product)
-      .where(eq(product.brand, slug))
+      .where(and(eq(product.brand, slug), or(eq(product.isHidden, false), isNull(product.isHidden))))
       .limit(4);
     return brandProducts;
   } catch (error) {
@@ -1137,7 +1151,7 @@ export async function getBrandNewArrivalProducts(slug: any) {
         oldPrice: product.strikethroughPrice,
       })
       .from(product)
-      .where(eq(product.brand, slug))
+      .where(and(eq(product.brand, slug), or(eq(product.isHidden, false), isNull(product.isHidden))))
       .orderBy(desc(product.createdAt))
       .limit(4);
     return brandProducts;
@@ -1168,7 +1182,7 @@ export async function getQuizSuggestedProducts(userAnswers: any) {
     const products = await db
       .select()
       .from(product)
-      .where(inArray(product.id, productIds));
+      .where(and(inArray(product.id, productIds), or(eq(product.isHidden, false), isNull(product.isHidden))));
 
     return products;
   } catch (error) {
@@ -1318,7 +1332,7 @@ export async function getSignatureProducts(limit = 8) {
           .from(product)
           .innerJoin(productCategory, eq(productCategory.productId, product.id))
           .innerJoin(category, eq(category.id, productCategory.categoryId))
-          .where(eq(category.slug, "signature-pieces"))
+          .where(and(eq(category.slug, "signature-pieces"), or(eq(product.isHidden, false), isNull(product.isHidden))))
           .orderBy(desc(product.createdAt))
           .limit(limit);
 
@@ -1350,7 +1364,7 @@ export async function getNewArrivalProducts(limit = 8) {
           .from(product)
           .innerJoin(productCategory, eq(productCategory.productId, product.id))
           .innerJoin(category, eq(category.id, productCategory.categoryId))
-          .where(eq(category.slug, "new-arrivals"))
+          .where(and(eq(category.slug, "new-arrivals"), or(eq(product.isHidden, false), isNull(product.isHidden))))
           .orderBy(desc(product.createdAt))
           .limit(limit);
 
@@ -1382,7 +1396,7 @@ export async function getTrendingProducts(limit = 8) {
           .from(product)
           .innerJoin(productCategory, eq(productCategory.productId, product.id))
           .innerJoin(category, eq(category.id, productCategory.categoryId))
-          .where(eq(category.slug, "trending-now"))
+          .where(and(eq(category.slug, "trending-now"), or(eq(product.isHidden, false), isNull(product.isHidden))))
           .orderBy(desc(product.createdAt))
           .limit(limit);
 

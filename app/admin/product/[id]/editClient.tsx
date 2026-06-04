@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { Plus, Trash2, X } from "lucide-react";
+import { Loader2, Plus, Trash2, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { MultiCategorySelect } from "@/components/multiCategorySelect";
@@ -164,6 +164,7 @@ export default function EditProduct({ productDetails }: any) {
   const [brand, setBrand] = useState<any>(productDetails.brand);
   const [varientBox, setVarientBox] = useState(productDetails.hasVarientBox);
   const [variantBoxes, setVariantBoxes] = useState<any[]>([]);
+  const [isSaving, setIsSaving] = useState(false);
 
   const [faqs, setFaqs] = useState(
     productDetails?.productFaqRes?.length
@@ -224,6 +225,7 @@ export default function EditProduct({ productDetails }: any) {
       ])
     ),
     isInStock: product.isInStock ?? true,
+    isHide: product.isHidden ?? false,
     highlights: product.highlights || [],
   });
 
@@ -517,17 +519,21 @@ export default function EditProduct({ productDetails }: any) {
       ],
       VarientBoxes: varientBox ? variantBoxes : [],
       hasVarientBox: varientBox,
+      isHidden: variants.isHide,
     };
 
     formData.set("variants", JSON.stringify(payload));
 
     try {
+      setIsSaving(true);
       await updateProduct(formData);
       toast.success("Product updated successfully!");
       router.push("/admin/product");
     } catch (err) {
       console.log(err);
       toast.error("Failed to update product");
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -581,7 +587,13 @@ export default function EditProduct({ productDetails }: any) {
               Cancel
             </Button>
 
-            <Button type="submit">Save Changes</Button>
+            <Button type="submit" disabled={isSaving}>
+              {isSaving ? (
+                <><Loader2 className="animate-spin w-4 h-4 mr-2" />Saving...</>
+              ) : (
+                "Save Changes"
+              )}
+            </Button>
           </div>
         </div>
 
@@ -641,7 +653,7 @@ export default function EditProduct({ productDetails }: any) {
                   />
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-4">
+                <div className="grid md:grid-cols-4 gap-10">
                   <div className="space-y-2">
                     <Label>Price</Label>
                     <Input
@@ -679,6 +691,17 @@ export default function EditProduct({ productDetails }: any) {
                     />
                     <Label>In Stock</Label>
                   </div>
+
+                  <div className="flex items-end justify-end ">
+                    <Checkbox className="border border-white"
+                      checked={variants.isHide}
+                      onCheckedChange={(c) =>
+                        setVariants({ ...variants, isHide: c })
+                      }
+                    />
+                    <Label>Hide</Label>
+                  </div>
+
                 </div>
 
                 <div className="space-y-2">
