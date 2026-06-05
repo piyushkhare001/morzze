@@ -12,6 +12,7 @@ import { generateUniqueSlug } from "../slug/generateUniqueSlug";
 import { and, asc, ilike, sql } from "drizzle-orm";
 import { paginate } from "@/lib/pagination";
 import { category, productCategory, product } from "@/db/schema";
+import { cacheRevalidateTime } from "@/const/globalconst";
 import {
   CACHE_TAGS,
   revalidateCategoryCache,
@@ -201,6 +202,9 @@ export async function deleteCategory(id: string) {
 }
 export async function getCategories(type?: string) {
   const filters = [];
+  const categoryListTag = type
+    ? `${CACHE_TAGS.categories}:${type}`
+    : CACHE_TAGS.categories;
 
   if (type === "kitchen" || type === "bathroom") {
     filters.push(eq(category.type, type));
@@ -219,8 +223,11 @@ export async function getCategories(type?: string) {
         return [];
       }
     },
-    [CACHE_TAGS.categories + type],
-    { revalidate: 3600, tags: [CACHE_TAGS.categories + type] }
+    [CACHE_TAGS.categories, type ?? "all"],
+    {
+      revalidate: cacheRevalidateTime,
+      tags: [CACHE_TAGS.categories, categoryListTag],
+    }
   )();
 }
 
@@ -267,7 +274,7 @@ export async function getAllProductsByCategorySlug(slug: string) {
     },
     [CACHE_TAGS.products, CACHE_TAGS.category(slug), "category-products", slug],
     {
-      revalidate: 3600,
+      revalidate: cacheRevalidateTime,
       tags: [CACHE_TAGS.products, CACHE_TAGS.categories, CACHE_TAGS.category(slug)],
     },
   )();
@@ -291,7 +298,7 @@ export async function getCategoryBySlug(slug: string) {
     },
     [CACHE_TAGS.category(slug), slug],
     {
-      revalidate: 3600,
+      revalidate: cacheRevalidateTime,
       tags: [CACHE_TAGS.categories, CACHE_TAGS.category(slug)],
     },
   )();
@@ -339,7 +346,7 @@ export async function getCategoriesWithProducts(limit = 4) {
       }
     },
     ["categories-with-products", String(limit)],
-    { revalidate: 3600, tags: [CACHE_TAGS.categories, CACHE_TAGS.products] }
+    { revalidate: cacheRevalidateTime, tags: [CACHE_TAGS.categories, CACHE_TAGS.products] }
   )();
 }
 
@@ -359,6 +366,6 @@ export async function getAllCategoriesMeta() {
       }
     },
     ["categories-meta"],
-    { revalidate: 3600, tags: [CACHE_TAGS.categories] },
+    { revalidate: cacheRevalidateTime, tags: [CACHE_TAGS.categories] },
   )();
 }

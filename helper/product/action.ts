@@ -21,7 +21,7 @@ import {
   wishlistItem,
   orderItem,
 } from "@/db/schema";
-import { bestSellingSlug, isUUID } from "@/const/globalconst";
+import { bestSellingSlug, cacheRevalidateTime, isUUID } from "@/const/globalconst";
 import {
   CACHE_TAGS,
   revalidateCategoryCache,
@@ -589,7 +589,7 @@ export async function getFullProductDetails(identifier: string) {
     },
     [CACHE_TAGS.product(identifier), identifier],
     {
-      revalidate: 3600,
+      revalidate: cacheRevalidateTime,
       tags: [CACHE_TAGS.products, CACHE_TAGS.product(identifier)],
     },
   )();
@@ -728,7 +728,7 @@ export async function getProductSimilarProducts(slug: string | any) {
     },
     ["similar-products", String(slug)],
     {
-      revalidate: 3600,
+      revalidate: cacheRevalidateTime,
       tags: [CACHE_TAGS.products, CACHE_TAGS.product(String(slug))],
     },
   )();
@@ -975,7 +975,7 @@ export async function getProducts({
         includeHidden,
       }),
     ],
-    { revalidate: 3600, tags: [CACHE_TAGS.products, CACHE_TAGS.categories] },
+    { revalidate: cacheRevalidateTime, tags: [CACHE_TAGS.products, CACHE_TAGS.categories] },
   )();
 }
 
@@ -1311,7 +1311,7 @@ export async function getProductFilterOptions() {
       };
     },
     ["product-filter-options"],
-    { revalidate: 3600, tags: [CACHE_TAGS.products] },
+    { revalidate: cacheRevalidateTime, tags: [CACHE_TAGS.products] },
   )();
 }
 
@@ -1343,7 +1343,7 @@ export async function getSignatureProducts(limit = 8) {
       }
     },
     ["signature-products", String(limit)],
-    { revalidate: 3600, tags: [CACHE_TAGS.products] }
+    { revalidate: cacheRevalidateTime, tags: [CACHE_TAGS.products] }
   )();
 }
 
@@ -1375,7 +1375,7 @@ export async function getNewArrivalProducts(limit = 8) {
       }
     },
     ["new-arrival-products", String(limit)],
-    { revalidate: 3600, tags: [CACHE_TAGS.products] }
+    { revalidate: cacheRevalidateTime, tags: [CACHE_TAGS.products] }
   )();
 }
 
@@ -1407,6 +1407,6 @@ export async function getTrendingProducts(limit = 8) {
       }
     },
     ["trending-products", String(limit)],
-    { revalidate: 3600, tags: [CACHE_TAGS.products] }
+    { revalidate: cacheRevalidateTime, tags: [CACHE_TAGS.products] }
   )();
 }
