@@ -19,6 +19,7 @@ import {
   updateProduct,
 } from "@/helper/product/action";
 import { validateImage } from "@/lib/validateImage";
+import { getImageURL } from "@/lib/getImageLin";
 import { useFileUpload } from "@/helper";
 import {
   productAttributeType,
@@ -779,7 +780,7 @@ export default function EditProduct({ productDetails }: any) {
                       <p>Click to upload banner</p>
                     ) : (
                       <Image
-                        src={variants.banner.preview}
+                        src={getImageURL(variants.banner.preview)}
                         width={800}
                         height={400}
                         className="w-full h-full object-contain"
@@ -798,7 +799,7 @@ export default function EditProduct({ productDetails }: any) {
 
                   {variants.banner && (
                     <Image
-                      src={variants.banner.preview}
+                      src={getImageURL(variants.banner.preview)}
                       width={300}
                       height={400}
                       className="h-32 w-24 object-cover rounded-md border mt-2"
@@ -873,7 +874,7 @@ export default function EditProduct({ productDetails }: any) {
                         >
                           {item.image ? (
                             <Image
-                              src={item.image}
+                              src={getImageURL(item.image)}
                               width={200}
                               height={200}
                               className="h-full w-full object-cover"
