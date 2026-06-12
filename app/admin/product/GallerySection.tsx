@@ -6,6 +6,7 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { getImageURL } from "@/lib/getImageLin";
 import { ImagePlus, X } from "lucide-react";
 import React, { RefObject } from "react";
 
@@ -66,7 +67,7 @@ export default function GallerySection({
                   className="relative group aspect-square border rounded-lg overflow-hidden bg-muted"
                 >
                   <Image
-                    src={img.preview}
+                    src={getImageURL(img.preview)}
                     width={500}
                     height={500}
                     className="h-full w-full object-cover"
