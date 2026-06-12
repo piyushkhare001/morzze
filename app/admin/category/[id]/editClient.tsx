@@ -27,6 +27,8 @@ import { toast } from "sonner";
 // Naya ImageUpload component import karein
 import ImageUpload from "@/components/ImageUpload";
 import { useFileUpload } from "@/helper";
+import { getImageURL } from "@/lib/getImageLin";
+import { getStoredImageKey } from "@/lib/imagePath";
 
 export default function EditCategory({ categoryInfo }: any) {
   const router = useRouter();
@@ -49,6 +51,9 @@ export default function EditCategory({ categoryInfo }: any) {
   const [preview, setPreview] = useState<string | null>(
     categoryInfo.bannerImage ?? null,
   );
+  const [bannerKey, setBannerKey] = useState<string>(
+    categoryInfo.bannerImage ?? "",
+  );
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -66,7 +71,7 @@ export default function EditCategory({ categoryInfo }: any) {
       type: selectedParent,
       description: form.description,
       // type: form.type,
-      bannerImage: preview, // Naya upload kiya hua URL ya purana URL
+      bannerImage: getStoredImageKey(bannerKey || preview),
     };
     console.log(categoryData)
     const response = await updateCategory(categoryData);
@@ -85,12 +90,7 @@ export default function EditCategory({ categoryInfo }: any) {
       const { fileKey, fileUrl } = await upload(file, "category");
 
       setPreview(fileUrl as any); // UI ke liye
-
-      // IMPORTANT: agar tu key store karna chahta hai (recommended)
-      setForm((prev) => ({
-        ...prev,
-        bannerKey: fileKey,
-      }));
+      setBannerKey(fileKey);
 
       toast.success("Image uploaded");
     } catch (err: any) {
@@ -189,7 +189,7 @@ export default function EditCategory({ categoryInfo }: any) {
                       <p>Click to upload category image</p>
                     ) : (
                       <Image
-                        src={preview}
+                        src={getImageURL(preview)}
                         alt="Category banner preview"
                         width={800}
                         height={400}
