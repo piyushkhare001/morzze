@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { forgotPassword } from "@/helper";
-import { MailIcon, MoveLeftIcon } from "lucide-react";
+import { ArrowLeft, MailIcon, MoveLeftIcon } from "lucide-react";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -51,10 +51,10 @@ const ForgotPassword = () => {
       <div className="w-full max-w-md space-y-6">
 
         {/* Back Link */}
-        <button className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
-          <MoveLeftIcon size={18} />
+        <Link href={"/login"} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+          <ArrowLeft size={18} />
           <span>Back to Login</span>
-        </button>
+        </Link>
 
         {/* Header */}
         <div className="space-y-1">

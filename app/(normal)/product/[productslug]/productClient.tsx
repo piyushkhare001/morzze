@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/button";
 
 import DescriptionTabs from "@/components/product/DescriptionTabs";
 import SpecificationsTabs from "@/components/product/SpecificationsTabs";
-import ProductComparison from "@/components/product/ProductComparison";
+// import ProductComparison from "@/components/product/ProductComparison";
 import CareAndMaintenance from "@/components/product/CareAndMaintenance";
 import AteliersGrid from "@/components/product/AteliersGrid";
 import CommonEnquiries from "@/components/product/CommonEnquiries";
@@ -73,13 +73,13 @@ const ProductClient = ({ product, slug, reviews }: any) => {
   const currentHeroImage = displayImages[selectedImage] || product.bannerImage;
 
   // 1. Sare Attributes ko as variables nikal lo
-  const attributes = product.productAttributeRes || [];
+  // const attributes = product.productAttributeRes || [];
 
-  const tabDescription = attributes.find((a: any) => a.attribute === "DESCRIPTION")?.value;
-  const tabDimensions = attributes.find((a: any) => a.attribute === "DIMENSIONS")?.value;
-  const tabFeatures = attributes.find((a: any) => a.attribute === "FEATURES")?.value;
-  const tabAccessories = attributes.find((a: any) => a.attribute === "Accessories Included")?.value;
-  const tabDocumentation = attributes.find((a: any) => a.attribute === "Documentation")?.value;
+  // const tabDescription = attributes.find((a: any) => a.attribute === "DESCRIPTION")?.value;
+  // const tabDimensions = attributes.find((a: any) => a.attribute === "DIMENSIONS")?.value;
+  // const tabFeatures = attributes.find((a: any) => a.attribute === "FEATURES")?.value;
+  // const tabAccessories = attributes.find((a: any) => a.attribute === "Accessories Included")?.value;
+  // const tabDocumentation = attributes.find((a: any) => a.attribute === "Documentation")?.value;
 
 
   // Extract filters by type from product.filters
@@ -160,7 +160,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                   )}
                 >
                   <Image
-                   src={getImageURL(img)}
+                    src={getImageURL(img)}
                     // src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${img}`}
                     alt={`${product.name ?? "Product"} thumbnail ${i + 1}`}
                     width={500}
@@ -390,7 +390,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                   });
                 }}
                 disabled={getItemQuantity(product.slug) > 0}
-                className="flex-1 py-5 bg-[#FDB813] text-black disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 py-5 bg-[#FDB813] hover:text-[#FDB813] text-black disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {getItemQuantity(product.slug) > 0 ? (
                   <><IconShoppingBag size={18} /> In Cart ✓</>

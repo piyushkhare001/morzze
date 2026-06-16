@@ -176,7 +176,7 @@ const VerifyOtpContent = () => {
         email: formData.email,
         password: formData.password,
       });
-      toast.success("Login successful 🎉");
+      toast.success("Login successful");
       sessionStorage.removeItem(PENDING_SIGNUP_EMAIL_KEY);
       router.push("/dashboard");
     } catch (err: unknown) {
@@ -188,7 +188,7 @@ const VerifyOtpContent = () => {
         return;
       }
 
-      toast.error(error.message || "Login failed ❌");
+      toast.error(error.message || "Login failed");
       setErrors((prev) => ({ ...prev, general: error.message || "Login failed" }));
     } finally {
       setEmailLoading(false);
@@ -200,13 +200,13 @@ const VerifyOtpContent = () => {
       <div className="w-full px-4 lg:px-0 flex h-screen bg-black text-white ">
         <div className=" hidden lg:block w-1/2 z-10">
           <Link href="/">
-          <Image
-            className="h-full"
-            src="/verify.png"
-            alt="Login Image"
-            width={1300}
-            height={800}
-          />
+            <Image
+              className="h-full"
+              src="/verify.png"
+              alt="Login Image"
+              width={1300}
+              height={800}
+            />
           </Link>
         </div>
         <div className=" space-y-4  max-w-2xl mx-auto  justify-center text-left items-center my-auto">
@@ -353,7 +353,7 @@ const VerifyOtpContent = () => {
                     Resend
                   </button>
                 </div>
-             
+
               </TabsContent>
             </Tabs>
           </div>

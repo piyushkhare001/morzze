@@ -68,10 +68,10 @@ const CheckoutSummary = () => {
   return (
     <div className="bg-[#0A0A0A] border border-zinc-900 rounded-lg p-8 text-white">
       <h2 className="text-white text-lg font-medium mb-8">Summary</h2>
-      
+
       <div className="space-y-6">
         {/* Product Line Items */}
-        
+
 
         <div className="space-y-3 border-t border-zinc-900">
           <div className="flex justify-between text-sm">
@@ -104,10 +104,10 @@ const CheckoutSummary = () => {
             <span className=" font-light">Shipping</span>
             <span className="text-green-500 uppercase text-xs font-bold tracking-widest">Free</span>
           </div>
-          <div className="flex justify-between text-sm">
+          {/* <div className="flex justify-between text-sm">
             <span className=" font-light">GST (18%)</span>
             <span className="text-white">₹{gst.toLocaleString("en-IN")}</span>
-          </div>
+          </div> */}
         </div>
 
         {/* Grand Total */}

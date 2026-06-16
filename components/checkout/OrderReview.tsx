@@ -283,10 +283,10 @@ const OrderReview = ({ shippingData }: { shippingData?: ShippingData }) => {
           </div>
         )}
 
-        <div className="flex justify-between text-sm">
+        {/* <div className="flex justify-between text-sm">
           <span className="text-white">GST (18%)</span>
           <span className="text-white">₹{gst.toLocaleString("en-IN")}</span>
-        </div>
+        </div> */}
         <div className="flex justify-between items-center pt-3 border-t border-zinc-900">
           <span className="text-white text-sm">Total (incl. GST)</span>
           <span className="text-white text-lg font-semibold">₹{total.toLocaleString("en-IN")}</span>

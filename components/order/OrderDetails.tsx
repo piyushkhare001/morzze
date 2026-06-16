@@ -111,10 +111,10 @@ export default function OrderDetails({ order }: { order: OrderDetailViewModel })
               <span className="text-green-500">Free</span>
             </div>
 
-            <div className="flex justify-between">
+            {/* <div className="flex justify-between">
               <span>GST (18%)</span>
               <span className="text-white">{order.taxFormatted}</span>
-            </div>
+            </div> */}
 
             <div className="flex justify-between pt-4 border-t border-zinc-800 text-lg font-bold text-white font-montserrat">
               <span>Total</span>

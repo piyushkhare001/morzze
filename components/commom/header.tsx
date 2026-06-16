@@ -453,6 +453,19 @@ const Header = () => {
                 {wishlistItems}
               </span>
             </div>
+
+
+            {/* Cart with Badge */}
+            <div className="relative mt-1">
+              <Link href={"/cart"}>
+                <button className="text-white hover:text-[#B88E2F] transition-colors">
+                  <IconShoppingBag size={24} stroke={1.5} />
+                </button>
+              </Link>
+              <span className="absolute -top-1.5 -right-2 bg-[#B88E2F] text-black text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-black">
+                {totalItems}
+              </span>
+            </div>
             {isAuthenticated ? (
               <Link href={"/dashboard/profile"}>
                 <button className="hover:text-[#B88E2F] transition-colors">
@@ -466,18 +479,6 @@ const Header = () => {
                 </button>
               </Link>
             )}
-
-            {/* Cart with Badge */}
-            <div className="relative mt-1">
-              <Link href={"/cart"}>
-                <button className="text-white hover:text-[#B88E2F] transition-colors">
-                  <IconShoppingBag size={24} stroke={1.5} />
-                </button>
-              </Link>
-              <span className="absolute -top-1.5 -right-2 bg-[#B88E2F] text-black text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-black">
-                {totalItems}
-              </span>
-            </div>
           </div>
         </div>
       </nav >

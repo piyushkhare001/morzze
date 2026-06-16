@@ -208,10 +208,10 @@ const OrderSummary = () => {
           <span className="text-zinc-500 font-light">Shipping</span>
           <span className="text-green-500 uppercase text-xs font-bold tracking-widest">Free</span>
         </div>
-        <div className="flex justify-between text-sm border-b pb-4">
+        {/* <div className="flex justify-between text-sm border-b pb-4">
           <span className="text-zinc-500 font-light">GST (18%)</span>
           <span className="text-zinc-300">₹{gst.toLocaleString("en-IN")}</span>
-        </div>
+        </div> */}
       </div>
 
       <div className="border-t border-zinc-900 mb-5">
@@ -223,7 +223,7 @@ const OrderSummary = () => {
 
       <div className="mb-8">
         <label className="text-[10px] text-zinc-500 font-bold tracking-[0.2em] uppercase mb-3 block">
-          Have coupon 
+          Have coupon
         </label>
         <div className="flex gap-2">
           <input
