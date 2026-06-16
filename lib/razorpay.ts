@@ -53,51 +53,6 @@ export const loadRazorpayScript = (): Promise<boolean> => {
     throw new Error("Razorpay SDK failed to load");
   }
 
-  const subscriptionItems = items.filter(
-    (item: any) => item.isTypeSubscription === true,
-  );
-
-  if (subscriptionItems.length > 0) {
-    const plan = await fetch("/api/razorpay/plans", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items }),
-    });
-
-    const planData = await plan.json();
-
-    if (!Array.isArray(planData) || planData.length === 0) {
-      throw new Error("Plan creation failed");
-    }
-
-    await createPaymentGatewayPlan(planData);
-
-    const subscriptions = await Promise.all(
-      planData.map(async (p: any) => {
-        const res = await fetch("/api/razorpay/subscriptions", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ planId: p.id }),
-        });
-
-        const data = await res.json();
-
-        if (!data?.id) {
-          throw new Error("Subscription creation failed");
-        }
-
-        return {
-          ...data,
-          productId: p.productId,
-        };
-      }),
-    );
-
-    await CreatePaymentGatewaySubscription(subscriptions);
-    await createSubscription({ items });
-
-  }
-
   // 1. Create Razorpay Order from server-calculated cart amount.
   const res = await fetch("/api/razorpay/order", {
     method: "POST",

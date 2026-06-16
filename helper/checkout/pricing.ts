@@ -14,7 +14,6 @@ export type CheckoutPricing = {
   items: CheckoutPriceItem[];
   subtotal: number;
   discountAmount: number;
-  gstAmount: number;
   total: number;
   couponCode: string | null;
 };
@@ -117,14 +116,12 @@ export async function calculateCheckoutPricing({
   }
 
   const discountedSubtotal = Math.max(subtotal - discountAmount, 0);
-  const gstAmount = Math.round(discountedSubtotal * 0.18);
-  const total = Math.max(discountedSubtotal + gstAmount, 0);
+  const total = Math.max(discountedSubtotal, 0);
 
   return {
     items,
     subtotal,
     discountAmount,
-    gstAmount,
     total,
     couponCode: appliedCouponCode,
   };

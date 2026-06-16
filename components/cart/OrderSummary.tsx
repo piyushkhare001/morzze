@@ -70,8 +70,7 @@ const OrderSummary = () => {
     : 0
 
   const discountedSubtotal = subtotal - discountAmount
-  const gst = Math.round(discountedSubtotal * 0.18)
-  const total = Math.max(discountedSubtotal + gst, 0)
+  const total = Math.max(discountedSubtotal, 0)
 
   // Derive the display label for the discount
   const discountPercent = appliedCoupon

@@ -41,7 +41,6 @@ export async function POST(req: Request) {
       pricing: {
         subtotal: pricing.subtotal,
         discountAmount: pricing.discountAmount,
-        gstAmount: pricing.gstAmount,
         total: pricing.total,
         couponCode: pricing.couponCode,
       },
