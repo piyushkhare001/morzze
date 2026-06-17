@@ -15,6 +15,8 @@ import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import Image from "next/image";
 import { getImageURL } from "@/lib/getImageLin";
+import { Slider } from "@/components/ui/slider";
+import { Label } from "@/components/ui/label";
 
 const CategoryProductsClient = ({
   products,
@@ -66,9 +68,22 @@ const CategoryProductsClient = ({
         <h2 className="text-lg md:text-xl font-semibold text-[#EDEBE9] font-montserrat">
           {categoryName}
         </h2>
-        <span className="text-[10px] text-[#555] uppercase tracking-widest font-inter">
+        {/* <span className="text-[10px] text-[#555] uppercase tracking-widest font-inter">
           {products.length} {products.length === 1 ? "Result" : "Results"}
-        </span>
+        </span> */}
+        <div className=" bg-slate-800 rounded-sm p-3 flex flex-col gap-4 w-64">
+          <Label className=" text-white">Filter by size</Label>
+          <Slider
+            defaultValue={[25, 50]}
+            max={100}
+            step={5}
+            className=" w-full max-w-xs"
+          />
+          <div className=" -mt-2 text-white justify-between gap-3 flex text-xs">
+            <p>32</p>
+            <p>46</p>
+          </div>
+        </div>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-12">
