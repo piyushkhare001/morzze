@@ -1,4 +1,4 @@
-export const pageSize = 10;
+export const pageSize = 20;
 export const cacheRevalidateTime = 86400;
 export const canResendOTPInterval = 10; // in seconds
 export const isUUID = (identifier: string) =>

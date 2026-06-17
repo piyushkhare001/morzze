@@ -1,12 +1,10 @@
 import ProductCatalogueHero from "@/components/catalogue/banner";
 import CatalogueGridDownloads from "@/components/catalogue/cataloguegrid";
-import CatalogueInfoRequestSection from "@/components/catalogue/ourcatalogues";
 import { getActiveCatalogues } from "@/helper/catalogue/action";
-import React from "react";
 
 const page = async () => {
   const rows = await getActiveCatalogues();
-  const items = rows.map((r:any) => ({
+  const items = rows.map((r: any) => ({
     id: r.id,
     title: r.title,
     shortDescription: r.shortDescription,

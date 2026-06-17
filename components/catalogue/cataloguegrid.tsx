@@ -124,7 +124,7 @@ export default function CatalogueGridDownloads({ items }: Props) {
                   </div>
 
                   <a
-                    href={item.pdfFile}
+                    href={getImageURL(item.pdfFile)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block w-full h-10 border border-[#d39b10] text-[#d39b10] text-[12px] flex items-center justify-center gap-2 hover:bg-[#d39b10] hover:text-black transition"

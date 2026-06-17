@@ -200,7 +200,7 @@ export async function getProductReviews(slug: string | any) {
         productId: review.productId,
         createdAt: review.createdAt,
       })
-      .from(review).where(eq(review.productId, v.id));
+      .from(review).where(and(eq(review.productId, v.id), eq(review.isAdminApproved, true), eq(review.isAdminApproved, true)));
 
 
     // const reviewsWithMedia = await Promise.all(

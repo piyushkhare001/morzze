@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { sanitizeRichText } from "@/lib/sanitizeRichText";
+import { getImageURL } from "@/lib/getImageLin";
 
 type ProductAttribute = {
   attribute: string;
@@ -50,24 +51,24 @@ const DescriptionTabs = ({
 
     return found
       ? [
-          {
-            type: "html",
-            label: tab.label,
-            content: found.value,
-          },
-        ]
+        {
+          type: "html",
+          label: tab.label,
+          content: found.value,
+        },
+      ]
       : [];
   });
 
   const availableTabs: ProductTab[] = pdfDocuments?.length
     ? [
-        ...htmlTabs,
-        {
-          type: "pdf",
-          label: "DOCUMENTATION",
-          documents: pdfDocuments,
-        },
-      ]
+      ...htmlTabs,
+      {
+        type: "pdf",
+        label: "DOCUMENTATION",
+        documents: pdfDocuments,
+      },
+    ]
     : htmlTabs;
 
   const [activeTab, setActiveTab] = useState(0);
@@ -84,11 +85,10 @@ const DescriptionTabs = ({
             <button
               key={index}
               onClick={() => setActiveTab(index)}
-              className={`pb-4 text-[11px] tracking-[0.25em] font-medium relative whitespace-nowrap transition-colors ${
-                activeTab === index
+              className={`pb-4 text-[11px] tracking-[0.25em] font-medium relative whitespace-nowrap transition-colors ${activeTab === index
                   ? "text-white"
                   : "text-zinc-600 hover:text-zinc-400"
-              }`}
+                }`}
             >
               {tab.label}
 
@@ -109,7 +109,7 @@ const DescriptionTabs = ({
                   (doc, index) => (
                     <a
                       key={index}
-                      href={doc.mediaURL}
+                      href={getImageURL(doc.mediaURL)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between border border-zinc-800 p-4 rounded-lg hover:border-[#9C824A] transition"

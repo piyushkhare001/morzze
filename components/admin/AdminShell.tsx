@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { Sidebar } from "@/components/admin/sidebar";
-import { MobileSidebar } from "@/components/admin/mobileSidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 export function AdminShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -33,6 +33,14 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
       --border: oklch(0.2 0 0);
       --input: oklch(0.15 0 0);
       --ring: oklch(0.85 0.15 47);
+      --sidebar-background: oklch(0.05 0 0);
+      --sidebar-foreground: oklch(0.98 0 0);
+      --sidebar-primary: oklch(0.85 0.15 47);
+      --sidebar-primary-foreground: oklch(0.08 0 0);
+      --sidebar-accent: oklch(0.15 0 0);
+      --sidebar-accent-foreground: oklch(0.98 0 0);
+      --sidebar-border: oklch(0.2 0 0);
+      --sidebar-ring: oklch(0.85 0.15 47);
     }
     
     .admin-dark input {
@@ -100,22 +108,20 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
   `;
 
   return (
-    <div className="admin-dark">
-      <style>{adminStyle}</style>
-      <div className="flex h-full overflow-hidden bg-black">
-        <div className="sticky top-0 hidden h-screen lg:block">
-          <Sidebar />
-        </div>
+    <SidebarProvider>
+      <div className="admin-dark flex h-screen w-full overflow-hidden bg-black text-white">
+        <style>{adminStyle}</style>
+        <Sidebar />
 
-        <div className="flex-1 overflow-y-auto bg-black">
+        <main className="flex-1 overflow-y-auto bg-black">
           <div className="flex items-center gap-2 border-b border-zinc-800 bg-black p-3 lg:hidden">
-            <MobileSidebar />
+            <SidebarTrigger className="text-white hover:bg-zinc-800 hover:text-white" />
             <span className="text-lg font-semibold text-white">Admin</span>
           </div>
 
           <div className="bg-black">{children}</div>
-        </div>
+        </main>
       </div>
-    </div>
+    </SidebarProvider>
   );
 }
