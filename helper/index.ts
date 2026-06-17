@@ -93,7 +93,7 @@ export {
 
 export {
   sendOrderConfirmationEmail,
-  sendFirstPurchaseEmail,
+  // sendFirstPurchaseEmail,
   sendNewsletterEmail,
   sendUserExperienceEmail,
   sendShippingConfirmationEmail,
@@ -104,4 +104,4 @@ export {
 } from "./emailTemplates/action";
 
 
-export {createSubscription,createPaymentGatewayPlan, CreatePaymentGatewaySubscription} from "./subscription/action"
+export { createSubscription, createPaymentGatewayPlan, CreatePaymentGatewaySubscription } from "./subscription/action"

@@ -50,23 +50,23 @@ export async function notifyOrderConfirmationEmail({
   });
 }
 
-export async function notifyFirstOrderEmail({
-  email,
-  customerName,
-}: {
-  email: string;
-  customerName: string;
-}) {
-  return sendTemplateEmail({
-    to: email,
-    subject: "Welcome to Morzze! Your First Purchase Gift Awaits You",
-    template: "first-order",
-    type: "user",
-    data: {
-      "Customer First Name": customerName,
-    },
-  });
-}
+// export async function notifyFirstOrderEmail({
+//   email,
+//   customerName,
+// }: {
+//   email: string;
+//   customerName: string;
+// }) {
+//   return sendTemplateEmail({
+//     to: email,
+//     subject: "Welcome to Morzze! Your First Purchase Gift Awaits You",
+//     template: "first-order",
+//     type: "user",
+//     data: {
+//       "Customer First Name": customerName,
+//     },
+//   });
+// }
 
 export async function notifyOrderShippedEmail({
   email,

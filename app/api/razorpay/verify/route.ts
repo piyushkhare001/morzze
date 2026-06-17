@@ -6,14 +6,14 @@ import { checkUserFirstOrder, createOrder } from "@/helper";
 import { RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET } from "@/env";
 import { getProfile } from "@/helper/user/action";
 import {
-  notifyFirstOrderEmail,
+  // notifyFirstOrderEmail,
   notifyOrderConfirmationEmail,
 } from "@/lib/email-notifications";
 import { calculateCheckoutPricing } from "@/helper/checkout/pricing";
 
 export async function POST(req: Request) {
   const body = await req.json();
-  const {userId,email,fullName}: any = await getProfile();
+  const { userId, email, fullName }: any = await getProfile();
   const {
     razorpay_order_id,
     razorpay_payment_id,
@@ -46,20 +46,20 @@ export async function POST(req: Request) {
     );
   }
 
-  const existingOrder = await checkUserFirstOrder(userId);
-  if (existingOrder.length === 0) {
-    try {
-      await notifyFirstOrderEmail({
-        email,
-        customerName: fullName,
-      });
-    } catch (emailError) {
-      console.error("Unable to send first order email:", emailError);
-    }
-  }
+  // const existingOrder = await checkUserFirstOrder(userId);
+  // if (existingOrder.length === 0) {
+  //   try {
+  //     await notifyFirstOrderEmail({
+  //       email,
+  //       customerName: fullName,
+  //     });
+  //   } catch (emailError) {
+  //     console.error("Unable to send first order email:", emailError);
+  //   }
+  // }
 
 
-  const result:any = await createOrder({
+  const result: any = await createOrder({
     userId,
     address,
     razorpayPaymentId: razorpay_payment_id,

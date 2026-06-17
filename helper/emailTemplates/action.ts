@@ -1,7 +1,7 @@
 "use server";
 
 import {
-  notifyFirstOrderEmail,
+  // notifyFirstOrderEmail,
   notifyOrderConfirmationEmail,
   notifyOrderShippedEmail,
   notifyUserExperienceEmail,
@@ -32,19 +32,19 @@ export async function sendOrderConfirmationEmail(
   }
 }
 
-export async function sendFirstPurchaseEmail(email: string, firstName: string) {
-  try {
-    const result = await notifyFirstOrderEmail({
-      email,
-      customerName: firstName,
-    });
+// export async function sendFirstPurchaseEmail(email: string, firstName: string) {
+//   try {
+//     const result = await notifyFirstOrderEmail({
+//       email,
+//       customerName: firstName,
+//     });
 
-    return { success: true, result };
-  } catch (error) {
-    console.error("SES Email Error:", error);
-    return { success: false, error };
-  }
-}
+//     return { success: true, result };
+//   } catch (error) {
+//     console.error("SES Email Error:", error);
+//     return { success: false, error };
+//   }
+// }
 
 export async function sendNewsletterEmail(
   email: string,
