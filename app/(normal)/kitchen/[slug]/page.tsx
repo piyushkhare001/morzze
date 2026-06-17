@@ -25,9 +25,9 @@ export default async function CategoryPage({
         <div className="bg-black min-h-screen">
             {/* Hero Banner */}
             <section className="relative h-[340px] md:h-[420px] overflow-hidden">
-                {categoryData.bannerImage ? (
+                {categoryData.horizontalBannerImage ? (
                     <Image
-                        src={getImageURL(categoryData.bannerImage)}
+                        src={getImageURL(categoryData.horizontalBannerImage)}
                         alt={categoryData.name ?? "Category"}
                         width={1600}
                         height={700}

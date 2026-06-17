@@ -147,7 +147,8 @@ export async function getCurrentUser() {
     const message = (error as Error)?.message;
     if (
       message !== "USER_ID_MISSING" &&
-      !message?.includes("JWT string does not consist of exactly 3 parts")
+      !message?.includes("JWT string does not consist of exactly 3 parts") &&
+      !message?.includes("Token expired")
     ) {
       console.error(error)
     }

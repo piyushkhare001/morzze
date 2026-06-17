@@ -20,6 +20,8 @@ const page = async ({
     const product = await getFullProductDetails(productslug);
     const reviews = await getProductReviews(productslug);
 
+    // console.log("this is the review of product selected: ", productslug, reviews)
+
     // 3. Agar data nahi mila toh direct 404
     if (!product || Object.keys(product).length === 0) {
       return notFound();

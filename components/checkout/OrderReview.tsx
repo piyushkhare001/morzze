@@ -162,7 +162,7 @@ const OrderReview = ({ shippingData }: { shippingData?: ShippingData }) => {
         } : undefined,
         callback: (response: unknown) => {
           setPaying(false)
-          console.log(response);
+          // console.log(response);
         }
       });
 

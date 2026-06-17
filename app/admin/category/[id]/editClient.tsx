@@ -34,6 +34,7 @@ export default function EditCategory({ categoryInfo }: any) {
   const router = useRouter();
   const { upload, uploading } = useFileUpload();
   const bannerRef = useRef<HTMLInputElement>(null);
+  const horizontalBannerRef = useRef<HTMLInputElement>(null);
 
   const [form, setForm] = useState({
     name: categoryInfo.name,
@@ -55,6 +56,13 @@ export default function EditCategory({ categoryInfo }: any) {
     categoryInfo.bannerImage ?? "",
   );
 
+  const [horizontalPreview, setHorizontalPreview] = useState<string | null>(
+    categoryInfo.horizontalBannerImage ?? null,
+  );
+  const [horizontalBannerKey, setHorizontalBannerKey] = useState<string>(
+    categoryInfo.horizontalBannerImage ?? "",
+  );
+
   useEffect(() => {
     const fetchCategories = async () => {
       const categoriesData = await getAllCategoriesMeta();
@@ -72,6 +80,7 @@ export default function EditCategory({ categoryInfo }: any) {
       description: form.description,
       // type: form.type,
       bannerImage: getStoredImageKey(bannerKey || preview),
+      horizontalBannerImage: getStoredImageKey(horizontalBannerKey || horizontalPreview),
     };
     console.log(categoryData)
     const response = await updateCategory(categoryData);
@@ -93,6 +102,21 @@ export default function EditCategory({ categoryInfo }: any) {
       setBannerKey(fileKey);
 
       toast.success("Image uploaded");
+    } catch (err: any) {
+      toast.error(err.message);
+    }
+  };
+
+  const handleHorizontalBanner = async (file?: File) => {
+    if (!file) return;
+
+    try {
+      const { fileKey, fileUrl } = await upload(file, "category");
+
+      setHorizontalPreview(fileUrl as any);
+      setHorizontalBannerKey(fileKey);
+
+      toast.success("Horizontal image uploaded");
     } catch (err: any) {
       toast.error(err.message);
     }
@@ -215,6 +239,49 @@ export default function EditCategory({ categoryInfo }: any) {
                   {preview && !preview.startsWith("http") && (
                     <p className="text-xs text-blue-600 mt-1 italic">
                       Note: New image selected. Click Update to save.
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-1.5 pt-4">
+                  <Label className="text-slate-600 font-medium">
+                    Horizontal Category Image
+                  </Label>
+
+                  <div
+                    onClick={() => horizontalBannerRef.current?.click()}
+                    className="border-2 border-dashed rounded-xl h-48 flex items-center justify-center cursor-pointer relative overflow-hidden"
+                  >
+                    {!horizontalPreview ? (
+                      <p>Click to upload horizontal image</p>
+                    ) : (
+                      <Image
+                        src={getImageURL(horizontalPreview)}
+                        alt="Horizontal banner preview"
+                        width={800}
+                        height={400}
+                        className="w-full h-full object-contain"
+                      />
+                    )}
+
+                    {uploading && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                        Uploading...
+                      </div>
+                    )}
+                  </div>
+
+                  <input
+                    ref={horizontalBannerRef}
+                    type="file"
+                    hidden
+                    accept="image/*"
+                    onChange={(e) => handleHorizontalBanner(e.target.files?.[0])}
+                  />
+
+                  {horizontalPreview && !horizontalPreview.startsWith("http") && (
+                    <p className="text-xs text-blue-600 mt-1 italic">
+                      Note: New horizontal image selected. Click Update to save.
                     </p>
                   )}
                 </div>

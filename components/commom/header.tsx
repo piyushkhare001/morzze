@@ -298,13 +298,15 @@ const Header = () => {
   };
 
   const navLinks = [
-    { name: "Home", href: "/" },
+    // { name: "Home", href: "/" },
     // { name: "Products", href: "/products" },
     { name: "Shop", href: "/category" },
     { name: "Kitchen", href: "/kitchen" },
     { name: "Bathroom", href: "/bathroom" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    // { name: "About", href: "/about" },
+    { name: "Become a Dealer", href: "/dealer" },
+
+    // { name: "Contact", href: "/contact" },
     { name: "Catalogue", href: "/catalogue" },
   ];
 

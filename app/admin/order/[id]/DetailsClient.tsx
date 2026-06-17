@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { ContactLink } from "@/components/ContactLink";
+import { getImageURL } from "@/lib/getImageLin";
 export default function Details({ id }: { id: string }) {
   const [orderInfo, setOrderInfo] = useState<any>(null);
   const [isPending, startTransition] = useTransition();
@@ -38,17 +39,28 @@ export default function Details({ id }: { id: string }) {
   useEffect(() => {
     startTransition(async () => {
       const data = await fetchOrderDetails(id);
-      console.error(data)
+      // console.error(data)
       setOrderInfo(data);
     });
   }, [id]);
 
-  const steps = [
-    { label: "Order Confirmed", date: "Aug 16, 2023" },
-    { label: "Order Shipped", date: "Aug 22, 2023" },
-    { label: "Out for Delivery", date: "Aug 28, 2023" },
-    { label: "Delivered", date: "Aug 28, 2023" },
-  ];
+  const getSteps = () => {
+    if (!orderInfo?.order) return [];
+
+    const dynamicSteps = [];
+    if (orderInfo.order.createdAt) {
+      dynamicSteps.push({ label: "Order Confirmed", date: formatDate(orderInfo.order.createdAt) });
+    }
+    if (orderInfo.order.shippedAt) {
+      dynamicSteps.push({ label: "Order Shipped", date: formatDate(orderInfo.order.shippedAt) });
+    }
+    if (orderInfo.order.deliveredAt) {
+      dynamicSteps.push({ label: "Delivered", date: formatDate(orderInfo.order.deliveredAt) });
+    }
+    return dynamicSteps;
+  };
+
+  const steps = getSteps();
 
   if (isPending || !orderInfo) {
     return (
@@ -96,7 +108,7 @@ export default function Details({ id }: { id: string }) {
             <div className="flex gap-4 pt-4">
               <Button
                 variant="outline"
-                className="flex-1 rounded-full border-slate-200 text-slate-600"
+                className="flex-1 hover:bg-gray-900 rounded-full border-slate-200 text-slate-600"
               >
                 <Link href={`/admin/order`}>Cancel Order</Link>
               </Button>
@@ -186,7 +198,7 @@ export default function Details({ id }: { id: string }) {
                       <td className="px-6 py-5">
                         <div className="flex items-center gap-4">
                           <Avatar className="h-20 w-20 border-2 border-slate-100">
-                            <AvatarImage src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${item.productImage}`} className="object-contain" />
+                            <AvatarImage src={getImageURL(item.productImage)} className="object-contain" />
                             <AvatarFallback>{item.productName?.slice(0, 1).toUpperCase()}</AvatarFallback>
                           </Avatar>
 

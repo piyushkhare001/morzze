@@ -32,7 +32,7 @@ const navItems = [
   { title: "Address Book", icon: IconAddressBook, href: "/dashboard/address" },
   { title: "Wishlist", icon: IconHeart, href: "/dashboard/wishlist" },
   { title: "Reviews & Ratings", icon: IconStar, href: "/dashboard/review-rating" },
-  { title: "Notifications", icon: IconBell, href: "/dashboard/notification" },
+  // { title: "Notifications", icon: IconBell, href: "/dashboard/notification" },
 ]
 
 export default function AppSidebar() {

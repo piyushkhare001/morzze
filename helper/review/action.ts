@@ -71,12 +71,12 @@ export async function createReview(reviewData: {
   productId: string;
   rating: number;
   message: string;
-  title?: string;
+  // title?: string;
   media?: string[];
 }) {
   try {
     const { userId } = await getProfile();
-    const { productId, rating, message, title, media } = reviewData;
+    const { productId, rating, message, media } = reviewData;
 
     if (!productId?.trim()) {
       return { success: false, message: "Product is required." };
@@ -116,12 +116,12 @@ export async function createReview(reviewData: {
       };
     }
 
-    const fullMessage = title?.trim()
-      ? `${title.trim()}\n\n${body}`
-      : body;
+    // const fullMessage = title?.trim()
+    //   ? `${title.trim()}\n\n${body}`
+    //   : body;
 
     const safeMessage =
-      fullMessage.length > 5000 ? fullMessage.slice(0, 5000) : fullMessage;
+      body.length > 5000 ? body.slice(0, 5000) : body;
 
     await db.transaction(async (tx) => {
       const userInfo = await tx.query.users.findFirst({
@@ -172,6 +172,23 @@ export async function getProductReviews(slug: string | any) {
       where: eq(product.slug, slug),
     });
     if (!v || !v.id) return [];
+    // const reviews = await db
+    //   .select({
+    //     id: review.id,
+    //     rating: review.rating,
+    //     userId: review.userId,
+    //     name: review.name,
+    //     email: review.email,
+    //     message: review.message,
+    //     productId: review.productId,
+    //     createdAt: review.createdAt,
+    //   })
+    //   .from(review)
+    //   .innerJoin(users, eq(review.userId, users.id))
+    //   .where(
+    //     and(eq(review.productId, v.id), eq(review.isAdminApproved, true)),
+    //   );
+
     const reviews = await db
       .select({
         id: review.id,
@@ -183,23 +200,21 @@ export async function getProductReviews(slug: string | any) {
         productId: review.productId,
         createdAt: review.createdAt,
       })
-      .from(review)
-      .innerJoin(users, eq(review.userId, users.id))
-      .where(
-        and(eq(review.productId, v.id), eq(review.isAdminApproved, true)),
-      );
+      .from(review).where(eq(review.productId, v.id));
 
-    const reviewsWithMedia = await Promise.all(
-      reviews.map(async (r) => ({
-        ...r,
-        media: await db
-          .select()
-          .from(reviewMedia)
-          .where(eq(reviewMedia.reviewId, r.id)),
-      })),
-    );
 
-    return reviewsWithMedia;
+    // const reviewsWithMedia = await Promise.all(
+    //   reviews.map(async (r) => ({
+    //     ...r,
+    //     media: await db
+    //       .select()
+    //       .from(reviewMedia)
+    //       .where(eq(reviewMedia.reviewId, r.id)),
+    //   })),
+    // );
+
+    // return reviewsWithMedia;
+    return reviews;
   } catch (error) {
     return [];
   }

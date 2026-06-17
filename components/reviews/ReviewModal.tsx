@@ -15,6 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { IconStar, IconStarFilled } from "@tabler/icons-react";
 import { createReview } from "@/helper/review/action";
 import { toast } from "sonner";
+import { getImageURL } from "@/lib/getImageLin";
 
 export type ExistingReviewSummary = {
   rating: number | null;
@@ -69,10 +70,10 @@ const ReviewModal = ({
       toast.error("Please select a star rating.");
       return;
     }
-    if (!title.trim()) {
-      toast.error("Please add a review title.");
-      return;
-    }
+    // if (!title.trim()) {
+    //   toast.error("Please add a review title.");
+    //   return;
+    // }
     if (!review.trim()) {
       toast.error("Please write your review.");
       return;
@@ -83,7 +84,7 @@ const ReviewModal = ({
         productId,
         rating,
         message: review.trim(),
-        title: title.trim(),
+        // title: title.trim(),
         media: [],
       });
       if (res.success) {
@@ -128,7 +129,7 @@ const ReviewModal = ({
             <div className="w-12 h-12 bg-[#0A0A0A] border border-zinc-800 rounded-sm overflow-hidden shrink-0">
               {image ? (
                 <Image
-                  src={image}
+                  src={getImageURL(image)}
                   alt=""
                   width={120}
                   height={120}

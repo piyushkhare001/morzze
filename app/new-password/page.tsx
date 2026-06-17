@@ -55,7 +55,7 @@ const SetNewPasswordContent = () => {
     const toastId = toast.loading("Resetting password...");
 
     try {
-      console.log("Resetting password with:", { email: email!, code: code!, newPassword: password });
+      // console.log("Resetting password with:", { email: email!, code: code!, newPassword: password });
       await confirmForgotPassword({
         email: email!,
         code: code!,

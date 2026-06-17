@@ -27,11 +27,11 @@ interface Props {
   total: number;
   currentPage: number;
   pageSize: number;
-  status: any
+  // status: any
 
 }
 
-const OrderClient = ({ order, total, currentPage, pageSize, status }: Props) => {
+const OrderClient = ({ order, total, currentPage, pageSize }: Props) => {
 
 
   const [isPending, startTransition] = useTransition();
@@ -60,13 +60,7 @@ const OrderClient = ({ order, total, currentPage, pageSize, status }: Props) => 
   }, [debouncedSearch]);
 
 
-  useEffect(() => {
-    setSelectedOrderStatus(status)
-  }, [status])
-
-
-
-const ORDER_STATUS = [
+  const ORDER_STATUS = [
     { value: "pending", label: "Pending" },
     { value: "paid", label: "Paid" },
     { value: "completed", label: "Completed" },

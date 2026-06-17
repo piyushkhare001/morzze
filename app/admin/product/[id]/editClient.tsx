@@ -171,16 +171,16 @@ export default function EditProduct({ productDetails }: any) {
   const [faqs, setFaqs] = useState(
     productDetails?.productFaqRes?.length
       ? productDetails.productFaqRes.map((faq: any) => ({
-          id: faq.id,
-          question: faq.question,
-          answer: faq.answer,
-        }))
+        id: faq.id,
+        question: faq.question,
+        answer: faq.answer,
+      }))
       : [
-          {
-            question: "",
-            answer: "",
-          },
-        ]
+        {
+          question: "",
+          answer: "",
+        },
+      ]
   );
 
   const {
@@ -523,14 +523,14 @@ export default function EditProduct({ productDetails }: any) {
       ],
       VarientBoxes: varientBox
         ? variantBoxes.map((item: any) => ({
-            ...item,
-            image: getStoredImageKey(item.image),
-          }))
+          ...item,
+          image: getStoredImageKey(item.image),
+        }))
         : [],
       hasVarientBox: varientBox,
       isHidden: variants.isHide,
     };
-   console.log("sending this payload",payload)
+    //  console.log("sending this payload",payload)
     formData.set("variants", JSON.stringify(payload));
 
     try {
