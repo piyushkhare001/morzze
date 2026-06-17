@@ -62,8 +62,7 @@ const CheckoutSummary = () => {
     : 0
 
   const discountedSubtotal = subtotal - discountAmount
-  const gst = Math.round(discountedSubtotal * 0.18)
-  const total = Math.max(discountedSubtotal + gst, 0)
+  const total = Math.max(discountedSubtotal, 0)
 
   return (
     <div className="bg-[#0A0A0A] border border-zinc-900 rounded-lg p-8 text-white">

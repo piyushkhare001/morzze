@@ -119,8 +119,7 @@ const OrderReview = ({ shippingData }: { shippingData?: ShippingData }) => {
     : 0
 
   const discountedSubtotal = subtotal - discountAmount
-  const gst = Math.round(discountedSubtotal * 0.18)
-  const total = Math.max(discountedSubtotal + gst, 0)
+  const total = Math.max(discountedSubtotal, 0)
 
   const handlePayment = async () => {
     if (cartItems.length === 0) {
