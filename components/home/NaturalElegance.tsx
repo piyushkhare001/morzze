@@ -73,7 +73,7 @@ const NaturalElegance = () => {
               <span className="font-montserrat  text-3xl md:text-2xl font-bold text-white tracking-tight">₹22,999</span>
               <span className="font-montserrat text-3xl md:text-2xl text-zinc-500 line-through">₹27,899</span>
             </div>
-            <Link href={"/product/granite-wash-basinmbb-401"}>
+            <Link href={"kitchen/Granite-Sinks"}>
               <Button
                 variant="outline"
                 className=" border-[#CBA14D] rounded-md text-[#CBA14D] hover:bg-[#CBA14D] hover:text-black font-bold uppercase tracking-widest px-12 h-14 transition-all duration-500 bg-transparent"
