@@ -272,19 +272,19 @@ const Page = () => {
               defaultValue="email"
               className="w-full   border-none  text-center justify-center items-center my-auto"
             >
-              <TabsList variant="line" className="w-full mb-4 justify-between">
+              <TabsList variant="line" className="w-full mb-4 max-w-40 justify-between">
                 <TabsTrigger
                   className=" !text-white data-[state=active]:!text-white border  data-[state=active]:!border-[#FDB813] after:absolute after:bg-[#FDB813] after:opacity-0 after:transition-opacity"
                   value="email"
                 >
                   Login by Email
                 </TabsTrigger>
-                <TabsTrigger
+                {/* <TabsTrigger
                   className="!text-white data-[state=active]:!text-white border  data-[state=active]:!border-[#FDB813] after:absolute after:bg-[#FDB813] after:opacity-0 after:transition-opacity"
                   value="phone"
                 >
                   Login by OTP
-                </TabsTrigger>
+                </TabsTrigger> */}
               </TabsList>
               <TabsContent className="grid grid-cols-1 gap-4" value="email">
                 <InputGroup className="max-w-96 py-5 bg-[#141414] rounded-xs px-3 border border-[#454545]">
