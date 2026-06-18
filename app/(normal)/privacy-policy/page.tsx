@@ -7,7 +7,8 @@ const page = () => {
       {/* Header */}
       <div className="text-center py-6 border-b border-[#FEFFF1] mb-8">
         <h1 className="text-3xl font-bold">Privacy Policy</h1>
-        <p className="text-sm mt-2">Effective Date: October 2, 2024</p>
+        <p className="text-sm mt-2">Effective Date: October 2, 2024
+          Last Updated: June 18, 2026</p>
       </div>
 
       {/* Content */}
@@ -132,6 +133,27 @@ const page = () => {
             the laws of India. Any disputes arising under or in connection with
             this Privacy Policy shall be subject to the exclusive jurisdiction
             of the competent courts in Delhi, India.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-lg font-semibold text-white mb-2">
+            Data Retention
+          </h2>
+          <p>
+            We retain your personal information only as long as necessary to provide
+            services, comply with legal obligations, resolve disputes, and enforce our
+            agreements.
+          </p>
+        </div>
+        <div>
+          <h2 className="text-lg font-semibold text-white mb-2">
+            Payment Information
+          </h2>
+          <p>
+            Payments are processed securely through authorized payment gateway providers
+            including Razorpay. We do not store card numbers, CVV, UPI PINs, or other
+            sensitive payment credentials on our servers.
           </p>
         </div>
 

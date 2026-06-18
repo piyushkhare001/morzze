@@ -8,6 +8,9 @@ import FloatingWhatsappButton from "@/components/Whatsapp_Button/FloatingWhatsap
 export const metadata: Metadata = {
   title: "Morzze - Kitchen & Bathroom Accessories",
   description: "Morzze - Premium Kitchen & Bathroom Accessories",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

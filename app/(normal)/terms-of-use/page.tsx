@@ -230,6 +230,22 @@ const page = () => {
               the Website.
             </p>
           </div>
+          <div>
+            <h2 className="text-lg font-semibold text-white mb-2">
+              16. Orders and Payments
+            </h2>
+            <p>
+              Users agree to provide accurate billing and payment information. All payments are processed through secure third-party payment gateways. We reserve the right to refuse or cancel any order if fraudulent or unauthorized activity is suspected.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold text-white mb-2">
+              17. Pricing and Availability
+            </h2>
+            <p>
+              All prices displayed on the Website are subject to change without prior notice. We reserve the right to modify, discontinue, or limit the availability of any product or service.
+            </p>
+          </div>
         </div>
       </div>
     </section>

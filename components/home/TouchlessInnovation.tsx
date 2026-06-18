@@ -35,7 +35,8 @@ const TouchlessInnovation = () => {
               <Image
                 src="/touchless.jpg"
                 alt="Touchless Faucet Technology"
-                fill
+                height={500}
+                width={500}
                 className="object-cover"
                 priority
               />
