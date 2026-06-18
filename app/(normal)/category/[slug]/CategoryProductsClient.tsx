@@ -71,7 +71,7 @@ const CategoryProductsClient = ({
         {/* <span className="text-[10px] text-[#555] uppercase tracking-widest font-inter">
           {products.length} {products.length === 1 ? "Result" : "Results"}
         </span> */}
-        <div className=" bg-slate-800 rounded-sm p-3 flex flex-col gap-4 w-64">
+        {/* <div className=" bg-slate-800 rounded-sm p-3 flex flex-col gap-4 w-64">
           <Label className=" text-white">Filter by size</Label>
           <Slider
             defaultValue={[25, 50]}
@@ -83,7 +83,7 @@ const CategoryProductsClient = ({
             <p>32</p>
             <p>46</p>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-12">
