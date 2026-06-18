@@ -33,7 +33,7 @@ const TouchlessInnovation = () => {
           >
             <div className="relative w-full h-full overflow-hidden rounded-tr-[180px] rounded-bl-[180px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
               <Image
-                src="/touchless.jpg"
+                src="/airtap_main.png"
                 alt="Touchless Faucet Technology"
                 height={500}
                 width={500}
