@@ -31,24 +31,24 @@ const page = () => {
 
   const router = useRouter();
 
-const handleFaqRedirect = () => {
-  router.push("/support?tab=faq");
-};
+  const handleFaqRedirect = () => {
+    router.push("/support?tab=faq");
+  };
 
   const [messageLength, setMessageLength] = useState(0);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
- 
+
   const [formData, setFormData] = useState({
-    
+
     fullName: "",
     email: "",
     phone: "",
     category: "",
     subject: "",
     message: "",
-   zc_gad: "",
+    zc_gad: "",
   });
 
   const handleChange = (
@@ -70,14 +70,14 @@ const handleFaqRedirect = () => {
     setError("");
     setSuccess("");
   };
-  
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const payload = {
-    ...formData,
-    zc_gad: (document.getElementById("zc_gad") as HTMLInputElement)?.value || "",
-  };
+      ...formData,
+      zc_gad: "",
+    };
 
     setError("");
     setSuccess("");
@@ -146,7 +146,7 @@ const handleFaqRedirect = () => {
           category: "",
           subject: "",
           message: "",
-    zc_gad: "",
+          zc_gad: "",
         });
 
         setMessageLength(0);
@@ -291,20 +291,26 @@ const handleFaqRedirect = () => {
                 </div>
               )}
 
-              <form className="space-y-6" id="zoho-form" onSubmit={handleSubmit}>
-                <input
-                  type="hidden"
-                  id="zc_gad"
-                  name="zc_gad"
-                  value={formData.zc_gad}
-                />
+              <form action='https://forms.zohopublic.in/morzeein1/form/WebsiteForm/formperma/aXUf0Vt7j_5Fi5XmomE0M1xHyYShMNujEYLfdpFG9Y0/htmlRecords/submit' name='form' id='form' method='POST' accept-charset='UTF-8' onSubmit={handleSubmit}>
+
+                <input type="hidden" name="zf_morzze_contact" value="" />
+                <input type="hidden" name="zf_redirect_url" value="https://morzze.com" />
+                <input type="hidden" name="zc_gad" value="" />
+                <input type="hidden" name="utm_source" value="" />
+                <input type="hidden" name="utm_medium" value="" />
+                <input type="hidden" name="utm_campaign" value="" />
+                <input type="hidden" name="utm_term" value="" />
+                <input type="hidden" name="utm_content" value="" />
+
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <FieldLabel className="text-white mb-3 block text-sm font-medium">
                       Full Name *
                     </FieldLabel>
+
                     <Input
-                      name="fullName"
+                      name="SingleLine"
                       value={formData.fullName}
                       onChange={handleChange}
                       placeholder="Your name"
@@ -316,8 +322,9 @@ const handleFaqRedirect = () => {
                     <FieldLabel className="text-white mb-3 block text-sm font-medium">
                       Email Address *
                     </FieldLabel>
+
                     <Input
-                      name="email"
+                      name="Email"
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="your@email.com"
@@ -326,13 +333,15 @@ const handleFaqRedirect = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
                   <div>
                     <FieldLabel className="text-white mb-3 block text-sm font-medium">
                       Phone Number
                     </FieldLabel>
+
                     <Input
-                      name="phone"
+                      id="international_PhoneNumber_countrycode"
+                      name="PhoneNumber_countrycode"
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+91 98765 43210"
@@ -344,6 +353,7 @@ const handleFaqRedirect = () => {
                     <FieldLabel className="text-white mb-3 block text-sm font-medium">
                       Category *
                     </FieldLabel>
+                    <input className="hidden" type="text" name="SingleLine2" value={formData.category} />
                     <select
                       name="category"
                       value={formData.category}
@@ -369,12 +379,12 @@ const handleFaqRedirect = () => {
                   </div>
                 </div>
 
-                <div>
+                <div className="mt-4">
                   <FieldLabel className="text-white mb-3 block text-sm font-medium">
                     Subject *
                   </FieldLabel>
                   <Input
-                    name="subject"
+                    name="SingleLine1"
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="How can we help you"
@@ -382,13 +392,14 @@ const handleFaqRedirect = () => {
                   />
                 </div>
 
-                <div>
+                <div className='mt-4'>
                   <FieldLabel className="text-white mb-3 block text-sm font-medium">
                     Message *
                   </FieldLabel>
                   <div className="relative">
+
                     <Textarea
-                      name="message"
+                      name="MultiLine"
                       value={formData.message}
                       placeholder="Tell us more about your inquiry..."
                       maxLength={maxLength}
@@ -455,26 +466,26 @@ const handleFaqRedirect = () => {
                 </div>
               </div> */}
 
-            <a
-              href="https://wa.me/918750313000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <div className="bg-[#F0FDF4] border rounded-xs p-6 flex items-center gap-4 cursor-pointer hover:bg-[#E8FBEF] transition-colors">
-                <div className="w-12 h-12 rounded-full bg-[#22C55E] flex items-center justify-center">
-                  <IconBrandWhatsapp className="text-white w-8 h-8" />
+              <a
+                href="https://wa.me/918750313000"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <div className="bg-[#F0FDF4] border rounded-xs p-6 flex items-center gap-4 cursor-pointer hover:bg-[#E8FBEF] transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-[#22C55E] flex items-center justify-center">
+                    <IconBrandWhatsapp className="text-white w-8 h-8" />
+                  </div>
+                  <div>
+                    <p className="text-[#111827] font-semibold">
+                      Chat on WhatsApp
+                    </p>
+                    <p className="text-[#4B5563] text-sm">
+                      We typically reply within minutes
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-[#111827] font-semibold">
-                    Chat on WhatsApp
-                  </p>
-                  <p className="text-[#4B5563] text-sm">
-                    We typically reply within minutes
-                  </p>
-                </div>
-              </div>
-            </a>
+              </a>
 
               <div className="flex gap-4 justify-center lg:justify-start pt-4">
                 <a
