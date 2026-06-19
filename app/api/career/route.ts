@@ -26,7 +26,7 @@ export async function POST(req: Request) {
     const buffer = Buffer.from(bytes)
 
     await sendEmailWithAttachments({
-      to: process.env.RECEIVER_EMAIL || process.env.EMAIL_FROM!,
+      to: "info@morzze.com",
       subject: `New Job Application - ${jobTitle}`,
       html: renderTemplate(
         `

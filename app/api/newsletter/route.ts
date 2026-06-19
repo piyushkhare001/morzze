@@ -18,7 +18,7 @@ export async function POST(req: Request) {
 
     try {
       await sendEmail({
-        to: process.env.RECEIVER_EMAIL || process.env.EMAIL_FROM!,
+        to: "info@morzze.com",
         subject: "New Newsletter Subscription - Morzze",
         html: renderTemplate(
           `

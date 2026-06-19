@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     }
 
     await sendEmail({
-      to: process.env.RECEIVER_EMAIL || process.env.EMAIL_FROM!,
+      to: "info@morzze.com",
       subject: `New Dealer Application - ${businessName}`,
       html: renderTemplate(
         `

@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     }
 
     const emailPayload = {
-      to: process.env.EMAIL_TO || process.env.RECEIVER_EMAIL || process.env.EMAIL_FROM!,
+      to: "info@morzze.com",
       subject: "New Return Request",
       html: renderTemplate(
         `
