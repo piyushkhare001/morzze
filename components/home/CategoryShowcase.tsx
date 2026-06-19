@@ -97,7 +97,8 @@ const CategoryShowcase = ({ categories }: { categories: CategoryWithProducts[] }
                     <Image
                       src={getImageURL(prod.bannerImage || "")}
                       alt={prod.name || "Product"}
-                      fill
+                      height={500}
+                      width={500}
                       className="object-cover transition-transform duration-1000 hover:scale-105"
                     />
                     {/* Product name overlay */}
@@ -151,7 +152,8 @@ const CategoryShowcase = ({ categories }: { categories: CategoryWithProducts[] }
                     <Image
                       src={getImageURL(prod.bannerImage || "")}
                       alt={prod.name || "Product"}
-                      fill
+                      height={500}
+                      width={500}
                       className="object-cover transition-transform duration-1000 hover:scale-105"
                     />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-2">

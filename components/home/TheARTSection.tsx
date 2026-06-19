@@ -35,8 +35,9 @@ const TheARTSection = () => {
           <Image
             src="/artmake.jpg"
             alt="Master craftsman working on steel"
-            fill
-            className="object-cover"
+            height={700}
+            width={700}
+            className="object-cover w-full h-full"
           />
         </motion.div>
         <div className="space-y-12 px-2 md:px-0">

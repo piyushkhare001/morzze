@@ -67,7 +67,8 @@ export default function BrandFilmsProductDemos() {
                     <Image
                       src="/films.png"
                       alt={film.title}
-                      fill
+                      height={500}
+                      width={500}
                       className="object-cover group-hover:scale-105 transition duration-700"
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition" />
@@ -86,8 +87,8 @@ export default function BrandFilmsProductDemos() {
             </motion.div>
           ))}
         </div>
-        
-        
+
+
       </div>
     </section>
   );

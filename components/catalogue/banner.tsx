@@ -16,9 +16,10 @@ export default function ProductCatalogueHero() {
         <Image
           src="/catalogue.png"
           alt="Product Catalogue"
-          fill
+          height={1600}
+          width={1600}
           priority
-          className="object-cover object-center"
+          className="object-cover w-full h-full object-center"
         />
         <div className="absolute inset-0 bg-black/45" />
       </motion.div>

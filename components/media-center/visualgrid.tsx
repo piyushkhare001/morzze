@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Download } from "lucide-react";
 
 const tabs = [
- 
+
 ];
 const images = [
   "/Concept1.jpg",
@@ -72,7 +72,8 @@ export default function ProductPhotographyGallery() {
                 <Image
                   src={img}
                   alt="gallery"
-                  fill
+                  height={500}
+                  width={500}
                   className="object-cover group-hover:scale-105 transition duration-700"
                 />
               </motion.div>

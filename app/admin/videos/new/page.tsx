@@ -55,7 +55,7 @@ export default function VideoForm() {
       if (blobRef.current) {
         try {
           URL.revokeObjectURL(blobRef.current);
-        } catch (e) {}
+        } catch (e) { }
       }
       blobRef.current = local;
       setFormData((prev) => ({ ...prev, [field]: local }));
@@ -66,7 +66,7 @@ export default function VideoForm() {
       if (blobRef.current && finalUrl !== blobRef.current) {
         try {
           URL.revokeObjectURL(blobRef.current);
-        } catch (e) {}
+        } catch (e) { }
         blobRef.current = null;
       }
 
@@ -189,15 +189,16 @@ export default function VideoForm() {
                 {uploading
                   ? "Uploading..."
                   : formData.thumbnail
-                  ? "Thumbnail Uploaded ✅"
-                  : "Click or drag to upload thumbnail"}
+                    ? "Thumbnail Uploaded ✅"
+                    : "Click or drag to upload thumbnail"}
               </p>
               {formData.thumbnail && (
                 <div className="mt-3 relative h-40 w-full rounded-lg overflow-hidden border">
                   <Image
                     src={formData.thumbnail}
                     alt="Thumbnail Preview"
-                    fill
+                    height={500}
+                    width={500}
                     className="object-cover"
                     unoptimized
                   />

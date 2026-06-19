@@ -17,12 +17,13 @@ const CategoryBanner = ({ title, description, imageSrc }: {
         <Image
           src={imageSrc || "/category-banner.png"} // Replace with your image
           alt="Premium Kitchen and Bathroom Fittings"
-          fill
-          className="object-cover"
+          height={1600}
+          width={1600}
+          className="object-cover w-full h-full"
           priority
         />
         {/* Luxury Dark Overlay */}
-        <div className="absolute inset-0 bg-black/20 bg-gradient-to-r from-black/50 via-black/5 to-transparent" />
+        <div className="absolute inset-0 bg-black/20 bg-linear-to-r from-black/50 via-black/5 to-transparent" />
       </div>
 
       {/* --- CONTENT CONTAINER --- */}
@@ -53,7 +54,7 @@ const CategoryBanner = ({ title, description, imageSrc }: {
       </div>
 
       {/* Subtle Bottom Glow Accent */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CBA14D]/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-[#CBA14D]/30 to-transparent" />
     </section>
   );
 };

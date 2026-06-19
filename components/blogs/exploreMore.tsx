@@ -62,7 +62,8 @@ export default function MoreToExploreSection() {
                 <Image
                   src="/related.png"
                   alt={item.title}
-                  fill
+                  height={500}
+                  width={500}
                   className="object-cover group-hover:scale-105 transition duration-700"
                 />
               </div>

@@ -63,46 +63,49 @@ const Page = () => {
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center lg:justify-end bg-black">
 
-      
+
       <Image
         src="/loginbg.png"
         alt="background"
-        fill
+        height={500}
+        width={500}
         priority
         className="object-cover -z-10 opacity-20"
       />
 
-      
+
       <div className="w-full md:w-1/2 flex items-center justify-center p-4">
-<div className="bg-zinc-950 border border-zinc-800 shadow-lg rounded-2xl w-full max-w-sm md:max-w-lg lg:max-w-md p-4">
+        <div className="bg-zinc-950 border border-zinc-800 shadow-lg rounded-2xl w-full max-w-sm md:max-w-lg lg:max-w-md p-4">
 
-        <div className="flex justify-center mb-4 mt-5">
-  <Image
-    src="/logo.svg"   
-    alt="Potent logo"
-    width={90}
-    height={50}
-    className="object-contain"
-  />
-</div>
+          <div className="flex justify-center mb-4 mt-5">
+            <Image
+              src="/logo.svg"
+              alt="Potent logo"
+              width={90}
+              height={50}
+              className="object-contain"
+            />
+          </div>
           <div className="flex justify-center mb-1">
-            
-<Image
-  src="/mobilelogin.png"
-  alt="background mobile"
-  fill
-  priority
-  className="object-cover -z-10 md:hidden"
-/>
+
+            <Image
+              src="/mobilelogin.png"
+              alt="background mobile"
+              height={500}
+              width={500}
+              priority
+              className="object-cover -z-10 md:hidden"
+            />
 
 
-<Image
-  src="/loginbg.png"
-  alt="background desktop"
-  fill
-  priority
-  className="object-cover -z-10 hidden md:block"
-/>
+            <Image
+              src="/loginbg.png"
+              alt="background desktop"
+              height={500}
+              width={500}
+              priority
+              className="object-cover -z-10 hidden md:block"
+            />
           </div>
 
           <h2 className="text-center text-2xl font-semibold text-white mb-2">
@@ -162,17 +165,17 @@ const Page = () => {
             </button>
           </form>
 
-         <button className="w-full border border-yellow-400 text-yellow-400 py-2 text-sm rounded-full mt-1 font-medium flex items-center justify-center gap-2 bg-transparent hover:bg-yellow-400/10 transition">
-  
-  <Image
-    src="/google.svg"   
-    alt="google"
-    width={15}
-    height={15}
-  />
+          <button className="w-full border border-yellow-400 text-yellow-400 py-2 text-sm rounded-full mt-1 font-medium flex items-center justify-center gap-2 bg-transparent hover:bg-yellow-400/10 transition">
 
-  <span>Sign in with Google</span>
-</button>
+            <Image
+              src="/google.svg"
+              alt="google"
+              width={15}
+              height={15}
+            />
+
+            <span>Sign in with Google</span>
+          </button>
 
           <p className="text-center text-xs mt-4 mb-6 text-zinc-400">
             Need assistance?{" "}

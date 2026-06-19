@@ -125,49 +125,52 @@ const Page = () => {
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center lg:justify-end">
 
-    
+
       <Image
         src="/loginbg.png"
         alt="background"
-        fill
+        height={500}
+        width={500}
         priority
         className="object-cover -z-10"
       />
 
-  
+
       <div className="w-full md:w-1/2 flex items-center justify-center p-4">
         <div className="bg-white shadow-lg rounded-2xl w-full max-w-md md:max-w-lg lg:max-w-md p-5">
 
-       
+
           <div className="flex justify-center mb-1">
-           <Image
-             src="/mobilelogin.png"
-             alt="background mobile"
-             fill
-             priority
-             className="object-cover -z-10 md:hidden"
-           />
-           
-          
-           <Image
-             src="/loginbg.png"
-             alt="background desktop"
-             fill
-             priority
-             className="object-cover -z-10 hidden md:block"
-           />
+            <Image
+              src="/mobilelogin.png"
+              alt="background mobile"
+              height={500}
+              width={500}
+              priority
+              className="object-cover -z-10 md:hidden"
+            />
+
+
+            <Image
+              src="/loginbg.png"
+              alt="background desktop"
+              height={500}
+              width={500}
+              priority
+              className="object-cover -z-10 hidden md:block"
+            />
           </div>
 
           {/* LOGO */}
-<div className="flex justify-center mb-4">
-  <Image
-    src="/logo.svg"
-    alt="Potent logo"
-    width={90}
-    height={50}
-    className="object-contain"
-  />
-</div>
+          <div className="flex justify-center mb-4">
+            <Image
+              src="/logo.svg"
+              alt="Potent logo"
+              width={90}
+              height={50}
+              className="object-contain"
+            />
+          </div>
           <h2 className="text-center text-2xl font-semibold text-[#168ba0]">
             Create an account
           </h2>
@@ -274,7 +277,7 @@ const Page = () => {
               Create Account
             </button>
           </form>
-          
+
           <button className="w-full border border-cyan-700 text-cyan-700 py-2 text-sm rounded-full mt-2 font-medium flex items-center justify-center gap-2 bg-white">
             <Image
               src="/google.svg"
@@ -285,12 +288,12 @@ const Page = () => {
             <span>Sign up with Google</span>
           </button>
 
-       
+
           <p className="text-center text-xs mt-2">
             Already have an account?{" "}
             <Link href="/login" className="underline cursor-pointer">
-  Login
-</Link>
+              Login
+            </Link>
           </p>
 
         </div>

@@ -15,8 +15,9 @@ const VertexShowcase = () => {
         <Image
           src="/vertex1-bg.png"
           alt="Kitchen Background"
-          fill
-          className="object-cover" // Opacity thodi badha di hai taaki background dikhe
+          height={500}
+          width={500}
+          className="object-cover w-full h-full" // Opacity thodi badha di hai taaki background dikhe
           priority
         />
         {/* Dark Overlay taaki text clear dikhe */}
@@ -76,7 +77,8 @@ const VertexShowcase = () => {
                 <Image
                   src="/vertex-bg.png"
                   alt="Vertex Pro Faucet"
-                  fill
+                  height={1000}
+                  width={1000}
                   className="object-contain object-center"
                 />
               </div>

@@ -17,9 +17,10 @@ export default function PromoCodesOfferHero() {
         <Image
           src="/promo.png"
           alt="Promo Offers"
-          fill
+          height={1600}
+          width={1600}
           priority
-          className="object-cover object-center"
+          className="object-cover w-full h-full object-center"
         />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.42),rgba(84,25,0,0.28),rgba(0,0,0,0.22))]" />
       </motion.div>

@@ -181,7 +181,8 @@ export default function EditBlogForm({ initialData }: { initialData: any }) {
                 <Image
                   src={getImageUrl(formData.image)}
                   alt="Preview"
-                  fill
+                  height={500}
+                  width={500}
                   className="object-contain"
                   unoptimized
                 />
@@ -238,7 +239,8 @@ export default function EditBlogForm({ initialData }: { initialData: any }) {
                   <Image
                     src={formData.userImage}
                     alt="Author"
-                    fill
+                    height={500}
+                    width={500}
                     className="object-cover"
                     unoptimized
                   />

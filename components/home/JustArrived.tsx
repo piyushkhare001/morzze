@@ -61,10 +61,10 @@ const JustArrived = ({ products }: { products: NewArrivalProduct[] }) => {
                 delay: index * 0.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="min-w-70 md:min-w-87.5 flex-none snap-start group flex flex-col"
+              className="w-full max-w-sm flex-none snap-start group flex flex-col"
             >
               {/* Image + Buttons */}
-              <div className="relative aspect-[4/5] bg-[#111] overflow-hidden mb-4">
+              <div className="relative aspect-4/5 bg-[#111] overflow-hidden mb-4">
                 {/* NEW badge */}
                 <div className="absolute top-4 left-4 z-10 flex gap-2">
                   <div className="bg-[#CBA14D] font-inter text-black text-[9px] font-bold px-2 py-1 rounded-xs uppercase tracking-wider">
@@ -76,8 +76,9 @@ const JustArrived = ({ products }: { products: NewArrivalProduct[] }) => {
                   <Image
                     src={getImageURL(product.bannerImage || "")}
                     alt={product.name || "Product"}
-                    fill
-                    className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                    height={500}
+                    width={500}
+                    className="object-cover w-full h-full transition-transform duration-700 ease-in-out group-hover:scale-105"
                   />
                 </Link>
 
@@ -117,8 +118,8 @@ const JustArrived = ({ products }: { products: NewArrivalProduct[] }) => {
                         toggleWishlist(product.slug || "", product.id);
                       }}
                       className={`shrink-0 rounded-sm h-10 md:h-12 w-10 md:w-10 flex items-center justify-center transition-all ${isInWishlist(product.slug || "")
-                          ? "bg-[#FFBF3F] hover:bg-white"
-                          : "bg-[#FFBF3F] cursor-pointer"
+                        ? "bg-[#FFBF3F] hover:bg-white"
+                        : "bg-[#FFBF3F] cursor-pointer"
                         }`}
                     >
                       {isInWishlist(product.slug || "") ? (

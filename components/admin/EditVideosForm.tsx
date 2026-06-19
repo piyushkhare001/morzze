@@ -202,7 +202,8 @@ export default function EditVideosForm({ initialData }: { initialData: any }) {
                 <Image
                   src={formData.thumbnail}
                   alt="Thumbnail Preview"
-                  fill
+                  height={500}
+                  width={500}
                   className="object-cover"
                   unoptimized
                 />

@@ -13,19 +13,20 @@ const FeaturedInnovation = () => {
 
   return (
     <section className="relative w-full  py-20 px-6 md:px-10 overflow-hidden">
-       <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10">
         <Image
           src="/gradient-frame.png"
           alt="background"
-          fill
-          className="object-cover"
+          height={1000}
+          width={1000}
+          className="object-cover w-full h-full"
           priority
         />
       </div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-        
+
         {/* -- LEFT COLUMN: HEADING & TEXT -- */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -36,19 +37,19 @@ const FeaturedInnovation = () => {
             <span className="text-white">Innovation</span>
           </h2>
           <p className="font-inter text-white/80 text-sm md:text-md leading-relaxed text-justify">
-            The <span className="text-white font-bold">Air Tap</span> is a sleek and 
-            innovative hand dryer designed for modern, eco-conscious spaces. Its 
-            advanced filtration system ensures clean air while drying, promoting 
-            hygiene and reducing the spread of germs. With easy touch operation 
-            and intelligent heating, this dryer offers a user-friendly experience, 
-            providing efficient and fast drying without compromising on comfort. 
-            The eco-friendly design, combined with its space-saving structure, 
+            The <span className="text-white font-bold">Air Tap</span> is a sleek and
+            innovative hand dryer designed for modern, eco-conscious spaces. Its
+            advanced filtration system ensures clean air while drying, promoting
+            hygiene and reducing the spread of germs. With easy touch operation
+            and intelligent heating, this dryer offers a user-friendly experience,
+            providing efficient and fast drying without compromising on comfort.
+            The eco-friendly design, combined with its space-saving structure,
             makes it a perfect addition to any restroom, saving both energy and space.
           </p>
         </motion.div>
 
         {/* -- CENTER COLUMN: PRODUCT IMAGE -- */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -56,10 +57,11 @@ const FeaturedInnovation = () => {
         >
           {/* Central Product Showcase */}
           <div className="relative w-full h-full">
-            <Image 
+            <Image
               src="/innovation.png" // Replace with your tap image path
               alt="Air Tap Innovation"
-              fill
+              height={500}
+              width={500}
               className="object-contain"
               priority
             />
@@ -69,7 +71,7 @@ const FeaturedInnovation = () => {
         {/* -- RIGHT COLUMN: STATS WITH GOLD HIGHLIGHTS -- */}
         <div className="flex flex-col gap-6 md:gap-30 lg:pl-10">
           {stats.map((stat, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -78,7 +80,7 @@ const FeaturedInnovation = () => {
             >
               {/* Vertical Gold Highlight Line */}
               <div className="w-[3px] h-12 bg-[#CBA14D]" />
-              
+
               <div className="flex flex-row items-center gap-12">
                 <h3 className="font-montserrat text-4xl md:text-5xl font-medium text-white tracking-wide">
                   {stat.value}

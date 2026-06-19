@@ -64,13 +64,14 @@ const SignaturePieces = ({ products }: { products: SignatureProduct[] }) => {
               className="min-w-70 md:min-w-87.5 flex-none snap-start group flex flex-col"
             >
               {/* Image + Buttons */}
-              <div className="relative aspect-[4/5] bg-[#111] overflow-hidden mb-4">
+              <div className="relative aspect-4/5 max-w-sm bg-[#111] overflow-hidden mb-4">
                 <Link href={`/product/${product.slug}`}>
                   <Image
                     src={getImageURL(product.bannerImage || "")}
                     alt={product.name || "Product"}
-                    fill
-                    className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                    height={500}
+                    width={500}
+                    className="object-cover w-full h-full transition-transform duration-700 ease-in-out group-hover:scale-105"
                   />
                 </Link>
 

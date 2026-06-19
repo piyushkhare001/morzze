@@ -15,8 +15,9 @@ const NaturalElegance = () => {
         <Image
           src="/oxy-bg.png"
           alt="Kitchen Background"
-          fill
-          className="object-cover" // Opacity thodi badha di hai taaki background dikhe
+          height={1000}
+          width={1000}
+          className="object-cover w-full h-full" // Opacity thodi badha di hai taaki background dikhe
           priority
         />
 
@@ -43,7 +44,8 @@ const NaturalElegance = () => {
                 <Image
                   src="/elegance.png"
                   alt="Vertex Pro Faucet"
-                  fill
+                  height={500}
+                  width={500}
                   className="object-contain object-center"
                 />
               </div>

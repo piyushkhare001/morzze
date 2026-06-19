@@ -16,9 +16,10 @@ export default function FindStoreHero() {
         <Image
           src="/storelocate.png"
           alt="Find Store"
-          fill
+          height={1600}
+          width={1600}
           priority
-          className="object-cover object-center"
+          className="object-cover object-center w-full h-full"
         />
         <div className="absolute inset-0 bg-black/48" />
       </motion.div>

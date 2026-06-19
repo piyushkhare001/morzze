@@ -10,11 +10,12 @@ const ProductBanner = () => {
         <Image
           src="/over.jpg"
           alt="Premium Kitchen and Bathroom Fittings"
-          fill
-          className="object-cover"
+          height={1600}
+          width={1600}
+          className="object-cover w-full h-full"
           priority
         />
-        <div className="absolute inset-0 bg-black/20 bg-gradient-to-r from-black/50 via-black/5 to-transparent" />
+        <div className="absolute inset-0 bg-black/20 bg-linear-to-r from-black/50 via-black/5 to-transparent" />
       </div>
       <div className="relative z-10 h-full max-w-screen-2xl mx-auto px-6 md:px-10 flex flex-col justify-center">
         <div className="max-w-2xl space-y-4">
@@ -37,7 +38,7 @@ const ProductBanner = () => {
           </motion.p>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CBA14D]/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-[#CBA14D]/30 to-transparent" />
     </section>
   );
 };

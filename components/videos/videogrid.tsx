@@ -85,11 +85,10 @@ export default function VideoLibraryGrid() {
               <button
                 key={i}
                 onClick={() => setActiveTab(tab)}
-                className={`px-7 h-10 rounded-full text-[13px] whitespace-nowrap transition-all ${
-                  activeTab === tab
+                className={`px-7 h-10 rounded-full text-[13px] whitespace-nowrap transition-all ${activeTab === tab
                     ? "bg-[#e6aa12] text-black"
                     : "text-white"
-                }`}
+                  }`}
               >
                 {tab}
               </button>
@@ -113,52 +112,53 @@ export default function VideoLibraryGrid() {
               </p>
             ) : (
               filtered.map((video, i) => (
-              <motion.div
+                <motion.div
                   key={video.id}
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: i * 0.05 }}
-                className="group cursor-pointer"
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: i * 0.05 }}
+                  className="group cursor-pointer"
                   onClick={() => setSelectedVideo(video)}
-              >
-                <div className="relative w-full h-[150px] overflow-hidden rounded-[4px] mb-4">
-                  <Image
+                >
+                  <div className="relative w-full h-[150px] overflow-hidden rounded-[4px] mb-4">
+                    <Image
                       src={video.thumbnail ? getImageURL(video.thumbnail) : "/video.png"}
-                    alt={video.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition duration-700"
+                      alt={video.title}
+                      height={500}
+                      width={500}
+                      className="object-cover group-hover:scale-105 transition duration-700"
                       unoptimized
-                  />
+                    />
 
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition" />
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition" />
 
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                    <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center text-black">
-                      <Play size={18} className="fill-black ml-1" />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                      <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center text-black">
+                        <Play size={18} className="fill-black ml-1" />
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <h3 className="text-[16px] font-medium leading-7 text-[#f5f2ea] mb-2">
-                  {video.title}
-                </h3>
+                  <h3 className="text-[16px] font-medium leading-7 text-[#f5f2ea] mb-2">
+                    {video.title}
+                  </h3>
 
                   <p className="text-[13px] leading-6 text-[#777777] mb-4 line-clamp-2">
                     {video.videoDescription}
-                </p>
+                  </p>
 
-                <div className="flex items-center gap-2 text-[11px]">
-                  <span className="px-2 py-[3px] bg-[#e6aa12] text-black rounded-[2px]">
+                  <div className="flex items-center gap-2 text-[11px]">
+                    <span className="px-2 py-[3px] bg-[#e6aa12] text-black rounded-[2px]">
                       {video.videoCategory || "Video"}
-                  </span>
+                    </span>
 
                     {video.createdAt && (
                       <span className="text-[#7a7a7a]">
                         {new Date(video.createdAt).toLocaleDateString()}
                       </span>
                     )}
-                </div>
-              </motion.div>
+                  </div>
+                </motion.div>
               ))
             )}
           </motion.div>

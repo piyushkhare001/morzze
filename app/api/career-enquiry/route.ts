@@ -83,7 +83,7 @@ export async function POST(req: Request) {
 
     try {
       await sendEmailWithAttachments({
-        to: process.env.CAREER_RECEIVER_EMAIL || process.env.RECEIVER_EMAIL || process.env.EMAIL_FROM!,
+        to: "info@morzze.com",
         subject: `New Career Enquiry - ${subject}`,
         html: renderTemplate(
           `

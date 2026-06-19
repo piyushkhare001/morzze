@@ -15,7 +15,8 @@ const BannerAbout = () => {
         <Image
           src="/banner-about.jpg"
           alt="Morzze Craftsmanship"
-          fill
+          height={500}
+          width={500}
           className="object-cover object-center"
           priority
         />

@@ -7,22 +7,23 @@ import { motion } from 'framer-motion'
 const WhereWaterMeet = () => {
   return (
     <section className="relative w-full h-[70vh] md:h-[70vh] lg:h-[100vh] flex items-center justify-center overflow-hidden">
-      
+
       {/* -- Background Image with Zoom-In Animation -- */}
-      <motion.div 
+      <motion.div
         initial={{ scale: 1.15 }}
         animate={{ scale: 1 }}
-        transition={{ 
-          duration: 3, 
+        transition={{
+          duration: 3,
           ease: [0.16, 1, 0.3, 1] // Heavy cinematic easing
         }}
         className="absolute inset-0 z-0"
       >
-        <Image 
+        <Image
           src="/watermeet.png" // Apni image का sahi path public folder se check karein (jpg/png)
           alt="Luxury Sink and Faucet closeup"
-          fill
-          className="object-cover object-center"
+          height={500}
+          width={500}
+          className="object-cover h-full w-full object-center"
           priority
         />
         {/* Dark Cinematic Overlay to blend and blend readability */}
@@ -31,15 +32,15 @@ const WhereWaterMeet = () => {
 
       {/* -- Content Wrapper (Centrally Aligned) -- */}
       <div className="relative z-10 max-w-screen-2xl mx-auto px-6 text-center">
-        <motion.div 
+        <motion.div
           initial="initial"
           whileInView="animate"
           viewport={{ once: false }}
           className="max-w-3xl mx-auto"
         >
-          
+
           {/* Main Heading Reveal - Montserrat Font with Color Gradient blend */}
-          <motion.h1 
+          <motion.h1
             variants={{
               initial: { opacity: 0, y: 40 },
               animate: { opacity: 1, y: 0 }
@@ -52,7 +53,7 @@ const WhereWaterMeet = () => {
           </motion.h1>
 
           {/* Description Reveal - Inter Font */}
-          <motion.p 
+          <motion.p
             variants={{
               initial: { opacity: 0, y: 30 },
               animate: { opacity: 1, y: 0 }
@@ -64,7 +65,7 @@ const WhereWaterMeet = () => {
           </motion.p>
 
           {/* CTA Button Reveal */}
-          <motion.div 
+          <motion.div
             variants={{
               initial: { opacity: 0, y: 20 },
               animate: { opacity: 1, y: 0 }
@@ -72,8 +73,8 @@ const WhereWaterMeet = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
             className="flex justify-center"
           >
-            <Link 
-              href="/products" 
+            <Link
+              href="/products"
               className="group relative border border-[#CBA14D]/70 px-8 py-3.5 transition-all duration-300 hover:bg-[#CBA14D] overflow-hidden"
             >
               <span className="relative z-10 font-inter text-[10px] md:text-xs font-bold text-[#CBA14D] group-hover:text-black uppercase tracking-widest">

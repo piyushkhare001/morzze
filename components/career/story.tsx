@@ -55,7 +55,8 @@ export default function CareersStorySection() {
             <Image
               src="/story1.png"
               alt="career1"
-              fill
+              height={500}
+              width={500}
               className="object-cover"
             />
           </motion.div>
@@ -66,7 +67,8 @@ export default function CareersStorySection() {
             <Image
               src="/story2.png"
               alt="career2"
-              fill
+              height={500}
+              width={500}
               className="object-cover"
             />
           </motion.div>
@@ -77,7 +79,8 @@ export default function CareersStorySection() {
             <Image
               src="/story3.png"
               alt="career3"
-              fill
+              height={500}
+              width={500}
               className="object-cover"
             />
           </motion.div>
@@ -88,7 +91,8 @@ export default function CareersStorySection() {
             <Image
               src="/story4.png"
               alt="career4"
-              fill
+              height={500}
+              width={500}
               className="object-cover"
             />
           </motion.div>

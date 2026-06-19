@@ -17,17 +17,17 @@ const containerVariants: Variants = {
 
 const itemVariants: Variants = {
   initial: { opacity: 0, y: 20 },
-  whileInView: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+  whileInView: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
   },
 };
 
 const WarrantyBanner = () => {
   return (
     <section className="relative w-full py-20 md:py-32 flex items-center overflow-hidden">
-      
+
       {/* Background with Scale fix to avoid CSS conflicts */}
       <motion.div
         initial={{ scale: 1.1 }}
@@ -36,13 +36,14 @@ const WarrantyBanner = () => {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/warn-banner.png" 
+          src="/warn-banner.png"
           alt="Morzze Protection"
-          fill
-          className="object-cover"
+          height={1600}
+          width={1600}
+          className="object-cover w-full h-full "
           priority
         />
-        <div className="absolute inset-0 bg-black/50" /> 
+        <div className="absolute inset-0 bg-black/50" />
       </motion.div>
 
       <div className="relative z-10 max-w-screen-2xl mx-auto px-6 md:px-10 w-full text-center">
@@ -61,7 +62,7 @@ const WarrantyBanner = () => {
           >
             7-10 Year Warranty
           </motion.span>
-          
+
           {/* Main Heading */}
           <motion.h1
             variants={itemVariants}
@@ -69,7 +70,7 @@ const WarrantyBanner = () => {
           >
             Warranty & Protection
           </motion.h1>
-          
+
           {/* Paragraph */}
           <motion.p
             variants={itemVariants}

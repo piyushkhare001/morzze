@@ -88,7 +88,8 @@ export default function WorkCultureSection() {
           <Image
             src="/culture.png"
             alt="Work Culture"
-            fill
+            height={500}
+            width={500}
             className="object-cover"
           />
         </motion.div>

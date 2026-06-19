@@ -33,9 +33,10 @@ const Footer = async () => {
         <Image
           src="/footer-bg.png"
           alt="Footer Background"
-          fill
+          height={1080}
+          width={1920}
           sizes="100vw"
-          className="object-cover object-center opacity-100"
+          className="object-cover w-full h-full object-center opacity-100"
           priority
         />
         <div className="absolute inset-0 bg-black/40 md:bg-black/20"></div>
@@ -54,7 +55,8 @@ const Footer = async () => {
                 <Image
                   src="/logo.png"
                   alt="Morzze Logo"
-                  fill
+                  height={500}
+                  width={500}
                   sizes="(max-width: 768px) 160px, 192px"
                   className="object-contain object-left"
                   priority

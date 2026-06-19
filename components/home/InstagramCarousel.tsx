@@ -21,14 +21,17 @@ export default function InstagramCarousel() {
   return (
     <div className="relative text-white py-24 overflow-hidden ">
       {/* ✅ Background Image using Next Image */}
-      <Image
-        src="/insta-bg.png"
-        alt="background"
-        fill
-        priority
-        className="object-cover object-center -z-10"
-      />
 
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/insta-bg.png"
+          alt="background"
+          height={1000}
+          width={1000}
+          priority
+          className="object-cover w-full h-full object-center -z-10"
+        />
+      </div>
       {/* Optional dark overlay for readability */}
       <div className="absolute inset-0 bg-black/70 " />
 
@@ -54,7 +57,7 @@ export default function InstagramCarousel() {
           <div
             className="overflow-hidden h-[250px] md:h-[270px] flex items-center"
             style={{
-             WebkitMaskImage:
+              WebkitMaskImage:
                 "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 270' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 15 C300 45 900 45 1200 15 L1200 255 C900 225 300 225 0 255 Z'/%3E%3C/svg%3E\")",
               maskImage:
                 "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 270' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 15 C300 45 900 45 1200 15 L1200 255 C900 225 300 225 0 255 Z'/%3E%3C/svg%3E\")",

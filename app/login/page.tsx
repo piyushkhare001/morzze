@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/input-group";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
+  ArrowLeft,
   EyeIcon,
   EyeOffIcon,
   LockIcon,
@@ -261,7 +262,7 @@ const Page = () => {
               className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-2 text-white transition hover:bg-white/10"
               aria-label="Go back"
             >
-              <span className="text-base">←</span>
+              <ArrowLeft />
               Back
             </button>
           </div>

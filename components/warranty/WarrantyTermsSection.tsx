@@ -31,7 +31,7 @@ const WarrantyTermsSection = () => {
     <section className="bg-[#050505] py-8 md:py-24 overflow-hidden font-montserrat">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-15">
-          
+
           {/* --- LEFT IMAGE: Slide in from Left --- */}
           <motion.div
             initial={{ opacity: 0, x: -100 }}
@@ -44,8 +44,9 @@ const WarrantyTermsSection = () => {
               <Image
                 src="/warn-2.png" // Replace with your image path
                 alt="Morzze Luxury Fittings"
-                fill
-                className="object-cover"
+                height={500}
+                width={500}
+                className="object-cover w-full h-full"
               />
             </div>
           </motion.div>
@@ -62,7 +63,7 @@ const WarrantyTermsSection = () => {
               Industry-Leading Warranty Terms
             </motion.h2>
 
-            <motion.div 
+            <motion.div
               initial="initial"
               whileInView="animate"
               viewport={{ once: false }}

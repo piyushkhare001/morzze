@@ -86,7 +86,8 @@ export default function TerritoryCoverageSection() {
           <Image
             src="/indmap.png"
             alt="India Map"
-            fill
+            height={500}
+            width={500}
             priority
             sizes="(max-width:768px) 100vw, 50vw"
             className="object-contain object-center"

@@ -90,7 +90,8 @@ export default function PressCoverageSection() {
             <Image
               src="/exhibition.png"
               alt="Press"
-              fill
+              height={500}
+              width={500}
               className="object-cover"
             />
           </div>

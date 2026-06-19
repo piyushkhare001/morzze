@@ -111,7 +111,8 @@ export default function TeammatesVoiceSlider() {
               <Image
                 src={testimonials[index].image}
                 alt={testimonials[index].name}
-                fill
+                height={500}
+                width={500}
                 className="object-cover"
               />
             </motion.div>

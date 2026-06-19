@@ -12,8 +12,9 @@ const TouchlessInnovation = () => {
         <Image
           src="/gradient-frame.png"
           alt="Innovation Background"
-          fill
-          className="object-cover opacity- "
+          height={1000}
+          width={1000}
+          className="object-cover w-full h-full"
           priority
         />
 

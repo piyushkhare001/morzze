@@ -16,9 +16,10 @@ export default function JoinUsHero() {
         <Image
           src="/careerbanner.png"
           alt="Join Us"
-          fill
+          height={1600}
+          width={1600}
           priority
-          className="object-cover object-center grayscale"
+          className="object-cover w-full h-full object-center grayscale"
         />
         <div className="absolute inset-0 bg-black/52" />
       </motion.div>

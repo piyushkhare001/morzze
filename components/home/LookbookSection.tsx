@@ -29,7 +29,7 @@ const LookbookSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
-              className="relative group w-full aspect-[16/9] overflow-hidden cursor-pointer"
+              className="relative group w-full aspect-16/9 overflow-hidden cursor-pointer"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -39,7 +39,8 @@ const LookbookSection = () => {
                 <Image
                   src="/lookbook1.png"
                   alt="Bathroom Design"
-                  fill
+                  height={500}
+                  width={500}
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-all duration-500" />
@@ -64,7 +65,7 @@ const LookbookSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
-              className="relative group w-full aspect-[16/9] overflow-hidden cursor-pointer"
+              className="relative group w-full aspect-16/9 overflow-hidden cursor-pointer"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -74,7 +75,8 @@ const LookbookSection = () => {
                 <Image
                   src="/lookbook2.png"
                   alt="Kitchen Design"
-                  fill
+                  height={500}
+                  width={500}
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-all duration-500" />
@@ -98,4 +100,4 @@ const LookbookSection = () => {
   )
 }
 
-export default LookbookSection
+export default LookbookSection;
