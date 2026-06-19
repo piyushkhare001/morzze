@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     }
 
     await sendEmail({
-      to: "bishnoi11011@gmail.com",
+      to: "info@morzze.com",
       subject: `New Contact Form Submission - ${subject}`,
       html: renderTemplate(
         `

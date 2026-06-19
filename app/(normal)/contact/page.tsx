@@ -76,7 +76,7 @@ const page = () => {
     e.preventDefault();
     const payload = {
       ...formData,
-      zc_gad: "",
+      zc_gad: (document.getElementById("zc_gad") as HTMLInputElement)?.value || "",
     };
 
     setError("");
@@ -291,26 +291,20 @@ const page = () => {
                 </div>
               )}
 
-              <form action='https://forms.zohopublic.in/morzeein1/form/WebsiteForm/formperma/aXUf0Vt7j_5Fi5XmomE0M1xHyYShMNujEYLfdpFG9Y0/htmlRecords/submit' name='form' id='form' method='POST' accept-charset='UTF-8' onSubmit={handleSubmit}>
-
-                <input type="hidden" name="zf_morzze_contact" value="" />
-                <input type="hidden" name="zf_redirect_url" value="https://morzze.com" />
-                <input type="hidden" name="zc_gad" value="" />
-                <input type="hidden" name="utm_source" value="" />
-                <input type="hidden" name="utm_medium" value="" />
-                <input type="hidden" name="utm_campaign" value="" />
-                <input type="hidden" name="utm_term" value="" />
-                <input type="hidden" name="utm_content" value="" />
-
-
+              <form className="space-y-6" id="zoho-form" onSubmit={handleSubmit}>
+                <input
+                  type="hidden"
+                  id="zc_gad"
+                  name="zc_gad"
+                  value={formData.zc_gad}
+                />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <FieldLabel className="text-white mb-3 block text-sm font-medium">
                       Full Name *
                     </FieldLabel>
-
                     <Input
-                      name="SingleLine"
+                      name="fullName"
                       value={formData.fullName}
                       onChange={handleChange}
                       placeholder="Your name"
@@ -322,9 +316,8 @@ const page = () => {
                     <FieldLabel className="text-white mb-3 block text-sm font-medium">
                       Email Address *
                     </FieldLabel>
-
                     <Input
-                      name="Email"
+                      name="email"
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="your@email.com"
@@ -333,15 +326,13 @@ const page = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <FieldLabel className="text-white mb-3 block text-sm font-medium">
                       Phone Number
                     </FieldLabel>
-
                     <Input
-                      id="international_PhoneNumber_countrycode"
-                      name="PhoneNumber_countrycode"
+                      name="phone"
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+91 98765 43210"
@@ -353,7 +344,6 @@ const page = () => {
                     <FieldLabel className="text-white mb-3 block text-sm font-medium">
                       Category *
                     </FieldLabel>
-                    <input className="hidden" type="text" name="SingleLine2" value={formData.category} />
                     <select
                       name="category"
                       value={formData.category}
@@ -379,12 +369,12 @@ const page = () => {
                   </div>
                 </div>
 
-                <div className="mt-4">
+                <div>
                   <FieldLabel className="text-white mb-3 block text-sm font-medium">
                     Subject *
                   </FieldLabel>
                   <Input
-                    name="SingleLine1"
+                    name="subject"
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="How can we help you"
@@ -392,14 +382,13 @@ const page = () => {
                   />
                 </div>
 
-                <div className='mt-4'>
+                <div>
                   <FieldLabel className="text-white mb-3 block text-sm font-medium">
                     Message *
                   </FieldLabel>
                   <div className="relative">
-
                     <Textarea
-                      name="MultiLine"
+                      name="message"
                       value={formData.message}
                       placeholder="Tell us more about your inquiry..."
                       maxLength={maxLength}
