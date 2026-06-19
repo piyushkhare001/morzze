@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { PlusCircle, FileText, Pencil, Trash2, Eye } from "lucide-react";
 import { revalidatePath } from "next/cache";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: `Morzze Blog | Tips & Insights on Kitchen & Bathroom Products`,
+  description: `Read the Morzze's Blog for expert tips, trends, and insights on kitchen & bathroom experience. Learn how to enhance your space with style and quality`,
+}
+
 
 export default async function AdminBlogPage() {
   const allBlogs = await getBlogs();
@@ -41,7 +48,7 @@ export default async function AdminBlogPage() {
                 <h3 className="font-semibold text-lg">{blog.title}</h3>
                 <p className="text-sm text-gray-500">{blog.blogCategory} | {blog.date}</p>
               </div>
-              
+
               <div className="flex gap-2">
                 {/* EDIT - Yeh user ko edit page pe le jayega */}
                 <Link href={`/admin/blog/edit/${blog.id}`}>
@@ -52,10 +59,10 @@ export default async function AdminBlogPage() {
 
                 {/* DELETE - Direct Server Action call */}
                 <form action={deleteAction.bind(null, blog.id)}>
-                  <Button 
+                  <Button
                     type="submit"
-                    variant="outline" 
-                    size="sm" 
+                    variant="outline"
+                    size="sm"
                     className="flex items-center gap-1 border-red-200 hover:bg-red-50 text-red-600"
                   >
                     <Trash2 className="w-4 h-4" /> Delete

@@ -5,7 +5,13 @@ import React, { Suspense } from 'react'
 import SimpleCategoryBanner from '@/components/category/SimpleCategoryBanner'
 import ScrollingRibbon from '@/components/category/ScrollingRibbon';
 import { kitchenBathroomRestrictCategories } from '@/const/globalconst';
+import { Metadata } from 'next';
 
+
+export const metadata: Metadata = {
+    title: `Bathroom Basins, Accessories, Tower Warmer & more by Morzze`,
+    description: 'Explore premium bathroom accessories by Morzze, including faucets, towel warmer, Floor Drainer, and more. Designed for style, durability, and functionality.',
+}
 
 
 const page = async () => {

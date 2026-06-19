@@ -23,6 +23,17 @@ import {
 import Image from "next/image";
 import React from "react";
 import { ContactLink } from "@/components/ContactLink";
+import { Metadata } from "next";
+
+
+
+
+
+export const metadata: Metadata = {
+  title: `Contact Morzze | Get in Touch with Us | Premium Service`,
+  description: `Have questions or need assistance? Contact Morzze for support, inquiries, or dealership opportunities. We're here to provide top-notch service and solutions.`,
+}
+
 
 
 

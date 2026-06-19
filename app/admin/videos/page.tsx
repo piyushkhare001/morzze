@@ -5,6 +5,17 @@ import Link from "next/link";
 import { PlusCircle, Video, Pencil } from "lucide-react";
 import { revalidatePath } from "next/cache";
 import DeleteVideoButton from "@/components/admin/DeleteVideoButton";
+import { Metadata } from "next";
+
+
+
+
+export const metadata: Metadata = {
+  title: `Experience Morzze in Motion with Creative Videos | Morzze`,
+  description: `Discover our latest innovations and designs. Explore the world of Morzze through captivating videos that showcase our premium products & elegant solutions.`,
+}
+
+
 
 async function Page() {
   const allVideos = await getVideos();

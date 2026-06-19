@@ -8,6 +8,15 @@ import MilestonesTimeline from "@/components/about-us/MilestonesTimeline";
 import MissionVisionSection from "@/components/about-us/MissionVisionSection";
 import MorzzeStats from "@/components/about-us/MorzzeStats";
 import RecognitionSection from "@/components/about-us/RecognitionSection";
+import { Metadata } from "next";
+
+
+
+export const metadata: Metadata = {
+  title: `About Us - Morzze | Kitchen and Bathroom Sink Manufacturer`,
+  description: 'Morzze offers a diverse range of high-quality kitchen and bathroom sinks. Our range of stylish and functional sinks is designed to complement any decor.',
+}
+
 import React from "react";
 
 const page = () => {
@@ -22,7 +31,7 @@ const page = () => {
       <BrandHeritage />
       <MilestonesTimeline />
       <RecognitionSection />
-      <CollectionHero/>
+      <CollectionHero />
     </div>
   );
 };

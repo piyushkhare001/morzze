@@ -5,18 +5,26 @@ import WarrantyBanner from '@/components/warranty/WarrantyBanner'
 import WarrantyCoverageGrid from '@/components/warranty/WarrantyCoverageGrid'
 import WarrantyServices from '@/components/warranty/WarrantyServices'
 import WarrantyTermsSection from '@/components/warranty/WarrantyTermsSection'
-import React from 'react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: `Warranty | Product Guarantee & Support | Morzze`,
+  description: `Explore Morzze’s Warranty policy to understand our product guarantee, support process, and defect handling process. We’re dedicated to quality & customer care.`,
+}
+
+
+
 
 const page = () => {
   return (
     <div>
-      <WarrantyBanner/>
-      <WarrantyCoverageGrid/>
-      <HowWarrantyWorks/>
-      <WarrantyTermsSection/>
-      <WarrantyServices/>
-      <FeaturesGrid/>
-      <NeedHelp/>
+      <WarrantyBanner />
+      <WarrantyCoverageGrid />
+      <HowWarrantyWorks />
+      <WarrantyTermsSection />
+      <WarrantyServices />
+      <FeaturesGrid />
+      <NeedHelp />
     </div>
   )
 }

@@ -2,7 +2,16 @@ import PromoCodesOfferHero from "@/components/promopage/herobanner";
 import PromoStepsNewsletter from "@/components/promopage/howtouse";
 import PromocodeServer from "@/components/promopage/PromocodeServer";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Metadata } from "next";
 import { Suspense } from "react";
+
+
+export const metadata: Metadata = {
+  title: `Check Promo Code Eligibility | Morzze`,
+  description: `Find out if you qualify for Morzze promo codes & special offers. Check your eligibility instantly and enjoy savings on premium kitchen and bathroom products.`,
+}
+
+
 
 const Page = async () => {
 

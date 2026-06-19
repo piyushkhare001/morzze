@@ -4,6 +4,17 @@ import Link from "next/link";
 import { BookOpen, Pencil, PlusCircle } from "lucide-react";
 import { getCatalogue as getAllCatalogue } from "@/helper/catalogue/action";
 import { CatalogueDeleteButton } from "@/components/admin/CatalogueDeleteButton";
+import { Metadata } from "next";
+
+
+
+
+export const metadata: Metadata = {
+  title: `Morzze Catalogue | Premium Kitchen & Bathroom Solutions`,
+  description: `Explore Morzze's comprehensive catalogue featuring high-quality kitchen and bathroom products, including faucets, Sinks, and other accessories.`,
+}
+
+
 
 export default async function AdminCataloguePage() {
   const allCatalogue = await getAllCatalogue();
@@ -33,7 +44,7 @@ export default async function AdminCataloguePage() {
               className="bg-white p-4 rounded-lg border shadow-sm flex justify-between items-center hover:shadow-md transition"
             >
               <div>
-                    <h3 className="font-semibold text-lg">{catalogue.title}</h3>
+                <h3 className="font-semibold text-lg">{catalogue.title}</h3>
 
                 <p className="text-sm text-gray-500">
                   {catalogue.category || "No Category"}

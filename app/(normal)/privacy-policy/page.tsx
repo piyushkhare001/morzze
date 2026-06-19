@@ -1,5 +1,15 @@
 import React from "react";
 import { ContactLink } from "@/components/ContactLink";
+import { Metadata } from "next";
+
+
+
+export const metadata: Metadata = {
+  title: `Privacy Policy | Data Protection & Security | Morzze`,
+  description: `Read Morzze’s Privacy Policy to learn how we collect, use, and protect your data. We’re committed to transparency, security, and protecting your privacy.`,
+}
+
+
 
 const page = () => {
   return (
