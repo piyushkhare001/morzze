@@ -4,6 +4,25 @@ import { getAllProductsByCategorySlug, getCategoryBySlug } from "@/helper/catego
 import Link from "next/link";
 import CategoryProductsClient from "../../category/[slug]/CategoryProductsClient";
 import { getImageURL } from "@/lib/getImageLin";
+import { metaTags } from "@/const/metaTags";
+
+// export async function generateMetadata({
+//     params,
+// }: {
+//     params: Promise<{ slug: string[] }>;
+// }) {
+//     const { slug } = await params;
+
+//     const pageSlug = slug[slug.length - 1];
+
+//     const seo =
+//         metaTags[pageSlug as keyof typeof metaTags];
+
+//     return {
+//         title: seo?.title ?? "Morzze",
+//         description: seo?.description ?? "Morzze",
+//     };
+// }
 
 export default async function CategoryPage({
     params,
