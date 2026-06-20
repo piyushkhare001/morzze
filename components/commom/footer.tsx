@@ -11,7 +11,7 @@ import {
 import { getCategories } from "@/helper";
 const companyLinks = [
   { name: "About Us", href: "/about" },
-  { name: "Coupons", href: "/Promo-code" },
+  { name: "Coupons", href: "/promo-code" },
   // { name: "Find a Store", href: "/stores" },
   { name: "Videos", href: "/videos" },
   { name: "Catalogue", href: "/catalogue" },
@@ -155,19 +155,19 @@ const Footer = async () => {
                 {[
                   {
                     label: "Steel Sinks",
-                    href: "/products?category=steel-sinks",
+                    href: "/products?category=Pulse",
                   },
                   {
                     label: "Kitchen Faucets",
-                    href: "/products?category=kitchen-faucet",
+                    href: "/products?category=Bathroom-Faucets",
                   },
                   {
-                    label: "Granite Basins",
-                    href: "/products?category=granite-wash-basin",
+                    label: "Wash Basins",
+                    href: "/products?category=Bathroom-Basins",
                   },
                   {
                     label: "Air Taps",
-                    href: "/products?category=air-taps",
+                    href: "/products?category=air-tap",
                   },
                   {
                     label: "Floor Drainers",
