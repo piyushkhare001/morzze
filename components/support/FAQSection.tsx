@@ -20,7 +20,7 @@ const FAQ_CONTENT = {
      { q: "My sink is leaking, what should I do?", a: "Please contact our customer service at 1800 110 123 or lodge a complaint through https://morzze.com/service-request/." },
     { q: "Where are you located?", a: "Our headquarter is in New Delhi, but our presence is all over India." },
      { q: "Do you have a dealer in my city?", a: "To find a dealer, kindly visit https://morzze.com/store-locator/." },
-    { q: "How do I get a call back?", a: "Schedule a call from https://morzze.com/call-request/." },
+    { q: "How do I get a call back?", a: "Schedule a call from https://morzze.com/request-call/." },
      { q: "What’s your mobile or phone number?", a: "You can contact us at 011-45458822 from Monday to Saturday between 9:30am to 6:30pm." },
     { q: "I want to submit feedback regarding your services or products.", a: "You can submit feedback through https://morzze.com/feedback/." },
      { q: "I am facing some issues with my Morzze product, how to register service/complaint requests?", a: "You can register your service request/complaint by https://morzze.com/service-request/." },

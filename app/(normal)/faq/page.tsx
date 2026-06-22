@@ -20,7 +20,7 @@ const FAQ_CONTENT = {
      { q: "My sink is leaking, what should I do?", a: "Please contact our customer service at 1800 110 123 or lodge a complaint through https://morzze.com/service-request/." },
     { q: "Where are you located?", a: "Our headquarter is in New Delhi, but our presence is all over India." },
      { q: "Do you have a dealer in my city?", a: "To find a dealer, kindly visit https://morzze.com/store-locator/." },
-    { q: "How do I get a call back?", a: "Schedule a call from https://morzze.com/call-request/." },
+    { q: "How do I get a call back?", a: "Schedule a call from https://morzze.com/request-call/." },
      { q: "What’s your mobile or phone number?", a: "You can contact us at 011-45458822 from Monday to Saturday between 9:30am to 6:30pm." },
     { q: "I want to submit feedback regarding your services or products.", a: "You can submit feedback through https://morzze.com/feedback/." },
      { q: "I am facing some issues with my Morzze product, how to register service/complaint requests?", a: "You can register your service request/complaint by https://morzze.com/service-request/." },
@@ -97,10 +97,10 @@ const FAQSection = () => {
           <button 
             key={cat} 
             onClick={() => setActiveCategory(cat)}
-            className={`px-6 py-2 rounded-full text-[11px] font-bold transition-all border ${
+            className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all border ${
               activeCategory === cat 
                 ? 'bg-[#FDB813] text-black border-[#FDB813]' 
-                : 'bg-transparent text-white border-white/10 hover:border-white/40'
+                : 'bg-transparent text-white/90 border-white/20 hover:border-white/50 hover:text-white'
             }`}
           >
             {cat}
@@ -110,7 +110,7 @@ const FAQSection = () => {
 
       <div className="max-w-4xl mx-auto">
         <div className="space-y-6">
-          <h3 className="text-center text-white font-bold tracking-[4px] text-sm uppercase">
+          <h3 className="text-center text-white font-bold tracking-[4px] text-base uppercase">
             {activeCategory}
           </h3>
           
@@ -120,12 +120,12 @@ const FAQSection = () => {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`} 
-                className="border-none bg-[#0D0D0D] px-6 rounded-lg"
+                className="border border-white/10 bg-[#111111] px-6 rounded-lg"
               >
-                <AccordionTrigger className="text-white hover:no-underline text-sm py-5 font-medium text-left">
+                <AccordionTrigger className="text-white hover:no-underline text-base py-5 font-semibold text-left leading-7">
                   {item.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-white/80 pb-5">
+                <AccordionContent className="text-white/90 text-base leading-7 pb-5 [&_a]:text-[#FDB813] [&_a]:font-semibold [&_a]:underline-offset-4 hover:[&_a]:underline">
                   <LinkifiedContactText text={item.a} />
                 </AccordionContent>
               </AccordionItem>
