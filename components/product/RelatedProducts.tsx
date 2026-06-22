@@ -142,7 +142,7 @@ const RelatedProducts = ({ slug }: { slug: string }) => {
                   </div>
 
                   {/* Price */}
-                  <div className="flex items-baseline gap-10 mt-auto">
+                  <div className="flex items-center justify-between gap-4 mt-auto">
                     <span className="text-lg font-bold text-[#FFBF3F]">₹{product.basePrice}</span>
                     {/* {product.strikethroughPrice && (
                       <span className="text-sm text-white/40 line-through">₹{product.strikethroughPrice}</span>
@@ -152,7 +152,7 @@ const RelatedProducts = ({ slug }: { slug: string }) => {
                         e.preventDefault();
                         toggleWishlist(product.slug, product.id);
                       }}
-                      className="self-start mt-2"
+                      className="shrink-0"
                     >
                       {isInWishlist(product.slug) ? (
                         <IconHeartFilled className="text-red-500" size={18} />

@@ -34,7 +34,7 @@ const SupportTabs = () => {
     p-0"
         >
           {/* Tab 1: Callback */}
-          <Link href="/call-request" className="flex w-full">
+          <Link href="/request-call" className="flex w-full">
           <TabsTrigger
             value="callback"
             className="group p-0 border-none  "

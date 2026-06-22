@@ -233,7 +233,7 @@ export default function CareersPositionsModal() {
                 <p className="text-[11px] text-[#b97712] tracking-[0.18em] mb-3">
                   {job.dept}{" "}
                   <span className="text-white/60 normal-case tracking-normal">
-                    • {job.location} • {job.type}
+                    • {job.type}
                   </span>
                 </p>
                 <h3 className="text-[28px] md:text-[34px] font-medium mb-2">

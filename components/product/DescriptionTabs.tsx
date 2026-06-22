@@ -85,9 +85,9 @@ const DescriptionTabs = ({
             <button
               key={index}
               onClick={() => setActiveTab(index)}
-              className={`pb-4 text-[11px] tracking-[0.25em] font-medium relative whitespace-nowrap transition-colors ${activeTab === index
+              className={`pb-4 text-xs tracking-[0.25em] font-semibold relative whitespace-nowrap transition-colors ${activeTab === index
                   ? "text-white"
-                  : "text-zinc-600 hover:text-zinc-400"
+                  : "text-zinc-400 hover:text-zinc-200"
                 }`}
             >
               {tab.label}
@@ -115,11 +115,11 @@ const DescriptionTabs = ({
                       className="flex items-center justify-between border border-zinc-800 p-4 rounded-lg hover:border-[#9C824A] transition"
                     >
                       <div>
-                        <p className="text-white text-sm font-medium">
+                        <p className="text-white text-base font-medium">
                           Product Documentation
                         </p>
 
-                        <p className="text-zinc-500 text-xs">PDF Document</p>
+                        <p className="text-zinc-300 text-sm">PDF Document</p>
                       </div>
 
                       <Button
@@ -135,7 +135,7 @@ const DescriptionTabs = ({
             ) : (
               // HTML CONTENT
               <div
-                className="text-white/80 text-[15px] leading-[1.8] prose prose-invert"
+                className="text-white/90 text-base leading-8 prose prose-invert"
                 dangerouslySetInnerHTML={{
                   __html: sanitizeRichText(
                     currentTab.type === "html" ? currentTab.content : "",

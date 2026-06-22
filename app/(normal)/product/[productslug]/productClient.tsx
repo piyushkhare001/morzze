@@ -11,7 +11,6 @@ import {
   IconBolt,
   IconHeart,
   IconHeartFilled,
-  IconRotate360,
   IconChevronLeft,
   IconChevronRight,
 } from "@tabler/icons-react";
@@ -170,10 +169,6 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                 </button>
               ))}
 
-              <div className="w-20 h-20 border border-dashed border-white/20 flex flex-col items-center justify-center text-[#555]">
-                <IconRotate360 size={20} />
-                <span className="text-[10px]">360°</span>
-              </div>
             </div>
           </div>
 
@@ -189,7 +184,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                 {product.name}
               </h1>
 
-              <p className="text-[11px] text-[#555] mt-2">
+              <p className="text-xs text-white/65 mt-2">
                 {product.sku}
               </p>
             </div>
@@ -205,7 +200,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                   />
                 ))}
               </div>
-              <span className="text-xs text-white/70">({product.reviews} Reviews)</span>
+              <span className="text-sm text-white/80">({product.reviews} Reviews)</span>
             </div>
 
             {/* PRICE */}
@@ -220,14 +215,14 @@ const ProductClient = ({ product, slug, reviews }: any) => {
             </div>
 
             {/* DESC */}
-            <p className="text-white/80 text-sm">
+            <p className="text-white/90 text-base leading-7">
               {product.description}
             </p>
 
             {/* COLOUR VARIANTS */}
             {colourVariants.length > 0 && (
               <div>
-                <p className="text-xs text-white/80 mb-3 uppercase tracking-widest font-bold">
+                <p className="text-sm text-white/90 mb-3 uppercase tracking-widest font-bold">
                   Colour:{" "}
                   <span className="text-[#FFBF3F]">
                     {selectedVariant !== null
@@ -261,10 +256,10 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                       )}
                       <span
                         className={cn(
-                          "text-xs font-medium",
+                          "text-sm font-medium",
                           selectedVariant === index
                             ? "text-[#FFBF3F]"
-                            : "text-white/70"
+                            : "text-white/85"
                         )}
                       >
                         {variant.name}
@@ -286,7 +281,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
             {/* FINISH */}
             {finishFilters.length > 0 && (
               <div>
-                <p className="text-xs text-white/80 mb-2 uppercase tracking-widest font-bold">
+                <p className="text-sm text-white/90 mb-2 uppercase tracking-widest font-bold">
                   Finish: <span className="text-[#FFBF3F]">{selectedFinish || "Select"}</span>
                 </p>
 
@@ -296,10 +291,10 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                       key={finish}
                       onClick={() => setSelectedFinish(finish)}
                       className={cn(
-                        "px-4 py-2 border text-xs rounded-md transition-all",
+                        "px-4 py-2 border text-sm rounded-md transition-all",
                         selectedFinish === finish
                           ? "border-yellow-400 text-yellow-400 bg-yellow-400/10"
-                          : "border-white/10 text-white/70 hover:border-white/30"
+                          : "border-white/10 text-white/85 hover:border-white/30"
                       )}
                     >
                       {finish}
@@ -312,7 +307,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
             {/* SIZE */}
             {sizeFilters.length > 0 && (
               <div>
-                <p className="text-xs text-white/80 mb-2 uppercase tracking-widest font-bold">
+                <p className="text-sm text-white/90 mb-2 uppercase tracking-widest font-bold">
                   Size: <span className="text-[#FFBF3F]">{selectedSize || "Select"}</span>
                 </p>
 
@@ -322,10 +317,10 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                       key={size}
                       onClick={() => setSelectedSize(size)}
                       className={cn(
-                        "px-4 py-2 border text-xs rounded-md transition-all",
+                        "px-4 py-2 border text-sm rounded-md transition-all",
                         selectedSize === size
                           ? "border-yellow-400 text-yellow-400 bg-yellow-400/10"
-                          : "border-white/10 text-white/70 hover:border-white/30"
+                          : "border-white/10 text-white/85 hover:border-white/30"
                       )}
                     >
                       {size}
@@ -338,7 +333,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
             {/* MATERIAL */}
             {materialFilters.length > 0 && (
               <div>
-                <p className="text-xs text-white/80 mb-2 uppercase tracking-widest font-bold">
+                <p className="text-sm text-white/90 mb-2 uppercase tracking-widest font-bold">
                   Material: <span className="text-[#FFBF3F]">{selectedMaterial || "Select"}</span>
                 </p>
 
@@ -348,10 +343,10 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                       key={material}
                       onClick={() => setSelectedMaterial(material)}
                       className={cn(
-                        "px-4 py-2 border text-xs rounded-md transition-all",
+                        "px-4 py-2 border text-sm rounded-md transition-all",
                         selectedMaterial === material
                           ? "border-yellow-400 text-yellow-400 bg-yellow-400/10"
-                          : "border-white/10 text-white/70 hover:border-white/30"
+                          : "border-white/10 text-white/85 hover:border-white/30"
                       )}
                     >
                       {material}
@@ -443,7 +438,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
               ].map((feature, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-2 text-[11px] text-white/70 uppercase tracking-widest"
+                  className="flex items-center gap-2 text-xs text-white/85 uppercase tracking-widest"
                 >
                   <span className="text-[#FFBF3F] text-lg leading-none">
                     {feature.icon}

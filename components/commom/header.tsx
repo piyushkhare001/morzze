@@ -309,6 +309,7 @@ const Header = () => {
 
     // { name: "Contact", href: "/contact" },
     { name: "Catalogue", href: "/catalogue" },
+    {name: "Contact", href: "/contact"}
   ];
 
   return (
