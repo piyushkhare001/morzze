@@ -20,7 +20,7 @@ const page = async () => {
     return (
         <div>
             <Suspense fallback={<div>Loading...</div>}>
-                <CategoryBanner imageSrc={imageKitUrl("kitchen.png")} title="Our Kitchen Categories" description="Explore our diverse range of high-quality kitchen and bathroom products." />
+                <CategoryBanner imageSrc={imageKitUrl("kitchen.webp")} title="Our Kitchen Categories" description="Explore our diverse range of high-quality kitchen and bathroom products." />
                 <CategorySection categories={filteredCat} />
             </Suspense>
             <SimpleCategoryBanner />

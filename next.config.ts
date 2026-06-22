@@ -58,6 +58,7 @@ const nextConfig: NextConfig = {
     // ]
   },
   images: {
+    
     remotePatterns: [
       {
         protocol: "https",
@@ -66,7 +67,11 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "morzze.s3.ap-south-1.amazonaws.com",
-      }
+      },
+      {
+        protocol: "https",
+        hostname: "ik.imagekit.io",
+      },
 
     ],
   },
