@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X } from "lucide-react";
 import Link from "next/link";
-import { getImageURL } from "@/lib/getImageLin";
 import { imageKitUrl } from "@/lib/imagekit-url";
 
 type VideoType = {
@@ -47,6 +46,25 @@ function getEmbedUrl(url: string) {
   return url;
 }
 
+
+export function getYoutubeImageURL(image: string | null | undefined) {
+  const baseUrl = process.env.NEXT_PUBLIC_IMAGEKIT_URL!.replace(/\/+$/, "");
+
+  if (!image) return "";
+
+  if (image.startsWith("blob:") || image.startsWith("data:")) {
+    return image;
+  }
+
+  if (image.startsWith("http")) {
+    const url = new URL(image);
+    image = url.pathname;
+  }
+
+  const path = image.replace(/^\/+/, "");
+
+  return `${baseUrl}/${path}?tr=f-auto,q-auto`;
+}
 export default function VideoLibraryGrid() {
   const [activeTab, setActiveTab] = useState("All");
   const [videos, setVideos] = useState<VideoType[]>([]);
@@ -60,7 +78,6 @@ export default function VideoLibraryGrid() {
         });
 
         const data = await res.json();
-
         if (data.success) {
           setVideos(data.data.filter((video: VideoType) => video.isVisible));
         }
@@ -77,6 +94,7 @@ export default function VideoLibraryGrid() {
       ? videos
       : videos.filter((video) => video.videoCategory === activeTab);
 
+
   return (
     <section className="w-full bg-black text-white">
       <div className="px-4 md:px-8 lg:px-10 py-10 md:py-14 max-w-7xl mx-auto">
@@ -87,8 +105,8 @@ export default function VideoLibraryGrid() {
                 key={i}
                 onClick={() => setActiveTab(tab)}
                 className={`px-7 h-10 rounded-full text-[13px] whitespace-nowrap transition-all ${activeTab === tab
-                    ? "bg-[#e6aa12] text-black"
-                    : "text-white"
+                  ? "bg-[#e6aa12] text-black"
+                  : "text-white"
                   }`}
               >
                 {tab}
@@ -123,12 +141,11 @@ export default function VideoLibraryGrid() {
                 >
                   <div className="relative w-full h-[150px] overflow-hidden rounded-[4px] mb-4">
                     <Image
-                      src={video.thumbnail ? getImageURL(video.thumbnail) : imageKitUrl("video.png")}
+                      src={video.thumbnail ? getYoutubeImageURL(video.thumbnail) : imageKitUrl("video.png")}
                       alt={video.title}
                       height={500}
                       width={500}
                       className="object-cover group-hover:scale-105 transition duration-700"
-                      unoptimized
                     />
 
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition" />

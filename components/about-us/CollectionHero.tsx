@@ -40,13 +40,13 @@ const CollectionHero = () => {
         viewport={{ once: false }}
         className="absolute inset-0 z-0"
       >
+
         <Image
-          src={imageKitUrl("banner-about.jpg")} // Placeholder, replace with your actual image path
-          alt="Morzze Bathroom fittings range"
-          height={500}
-          width={500}
-          className="object-cover transition-transform duration-[20s] linear animate-slow-zoom"
+          src={imageKitUrl("banner-about.jpg")}
+          alt="Morzze Craftsmanship"
+          fill
           priority
+          className="object-cover object-center"
         />
         {/* Luxury Vignette Overlay for Depth */}
         <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/40 to-black/80" />

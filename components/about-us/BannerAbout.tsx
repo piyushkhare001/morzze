@@ -16,10 +16,9 @@ const BannerAbout = () => {
         <Image
           src={imageKitUrl("banner-about.jpg")}
           alt="Morzze Craftsmanship"
-          height={500}
-          width={500}
-          className="object-cover object-center"
+          fill
           priority
+          className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/40 md:bg-black/20"></div>
       </motion.div>
