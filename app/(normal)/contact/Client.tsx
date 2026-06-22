@@ -189,7 +189,7 @@ const ContactClient = () => {
                     </div>
                     <h3 className="text-white font-semibold mb-2">Visit Us</h3>
                     <p className="text-gray-300 text-sm leading-6">
-                        Morzze India Pvt. Ltd.
+                        Anupam Retail Limited.
                         <br />
                         A-42, Phase-1,
                         <br />
@@ -213,7 +213,7 @@ const ContactClient = () => {
                             value="1800 110 123"
                             className="text-yellow-400"
                         />
-                        <br />
+                        {/* <br />
                         Sales: <br />
                         <ContactLink
                             type="phone"
@@ -226,7 +226,7 @@ const ContactClient = () => {
                             type="phone"
                             value="+91-87503-13000"
                             className="text-yellow-400"
-                        />
+                        /> */}
                     </p>
                 </div>
 
@@ -242,7 +242,7 @@ const ContactClient = () => {
                             value="info@morzze.com"
                             className="text-yellow-400"
                         />
-                        <br />
+                        {/* <br />
                         Sales: <br />
                         <ContactLink
                             type="email"
@@ -255,7 +255,7 @@ const ContactClient = () => {
                             type="email"
                             value="info@morzze.com"
                             className="text-yellow-400"
-                        />
+                        /> */}
                     </p>
                 </div>
             </div>
@@ -427,7 +427,7 @@ const ContactClient = () => {
                             </div>
 
                             <a
-                                href="https://wa.me/918750313000"
+                                href="https://wa.me/8800026878"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block"

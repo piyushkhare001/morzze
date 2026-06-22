@@ -98,10 +98,10 @@ const SpecificationsTabs = ({ productAttributeRes }: SpecificationsTabsProps) =>
             <button
               key={tab}
               onClick={() => setActiveTab(index)}
-              className={`pb-4 text-[11px] tracking-[0.2em] font-medium transition-all relative whitespace-nowrap ${
+              className={`pb-4 text-xs tracking-[0.2em] font-semibold transition-all relative whitespace-nowrap ${
                 activeTab === index
                   ? "text-white"
-                  : "text-zinc-600"
+                  : "text-zinc-400 hover:text-zinc-200"
               }`}
             >
               {tab}
@@ -126,12 +126,12 @@ const SpecificationsTabs = ({ productAttributeRes }: SpecificationsTabsProps) =>
                   className="flex items-center border-b border-zinc-900 py-5 px-4 group hover:bg-zinc-950/50 transition-colors"
                 >
                   {/* Label */}
-                  <div className="w-1/3 text-[#555] text-[13px] font-light">
+                  <div className="w-1/3 text-white/70 text-sm font-medium">
                     {item.label}
                   </div>
 
                   {/* Value */}
-                  <div className="w-2/3 text-zinc-300 text-[13px] font-medium tracking-wide">
+                  <div className="w-2/3 text-white/90 text-sm font-medium tracking-wide">
                     {item.value}
                   </div>
                 </div>
@@ -145,7 +145,7 @@ const SpecificationsTabs = ({ productAttributeRes }: SpecificationsTabsProps) =>
 
           {activeTab === 1 && (
             <div
-              className="prose prose-invert max-w-none text-zinc-300"
+              className="prose prose-invert max-w-none text-white/90 text-base leading-8"
               dangerouslySetInnerHTML={{
                 __html: sanitizeRichText(featuresBox),
               }}
@@ -158,7 +158,7 @@ const SpecificationsTabs = ({ productAttributeRes }: SpecificationsTabsProps) =>
 
           {activeTab === 2 && (
             <div
-              className="prose prose-invert max-w-none text-zinc-300"
+              className="prose prose-invert max-w-none text-white/90 text-base leading-8"
               dangerouslySetInnerHTML={{
                 __html: sanitizeRichText(reviews),
               }}
