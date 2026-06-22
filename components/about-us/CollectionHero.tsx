@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 // --- MORZZE LUXURY REVEAL VARIANTS ---
 const containerVariants: Variants = {
@@ -40,7 +41,7 @@ const CollectionHero = () => {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/banner-about.jpg" // Placeholder, replace with your actual image path
+          src={imageKitUrl("banner-about.jpg")} // Placeholder, replace with your actual image path
           alt="Morzze Bathroom fittings range"
           height={500}
           width={500}

@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const artPoints = [
   {
@@ -33,7 +34,7 @@ const TheARTSection = () => {
           className="relative aspect-square w-full overflow-hidden"
         >
           <Image
-            src="/artmake.jpg"
+            src={imageKitUrl("artmake.jpg")}
             alt="Master craftsman working on steel"
             height={700}
             width={700}

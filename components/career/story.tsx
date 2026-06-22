@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 export default function CareersStorySection() {
   return (
@@ -53,7 +54,7 @@ export default function CareersStorySection() {
             className="relative h-[170px] md:h-[190px] overflow-hidden"
           >
             <Image
-              src="/story1.png"
+              src={imageKitUrl("story1.png")}
               alt="career1"
               height={500}
               width={500}
@@ -65,7 +66,7 @@ export default function CareersStorySection() {
             className="relative h-[220px] md:h-[250px] overflow-hidden mt-5"
           >
             <Image
-              src="/story2.png"
+              src={imageKitUrl("story2.png")}
               alt="career2"
               height={500}
               width={500}
@@ -77,7 +78,7 @@ export default function CareersStorySection() {
             className="relative h-[220px] md:h-[250px] overflow-hidden -mt-6"
           >
             <Image
-              src="/story3.png"
+              src={imageKitUrl("story3.png")}
               alt="career3"
               height={500}
               width={500}
@@ -89,7 +90,7 @@ export default function CareersStorySection() {
             className="relative h-[170px] md:h-[190px] overflow-hidden"
           >
             <Image
-              src="/story4.png"
+              src={imageKitUrl("story4.png")}
               alt="career4"
               height={500}
               width={500}

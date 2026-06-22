@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 export default function VideoLibraryHero() {
   return (
@@ -14,7 +15,7 @@ export default function VideoLibraryHero() {
         className="absolute inset-0"
       >
         <Image
-          src="/videobanner.png"
+          src={imageKitUrl("videobanner.png")}
           alt="Video Library"
           height={1600}
           width={1600}

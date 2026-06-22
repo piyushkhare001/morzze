@@ -12,6 +12,7 @@ import {
 } from "@/helper/cart/action";
 import { isUserLoggedIn } from "@/helper/auth/action";
 import { toast } from "sonner";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 // Types
 type CartItem = {
@@ -131,7 +132,7 @@ export const syncCartFromDB = async () => {
       sku: item.sku || "",
       slug: item.slug || "",
       title: item.title || "Product",
-      image: item.image || "/product.png",
+      image: item.image || imageKitUrl("product.png"),
       price: item.price || 0,
       originalPrice: item.originalPrice,
       quantity: item.quantity ?? 0,

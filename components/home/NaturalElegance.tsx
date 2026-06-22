@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import Link from 'next/link'
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const NaturalElegance = () => {
   return (
@@ -13,7 +14,7 @@ const NaturalElegance = () => {
       {/* Iska container 'absolute inset-0' hai taaki ye poore section mein fail jaye */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/oxy-bg.png"
+          src={imageKitUrl("oxy-bg.png")}
           alt="Kitchen Background"
           height={1000}
           width={1000}
@@ -42,7 +43,7 @@ const NaturalElegance = () => {
               {/* Curved Mask Container */}
               <div className="relative w-full h-full overflow-hidden rounded-tr-[100px] rounded-bl-[100px] shadow-2xl">
                 <Image
-                  src="/elegance.png"
+                  src={imageKitUrl("elegance.png")}
                   alt="Vertex Pro Faucet"
                   height={500}
                   width={500}

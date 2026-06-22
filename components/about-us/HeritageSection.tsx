@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion, Variants } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const containerVariants: Variants = {
   initial: { opacity: 0 },
@@ -81,7 +82,7 @@ const HeritageSection = () => {
               className="relative w-1/2 aspect-4/5 rounded-3xl  overflow-hidden border border-white/10"
             >
               <motion.img
-                src="/haritage1.jpg"
+                src={imageKitUrl("haritage1.jpg")}
                 alt="Artisan"
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.05 }}
@@ -96,7 +97,7 @@ const HeritageSection = () => {
               className="relative w-1/2 aspect-4/5 mt-12 md:mt-24 rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
             >
               <motion.img
-                src="/haritage2.jpg"
+                src={imageKitUrl("haritage2.jpg")}
                 alt="Product"
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.05 }}

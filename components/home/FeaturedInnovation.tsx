@@ -2,6 +2,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const FeaturedInnovation = () => {
   // Stats data based on the provided image
@@ -15,7 +16,7 @@ const FeaturedInnovation = () => {
     <section className="relative w-full  py-20 px-6 md:px-10 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/gradient-frame.png"
+          src={imageKitUrl("gradient-frame.png")}
           alt="background"
           height={1000}
           width={1000}
@@ -58,7 +59,7 @@ const FeaturedInnovation = () => {
           {/* Central Product Showcase */}
           <div className="relative w-full h-full">
             <Image
-              src="/innovation.png" // Replace with your tap image path
+              src={imageKitUrl("innovation.png")} // Replace with your tap image path
               alt="Air Tap Innovation"
               height={500}
               width={500}

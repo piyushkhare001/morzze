@@ -16,6 +16,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { ContactLink } from "@/components/ContactLink";
 import { getImageURL } from "@/lib/getImageLin";
+import { imageKitUrl } from "@/lib/imagekit-url";
 export default function Details({ id }: { id: string }) {
   const [orderInfo, setOrderInfo] = useState<any>(null);
   const [isPending, startTransition] = useTransition();
@@ -24,7 +25,7 @@ export default function Details({ id }: { id: string }) {
   const BASE = NEXT_PUBLIC_S3_BASE_URL!;
 
   const toPublic = (key: string | null) =>
-    key ? `${BASE}/${key}` : "/placeholder.png";
+    key ? `${BASE}/${key}` : imageKitUrl("placeholder.png");
 
   const formatCurrency = (amount: number | null | undefined) =>
     amount ? `₹${(amount / 100).toLocaleString("en-IN")}` : "₹0";

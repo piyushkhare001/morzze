@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { getImageURL } from "@/lib/getImageLin";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const CategoryBanner = ({ title, description, imageSrc }: {
   title: string;
@@ -15,7 +15,7 @@ const CategoryBanner = ({ title, description, imageSrc }: {
       {/* --- BACKGROUND IMAGE --- */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={imageSrc || "/category-banner.png"} // Replace with your image
+          src={imageSrc || imageKitUrl("category-banner.png")} // Replace with your image
           alt="Premium Kitchen and Bathroom Fittings"
           height={1600}
           width={1600}

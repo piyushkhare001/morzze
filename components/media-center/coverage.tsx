@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const press = [
   {
@@ -88,7 +89,7 @@ export default function PressCoverageSection() {
           </div>
           <div className="relative w-full h-[240px] md:h-[320px] overflow-hidden">
             <Image
-              src="/exhibition.png"
+              src={imageKitUrl("exhibition.png")}
               alt="Press"
               height={500}
               width={500}

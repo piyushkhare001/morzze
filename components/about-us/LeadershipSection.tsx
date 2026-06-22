@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { IconBrandLinkedin, IconBrandX } from "@tabler/icons-react";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const LeadershipSection = () => {
   return (
@@ -21,7 +22,7 @@ const LeadershipSection = () => {
             >
               <div className="aspect-square rounded-[20px] overflow-hidden border border-white/5 shadow-2xl">
                 <Image
-                  src="/Leadership.jpg"
+                  src={imageKitUrl("Leadership.jpg")}
                   alt="Rajesh Sharma"
                   width={800}
                   height={800}

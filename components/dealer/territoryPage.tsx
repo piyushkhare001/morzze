@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const regions = [
   "North India",
@@ -84,7 +85,7 @@ export default function TerritoryCoverageSection() {
           className="relative w-full h-[420px] md:h-[500px] overflow-hidden"
         >
           <Image
-            src="/indmap.png"
+            src={imageKitUrl("indmap.png")}
             alt="India Map"
             height={500}
             width={500}

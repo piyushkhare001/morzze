@@ -22,6 +22,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { resendOtp, signIn, verifyOtp } from "@/helper";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const PENDING_SIGNUP_EMAIL_KEY = "pendingSignupEmail";
 
@@ -202,7 +203,7 @@ const VerifyOtpContent = () => {
           <Link href="/">
             <Image
               className="h-full"
-              src="/verify.png"
+              src={imageKitUrl("verify.png")}
               alt="Login Image"
               width={1300}
               height={800}

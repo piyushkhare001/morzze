@@ -4,13 +4,14 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const TouchlessInnovation = () => {
   return (
     <section className="relative w-full  py-10 lg:py-20 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/gradient-frame.png"
+          src={imageKitUrl("gradient-frame.png")}
           alt="Innovation Background"
           height={1000}
           width={1000}
@@ -34,7 +35,7 @@ const TouchlessInnovation = () => {
           >
             <div className="relative w-full h-full overflow-hidden rounded-tr-[180px] rounded-bl-[180px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
               <Image
-                src="/airtap_main.png"
+                src={imageKitUrl("airtap_main.png")}
                 alt="Touchless Faucet Technology"
                 height={500}
                 width={500}

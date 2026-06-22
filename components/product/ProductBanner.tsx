@@ -2,13 +2,14 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const ProductBanner = () => {
   return (
     <section className="relative w-full h-[50vh] md:h-[65vh] overflow-hidden font-montserrat">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/over.jpg"
+          src={imageKitUrl("over.jpg")}
           alt="Premium Kitchen and Bathroom Fittings"
           height={1600}
           width={1600}

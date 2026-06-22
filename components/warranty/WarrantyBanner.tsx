@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion"; // Types import kiye
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 // 1. Properly typed variants for Red Alert prevention
 const containerVariants: Variants = {
@@ -36,7 +37,7 @@ const WarrantyBanner = () => {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/warn-banner.png"
+          src={imageKitUrl("warn-banner.png")}
           alt="Morzze Protection"
           height={1600}
           width={1600}

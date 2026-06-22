@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Play, PlayCircle } from "lucide-react";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const films = [
   {
@@ -65,7 +66,7 @@ export default function BrandFilmsProductDemos() {
                 ) : (
                   <>
                     <Image
-                      src="/films.png"
+                      src={imageKitUrl("films.png")}
                       alt={film.title}
                       height={500}
                       width={500}

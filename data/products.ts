@@ -1,3 +1,4 @@
+import { imageKitUrl } from "@/lib/imagekit-url";
 export const products = [
  {
     id: 1,
@@ -12,13 +13,13 @@ export const products = [
     rating: 4,
     reviews: 56,
     isNew: true,
-    image: "/granite-basin.png", // Main listing image
-    images: ["/detailpage-demo.png", "/detailpage-demo.png", "/detailpage-demo.png", "/detailpage-demo.png"], // Gallery images
+    image: imageKitUrl("granite-basin.png"), // Main listing image
+    images: [imageKitUrl("detailpage-demo.png"), imageKitUrl("detailpage-demo.png"), imageKitUrl("detailpage-demo.png"), imageKitUrl("detailpage-demo.png")], // Gallery images
     description: "The Morzze Luxe Single Bowl Sink combines elegant design with robust functionality. Crafted from 304 Stainless Steel with a chrome finish, this piece elevates any kitchen space.",
     finishes: ["Chrome", "Brushed Gold", "Matte Black", "Rose Gold"],
-    
+
     // --- Detail Page Extra Fields ---
-    
+
     // 1. Tab Content Data
     tabs: [
       { label: "DESCRIPTION", content: "Introducing our premium 37\" Inch Top Mount Double Bowl Stainless Steel Kitchen Sink..." },
@@ -56,7 +57,7 @@ export const products = [
     ],
 
     // 5. Ateliers/Gallery Images
-    ateliers: ["/ateliers1.png", "/ateliers2.png", "/ateliers3.png", "/ateliers4.png"],
+    ateliers: [imageKitUrl("ateliers1.png"), imageKitUrl("ateliers2.png"), imageKitUrl("ateliers3.png"), imageKitUrl("ateliers4.png")],
 
     // 6. FAQs
     faqs: [
@@ -74,7 +75,7 @@ export const products = [
     rating: 4,
     reviews: 38,
     discount: "-30%",
-    image: "/piecedemo2.png", 
+    image: imageKitUrl("piecedemo2.png"),
     isNew: true,
   },
   {
@@ -87,7 +88,7 @@ export const products = [
     rating: 4,
     reviews: 56,
     discount: "-30%",
-    image: "/piecedemo3.png", 
+    image: imageKitUrl("piecedemo3.png"),
     isNew: true,
   },
   {
@@ -100,7 +101,7 @@ export const products = [
     rating: 4,
     reviews: 56,
     discount: "-30%",
-    image: "/piecedemo3.png", 
+    image: imageKitUrl("piecedemo3.png"),
     isNew: true,
   },
   {
@@ -113,7 +114,7 @@ export const products = [
     rating: 4,
     reviews: 38,
     discount: "-30%",
-    image: "/piecedemo2.png", 
+    image: imageKitUrl("piecedemo2.png"),
     isNew: true,
   },
   {
@@ -126,7 +127,7 @@ export const products = [
     rating: 4,
     reviews: 38,
     discount: "-30%",
-    image: "/granite-basin.png", 
+    image: imageKitUrl("granite-basin.png"),
     isNew: true,
   },
   {
@@ -139,8 +140,8 @@ export const products = [
     rating: 4,
     reviews: 56,
     discount: "-30%",
-    image: "/piecedemo3.png", 
-    isNew: true,  
+    image: imageKitUrl("piecedemo3.png"),
+    isNew: true,
   },
   {
     id: 8,
@@ -152,7 +153,7 @@ export const products = [
     rating: 4,
     reviews: 56,
     discount: "-30%",
-    image: "/piecedemo3.png", 
+    image: imageKitUrl("piecedemo3.png"),
     isNew: true,
   },
 ];

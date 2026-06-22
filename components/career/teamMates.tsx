@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const testimonials = [
   {
@@ -11,21 +12,21 @@ const testimonials = [
       "Morzze gave me the space to push my creative limits. Every project here is a chance to redefine luxury living.",
     name: "Priya Nair",
     role: "Senior Designer, 4 years",
-    image: "/team1.png",
+    image: imageKitUrl("team1.png"),
   },
   {
     quote:
       "The culture here values craftsmanship, innovation, and individuality. I’ve grown faster here than anywhere else.",
     name: "Rahul Mehta",
     role: "Production Lead, 5 years",
-    image: "/team2.png",
+    image: imageKitUrl("team2.png"),
   },
   {
     quote:
       "Every day at Morzze feels like building something timeless. There’s trust, ownership, and creative freedom.",
     name: "Ananya Kapoor",
     role: "Brand Strategist, 3 years",
-    image: "/team3.png",
+    image: imageKitUrl("team3.png"),
   },
 ];
 
