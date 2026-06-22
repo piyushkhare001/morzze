@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 export default function PromoCodesOfferHero() {
   return (
@@ -15,7 +16,7 @@ export default function PromoCodesOfferHero() {
         className="absolute inset-0"
       >
         <Image
-          src="/promo.png"
+          src={imageKitUrl("promo.png")}
           alt="Promo Offers"
           height={1600}
           width={1600}

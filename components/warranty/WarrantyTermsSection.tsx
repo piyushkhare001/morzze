@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const warrantyTerms = [
   {
@@ -42,7 +43,7 @@ const WarrantyTermsSection = () => {
           >
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden border border-white/5">
               <Image
-                src="/warn-2.png" // Replace with your image path
+                src={imageKitUrl("warn-2.png")} // Replace with your image path
                 alt="Morzze Luxury Fittings"
                 height={500}
                 width={500}

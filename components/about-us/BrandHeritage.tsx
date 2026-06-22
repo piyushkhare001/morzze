@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import { motion, Variants } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const containerVariants: Variants = {
   initial: { opacity: 0 },
@@ -37,7 +38,7 @@ const BrandHeritage = () => {
           >
             <div className="relative aspect-4/5 lg:aspect-square  overflow-hidden border border-white/5 shadow-2xl group">
               <Image
-                src="/green-about.png"
+                src={imageKitUrl("green-about.png")}
                 alt="Morzze Heritage"
                 width={900}
                 height={900}

@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 export default function ProductCatalogueHero() {
   return (
@@ -14,7 +15,7 @@ export default function ProductCatalogueHero() {
         className="absolute inset-0"
       >
         <Image
-          src="/catalogue.png"
+          src={imageKitUrl("catalogue.png")}
           alt="Product Catalogue"
           height={1600}
           width={1600}

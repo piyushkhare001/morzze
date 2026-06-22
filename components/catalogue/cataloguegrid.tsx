@@ -5,6 +5,7 @@ import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FileText, HardDrive, CalendarDays, Download } from "lucide-react";
 import { getImageURL } from "@/lib/getImageLin";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 export type CatalogueGridItem = {
   id: string;
@@ -23,7 +24,7 @@ type Props = {
   items: CatalogueGridItem[];
 };
 
-const PLACEHOLDER_IMG = "/video.png";
+const PLACEHOLDER_IMG = imageKitUrl("video.png");
 
 export default function CatalogueGridDownloads({ items }: Props) {
   const tabs = useMemo(() => {

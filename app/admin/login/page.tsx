@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const Page = () => {
   const router = useRouter();
@@ -65,7 +66,7 @@ const Page = () => {
 
 
       <Image
-        src="/loginbg.png"
+        src={imageKitUrl("loginbg.png")}
         alt="background"
         height={500}
         width={500}
@@ -89,7 +90,7 @@ const Page = () => {
           <div className="flex justify-center mb-1">
 
             <Image
-              src="/mobilelogin.png"
+              src={imageKitUrl("mobilelogin.png")}
               alt="background mobile"
               height={500}
               width={500}
@@ -99,7 +100,7 @@ const Page = () => {
 
 
             <Image
-              src="/loginbg.png"
+              src={imageKitUrl("loginbg.png")}
               alt="background desktop"
               height={500}
               width={500}

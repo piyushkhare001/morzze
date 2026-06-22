@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const BannerAbout = () => {
   return (
@@ -13,7 +14,7 @@ const BannerAbout = () => {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/banner-about.jpg"
+          src={imageKitUrl("banner-about.jpg")}
           alt="Morzze Craftsmanship"
           height={500}
           width={500}

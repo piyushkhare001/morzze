@@ -23,6 +23,7 @@ import {
 import Image from "next/image";
 import React from "react";
 import { ContactLink } from "@/components/ContactLink";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const ContactClient = () => {
     const maxLength = 500;
@@ -164,7 +165,7 @@ const ContactClient = () => {
             {/* Hero Section */}
             <div className="relative">
                 <Image
-                    src="/footer-bg.png"
+                    src={imageKitUrl("footer-bg.png")}
                     alt="contact"
                     width={10000}
                     height={500}

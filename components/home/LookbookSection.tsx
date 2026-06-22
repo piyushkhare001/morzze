@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const LookbookSection = () => {
   return (
@@ -37,7 +38,7 @@ const LookbookSection = () => {
                 className="w-full h-full relative"
               >
                 <Image
-                  src="/lookbook1.png"
+                  src={imageKitUrl("lookbook1.png")}
                   alt="Bathroom Design"
                   height={500}
                   width={500}
@@ -73,7 +74,7 @@ const LookbookSection = () => {
                 className="w-full h-full relative"
               >
                 <Image
-                  src="/lookbook2.png"
+                  src={imageKitUrl("lookbook2.png")}
                   alt="Kitchen Design"
                   height={500}
                   width={500}

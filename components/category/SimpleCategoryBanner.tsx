@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const FullHorizontalBanner = () => {
   return (
@@ -13,7 +14,7 @@ const FullHorizontalBanner = () => {
         className="w-full h-auto"
       >
         <Image
-          src="/category-view.png"
+          src={imageKitUrl("category-view.png")}
           alt="Category Full View"
           width={1920} 
           height={600}  

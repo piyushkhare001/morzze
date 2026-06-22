@@ -5,14 +5,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const images = [
-  "/insta1.png",
-  "/insta2.png",
-  "/insta3.png",
-  "/insta4.png",
-  "/insta5.png",
-  "/insta4.png",
+  imageKitUrl("insta1.png"),
+  imageKitUrl("insta2.png"),
+  imageKitUrl("insta3.png"),
+  imageKitUrl("insta4.png"),
+  imageKitUrl("insta5.png"),
+  imageKitUrl("insta4.png"),
 ];
 
 export default function InstagramCarousel() {
@@ -24,7 +25,7 @@ export default function InstagramCarousel() {
 
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/insta-bg.png"
+          src={imageKitUrl("insta-bg.png")}
           alt="background"
           height={1000}
           width={1000}

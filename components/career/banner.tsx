@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 export default function JoinUsHero() {
   return (
@@ -14,7 +15,7 @@ export default function JoinUsHero() {
         className="absolute inset-0"
       >
         <Image
-          src="/careerbanner.png"
+          src={imageKitUrl("careerbanner.png")}
           alt="Join Us"
           height={1600}
           width={1600}

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import Link from 'next/link'
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const VertexShowcase = () => {
   return (
@@ -13,7 +14,7 @@ const VertexShowcase = () => {
       {/* Iska container 'absolute inset-0' hai taaki ye poore section mein fail jaye */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/vertex1-bg.png"
+          src={imageKitUrl("vertex1-bg.png")}
           alt="Kitchen Background"
           height={500}
           width={500}
@@ -75,7 +76,7 @@ const VertexShowcase = () => {
               {/* Curved Mask Container */}
               <div className="relative w-full h-full overflow-hidden rounded-tl-[150px]  rounded-br-[150px] shadow-2xl">
                 <Image
-                  src="/vertex-bg.png"
+                  src={imageKitUrl("vertex-bg.png")}
                   alt="Vertex Pro Faucet"
                   height={1000}
                   width={1000}

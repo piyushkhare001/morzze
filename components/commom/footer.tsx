@@ -9,6 +9,7 @@ import {
   IconBrandX,
 } from "@tabler/icons-react";
 import { getCategories } from "@/helper";
+import { imageKitUrl } from "@/lib/imagekit-url";
 const companyLinks = [
   { name: "About Us", href: "/about" },
   { name: "Coupons", href: "/promo-code" },
@@ -31,7 +32,7 @@ const Footer = async () => {
       {/* Background Section */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/footer-bg.png"
+          src={imageKitUrl("footer-bg.png")}
           alt="Footer Background"
           height={1080}
           width={1920}
@@ -53,7 +54,7 @@ const Footer = async () => {
             >
               <div className="relative w-40 h-16 md:w-48 md:h-20">
                 <Image
-                  src="/logo.png"
+                  src={imageKitUrl("logo.png")}
                   alt="Morzze Logo"
                   height={500}
                   width={500}

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 export default function AdminGatePage() {
   const router = useRouter();
@@ -39,7 +40,7 @@ export default function AdminGatePage() {
     <div className="relative text-white bg-black min-h-screen w-full flex items-center justify-center p-6 ">
       <div className="w-full max-w-md bg-gray-950  rounded-2xl border  p-8 shadow-sm">
         <div className="mb-6 flex justify-center">
-          <Image src="/logo.png" alt="Logo" width={90} height={50} className="object-contain" />
+          <Image src={imageKitUrl("logo.png")} alt="Logo" width={90} height={50} className="object-contain" />
         </div>
         <h1 className="text-center text-xl font-semibold text-foreground">Admin sign-in</h1>
         <p className="mt-1 text-center text-sm  ">

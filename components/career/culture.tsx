@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Lightbulb, Heart, Shield } from "lucide-react";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const values = [
   {
@@ -86,7 +87,7 @@ export default function WorkCultureSection() {
           className="relative w-full h-[430px] md:h-[520px] overflow-hidden rounded-tl-[120px] rounded-tr-[18px] rounded-bl-[18px] rounded-br-[120px]"
         >
           <Image
-            src="/culture.png"
+            src={imageKitUrl("culture.png")}
             alt="Work Culture"
             height={500}
             width={500}

@@ -5,8 +5,8 @@ import React, { Suspense } from 'react'
 import SimpleCategoryBanner from '@/components/category/SimpleCategoryBanner'
 import ScrollingRibbon from '@/components/category/ScrollingRibbon';
 import { kitchenBathroomRestrictCategories } from '@/const/globalconst';
-import { getImageURL } from '@/lib/getImageLin';
 import { Metadata } from 'next';
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 export const metadata: Metadata = {
     title: `Premium Kitchen Accessories | Faucets, Sinks & More - Morzze`,
@@ -20,7 +20,7 @@ const page = async () => {
     return (
         <div>
             <Suspense fallback={<div>Loading...</div>}>
-                <CategoryBanner imageSrc={getImageURL("/kitchen.png")} title="Our Kitchen Categories" description="Explore our diverse range of high-quality kitchen and bathroom products." />
+                <CategoryBanner imageSrc={imageKitUrl("kitchen.png")} title="Our Kitchen Categories" description="Explore our diverse range of high-quality kitchen and bathroom products." />
                 <CategorySection categories={filteredCat} />
             </Suspense>
             <SimpleCategoryBanner />

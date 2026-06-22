@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const SupportHero = () => {
   return (
@@ -9,7 +10,7 @@ const SupportHero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: `url('/support-bg.png')`, // Replace with your actual image path
+          backgroundImage: `url(${imageKitUrl("support-bg.png")})`, // Replace with your actual image path
         }}
       >
         {/* Dark Tint Overlay to match the image style */}

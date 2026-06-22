@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const DealerHero = () => {
   return (
@@ -16,7 +17,7 @@ const DealerHero = () => {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/dealerhero.png"
+          src={imageKitUrl("dealerhero.png")}
           alt="Luxury Bathroom Collection"
           height={1600}
           width={1600}

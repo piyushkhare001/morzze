@@ -27,6 +27,7 @@ import {
 } from "firebase/auth";
 
 import { auth } from "@/lib/firebase";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const PENDING_SIGNUP_EMAIL_KEY = "pendingSignupEmail";
 
@@ -250,7 +251,7 @@ const Page = () => {
       <div className="w-full flex min-h-screen bg-black text-white ">
         <div className=" lg:block hidden min-h-screen w-1/2 z-10">
           <Link href="/">
-            <Image className="h-full" src="/login.png" alt="Login Image" width={1600} height={1300} /></Link>
+            <Image className="h-full" src={imageKitUrl("login.png")} alt="Login Image" width={1600} height={1300} /></Link>
         </div>
         <div className=" space-y-4  max-w-2xl mx-auto  justify-center text-left items-center my-auto">
           <div className="absolute  -top-20 right-0 w-40 h-40 blur-[110px] bg-[#FFDD00]"></div>

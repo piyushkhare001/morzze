@@ -20,6 +20,7 @@ import { signUp } from "@/helper";
 import { toast } from "sonner";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
 import Link from "next/link";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const PENDING_SIGNUP_EMAIL_KEY = "pendingSignupEmail";
 
@@ -153,7 +154,7 @@ const RegisterContent = () => {
       <div className="w-full flex h-screen bg-black text-white ">
         <div className="hidden lg:block w-1/2 z-10">
           <Link href="/">
-            <Image className="h-full" src="/login.png" alt="Login Image" width={1600} height={1300} />
+            <Image className="h-full" src={imageKitUrl("login.png")} alt="Login Image" width={1600} height={1300} />
           </Link>
         </div>
         <div className=" space-y-4 px-4 lg:px-0 max-w-2xl mx-auto  justify-center text-left items-center my-auto">

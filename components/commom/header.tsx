@@ -18,6 +18,7 @@ import { useWishlist } from "@/context/WishlistContext";
 import { isUserLoggedIn } from "@/helper/auth/action";
 import { getImageURL } from "@/lib/getImageLin";
 import { LogIn } from "lucide-react";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 type SearchProduct = {
   id: string;
@@ -331,7 +332,7 @@ const Header = () => {
         >
           <Link href={"/"}>
             <Image
-              src="/logo.png"
+              src={imageKitUrl("logo.png")}
               alt="Morzze Logo"
               width={150}
               height={50}
@@ -345,7 +346,7 @@ const Header = () => {
           className="cursor-pointer"
         >
           <Image
-            src="/logo.png"
+            src={imageKitUrl("logo.png")}
             alt="Morzze Logo"
             width={150}
             height={50}
@@ -666,7 +667,7 @@ const Header = () => {
             >
               {/* Mobile Menu Header */}
               <div className="h-20 flex items-center justify-between px-6 border-b border-zinc-900">
-                <Image src="/logo.png" alt="Morzze" width={110} height={35} />
+                <Image src={imageKitUrl("logo.png")} alt="Morzze" width={110} height={35} />
                 <button onClick={() => setIsMenuOpen(false)} className="text-white">
                   <IconX size={28} />
                 </button>

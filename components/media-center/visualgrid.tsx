@@ -4,23 +4,24 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download } from "lucide-react";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const tabs = [
 
 ];
 const images = [
-  "/Concept1.jpg",
-  "/Image_3.jpg",
-  "/22.jpeg",
-  "/Feature2.jpeg",
-  "/hand sprayer.jpg",
-  "/image_1 copy.jpg",
-  "/Food Disposer4.jpg",
-  "/2-1.jpg",
-  "/8050-1 copy 2.jpeg",
-  "/1.jpg",
-  "/SL-077H (8).jpg",
-  "/OB-M11 (1).jpg",
+  imageKitUrl("Concept1.jpg"),
+  imageKitUrl("Image_3.jpg"),
+  imageKitUrl("22.jpeg"),
+  imageKitUrl("Feature2.jpeg"),
+  imageKitUrl("hand sprayer.jpg"),
+  imageKitUrl("image_1 copy.jpg"),
+  imageKitUrl("Food Disposer4.jpg"),
+  imageKitUrl("2-1.jpg"),
+  imageKitUrl("8050-1 copy 2.jpeg"),
+  imageKitUrl("1.jpg"),
+  imageKitUrl("SL-077H (8).jpg"),
+  imageKitUrl("OB-M11 (1).jpg"),
 ];
 
 export default function ProductPhotographyGallery() {

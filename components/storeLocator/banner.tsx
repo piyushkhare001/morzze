@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 export default function FindStoreHero() {
   return (
@@ -14,7 +15,7 @@ export default function FindStoreHero() {
         className="absolute inset-0"
       >
         <Image
-          src="/storelocate.png"
+          src={imageKitUrl("storelocate.png")}
           alt="Find Store"
           height={1600}
           width={1600}

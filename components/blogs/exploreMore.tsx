@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const explore = [
   {
@@ -60,7 +61,7 @@ export default function MoreToExploreSection() {
             >
               <div className="relative w-full h-[180px] md:h-[200px] overflow-hidden rounded-[4px] mb-4">
                 <Image
-                  src="/related.png"
+                  src={imageKitUrl("related.png")}
                   alt={item.title}
                   height={500}
                   width={500}

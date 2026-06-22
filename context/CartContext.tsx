@@ -16,6 +16,7 @@ import {
 } from "@/helper/cart/action";
 import { isUserLoggedIn } from "@/helper/auth/action";
 import { useRouter } from "next/navigation";
+import { imageKitUrl } from "@/lib/imagekit-url";
 
 const CART_STORAGE_KEY = "morzze_cart";
 const CART_SYNC_DEBOUNCE_MS = 500;
@@ -134,7 +135,7 @@ function mapDbCartItems(items: unknown[]): CartItem[] {
         frequencyInMonths: row.frequencyInMonths ?? null,
         slug: row.slug || row.productId,
         name: row.title || "Product",
-        image: row.image || "/product.png",
+        image: row.image || imageKitUrl("product.png"),
         price: row.price || 0,
         oldPrice: row.originalPrice || undefined,
         sku: row.sku || undefined,
