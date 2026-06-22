@@ -29,7 +29,7 @@ const NeedHelp = () => {
           >
             <a href={getContactHref("phone", "+91-87503-13000")}>
               <IconPhone size={20} stroke={2.5} />
-              <span className="text-sm tracking-wide">+91-87503-13000</span>
+              <span className="text-sm tracking-wide">1800 110 123</span>
             </a>
           </Button>
 
