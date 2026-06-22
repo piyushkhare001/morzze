@@ -19,9 +19,9 @@ const page = () => {
   return (
     <div>
       <WarrantyBanner />
-      <WarrantyCoverageGrid />
+      {/* <WarrantyCoverageGrid /> */}
       <HowWarrantyWorks />
-      <WarrantyTermsSection />
+      {/* <WarrantyTermsSection /> */}
       <WarrantyServices />
       <FeaturesGrid />
       <NeedHelp />

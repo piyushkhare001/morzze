@@ -32,7 +32,6 @@ const SPAN_PATTERNS = [
 
 const ShopCategory = ({ categories = [] }: ShopCategoryProps) => {
   const visibleCategories = categories
-
   return (
     <section className="bg-black text-white py-12 md:py-24 px-6 md:px-10 overflow-hidden font-montserrat">
       <div className="max-w-screen-2xl mx-auto">

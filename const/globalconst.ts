@@ -24,6 +24,7 @@ export const kitchenBathroomRestrictCategories = new Set([
 ]);
 
 export const allowedCategoryNames = new Set([
+   "air-tap",
   "Granite-Sinks",
   "Steel-Sinks",
   "Kitchen-Faucets",
@@ -32,5 +33,4 @@ export const allowedCategoryNames = new Set([
   "Towel-Warmers",
   "Food-Waste-Disposers",
   "Floor-Drainers",
-  "Air-Tap",
 ]);

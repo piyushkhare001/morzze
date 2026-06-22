@@ -9,6 +9,7 @@ const ShopCategoryServer = async () => {
         allowedCategoryNames.has(category.slug)
     );
 
+
     return (
         <ShopCategory categories={filteredCategories} />
     )
