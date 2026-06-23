@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X } from "lucide-react";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { imageKitUrl } from "@/lib/imagekit-url";
 
 type VideoType = {

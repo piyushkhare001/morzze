@@ -10,7 +10,7 @@ import {
   IconHeart,
   IconHeartFilled,
 } from "@tabler/icons-react";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import Image from "next/image";

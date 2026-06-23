@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { IconShoppingBag, IconStarFilled, IconX, IconHeart } from "@tabler/icons-react";
 import { useWishlist } from "@/context/WishlistContext";
 import { useCart } from "@/context/CartContext";

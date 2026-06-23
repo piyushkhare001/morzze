@@ -2,7 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getAllProductsByCategorySlug, getCategoryBySlug } from "@/helper/category/action";
 import CategoryProductsClient from "./CategoryProductsClient";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { getImageURL } from "@/lib/getImageLin";
 
 export default async function CategoryPage({

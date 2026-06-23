@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useMemo, useState, useRef, useEffect } from "react";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { FileText, Loader2, Upload } from "lucide-react";

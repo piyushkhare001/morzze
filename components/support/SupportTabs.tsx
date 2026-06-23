@@ -13,7 +13,7 @@ import CallbackForm from "./CallbackForm";
 import FAQSection from "./FAQSection";
 import ServiceRequest from "./ServiceRequest";
 import WhatsappChat from "./WhatsappChat";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 
 const SupportTabs = () => {
   const searchParams = useSearchParams();

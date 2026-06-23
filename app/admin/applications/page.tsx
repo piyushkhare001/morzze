@@ -1,7 +1,7 @@
 import React from "react";
 import { getApplications } from "@/helper/applications/action";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { BriefcaseBusiness, Eye } from "lucide-react";
 import { ContactLink } from "@/components/ContactLink";
 

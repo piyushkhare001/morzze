@@ -1,7 +1,7 @@
 import { getApplicationById } from "@/helper/applications/action";
 import { Button } from "@/components/ui/button";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import {
   ArrowLeft,
   FileText,

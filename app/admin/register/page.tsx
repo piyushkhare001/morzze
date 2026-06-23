@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { useRouter } from "next/navigation";
 import { imageKitUrl } from "@/lib/imagekit-url";
 

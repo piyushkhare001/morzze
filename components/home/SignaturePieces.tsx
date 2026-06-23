@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { motion } from "framer-motion";
 import { IconArrowRight, IconShoppingBag, IconHeart, IconHeartFilled, IconStarFilled } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";

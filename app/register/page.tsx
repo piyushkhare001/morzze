@@ -19,7 +19,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { signUp } from "@/helper";
 import { toast } from "sonner";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { imageKitUrl } from "@/lib/imagekit-url";
 
 const PENDING_SIGNUP_EMAIL_KEY = "pendingSignupEmail";
@@ -172,7 +172,7 @@ const RegisterContent = () => {
             </button>
           </div>
           <h1 className="text-4xl font-bold p-0">Welcome Back</h1>
-          <p className="text-sm -mt-5  ">Sign In To Your Account</p>
+          <p className="text-sm m-2  ">Sign In To Your Account</p>
           <div className="w-full grid grid-cols-1 gap-4 text-center z-10">
             <InputGroup className="max-w-96 py-5 bg-[#141414] rounded-xs px-3 border border-[#454545]">
               <InputGroupInput

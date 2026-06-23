@@ -153,7 +153,7 @@ export default function AddProductForm() {
   const [newFinish, setNewFinish] = useState("");
   const [newSize, setNewSize] = useState("");
   const [newMaterial, setNewMaterial] = useState("");
-
+  const [videos, setVideos] = useState<any[]>([]);
   const [varientBox, setVarientBox] = useState(false);
   const [variantBoxes, setVariantBoxes] = useState<any[]>([]);
   const [brand, setBrand] = useState<any>();
@@ -363,6 +363,10 @@ export default function AddProductForm() {
           mediaType: "image",
           mediaURL: getStoredImageKey(g.key || g.preview),
         })),
+        ...videos.map((v: any) => ({
+          mediaType: "video",
+          mediaURL: getStoredImageKey(v.key || v.url),
+        })),
         ...variants.documents.map((d: any) => ({
           mediaType: "pdf",
           mediaURL: d.url,
@@ -403,9 +407,9 @@ export default function AddProductForm() {
       ],
       VarientBoxes: varientBox
         ? variantBoxes.map((item: any) => ({
-            ...item,
-            image: getStoredImageKey(item.image),
-          }))
+          ...item,
+          image: getStoredImageKey(item.image),
+        }))
         : [],
       hasVarientBox: varientBox,
     };
@@ -486,6 +490,35 @@ export default function AddProductForm() {
       }));
 
       toast.success("PDF uploaded");
+    } catch (err: any) {
+      toast.error(err.message);
+    }
+  };
+
+  const handleVideoUpload = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = e.target.files?.[0];
+
+    if (!file) return;
+
+    if (!file.type.startsWith("video/")) {
+      toast.error("Only video files allowed");
+      return;
+    }
+
+    try {
+      const { fileKey, fileUrl } = await upload(file, "product-videos");
+
+      setVideos((prev) => [
+        ...prev,
+        {
+          key: fileKey,
+          url: fileUrl,
+        },
+      ]);
+
+      toast.success("Video uploaded");
     } catch (err: any) {
       toast.error(err.message);
     }
@@ -740,6 +773,30 @@ export default function AddProductForm() {
               />
             </div>
 
+            <Card>
+              <CardHeader>
+                <CardTitle>Product Videos</CardTitle>
+              </CardHeader>
+
+              <CardContent className="space-y-4">
+                <Input
+                  type="file"
+                  accept="video/*"
+                  onChange={handleVideoUpload}
+                />
+
+                <div className="space-y-3">
+                  {videos.map((video, index) => (
+                    <video
+                      key={index}
+                      src={video.url}
+                      controls
+                      className="w-full max-w-md rounded-lg border"
+                    />
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
             {/* Colour Variants Section */}
             <Card>
               <CardHeader>

@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { Trash2, Minus, Plus, ShoppingBag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { getImageURL } from "@/lib/getImageLin";
 
 const CartItemList = () => {

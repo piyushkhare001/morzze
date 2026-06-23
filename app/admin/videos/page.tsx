@@ -1,7 +1,7 @@
 import React from "react";
 import { getVideos, deleteVideo } from "@/helper/videos/action";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { PlusCircle, Video, Pencil } from "lucide-react";
 import { revalidatePath } from "next/cache";
 import DeleteVideoButton from "@/components/admin/DeleteVideoButton";

@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 import { users } from "@/db/schema";
 import { desc } from "drizzle-orm";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { ContactLink } from "@/components/ContactLink";
 
 export default async function Page() {

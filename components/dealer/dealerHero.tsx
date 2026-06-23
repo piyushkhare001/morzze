@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";

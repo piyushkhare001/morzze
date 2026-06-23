@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { Button } from "../ui/button";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { imageKitUrl } from "@/lib/imagekit-url";
 
 // --- MORZZE LUXURY REVEAL VARIANTS ---

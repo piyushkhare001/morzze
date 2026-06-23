@@ -1,7 +1,7 @@
 import React from "react";
 import { getCoupons, deleteCoupon } from "@/helper/coupons/action";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { PlusCircle, TicketPercent, Pencil } from "lucide-react";
 import { revalidatePath } from "next/cache";
 import DeleteCouponButton from "@/components/admin/DeleteCouponButton";

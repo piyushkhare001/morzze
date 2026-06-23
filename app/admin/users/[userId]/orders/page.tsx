@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 import { order, users } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { notFound } from "next/navigation";
 import { ContactLink } from "@/components/ContactLink";
 

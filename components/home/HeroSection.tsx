@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { preload } from "react-dom";
 import { motion } from "framer-motion";
 

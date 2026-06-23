@@ -3,7 +3,7 @@ import FilterSidebar from "@/components/product/FilterSidebar";
 import ProductGrid from "@/components/product/ProductGrid";
 import SortDropdown from "@/components/product/SortDropdown";
 import React from "react";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import {
   getProducts,
   getProductFilterOptions,
