@@ -24,6 +24,8 @@ import Image from "next/image";
 import React from "react";
 import { ContactLink } from "@/components/ContactLink";
 import { imageKitUrl } from "@/lib/imagekit-url";
+import Script from "next/script";
+import { ContactClientFrom } from "./ContactClientForm";
 
 const ContactClient = () => {
     const maxLength = 500;
@@ -290,7 +292,7 @@ const ContactClient = () => {
                                 </div>
                             )}
 
-                            <form className="space-y-6" id="zoho-form" onSubmit={handleSubmit}>
+                            {/* <form className="space-y-6" id="zoho-form" onSubmit={handleSubmit}>
                                 <input
                                     type="hidden"
                                     id="zc_gad"
@@ -408,7 +410,8 @@ const ContactClient = () => {
                                 >
                                     {loading ? "Sending..." : "Send"}
                                 </Button>
-                            </form>
+                            </form> */}
+                            <ContactClientFrom />
                         </div>
 
                         {/* Right Section - Map, Business Hours, WhatsApp */}

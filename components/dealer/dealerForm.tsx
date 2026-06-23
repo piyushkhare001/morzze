@@ -1,10 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import Script from "next/script";
+import { BecomeADealerFrom } from "./BecomeADealerForm";
+
+declare global {
+  interface Window {
+    fdforms: any[];
+  }
+}
+
 
 export default function DealerApplicationForm() {
   const [error, setError] = useState("");
@@ -22,6 +31,19 @@ export default function DealerApplicationForm() {
     yearsInBusiness: "",
     businessDetails: "",
   });
+
+  useEffect(() => {
+    window.fdforms = window.fdforms || [];
+
+    window.fdforms.push({
+      formId: 226372,
+      host: "form.morz.in",
+      formHeight: 100,
+      el: "form_226372_1",
+      center: 1,
+      scroll: 0,
+    });
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -154,7 +176,11 @@ export default function DealerApplicationForm() {
           </p>
         </motion.div>
 
-        <motion.form
+
+        <BecomeADealerFrom />
+
+
+        {/* <motion.form
           onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -272,7 +298,7 @@ export default function DealerApplicationForm() {
           >
             {loading ? "Submitting..." : "Submit Application"}
           </Button>
-        </motion.form>
+        </motion.form> */}
       </div>
     </section>
   );

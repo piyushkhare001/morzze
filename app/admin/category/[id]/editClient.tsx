@@ -82,7 +82,7 @@ export default function EditCategory({ categoryInfo }: any) {
       bannerImage: getStoredImageKey(bannerKey || preview),
       horizontalBannerImage: getStoredImageKey(horizontalBannerKey || horizontalPreview),
     };
-    console.log(categoryData)
+    // console.log(categoryData)
     const response = await updateCategory(categoryData);
     if (response?.success == true) {
       toast.success(response.message ?? "Category updated successfully");

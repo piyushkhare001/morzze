@@ -22,7 +22,7 @@ interface NewArrivalProduct {
 const JustArrived = ({ products }: { products: NewArrivalProduct[] }) => {
   const { addToCart, getItemQuantity } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
-  console.log("JustArrived products:", products); // Debug log to check products data
+  // console.log("JustArrived products:", products); // Debug log to check products data
 
   if (!products || products.length === 0) return null;
 
@@ -31,10 +31,10 @@ const JustArrived = ({ products }: { products: NewArrivalProduct[] }) => {
       <div className="max-w-screen-2xl mx-auto px-6 md:px-10">
         <div className="relative mb-12 flex items-center justify-center min-h-25">
           <div className="text-center">
-           <span className="block font-montserrat text-[10px] md:text-xs font-bold text-[#CBA14D] uppercase tracking-[0.4em] mb-4">
+            <span className="block font-montserrat text-[10px] md:text-xs font-bold text-[#CBA14D] uppercase tracking-[0.4em] mb-4">
               Just Arrived
             </span>
-              <h2 className="font-montserrat text-3xl md:text-5xl font-medium tracking-tight text-white">
+            <h2 className="font-montserrat text-3xl md:text-5xl font-medium tracking-tight text-white">
               New Arrival
             </h2>
 
