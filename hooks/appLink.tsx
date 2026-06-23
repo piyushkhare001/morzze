@@ -6,6 +6,8 @@ import { ReactNode } from "react";
 interface AppLinkProps extends LinkProps {
   children: ReactNode;
   className?: string;
+  target?: string;
+rel?: string;
 }
 
 export default function AppLink({
