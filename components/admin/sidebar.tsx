@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react"
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { usePathname, useRouter } from "next/navigation";
 import {
   LayoutGrid,

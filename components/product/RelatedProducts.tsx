@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { getProductSimilarProducts } from "@/helper";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { IconStarFilled, IconShoppingBag, IconHeart, IconHeartFilled } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";

@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import React, { Suspense, useState } from "react";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { resendOtp, signIn, verifyOtp } from "@/helper";

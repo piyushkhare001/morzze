@@ -11,7 +11,7 @@ import {
 import { Plus, Search, Loader2 } from "lucide-react";
 import { useEffect, useState, useTransition } from "react";
 import CategoryTable from "./categoryTable";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { usePathname, useSearchParams } from "next/navigation";
 import {
   InputGroup,

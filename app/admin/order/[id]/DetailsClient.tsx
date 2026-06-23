@@ -9,7 +9,7 @@ import { useEffect, useState, useTransition } from "react";
 import { Loader2 } from "lucide-react";
 import { fetchOrderDetails } from "@/helper/index"; // server action
 import { NEXT_PUBLIC_S3_BASE_URL } from "@/env";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";

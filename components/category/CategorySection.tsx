@@ -1,7 +1,7 @@
 "use client";
 import { allowedCategoryNames } from "@/const/globalconst";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { getImageURL } from "@/lib/getImageLin";

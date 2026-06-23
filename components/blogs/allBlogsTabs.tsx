@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { motion, AnimatePresence } from "framer-motion";
 import { Search } from "lucide-react";
 import { getBlogs } from "@/helper/blog/action";

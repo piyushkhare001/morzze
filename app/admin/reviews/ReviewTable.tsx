@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { useTransition, useState } from "react";
 
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { imageKitUrl } from "@/lib/imagekit-url";

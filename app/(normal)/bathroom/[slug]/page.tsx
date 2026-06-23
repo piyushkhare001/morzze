@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getAllProductsByCategorySlug, getCategoryBySlug } from "@/helper/category/action";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import CategoryProductsClient from "../../category/[slug]/CategoryProductsClient";
 import { getImageURL } from "@/lib/getImageLin";
 

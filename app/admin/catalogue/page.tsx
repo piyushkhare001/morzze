@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { BookOpen, Pencil, PlusCircle } from "lucide-react";
 import { getCatalogue as getAllCatalogue } from "@/helper/catalogue/action";
 import { CatalogueDeleteButton } from "@/components/admin/CatalogueDeleteButton";

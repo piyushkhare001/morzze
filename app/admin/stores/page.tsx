@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { MapPin, Pencil, PlusCircle } from "lucide-react";
 import { getStores } from "@/helper/stores/action";
 import { StoreDeleteButton } from "@/components/admin/StoreDeleteButton";

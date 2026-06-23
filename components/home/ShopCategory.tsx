@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { motion } from "framer-motion";
 import { IconArrowRight } from "@tabler/icons-react";
 import { getImageURL } from "@/lib/getImageLin";

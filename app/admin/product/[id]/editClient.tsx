@@ -168,6 +168,7 @@ export default function EditProduct({ productDetails }: any) {
   const [variantBoxes, setVariantBoxes] = useState<any[]>([]);
   const [isSaving, setIsSaving] = useState(false);
 
+
   const [faqs, setFaqs] = useState(
     productDetails?.productFaqRes?.length
       ? productDetails.productFaqRes.map((faq: any) => ({
@@ -189,6 +190,16 @@ export default function EditProduct({ productDetails }: any) {
     productMediaRes,
     ...product
   }: ProductDetailsType = productDetails;
+
+
+  const [videos, setVideos] = useState(
+  (productMediaRes || [])
+    .filter((m: any) => m.mediaType === "video")
+    .map((m: any) => ({
+      key: m.mediaURL,
+    }))
+);
+
 
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
     categoryRes.map((c: any) => c?.categories?.id)
@@ -498,6 +509,10 @@ export default function EditProduct({ productDetails }: any) {
           mediaType: "image",
           mediaURL: getStoredImageKey(g.key || g.preview),
         })),
+        ...videos.map((v: any) => ({
+          mediaType: "video",
+          mediaURL: getStoredImageKey(v.key || v.url),
+        })),
         ...variants.documents.map((d: any) => ({
           mediaType: "pdf",
           mediaURL: d.key,
@@ -578,6 +593,46 @@ export default function EditProduct({ productDetails }: any) {
     }
   };
 
+  const handleVideoUpload = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = e.target.files?.[0];
+
+    if (!file) return;
+
+    if (!file.type.startsWith("video/")) {
+      toast.error("Only video files allowed");
+      return;
+    }
+
+    try {
+      const { fileKey, fileUrl } = await upload(file, "product-videos");
+
+      setVideos((prev) => [
+        ...prev,
+        {
+          key: fileKey,
+          url: fileUrl,
+        },
+      ]);
+
+      toast.success("Video uploaded");
+    } catch (err: any) {
+      toast.error(err.message);
+    }
+  };
+
+function getVideoURL(path: string | null | undefined) {
+  const baseUrl = process.env.NEXT_PUBLIC_IMAGEKIT_URL!;
+
+  if (!path) return "";
+
+  if (path.startsWith("http")) {
+    return path;
+  }
+
+  return `${baseUrl}/${path.replace(/^\/+/, "")}?tr=orig`;
+}
   return (
     <div className="max-w-7xl mx-auto p-4 space-y-6">
       <form onSubmit={handleUpdateProduct}>
@@ -855,6 +910,45 @@ export default function EditProduct({ productDetails }: any) {
                 addDynamicOption={addDynamicOption}
               />
             </div>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Product Videos</CardTitle>
+              </CardHeader>
+
+              <CardContent className="space-y-4">
+                <Input
+                  type="file"
+                  accept="video/*"
+                  onChange={handleVideoUpload}
+                />
+
+                <div className="space-y-3">
+                  {videos.map((video, index) => (
+                    <div key={index}>
+                      <video
+                        src={getVideoURL(video.key)}
+                        controls
+                        className="w-full max-w-md rounded-lg border"
+                      />
+
+                      <Button
+                        type="button"
+                        variant="destructive"
+                        className="mt-2"
+                        onClick={() =>
+                          setVideos((prev) =>
+                            prev.filter((_, i) => i !== index)
+                          )
+                        }
+                      >
+                        Remove
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
 
             <Card>
               <CardHeader>

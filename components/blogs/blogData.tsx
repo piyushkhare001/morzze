@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { motion } from "framer-motion";
 import { Mail, X } from "lucide-react";
 import { toast } from "sonner";

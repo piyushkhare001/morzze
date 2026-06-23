@@ -15,7 +15,7 @@ import {
   PhoneIcon,
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "@/helper";
@@ -268,7 +268,7 @@ const Page = () => {
             </button>
           </div>
           <h1 className="text-4xl font-bold p-0">Welcome Back</h1>
-          <p className="text-sm -mt-5  ">Sign In To Your Account</p>
+          <p className="text-sm m-2  ">Sign In To Your Account</p>
           <div className="w-full text-center z-10">
             <Tabs
               defaultValue="email"

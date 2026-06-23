@@ -1,6 +1,6 @@
 import { getBlogs, deleteBlog } from "@/helper/blog/action";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { PlusCircle, FileText, Pencil, Trash2, Eye } from "lucide-react";
 import { revalidatePath } from "next/cache";
 import { Metadata } from "next";

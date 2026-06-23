@@ -1,7 +1,7 @@
 "use client";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/hooks/appLink"
 import { motion, AnimatePresence } from "framer-motion";
 import {
   IconSearch,

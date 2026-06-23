@@ -70,7 +70,9 @@ const ProductClient = ({ product, slug, reviews }: any) => {
 
   // The image that should be shown as the hero (cart will also use this)
   const currentHeroImage = displayImages[selectedImage] || product.bannerImage;
-
+  const productVideos = (product.productMediaRes || [])
+    .filter((item: any) => item.mediaType === "video")
+    .map((item: any) => item.mediaURL);
   // 1. Sare Attributes ko as variables nikal lo
   // const attributes = product.productAttributeRes || [];
 
@@ -450,7 +452,28 @@ const ProductClient = ({ product, slug, reviews }: any) => {
           </div>
         </div>
       </div>
-
+    
+    {productVideos.map((video: string, index: number) => (
+  <div
+    key={index}
+    className="flex justify-center items-center bg-black py-8"
+  >
+    <video
+      autoPlay
+      muted
+      loop
+      playsInline
+      controls={false}
+      preload="auto"
+      className="max-h-[80vh] w-auto object-contain"
+    >
+      <source
+        src={`${process.env.NEXT_PUBLIC_IMAGEKIT_URL}/${video}?tr=orig`}
+        type="video/mp4"
+      />
+    </video>
+  </div>
+))}
       {/* EXTRA SECTIONS */}
       <DescriptionTabs productAttributeRes={product?.productAttributeRes} pdfDocuments={pdfDocuments} />
       <SpecificationsTabs productAttributeRes={product?.productAttributeRes} />
