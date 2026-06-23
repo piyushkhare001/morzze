@@ -6,21 +6,27 @@ import Script from "next/script";
 declare global {
     interface Window {
         fdforms: any[];
+        createForm?: (form: any) => void;
     }
 }
 
 export function ServiceRequestFrom() {
     useEffect(() => {
-        window.fdforms = window.fdforms || [];
-
-        window.fdforms.push({
+        const config = {
             formId: 225979,
             host: "form.morz.in",
             formHeight: 100,
             el: "form_225979_1",
             center: 1,
             scroll: 0,
-        });
+        };
+
+        if (typeof window.createForm === "function") {
+            window.createForm(config);
+        } else {
+            window.fdforms = window.fdforms || [];
+            window.fdforms.push(config);
+        }
     }, []);
 
     return (
