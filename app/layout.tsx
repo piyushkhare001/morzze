@@ -71,6 +71,23 @@ export default function RootLayout({
             <Toaster theme="dark" position="top-right" richColors />
           </WishlistProvider>
         </CartProvider>
+
+
+        <Script id="zoho-salesiq-config" strategy="afterInteractive">
+          {`
+    window.$zoho = window.$zoho || {};
+    $zoho.salesiq = $zoho.salesiq || {
+      ready: function(){}
+    };
+  `}
+        </Script>
+
+        <Script
+          id="zsiqscript"
+          src="https://salesiq.zohopublic.in/widget?wc=siqc64af953fda77f44847639357a51eb0b5135fdcd79266059e9fc918d5a991333"
+          strategy="afterInteractive"
+          defer
+        />
       </body>
     </html>
   );
