@@ -1,6 +1,14 @@
 import { SubscribeForm } from '@/components/SubscribeForm'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import React from 'react'
+
+export const metadata: Metadata = {
+    title: `Subscribe to Morzze Updates | Get Offers & New Launches`,
+    description: 'Subscribe to Morzze and get updates on new product launches, exclusive offers, and kitchen & bathroom products. Join us for the latest deals and news.',
+}
+
+
 
 const page = () => {
     return (

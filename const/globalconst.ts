@@ -20,11 +20,11 @@ export const kitchenBathroomRestrictCategories = new Set([
   "Sink-Strainer-Cover",
   "new-arrivals",
   "Sink-Strainer",
-  "Kitchen-Accessories"
+  // "Kitchen-Accessories"
 ]);
 
 export const allowedCategoryNames = new Set([
-   "air-tap",
+  "air-tap",
   "Granite-Sinks",
   "Steel-Sinks",
   "Kitchen-Faucets",

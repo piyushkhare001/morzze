@@ -5,24 +5,46 @@ import Link from "@/hooks/appLink"
 import CategoryProductsClient from "../../category/[slug]/CategoryProductsClient";
 import { getImageURL } from "@/lib/getImageLin";
 import { metaTags } from "@/const/metaTags";
+import { Metadata, ResolvingMetadata } from "next";
+import { db } from "@/db";
+import { category } from "@/db/schema";
+import { eq } from "drizzle-orm";
+export async function generateMetadata(
+    { params }: { params: Promise<{ slug: string }> },
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    const { slug } = await params;
 
-// export async function generateMetadata({
-//     params,
-// }: {
-//     params: Promise<{ slug: string[] }>;
-// }) {
-//     const { slug } = await params;
+    try {
+        const [productRes] = await db.select({
+            title: category.metaTitle,
+            description: category.metaTitle,
+            image: category.bannerImage
+        }).from(category).where(eq(category.slug, slug));
 
-//     const pageSlug = slug[slug.length - 1];
+        if (!productRes) {
+            return {
+                title: "Category Not Found | Morzze",
+                description: "The requested category could not be found.",
+            };
+        }
 
-//     const seo =
-//         metaTags[pageSlug as keyof typeof metaTags];
+        const images: string = productRes.image!;
 
-//     return {
-//         title: seo?.title ?? "Morzze",
-//         description: seo?.description ?? "Morzze",
-//     };
-// }
+        return {
+            title: productRes.title,
+            description: productRes.description,
+            openGraph: {
+                images,
+            }
+        };
+    } catch (error) {
+        return {
+            title: "Category Not Found | Morzze",
+            description: "The requested category could not be found.",
+        };
+    }
+}
 
 export default async function CategoryPage({
     params,

@@ -1,18 +1,58 @@
-import React from "react";
+import { Metadata, ResolvingMetadata } from "next";
 import ProductClient from "./productClient";
 import { notFound } from "next/navigation";
-// Direct wahi helper use kar rahe hain jo aapne sample code mein dikhaya
 import { getFullProductDetails } from "@/helper/product/action";
 import { getProductReviews } from "@/helper/review/action";
+import { db } from "@/db";
+import { product } from "@/db/schema";
+import { eq } from "drizzle-orm";
 
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata(
+  { params }: { params: Promise<{ productslug: string }> },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { productslug } = await params;
+
+  try {
+    const [productRes] = await db.select({
+      title: product.metaTitle,
+      description: product.metaDescription,
+      image: product.bannerImage
+    }).from(product).where(eq(product.slug, productslug));
+
+    if (!productRes) {
+      return {
+        title: "Product Not Found | Morzze",
+        description: "The requested product could not be found.",
+      };
+    }
+
+    const images: string = productRes.image!;
+
+    return {
+      title: productRes.title,
+      description: productRes.description,
+      openGraph: {
+        images,
+      }
+    };
+  } catch (error) {
+    return {
+      title: "Product Not Found | Morzze",
+      description: "The requested product could not be found.",
+    };
+  }
+}
+
+
 
 const page = async ({
   params,
 }: {
   params: Promise<{ productslug: string }>;
 }) => {
-  // 1. Slug ko await karein
   const { productslug } = await params;
 
 
@@ -20,14 +60,11 @@ const page = async ({
     const product = await getFullProductDetails(productslug);
     const reviews = await getProductReviews(productslug);
 
-    // console.log("this is the review of product selected: ", productslug, reviews)
 
-    // 3. Agar data nahi mila toh direct 404
     if (!product || Object.keys(product).length === 0) {
       return notFound();
     }
 
-    // 4. Client component ko data pass karein
     return <ProductClient product={product} slug={productslug} reviews={reviews} />;
 
   } catch (error) {

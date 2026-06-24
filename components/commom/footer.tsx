@@ -156,11 +156,7 @@ const Footer = async () => {
                 {[
                   {
                     label: "Steel Sinks",
-                    href: "/products?category=Pulse",
-                  },
-                  {
-                    label: "Kitchen Faucets",
-                    href: "/products?category=Bathroom-Faucets",
+                    href: "/products?category=pulse",
                   },
                   {
                     label: "Wash Basins",
@@ -168,19 +164,19 @@ const Footer = async () => {
                   },
                   {
                     label: "Air Taps",
-                    href: "/products?category=air-tap",
+                    href: "/products?category=Air-Tap",
                   },
                   {
                     label: "Floor Drainers",
-                    href: "/products?category=floor-drainer",
+                    href: "/products?category=Floor-Drainers",
                   },
                   {
                     label: "Towel Warmers",
-                    href: "/products?category=towel-warmer",
+                    href: "/products?category=Towel-Warmer",
                   },
                   {
                     label: "Bathroom Faucets",
-                    href: "/products?category=bathroom-faucet",
+                    href: "/products?category=Bathroom-Faucets",
                   },
                 ].map((item) => (
                   <li key={item.label}>

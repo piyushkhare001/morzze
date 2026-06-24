@@ -1,54 +1,18 @@
-"use client";
+import React from 'react'
+import Form233869 from './ClientPage'
+import { Metadata } from 'next'
 
-import { useEffect } from "react";
-import Script from "next/script";
-import Image from "next/image";
-
-declare global {
-    interface Window {
-        fdforms: any[];
-        createForm?: (form: any) => void;
-    }
+export const metadata: Metadata = {
+    title: `Register Your Morzze Product Online | Warranty Support`,
+    description: 'Register your Morzze product online for quick warranty support and service assistance. Secure your purchase with easy product registration.',
 }
 
-export default function Form233869() {
-    useEffect(() => {
-        const config = {
-            formId: 233869,
-            host: "form.morz.in",
-            formHeight: 100,
-            el: "form_233869_1",
-            center: 1,
-            scroll: 0,
-        };
 
-        if (typeof window.createForm === "function") {
-            window.createForm(config);
-        } else {
-            window.fdforms = window.fdforms || [];
-            window.fdforms.push(config);
-        }
-    }, []);
 
+const page = () => {
     return (
-        <div className=" w-full h-full bg-primary">
-
-            <div className=" w-full h-full pb-12 gap-12 container mx-auto bg-primary">
-                <Image
-                    src={"https://ik.imagekit.io/zwos7q4gyo/product-registration.png"}
-                    alt="product-registration"
-                    className=" w-full h-full"
-                    width={800}
-                    height={800}
-                />
-                <div className="h-12"></div>
-                <div id="form_233869_1" />
-
-                <Script
-                    src="https://form.morz.in/js/iform.js?v=0.0.3"
-                    strategy="afterInteractive"
-                />
-            </div>
-        </div>
-    );
+        <Form233869 />
+    )
 }
+
+export default page

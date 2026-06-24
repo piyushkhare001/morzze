@@ -211,6 +211,8 @@ export default function EditProduct({ productDetails }: any) {
     name: product.name || "",
     sku: product.sku || "",
     slug: product.slug || "",
+    metaTitle: product.metaTitle || "",
+    metaDescription: product.metaDescription || "",
     price: product.basePrice || 0,
     strikethroughPrice: product.strikethroughPrice || 0,
     description: product.description || "",
@@ -713,6 +715,26 @@ function getVideoURL(path: string | null | undefined) {
                     value={variants.slug}
                     onChange={(e) =>
                       setVariants({ ...variants, slug: e.target.value })
+                    }
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Meta Title</Label>
+                  <Input
+                    value={variants.metaTitle}
+                    onChange={(e) =>
+                      setVariants({ ...variants, metaTitle: e.target.value })
+                    }
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Meta Description</Label>
+                  <Textarea
+                    value={variants.metaDescription}
+                    onChange={(e) =>
+                      setVariants({ ...variants, metaDescription: e.target.value })
                     }
                   />
                 </div>
