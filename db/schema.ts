@@ -140,6 +140,10 @@ export const category = pgTable("categories", {
   description: varchar("description"),
   type: categoryType("type"),
   updatedAt: timestamp("updated_at").defaultNow(),
+
+  metaTitle: varchar("meta_title"),
+  metaDescription: varchar("meta_description"),
+  metaOgImage: varchar("meta_og_image")
 });
 
 export const productBrandEnum = pgEnum("product_brand", ["ovy", "loway"]);
