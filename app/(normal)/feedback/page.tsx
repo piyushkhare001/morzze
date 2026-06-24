@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Script from "next/script";
+import Image from "next/image";
 
 declare global {
     interface Window {
@@ -10,13 +11,13 @@ declare global {
     }
 }
 
-export function Form226186() {
+export default function Form234089() {
     useEffect(() => {
         const config = {
-            formId: 226186,
+            formId: 234089,
             host: "form.morz.in",
             formHeight: 100,
-            el: "form_226186_1",
+            el: "form_234089_1",
             center: 1,
             scroll: 0,
         };
@@ -30,8 +31,15 @@ export function Form226186() {
     }, []);
 
     return (
-        <div className=" bg-primary py-12 px-4">
-            <div id="form_226186_1" />
+        <div className=" bg-primary gap-12 pb-12">
+            <Image
+                src={"https://ik.imagekit.io/zwos7q4gyo/feedback-bg.png"}
+                height={800}
+                width={800}
+                className=' w-full h-full'
+                alt='subs-image'
+            />
+            <div className="h-12"></div>            <div id="form_234089_1" />
 
             <Script
                 src="https://form.morz.in/js/iform.js?v=0.0.3"

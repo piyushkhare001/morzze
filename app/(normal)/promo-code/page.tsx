@@ -1,10 +1,10 @@
 import PromoCodesOfferHero from "@/components/promopage/herobanner";
 import PromoStepsNewsletter from "@/components/promopage/howtouse";
-import PromocodeServer from "@/components/promopage/PromocodeServer";
+// import PromocodeServer from "@/components/promopage/PromocodeServer";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Metadata } from "next";
-import { Suspense } from "react";
-import { PromoForms } from "./couponForm";
+// import { Suspense } from "react";
+import { Form226186 } from "./couponForm";
 
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ const Page = async () => {
         <PromocodeServer />
       </Suspense> */}
 
-      <PromoForms />
+      <Form226186 />
 
 
 
