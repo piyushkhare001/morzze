@@ -59,7 +59,7 @@ const nextConfig: NextConfig = {
       { source: '/kitchen/Kitchen-Sinks/Steel-Sinks', destination: '/kitchen/stainless-steel-sinks', permanent: true },
 
       // Case fixes
-      { source: '/kitchen/Neo', destination: '/kitchen/neo', permanent: true },
+      // { source: '/kitchen/Neo', destination: '/kitchen/neo', permanent: true },
       { source: '/kitchen/Pulse', destination: '/kitchen/pulse', permanent: true },
 
       // Accessories
