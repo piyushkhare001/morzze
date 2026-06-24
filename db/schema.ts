@@ -182,6 +182,10 @@ export const product = pgTable("products", {
 
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
+
+  metaTitle: varchar("meta_title"),
+  metaDescription: varchar("meta_description"),
+  metaOgImage: varchar("meta_og_image")
 },
   (table) => [
     index("hidden_idx").on(table.isHidden),
@@ -501,7 +505,8 @@ export const stores = pgTable("stores", {
   state: varchar("state", { length: 150 }).notNull(),
 
   city: varchar("city", { length: 150 }).notNull(),
-
+  contactPersonName: varchar("contact_person_name", { length: 255 }),
+  landLineNumber: varchar("land_line_number", { length: 20 }),
   latitude: decimal("latitude", {
     precision: 10,
     scale: 7,
