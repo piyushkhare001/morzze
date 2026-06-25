@@ -131,7 +131,7 @@ const Footer = async () => {
               </a>
 
               <a
-                href="https://www.linkedin.com/company/anupamretailltd/?originalSubdomain=in"
+                href="https://www.linkedin.com/company/morzzeindia/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
