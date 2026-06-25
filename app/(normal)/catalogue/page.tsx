@@ -1,5 +1,6 @@
 import ProductCatalogueHero from "@/components/catalogue/banner";
 import CatalogueGridDownloads from "@/components/catalogue/cataloguegrid";
+import { CatalogueForm } from "@/components/CatalogueForm";
 import { getActiveCatalogues } from "@/helper/catalogue/action";
 
 const page = async () => {
@@ -22,6 +23,9 @@ const page = async () => {
       <ProductCatalogueHero />
       <CatalogueGridDownloads items={items} />
       {/* <CatalogueInfoRequestSection /> */}
+      <div className=" bg-black w-full py-12">
+        <CatalogueForm />
+      </div>
     </div>
   );
 };

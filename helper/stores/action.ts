@@ -69,6 +69,8 @@ export async function createStore(formData: FormData) {
     const mapEmbedUrl = (formData.get("mapEmbedUrl") as string)?.trim() || null;
     const isFeatured = formData.get("isFeatured") === "on";
     const isActive = formData.get("isActive") === "on";
+    const contactPersonName = (formData.get("contactPerson") as string)?.trim() || null;
+    const landLineNumber = (formData.get("landline") as string)?.trim() || null;
 
     if (
       !storeName ||
@@ -107,6 +109,8 @@ export async function createStore(formData: FormData) {
       mapEmbedUrl,
       isFeatured,
       isActive,
+      contactPersonName,
+      landLineNumber,
     });
 
     revalidatePath("/admin/stores");
@@ -138,6 +142,8 @@ export async function updateStore(id: string, formData: FormData) {
     const mapEmbedUrl = (formData.get("mapEmbedUrl") as string)?.trim() || null;
     const isFeatured = formData.get("isFeatured") === "on";
     const isActive = formData.get("isActive") === "on";
+    const contactPersonName = (formData.get("contactPerson") as string)?.trim() || null;
+    const landLineNumber = (formData.get("landline") as string)?.trim() || null;
 
     if (
       !storeName ||
@@ -179,6 +185,8 @@ export async function updateStore(id: string, formData: FormData) {
         mapEmbedUrl,
         isFeatured,
         isActive,
+        contactPersonName,
+        landLineNumber,
         updatedAt: new Date(),
       })
       .where(eq(stores.id, id));
@@ -205,4 +213,141 @@ export async function deleteStore(id: string) {
     console.error("Error deleting store:", error);
     return { success: false, message: "Failed to delete store" };
   }
+}
+
+// ── Bulk CSV import ───────────────────────────────────────────────────────────
+type BulkResult = {
+  total: number;
+  success: number;
+  failed: number;
+  errors: string[];
+};
+
+/**
+ * Accepts raw CSV text (with a header row) and inserts each row as a store.
+ * Expected columns (order does NOT matter — matched by header name):
+ *   storeName, state, city, latitude, longitude, address,
+ *   contactNumber, email, workingHours, mapEmbedUrl (optional),
+ *   landline (optional), contactPerson (optional)
+ *
+ * slug      → auto-generated from storeName
+ * storeType → defaults to "Authorized Dealer" if not provided
+ *
+ * NOTE: landline & contactPerson are parsed but NOT yet written to DB.
+ *       Uncomment those lines after the migration lands.
+ */
+export async function bulkCreateStores(csvText: string): Promise<{
+  success: boolean;
+  message?: string;
+  result?: BulkResult;
+}> {
+  try {
+    const lines = csvText
+      .split(/\r?\n/)
+      .map((l) => l.trim())
+      .filter(Boolean);
+
+    if (lines.length < 2) {
+      return { success: false, message: "CSV must contain a header row and at least one data row" };
+    }
+
+    // Parse header
+    const headers = parseCSVRow(lines[0]).map((h) => h.trim().toLowerCase());
+
+    const col = (row: string[], key: string): string =>
+      (row[headers.indexOf(key.toLowerCase())] ?? "").trim();
+
+    const result: BulkResult = { total: 0, success: 0, failed: 0, errors: [] };
+
+    for (let i = 1; i < lines.length; i++) {
+      const rowNum = i + 1; // 1-indexed for user-facing messages
+      const cells = parseCSVRow(lines[i]);
+      result.total++;
+
+      try {
+        const storeName = col(cells, "storeName");
+        const slugRaw = col(cells, "slug");
+        const slug = slugRaw || slugFromName(storeName);
+        const storeType = col(cells, "storeType") || "Authorized Dealer";
+        const state = col(cells, "state");
+        const city = col(cells, "city");
+        const latitude = col(cells, "latitude");
+        const longitude = col(cells, "longitude");
+        const address = col(cells, "address");
+        const contactNumber = col(cells, "contactNumber");
+        const email = col(cells, "email");
+        const workingHours = col(cells, "workingHours") || "10:00 AM - 9:00 PM";
+        const mapEmbedUrl = col(cells, "mapEmbedUrl") || null;
+        const landline = col(cells, "landline") || null;           // TODO: uncomment in db.insert after migration
+        const contactPerson = col(cells, "contactPerson") || null; // TODO: uncomment in db.insert after migration
+
+        if (!storeName || !state || !city || !latitude || !longitude || !address || !contactNumber || !email) {
+          result.failed++;
+          result.errors.push(`Row ${rowNum}: Missing required field(s) — storeName, state, city, latitude, longitude, address, contactNumber, email are required`);
+          continue;
+        }
+
+        await db.insert(stores).values({
+          storeName,
+          slug,
+          storeType,
+          state,
+          city,
+          latitude,
+          longitude,
+          address,
+          contactNumber,
+          email,
+          workingHours,
+          features: [],
+          badgeBgColor: null,
+          badgeTextColor: null,
+          mapEmbedUrl,
+          isFeatured: false,
+          isActive: true,
+          // landline,       // uncomment after migration
+          // contactPerson,  // uncomment after migration
+        });
+
+        result.success++;
+      } catch (rowErr) {
+        result.failed++;
+        result.errors.push(`Row ${rowNum}: ${rowErr instanceof Error ? rowErr.message : "Insert failed"}`);
+      }
+    }
+
+    revalidatePath("/admin/stores");
+    revalidatePath("/stores");
+
+    return { success: true, result };
+  } catch (error) {
+    console.error("Bulk store upload error:", error);
+    return { success: false, message: "Failed to process CSV file" };
+  }
+}
+
+/** Minimal CSV row parser that handles quoted fields (including commas inside quotes). */
+function parseCSVRow(line: string): string[] {
+  const result: string[] = [];
+  let current = "";
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (ch === '"') {
+      if (inQuotes && line[i + 1] === '"') {
+        current += '"';
+        i++;
+      } else {
+        inQuotes = !inQuotes;
+      }
+    } else if (ch === "," && !inQuotes) {
+      result.push(current);
+      current = "";
+    } else {
+      current += ch;
+    }
+  }
+  result.push(current);
+  return result;
 }

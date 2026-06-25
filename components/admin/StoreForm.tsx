@@ -36,6 +36,8 @@ export type StoreInitialData = {
   mapEmbedUrl: string | null;
   isFeatured: boolean | null;
   isActive: boolean | null;
+  landline?: string | null;
+  contactPerson?: string | null;
 };
 
 type Props = {
@@ -53,11 +55,11 @@ function slugFromName(name: string): string {
 }
 
 const STORE_TYPES = [
+  "Authorized Dealer",
   "Flagship",
   "Studio",
   "Dealer",
   "Experience Center",
-  "Authorized Dealer",
 ];
 
 export default function StoreForm({ mode, initialData }: Props) {
@@ -68,7 +70,7 @@ export default function StoreForm({ mode, initialData }: Props) {
     () => ({
       storeName: "",
       slug: "",
-      storeType: "Flagship",
+      storeType: "Authorized Dealer",
       state: "",
       city: "",
       latitude: "",
@@ -83,6 +85,8 @@ export default function StoreForm({ mode, initialData }: Props) {
       mapEmbedUrl: "",
       isFeatured: false,
       isActive: true,
+      landline: "",
+      contactPerson: "",
     }),
     []
   );
@@ -90,24 +94,26 @@ export default function StoreForm({ mode, initialData }: Props) {
   const [form, setForm] = useState(() =>
     initialData
       ? {
-          storeName: initialData.storeName,
-          slug: initialData.slug,
-          storeType: initialData.storeType,
-          state: initialData.state,
-          city: initialData.city,
-          latitude: initialData.latitude,
-          longitude: initialData.longitude,
-          address: initialData.address,
-          contactNumber: initialData.contactNumber,
-          email: initialData.email,
-          workingHours: initialData.workingHours,
-          features: initialData.features?.join(", ") ?? "",
-          badgeBgColor: initialData.badgeBgColor ?? "#f4e8c7",
-          badgeTextColor: initialData.badgeTextColor ?? "#9b5d00",
-          mapEmbedUrl: initialData.mapEmbedUrl ?? "",
-          isFeatured: Boolean(initialData.isFeatured),
-          isActive: initialData.isActive !== false,
-        }
+        storeName: initialData.storeName,
+        slug: initialData.slug,
+        storeType: initialData.storeType,
+        state: initialData.state,
+        city: initialData.city,
+        latitude: initialData.latitude,
+        longitude: initialData.longitude,
+        address: initialData.address,
+        contactNumber: initialData.contactNumber,
+        email: initialData.email,
+        workingHours: initialData.workingHours,
+        features: initialData.features?.join(", ") ?? "",
+        badgeBgColor: initialData.badgeBgColor ?? "#f4e8c7",
+        badgeTextColor: initialData.badgeTextColor ?? "#9b5d00",
+        mapEmbedUrl: initialData.mapEmbedUrl ?? "",
+        isFeatured: Boolean(initialData.isFeatured),
+        isActive: initialData.isActive !== false,
+        landline: initialData.landline ?? "",
+        contactPerson: initialData.contactPerson ?? "",
+      }
       : { ...defaults }
   );
 
@@ -155,6 +161,8 @@ export default function StoreForm({ mode, initialData }: Props) {
     fd.append("badgeBgColor", form.badgeBgColor);
     fd.append("badgeTextColor", form.badgeTextColor);
     fd.append("mapEmbedUrl", form.mapEmbedUrl);
+    fd.append("landline", form.landline ?? "");
+    fd.append("contactPerson", form.contactPerson ?? "");
     if (form.isFeatured) fd.append("isFeatured", "on");
     if (form.isActive) fd.append("isActive", "on");
 
@@ -168,18 +176,18 @@ export default function StoreForm({ mode, initialData }: Props) {
     if (res.success) {
       toast.success(
         res.message ??
-          (mode === "create"
-            ? "Store added successfully"
-            : "Store updated successfully")
+        (mode === "create"
+          ? "Store added successfully"
+          : "Store updated successfully")
       );
       router.push("/admin/stores");
       router.refresh();
     } else {
       toast.error(
         res.message ??
-          (mode === "create"
-            ? "Could not add store"
-            : "Could not update store")
+        (mode === "create"
+          ? "Could not add store"
+          : "Could not update store")
       );
     }
   }
@@ -322,7 +330,7 @@ export default function StoreForm({ mode, initialData }: Props) {
               />
             </div>
 
-            {/* Contact & Email */}
+            {/* Contact, Landline, Email & Contact Person */}
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="grid gap-2">
                 <Label htmlFor="contactNumber">Contact Number *</Label>
@@ -336,6 +344,19 @@ export default function StoreForm({ mode, initialData }: Props) {
                   required
                 />
               </div>
+
+              <div className="grid gap-2">
+                <Label htmlFor="landline">Landline <span className="font-normal text-[10px] text-muted-foreground">(Optional)</span></Label>
+                <Input
+                  id="landline"
+                  value={form.landline ?? ""}
+                  onChange={(e) =>
+                    setForm((p) => ({ ...p, landline: e.target.value }))
+                  }
+                  placeholder="0141-1234567"
+                />
+              </div>
+
               <div className="grid gap-2">
                 <Label htmlFor="email">Email *</Label>
                 <Input
@@ -347,6 +368,18 @@ export default function StoreForm({ mode, initialData }: Props) {
                   }
                   placeholder="store@morzze.com"
                   required
+                />
+              </div>
+
+              <div className="grid gap-2">
+                <Label htmlFor="contactPerson">Contact Person <span className="font-normal text-[10px] text-muted-foreground">(Optional)</span></Label>
+                <Input
+                  id="contactPerson"
+                  value={form.contactPerson ?? ""}
+                  onChange={(e) =>
+                    setForm((p) => ({ ...p, contactPerson: e.target.value }))
+                  }
+                  placeholder="Rahul Sharma"
                 />
               </div>
             </div>
@@ -366,7 +399,7 @@ export default function StoreForm({ mode, initialData }: Props) {
             </div>
 
             {/* Features */}
-            <div className="grid gap-2">
+            {/* <div className="grid gap-2">
               <Label htmlFor="features">Features (comma-separated)</Label>
               <Input
                 id="features"
@@ -376,10 +409,10 @@ export default function StoreForm({ mode, initialData }: Props) {
                 }
                 placeholder="Parking, Premium Collection, Custom Orders"
               />
-            </div>
+            </div> */}
 
             {/* Badge Colors */}
-            <div className="grid sm:grid-cols-2 gap-4">
+            {/* <div className="grid sm:grid-cols-2 gap-4">
               <div className="grid gap-2">
                 <Label htmlFor="badgeBgColor">Badge Background Color</Label>
                 <div className="flex gap-2 items-center">
@@ -428,10 +461,10 @@ export default function StoreForm({ mode, initialData }: Props) {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Badge Preview */}
-            <div className="grid gap-2">
+            {/* <div className="grid gap-2">
               <Label>Badge Preview</Label>
               <div className="flex items-center gap-3">
                 <span
@@ -444,7 +477,7 @@ export default function StoreForm({ mode, initialData }: Props) {
                   {form.storeType || "Store Type"}
                 </span>
               </div>
-            </div>
+            </div> */}
 
             {/* Map Embed URL */}
             <div className="grid gap-2">
