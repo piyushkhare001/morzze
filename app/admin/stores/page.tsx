@@ -5,6 +5,7 @@ import { MapPin, Pencil, PlusCircle } from "lucide-react";
 import { getStores } from "@/helper/stores/action";
 import { StoreDeleteButton } from "@/components/admin/StoreDeleteButton";
 import { ContactLink } from "@/components/ContactLink";
+import { StoreBulkUpload } from "@/components/admin/StoreBulkUpload";
 
 export default async function AdminStoresPage() {
   const allStores = await getStores();
@@ -15,13 +16,15 @@ export default async function AdminStoresPage() {
         <h1 className="text-2xl font-bold flex items-center gap-2">
           <MapPin className="w-6 h-6 text-[#2D5A5D]" /> Manage Stores
         </h1>
-        <Link href="/admin/stores/new">
-          <Button className="bg-[#2D5A5D] hover:bg-[#234749]">
-            <PlusCircle className="w-4 h-4 mr-2" /> Add Store
-          </Button>
-        </Link>
+        <div className="flex items-center gap-2">
+          {/* <StoreBulkUpload /> */}
+          <Link href="/admin/stores/new">
+            <Button className="bg-[#2D5A5D] hover:bg-[#234749]">
+              <PlusCircle className="w-4 h-4 mr-2" /> Add Store
+            </Button>
+          </Link>
+        </div>
       </div>
-
       <div className="grid gap-4">
         {allStores.length === 0 ? (
           <div className="text-center py-20 border-2 border-dashed rounded-xl text-gray-400">

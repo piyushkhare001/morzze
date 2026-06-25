@@ -309,7 +309,7 @@ const Header = () => {
 
     // { name: "Contact", href: "/contact" },
     { name: "Catalogue", href: "/catalogue" },
-    {name: "Contact", href: "/contact"}
+    { name: "Contact", href: "/contact" }
   ];
 
   return (
@@ -449,7 +449,7 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <div className="relative hidden lg:block">
               <Link href={"/dashboard/wishlist"}>
-                <button className="hover:text-[#B88E2F] transition-colors">
+                <button className="hover:text-[#B88E2F] transition-colors flex items-center justify-center">
                   <IconHeart size={20} stroke={1.5} />
                 </button>
               </Link>
@@ -460,13 +460,13 @@ const Header = () => {
 
 
             {/* Cart with Badge */}
-            <div className="relative mt-1">
+            <div className="relative">
               <Link href={"/cart"}>
-                <button className="text-white hover:text-[#B88E2F] transition-colors">
-                  <IconShoppingBag size={24} stroke={1.5} />
+                <button className="text-white hover:text-[#B88E2F] transition-colors flex items-center justify-center">
+                  <IconShoppingBag size={20} stroke={1.5} />
                 </button>
               </Link>
-              <span className="absolute -top-1.5 -right-2 bg-[#B88E2F] text-black text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-black">
+              <span className="absolute -top-2 -right-2 bg-[#B88E2F] text-black text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-black">
                 {totalItems}
               </span>
             </div>

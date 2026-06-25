@@ -34,31 +34,31 @@ const SupportTabs = () => {
     p-0"
         >
           {/* Tab 1: Callback */}
-          <Link href="/request-call" className="flex w-full">
-          <TabsTrigger
-            value="callback"
-            className="group p-0 border-none  "
-          >
-            <div
-              className="
+          <Link href="/call-request" className="flex w-full">
+            <TabsTrigger
+              value="callback"
+              className="group p-0 border-none  "
+            >
+              <div
+                className="
       bg-[#111] w-full aspect-square p-6 flex flex-col justify-between  relative overflow-hidden
       transition-colors
       
     "
-            >
-              {/* TEXT */}
-              <span
-                className="
+              >
+                {/* TEXT */}
+                <span
+                  className="
           text-white text-lg md:text-xl font-bold z-10
           
         "
-              >
-                1. Request a <br /> Callback
-              </span>
+                >
+                  1. Request a <br /> Callback
+                </span>
 
-              {/* BIG ICON */}
-              <IconPhoneFilled
-                className="
+                {/* BIG ICON */}
+                <IconPhoneFilled
+                  className="
     !w-[260px] !h-[260px]   // 🔥 override size-4
     absolute -bottom-20 -left-20
     text-white/30
@@ -66,77 +66,77 @@ const SupportTabs = () => {
     z-0 group-hover:scale-105
     
   "
-                stroke={2.5}
-              />
-            </div>
-          </TabsTrigger>
+                  stroke={2.5}
+                />
+              </div>
+            </TabsTrigger>
           </Link>
 
           {/* Tab 2: FAQ */}
           <Link href="/faq" className="flex w-full">
-          <TabsTrigger
-            value="faq"
-            className="group p-0 border-none data-active:ring-0"
-          >
-            <div
-              className="
+            <TabsTrigger
+              value="faq"
+              className="group p-0 border-none data-active:ring-0"
+            >
+              <div
+                className="
       bg-[#111] w-full aspect-square p-6 flex flex-col justify-between relative overflow-hidden
       transition-colors
       group-data-active:bg-[#FDB813]
     "
-            >
-              <span
-                className="
+              >
+                <span
+                  className="
         text-white text-lg md:text-xl font-bold text-left leading-tight z-10
         transition-colors
         group-data-active:text-black
       "
-              >
-                2. Frequently Asked <br /> Questions
-              </span>
+                >
+                  2. Frequently Asked <br /> Questions
+                </span>
 
-              <span
-                className="
+                <span
+                  className="
         absolute -bottom-2 -left-2 text-7xl font-black opacity-10 text-white
         transition-all
         group-data-active:text-black
         group-data-active:opacity-20
         group-hover:scale-105
       "
-              >
-                FAQ
-              </span>
-            </div>
-          </TabsTrigger>
+                >
+                  FAQ
+                </span>
+              </div>
+            </TabsTrigger>
           </Link>
 
           {/* Tab 3: Service Request */}
           <Link href="/service-request" className="flex w-full">
-          <TabsTrigger
-            value="service"
-            className="group p-0 border-none data-active:ring-0 transition-all"
-          >
-            <div
-              className="
+            <TabsTrigger
+              value="service"
+              className="group p-0 border-none data-active:ring-0 transition-all"
+            >
+              <div
+                className="
       bg-[#111] w-full aspect-square p-6 flex flex-col justify-between relative overflow-hidden
       transition-colors
       group-data-active:bg-[#FEFFF1]
     "
-            >
-              {/* TEXT */}
-              <span
-                className="
+              >
+                {/* TEXT */}
+                <span
+                  className="
         text-white text-lg md:text-xl font-bold text-left leading-tight z-10
         transition-colors
         group-data-active:text-black
       "
-              >
-                3. Service <br /> Request
-              </span>
+                >
+                  3. Service <br /> Request
+                </span>
 
-              {/* BIG BACKGROUND ICON */}
-              <IconSettings
-                className="
+                {/* BIG BACKGROUND ICON */}
+                <IconSettings
+                  className="
         !w-[200px] !h-[200px]
         absolute -bottom-9 -left-9
         text-white/30
@@ -146,39 +146,39 @@ const SupportTabs = () => {
         group-data-active:text-black/30
         group-hover:scale-105
       "
-                stroke={2}
-              />
-            </div>
-          </TabsTrigger>
+                  stroke={2}
+                />
+              </div>
+            </TabsTrigger>
           </Link>
 
           {/* Tab 4: Whatsapp */}
           <Link href="/whatsapp-chat" className="flex w-full">
-          <TabsTrigger
-            value="whatsapp"
-            className="group p-0 border-none data-active:ring-0 transition-all"
-          >
-            <div
-              className="
+            <TabsTrigger
+              value="whatsapp"
+              className="group p-0 border-none data-active:ring-0 transition-all"
+            >
+              <div
+                className="
       bg-[#111] w-full aspect-square p-6 flex flex-col justify-between relative overflow-hidden
       transition-colors
       group-data-active:bg-[#25D366]
     "
-            >
-              {/* TEXT */}
-              <span
-                className="
+              >
+                {/* TEXT */}
+                <span
+                  className="
         text-white text-lg md:text-xl font-bold text-left leading-tight z-10
         transition-colors
         group-data-active:text-black
       "
-              >
-                4. Whatsapp
-              </span>
+                >
+                  4. Whatsapp
+                </span>
 
-              {/* BIG BACKGROUND ICON */}
-              <IconBrandWhatsapp
-                className="
+                {/* BIG BACKGROUND ICON */}
+                <IconBrandWhatsapp
+                  className="
         !w-[200px] !h-[200px]
         absolute -bottom-6 -left-6
         text-white/30
@@ -188,10 +188,10 @@ const SupportTabs = () => {
         group-data-active:text-black/30
         group-hover:scale-105
       "
-                stroke={2}
-              />
-            </div>
-          </TabsTrigger>
+                  stroke={2}
+                />
+              </div>
+            </TabsTrigger>
           </Link>
         </TabsList>
 
@@ -202,9 +202,9 @@ const SupportTabs = () => {
           </TabsContent>
 
           <Link href="/faq">
-          <TabsContent value="faq">
-            {/* <FAQSection /> */}
-          </TabsContent>
+            <TabsContent value="faq">
+              {/* <FAQSection /> */}
+            </TabsContent>
 
           </Link>
           <TabsContent value="service">

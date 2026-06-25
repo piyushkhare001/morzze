@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import { 
-  Accordion, 
-  AccordionContent, 
-  AccordionItem, 
-  AccordionTrigger 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
 } from "@/components/ui/accordion";
 import { LinkifiedContactText } from "@/components/ContactLink";
 
@@ -13,25 +13,25 @@ const FAQ_CONTENT = {
   "General": [
     { q: "What’s your helpline number?", a: "You can contact us at 1800 11 0123 from Monday to Saturday (9:30am to 7:00pm)." },
     { q: "What’s your support email ID?", a: "Our support mail ID is info@morzze.com." },
-     { q: "Where can I get your catalogue?", a: "To get our catalogue, just give a missed call to (91) 87503 13000 and you will get it immediately on WhatsApp." },
+    { q: "Where can I get your catalogue?", a: "To get our catalogue, just give a missed call to (91) 87503 13000 and you will get it immediately on WhatsApp." },
     { q: "I am interested in dealerships or distributorships.", a: "Please contact our customer care number 1800 110 123 or visit https://morzze.com/dealer/k." },
-     { q: "Are Morzze’s kitchen sinks scratch free?", a: "No, kitchen sinks are not completely scratch-free. While some materials, such as granite composite, may be more resistant to scratches than others, it's still possible for any sink surface to get scratched over time with regular use. Factors such as the hardness of the materials used, the sharpness of utensils, and the care taken during cleaning can all contribute to the likelihood of scratches appearing on a sink. To minimize the risk of scratches, it's essential to use gentle cleaning methods and avoid using abrasive materials or harsh chemicals on your sink. Additionally, using sink grids or mats at the bottom of the sink can provide a buffer between dishes and the sink surface, helping to prevent scratches. ." },
+    { q: "Are Morzze’s kitchen sinks scratch free?", a: "No, kitchen sinks are not completely scratch-free. While some materials, such as granite composite, may be more resistant to scratches than others, it's still possible for any sink surface to get scratched over time with regular use. Factors such as the hardness of the materials used, the sharpness of utensils, and the care taken during cleaning can all contribute to the likelihood of scratches appearing on a sink. To minimize the risk of scratches, it's essential to use gentle cleaning methods and avoid using abrasive materials or harsh chemicals on your sink. Additionally, using sink grids or mats at the bottom of the sink can provide a buffer between dishes and the sink surface, helping to prevent scratches. ." },
     { q: "My tap/faucet is leaking, what should I do?", a: "Please contact our customer service at 1800 110 123 or lodge a complaint through https://morzze.com/service-request/." },
-     { q: "My sink is leaking, what should I do?", a: "Please contact our customer service at 1800 110 123 or lodge a complaint through https://morzze.com/service-request/." },
+    { q: "My sink is leaking, what should I do?", a: "Please contact our customer service at 1800 110 123 or lodge a complaint through https://morzze.com/service-request/." },
     { q: "Where are you located?", a: "Our headquarter is in New Delhi, but our presence is all over India." },
-     { q: "Do you have a dealer in my city?", a: "To find a dealer, kindly visit https://morzze.com/store-locator/." },
-    { q: "How do I get a call back?", a: "Schedule a call from https://morzze.com/request-call/." },
-     { q: "What’s your mobile or phone number?", a: "You can contact us at 011-45458822 from Monday to Saturday between 9:30am to 6:30pm." },
+    { q: "Do you have a dealer in my city?", a: "To find a dealer, kindly visit https://morzze.com/store-locator/." },
+    { q: "How do I get a call back?", a: "Schedule a call from https://morzze.com/call-request/." },
+    { q: "What’s your mobile or phone number?", a: "You can contact us at 011-45458822 from Monday to Saturday between 9:30am to 6:30pm." },
     { q: "I want to submit feedback regarding your services or products.", a: "You can submit feedback through https://morzze.com/feedback/." },
-     { q: "I am facing some issues with my Morzze product, how to register service/complaint requests?", a: "You can register your service request/complaint by https://morzze.com/service-request/." },
+    { q: "I am facing some issues with my Morzze product, how to register service/complaint requests?", a: "You can register your service request/complaint by https://morzze.com/service-request/." },
     { q: "Can I buy products online?", a: "You can register your new Morzze product at https://morzze.com/register-a-product/." },
-     { q: "How to contact Morzze?", a: "You can contact us here https://morzze.com/contact/." },
+    { q: "How to contact Morzze?", a: "You can contact us here https://morzze.com/contact/." },
     { q: "What is the shipping cost and estimated delivery time?", a: "Shipping is free for orders above ₹5,000. Estimated delivery time is 7-10 days." },
-     { q: "Can I return or exchange a product if I'm not satisfied?", a: "Yes, if you contact us within 24 hours of receiving the product, we will refund or exchange it." },
+    { q: "Can I return or exchange a product if I'm not satisfied?", a: "Yes, if you contact us within 24 hours of receiving the product, we will refund or exchange it." },
     { q: "How many liters of water does a kitchen sink hold?", a: "To find the litre capacity of a sink, you multiply the length by width by depth (L x W x D) of your sink bowl and divide the answer by 63, which is the cubic volume by inches in a litre. The length is the measurement of the bowl from right to left. The width is the measurement from back to front." },
-     { q: "How do I choose a kitchen sink size?", a: "Experts recommend at least 22 to 27-inches in length, which also works for small kitchens and 40 to 50 inches for large kitchens. Although the size of the sink totally depends on your requirement and space. Length is one factor, but you also have to consider the depth of the sink. Kitchen sinks should be at least 8 to 9 inches deep; anything less and your dishes will quickly pile up and reach the faucet." },
+    { q: "How do I choose a kitchen sink size?", a: "Experts recommend at least 22 to 27-inches in length, which also works for small kitchens and 40 to 50 inches for large kitchens. Although the size of the sink totally depends on your requirement and space. Length is one factor, but you also have to consider the depth of the sink. Kitchen sinks should be at least 8 to 9 inches deep; anything less and your dishes will quickly pile up and reach the faucet." },
     { q: "Which type of mounting is better – Top mount or undermount sink?", a: "Undermount sinks are generally preferred as they are easier to clean and provide a more seamless look." },
-     { q: "How do I measure sink depth?", a: "Lay a straight edge across the top surface of the sink rim. Then use a ruler to measure the distance between the bottom edge of the straight edge and bowl bottom, as close to the drain as possible." },
+    { q: "How do I measure sink depth?", a: "Lay a straight edge across the top surface of the sink rim. Then use a ruler to measure the distance between the bottom edge of the straight edge and bowl bottom, as close to the drain as possible." },
     { q: "How do I compare sink size and capacity?", a: "Bowl depth, taper and radius are the three basic sink measurements for comparing sink sizes. Depth, of course, is the distance from the top of the rim to the bottom of the sink next to the drain. Bowl taper is the inward slope of each side of the sink from rim to bottom. Radius is the measure of the bowl's corners & bottoms where the sides and bottom meet. The point to remember is this: the deeper the bowl, the straighter the slope, the smaller the radius, the more useful the sink capacity." },
   ],
   "Stainless Steel Sink": [
@@ -60,24 +60,24 @@ const FAQ_CONTENT = {
     { q: "Can we replace a sink without replacing the countertop?", a: "It's possible for a plumber to make that switch with the sinks without too much trouble, although your sink will have to be out of service for a day or two.Undermounted sinks are generally held tight against the countertop with mounting clips that are installed beneath the counters." },
   ],
   "Faucets": [
-   { q: "What’s the warranty on faucets?", a: "Morzze faucets are warranted for one year and five years on cartridge from the date of purchase against any manufacturing defect for normal residential use only. No warranty stands if used in a commercial place. Check warranty conditions by using this link https://morzze.com/warranty/." },
-   { q: "What’s the flow of kitchen faucets?", a: "Flow from kitchen faucets is an average of 10 liters per minute." },
-   { q: "What’s the life of a faucet in normal working conditions?", a: "Morzze faucets will work for at least 10 years in normal and standard residential use." },
-   { q: "Which chemicals can harm kitchen faucets?", a: "Never use acid, toilet cleaner, drain cleaner, bleach, chlorine products, hard water, harsh abrasives, steel wool, ammonia, iodine, or any harsh chemicals." },
-   { q: "How to remove scaling from my kitchen faucet?", a: "As a natural cleaner, vinegar is one of the most recommended substances for care and cleaning of chrome-finished faucets and fixtures. Vinegar is tough enough to combat even the most difficult mineral deposits and food stains while being gentle enough to protect the chrome finish. It is recommended to dilute vinegar with water 1:1 for everyday cleaning, but undiluted vinegar may be used for tougher deposits and water spots." },
+    { q: "What’s the warranty on faucets?", a: "Morzze faucets are warranted for one year and five years on cartridge from the date of purchase against any manufacturing defect for normal residential use only. No warranty stands if used in a commercial place. Check warranty conditions by using this link https://morzze.com/warranty/." },
+    { q: "What’s the flow of kitchen faucets?", a: "Flow from kitchen faucets is an average of 10 liters per minute." },
+    { q: "What’s the life of a faucet in normal working conditions?", a: "Morzze faucets will work for at least 10 years in normal and standard residential use." },
+    { q: "Which chemicals can harm kitchen faucets?", a: "Never use acid, toilet cleaner, drain cleaner, bleach, chlorine products, hard water, harsh abrasives, steel wool, ammonia, iodine, or any harsh chemicals." },
+    { q: "How to remove scaling from my kitchen faucet?", a: "As a natural cleaner, vinegar is one of the most recommended substances for care and cleaning of chrome-finished faucets and fixtures. Vinegar is tough enough to combat even the most difficult mineral deposits and food stains while being gentle enough to protect the chrome finish. It is recommended to dilute vinegar with water 1:1 for everyday cleaning, but undiluted vinegar may be used for tougher deposits and water spots." },
     { q: "Is Chrome or Stainless Steel finish better for a Kitchen Faucet?", a: "Choosing the finish for your kitchen faucet should depend on the design of your kitchen. Stainless steel and chrome are two of the most durable finishes for high-traffic faucets in the kitchen. Chrome is suitable for traditional kitchen/bathroom designs, while stainless steel is a smart choice for contemporary kitchen designs. Morzze’s stainless steel finish blends well with traditional stainless steel kitchen appliances." },
   ],
   "Food Waste Disposal": [
-   
-     { q: "What’s the warranty on Food waste disposals?", a: "Morzze Food Waste Disposal is warranted for two years from the date of purchase against any manufacturing defect on normal residential use only. No warranty stands if used in a commercial place. Check warranty conditions https://morzze.com/warranty/." },
-      { q: "How to Unclog a Kitchen Sink with a Garbage Disposal?", a: "To unclog a kitchen sink with a garbage disposal, follow these steps:" },
-       { q: "What are the common causes of garbage disposal clogs?", a: "Common causes of garbage disposal clogs include hair, food particles, and other debris that get stuck in the disposal unit." },
+
+    { q: "What’s the warranty on Food waste disposals?", a: "Morzze Food Waste Disposal is warranted for two years from the date of purchase against any manufacturing defect on normal residential use only. No warranty stands if used in a commercial place. Check warranty conditions https://morzze.com/warranty/." },
+    { q: "How to Unclog a Kitchen Sink with a Garbage Disposal?", a: "To unclog a kitchen sink with a garbage disposal, follow these steps:" },
+    { q: "What are the common causes of garbage disposal clogs?", a: "Common causes of garbage disposal clogs include hair, food particles, and other debris that get stuck in the disposal unit." },
   ],
   "Accessories": [
     { q: " What’s the length of the tube of the hand shower?", a: " 1.5 meter" },
     { q: " What’s the warranty on Accessories?", a: " All accessories if sold separately are warranted for one year against any manufacturing defect. Kindly click https://morzze.com/warranty/ to read the terms and conditions to avail the warranty." },
     { q: " How to clean drain pipes?", a: " Use a container or a small bucket to scoop out as much water as possible; wear gloves to protect your hands. Check the clogged drain for debris, fluff, soap scum, and pieces, paste build-up, etc., and remove any debris as best you can. Push 1 cup of baking soda down the sink drain. Use a spatula to force the baking soda into the opening, if necessary. Pour 2 cups of vinegar into the drain opening. Put the stopper into the sink so that the vinegar is forced toward the clog. Wait 15 minutes to allow the solution to work on the clog. Run boiling water into the sink to see if the clog disappears f the sink is still clogged, then apply the baking soda and vinegar solution again." },
-    
+
   ]
 } as const; // 'as const' use karne se types rigid ho jate hain
 
@@ -94,14 +94,13 @@ const FAQSection = () => {
     <div className="space-y-16 bg-black py-10">
       <div className="flex justify-center gap-3 flex-wrap">
         {categories.map((cat) => (
-          <button 
-            key={cat} 
+          <button
+            key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all border ${
-              activeCategory === cat 
-                ? 'bg-[#FDB813] text-black border-[#FDB813]' 
+            className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all border ${activeCategory === cat
+                ? 'bg-[#FDB813] text-black border-[#FDB813]'
                 : 'bg-transparent text-white/90 border-white/20 hover:border-white/50 hover:text-white'
-            }`}
+              }`}
           >
             {cat}
           </button>
@@ -113,13 +112,13 @@ const FAQSection = () => {
           <h3 className="text-center text-white font-bold tracking-[4px] text-base uppercase">
             {activeCategory}
           </h3>
-          
+
           <Accordion type="single" collapsible className="w-full space-y-3">
             {/* Ab yahan Red Line nahi aayegi kyunki TS ko pata hai activeCategory valid key hai */}
             {FAQ_CONTENT[activeCategory].map((item, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`} 
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
                 className="border border-white/10 bg-[#111111] px-6 rounded-lg"
               >
                 <AccordionTrigger className="text-white hover:no-underline text-base py-5 font-semibold text-left leading-7">

@@ -30,6 +30,8 @@ export default async function EditStorePage({
     mapEmbedUrl: row.mapEmbedUrl,
     isFeatured: row.isFeatured,
     isActive: row.isActive,
+    landline: row.landLineNumber ?? "",
+    contactPerson: row.contactPersonName ?? "",
   };
 
   return (
