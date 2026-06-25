@@ -60,7 +60,7 @@ const nextConfig: NextConfig = {
 
       // Case fixes
       // { source: '/kitchen/Neo', destination: '/kitchen/neo', permanent: true },
-      { source: '/kitchen/Pulse', destination: '/kitchen/pulse', permanent: true },
+      // { source: '/kitchen/Pulse', destination: '/kitchen/pulse', permanent: true },
 
       // Accessories
       { source: '/kitchen/Kitchen-Accessories/Drain-Pipe', destination: '/kitchen/drain-pipe', permanent: true },
