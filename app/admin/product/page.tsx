@@ -25,7 +25,7 @@ const Page = async ({ searchParams }: PageProps) => {
 
   return (
     <ProductClient
-      products={result.items}
+      products={result.products}
       total={result.totalPages}
       currentPage={result.page}
     />

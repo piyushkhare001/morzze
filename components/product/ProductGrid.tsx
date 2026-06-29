@@ -76,7 +76,7 @@ const ProductGrid = ({
                 categories={categories}
                 materialOptions={materialOptions}
                 finishOptions={finishOptions}
-                sizeOptions={sizeOptions}
+                steelSinkSizes={sizeOptions}
               />
             </div>
           </SheetContent>
