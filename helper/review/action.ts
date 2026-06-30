@@ -10,9 +10,18 @@ import {
   users,
 } from "@/db/schema";
 import { and, eq, sql } from "drizzle-orm";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag, unstable_cache } from "next/cache";
 import { getProfile } from "../user/action";
 import { getOrdersByUserId } from "../order/action";
+import { cacheRevalidateTime } from "@/const/globalconst";
+
+// ─── Review cache tag helpers ────────────────────────────────────────────────
+const reviewTag = (slug: string) => `reviews:${slug}`;
+
+function revalidateReviewCache(slug: string) {
+  revalidateTag(reviewTag(slug), "max");
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
 export type PurchaseForReview = {
   productId: string;
@@ -159,6 +168,15 @@ export async function createReview(reviewData: {
     revalidatePath("/dashboard/review-rating");
     revalidatePath("/admin/reviews");
 
+    // Bust the cached reviews for this product's slug so the next
+    // page load fetches fresh data from the DB.
+    const [productRow] = await db
+      .select({ slug: product.slug })
+      .from(product)
+      .where(eq(product.id, reviewData.productId))
+      .limit(1);
+    if (productRow?.slug) revalidateReviewCache(productRow.slug);
+
     return { success: true };
   } catch (error) {
     console.error("Failed to create review:", error);
@@ -167,62 +185,58 @@ export async function createReview(reviewData: {
 }
 
 export async function getProductReviews(slug: string | any) {
-  try {
-    const v = await db.query.product.findFirst({
-      where: eq(product.slug, slug),
-    });
-    if (!v || !v.id) return [];
-    // const reviews = await db
-    //   .select({
-    //     id: review.id,
-    //     rating: review.rating,
-    //     userId: review.userId,
-    //     name: review.name,
-    //     email: review.email,
-    //     message: review.message,
-    //     productId: review.productId,
-    //     createdAt: review.createdAt,
-    //   })
-    //   .from(review)
-    //   .innerJoin(users, eq(review.userId, users.id))
-    //   .where(
-    //     and(eq(review.productId, v.id), eq(review.isAdminApproved, true)),
-    //   );
+  return unstable_cache(
+    async () => {
+      try {
+        const v = await db.query.product.findFirst({
+          where: eq(product.slug, slug),
+        });
+        if (!v || !v.id) return [];
 
-    const reviews = await db
-      .select({
-        id: review.id,
-        rating: review.rating,
-        userId: review.userId,
-        name: review.name,
-        email: review.email,
-        message: review.message,
-        productId: review.productId,
-        createdAt: review.createdAt,
-      })
-      .from(review).where(and(eq(review.productId, v.id), eq(review.isAdminApproved, true), eq(review.isAdminApproved, true)));
+        const reviews = await db
+          .select({
+            id: review.id,
+            rating: review.rating,
+            userId: review.userId,
+            name: review.name,
+            email: review.email,
+            message: review.message,
+            productId: review.productId,
+            createdAt: review.createdAt,
+          })
+          .from(review)
+          .where(
+            and(
+              eq(review.productId, v.id),
+              eq(review.isAdminApproved, true)
+            )
+          );
 
-
-    // const reviewsWithMedia = await Promise.all(
-    //   reviews.map(async (r) => ({
-    //     ...r,
-    //     media: await db
-    //       .select()
-    //       .from(reviewMedia)
-    //       .where(eq(reviewMedia.reviewId, r.id)),
-    //   })),
-    // );
-
-    // return reviewsWithMedia;
-    return reviews;
-  } catch (error) {
-    return [];
-  }
+        return reviews;
+      } catch (error) {
+        console.error("getProductReviews failed:", error);
+        return [];
+      }
+    },
+    // Unique cache key per slug
+    ["product-reviews", String(slug)],
+    {
+      revalidate: cacheRevalidateTime,
+      tags: [reviewTag(String(slug))],
+    }
+  )();
 }
 
 export async function toggleApproveReview(id: string) {
   try {
     if (!id) throw new Error("Review id missing");
+
+    // Fetch the slug before updating so we can bust the cache
+    const [target] = await db
+      .select({ productId: review.productId })
+      .from(review)
+      .where(eq(review.id, id))
+      .limit(1);
 
     await db
       .update(review)
@@ -232,9 +246,16 @@ export async function toggleApproveReview(id: string) {
     revalidatePath("/admin/reviews");
     revalidatePath("/dashboard/review-rating");
 
-    return {
-      success: true,
-    };
+    if (target?.productId) {
+      const [productRow] = await db
+        .select({ slug: product.slug })
+        .from(product)
+        .where(eq(product.id, target.productId))
+        .limit(1);
+      if (productRow?.slug) revalidateReviewCache(productRow.slug);
+    }
+
+    return { success: true };
   } catch (error) {
     console.error("Toggle approve failed:", error);
     return { success: false, message: "Failed to update review status" };
@@ -245,10 +266,26 @@ export async function deleteReview(id: string) {
   try {
     if (!id) throw new Error("Review id missing");
 
+    // Fetch slug before deleting so we can bust the cache
+    const [target] = await db
+      .select({ productId: review.productId })
+      .from(review)
+      .where(eq(review.id, id))
+      .limit(1);
+
     await db.delete(review).where(eq(review.id, id));
 
     revalidatePath("/admin/reviews");
     revalidatePath("/dashboard/review-rating");
+
+    if (target?.productId) {
+      const [productRow] = await db
+        .select({ slug: product.slug })
+        .from(product)
+        .where(eq(product.id, target.productId))
+        .limit(1);
+      if (productRow?.slug) revalidateReviewCache(productRow.slug);
+    }
 
     return { success: true };
   } catch (error) {
