@@ -3,7 +3,7 @@
 import { db } from "@/lib/db";
 
 import { revalidatePath, unstable_cache } from "next/cache";
-import { and, desc, asc, eq, gte, ilike, inArray, isNull, lte, ne, or, sql } from "drizzle-orm";
+import { and, desc, asc, eq, gte, ilike, inArray, isNull, lte, ne, or, sql, SQL, exists } from "drizzle-orm";
 import { generateUniqueSlug } from "../slug/generateUniqueSlug";
 
 import {
@@ -27,6 +27,7 @@ import {
   revalidateCategoryCache,
   revalidateProductCache,
 } from "@/lib/cache-tags";
+import { normalizeSize, formatSize } from "@/lib/size";
 
 interface GetProductsOptions {
   page?: number;
@@ -240,6 +241,12 @@ export async function createProduct(formData: FormData): Promise<void> {
     await db.transaction(async (tx) => {
       const slug = await generateUniqueSlug(tx, variants.name, product.slug);
       // 1. Create Product
+      // Derive a single canonical size from the size filter values
+      const sizeFilterValues: string[] = (variants.filters || [])
+        .filter((f: any) => f?.type === "size" && f?.filter)
+        .map((f: any) => normalizeSize(f.filter));
+      const canonicalSize = sizeFilterValues[0] ?? null;
+
       const [newProduct] = await tx
         .insert(product)
         .values({
@@ -256,6 +263,7 @@ export async function createProduct(formData: FormData): Promise<void> {
           isInStock: variants.isInStock,
           hasVarientBox: variants.hasVarientBox,
           highlights: variants.highlights || [],
+          size: canonicalSize,
           createdAt: new Date(),
           updatedAt: new Date(),
         })
@@ -295,7 +303,7 @@ export async function createProduct(formData: FormData): Promise<void> {
         );
       }
 
-      // 5. Insert Filters
+      // 5. Insert Filters (normalize size values before saving)
       if (variants.filters?.length) {
         const filterPayload = variants.filters
           .filter(
@@ -303,11 +311,16 @@ export async function createProduct(formData: FormData): Promise<void> {
               (f?.slug || f?.filter)?.trim()?.length > 0 &&
               f?.type?.trim()?.length > 0,
           )
-          .map((f: any) => ({
-            productId,
-            filter: (f.slug || f.filter).trim(),
-            type: f.type.trim(),
-          }));
+          .map((f: any) => {
+            const rawFilter = (f.slug || f.filter).trim();
+            const normalizedFilter =
+              f.type.trim() === "size" ? normalizeSize(rawFilter) : rawFilter;
+            return {
+              productId,
+              filter: normalizedFilter,
+              type: f.type.trim(),
+            };
+          });
 
         if (filterPayload.length > 0) {
           await tx.insert(productFilter).values(filterPayload);
@@ -383,6 +396,12 @@ export async function updateProduct(formData: FormData): Promise<void> {
       let vId = productId;
 
       if (vId) {
+        // Derive canonical size from filter payload for products.size column
+        const updSizeValues: string[] = (variants.filters || [])
+          .filter((f: any) => f?.type === "size" && f?.filter)
+          .map((f: any) => normalizeSize(f.filter));
+        const updCanonicalSize = updSizeValues[0] ?? null;
+
         // Update existing
         await tx
           .update(product)
@@ -401,6 +420,7 @@ export async function updateProduct(formData: FormData): Promise<void> {
             isHidden: variants.isHidden ?? false,
             hasVarientBox: variants.hasVarientBox,
             highlights: variants.highlights || [],
+            size: updCanonicalSize,
             updatedAt: new Date(),
           })
           .where(eq(product.id, vId));
@@ -412,9 +432,9 @@ export async function updateProduct(formData: FormData): Promise<void> {
       const mediaItems = Array.isArray(variants.media)
         ? variants.media
         : (variants.gallery || []).map((url: any) => ({
-            mediaType: "image",
-            mediaURL: url.preview || url,
-          }));
+          mediaType: "image",
+          mediaURL: url.preview || url,
+        }));
       const validMediaItems = mediaItems.filter((item: any) => item?.mediaURL);
 
       if (validMediaItems.length) {
@@ -441,7 +461,7 @@ export async function updateProduct(formData: FormData): Promise<void> {
         );
       }
 
-      // Update Filters
+      // Update Filters (normalize size values before saving)
       await tx.delete(productFilter).where(eq(productFilter.productId, vId!));
 
       if (variants.filters?.length) {
@@ -451,11 +471,16 @@ export async function updateProduct(formData: FormData): Promise<void> {
               (f?.slug || f?.filter)?.trim()?.length > 0 &&
               f?.type?.trim()?.length > 0,
           )
-          .map((f: any) => ({
-            productId: vId!,
-            filter: (f.slug || f.filter).trim(),
-            type: f.type.trim(),
-          }));
+          .map((f: any) => {
+            const rawFilter = (f.slug || f.filter).trim();
+            const normalizedFilter =
+              f.type.trim() === "size" ? normalizeSize(rawFilter) : rawFilter;
+            return {
+              productId: vId!,
+              filter: normalizedFilter,
+              type: f.type.trim(),
+            };
+          });
 
         if (filterPayload.length > 0) {
           await tx.insert(productFilter).values(filterPayload);
@@ -615,7 +640,7 @@ export async function getFullProduct(identifier: string) {
 
     const [
       prodcutVarientBoxRes,
-      categoryRes,  
+      categoryRes,
       productAttributeRes,
       productMediaRes,
       filters,
@@ -807,6 +832,8 @@ export async function deleteProduct(id: string) {
   }
 }
 
+
+
 export async function getProducts({
   page = 1,
   pageSize = 10,
@@ -826,206 +853,203 @@ export async function getProducts({
   sort = "",
   includeHidden = false,
 }: GetProductsOptions) {
+  // Normalize params outside cache so cache key is stable
+  const normalizeParam = (val: string | string[]): string[] => {
+    const arr = Array.isArray(val) ? val : val ? [val] : [];
+    return arr.map((v) => decodeURIComponent(v).trim());
+  };
+
+  const normalizedSize = normalizeParam(size);
+  const normalizedType = normalizeParam(type);
+  const normalizedMaterial = normalizeParam(material);
+  const normalizedFinish = normalizeParam(finish);
+  const normalizedFlow = normalizeParam(flow);
+  const normalizedCramps = normalizeParam(cramps);
+  const normalizedAllergies = normalizeParam(allergies);
+
+  // Resolve category IDs OUTSIDE cache (async lookup)
+  let resolvedCategoryIds: string[] = [];
+  if (categorySlug) {
+    const slugs = Array.isArray(categorySlug) ? categorySlug : [categorySlug];
+    const categoryRows = await db
+      .select({ id: category.id })
+      .from(category)
+      .where(inArray(category.slug, slugs));
+    resolvedCategoryIds = categoryRows.map((c) => c.id);
+  }
+
+  const cacheKey = JSON.stringify({
+    page,
+    pageSize,
+    search,
+    resolvedCategoryIds,
+    normalizedSize,
+    normalizedType,
+    normalizedMaterial,
+    normalizedFinish,
+    normalizedFlow,
+    normalizedCramps,
+    normalizedAllergies,
+    min,
+    max,
+    stock,
+    brand,
+    sort,
+    includeHidden,
+  });
+
   return unstable_cache(
     async () => {
-      const filters = [];
+      const filters: SQL[] = [];
 
-      // Exclude hidden products unless the caller explicitly requests them (admin)
+      // Visibility
       if (!includeHidden) {
-        filters.push(or(eq(product.isHidden, false), isNull(product.isHidden)));
+        filters.push(or(eq(product.isHidden, false), isNull(product.isHidden))!);
       }
 
+      // Search
       if (search.trim() !== "") {
         filters.push(ilike(product.name, `%${search}%`));
       }
 
-      const offset = (page - 1) * pageSize;
+      // EAV filters — using = ANY(ARRAY[...]::text[]) to avoid Drizzle IN binding issues
+      const filterMap: Record<string, string[]> = {};
+      if (normalizedType.length)       filterMap.type = normalizedType;
+      if (normalizedMaterial.length)   filterMap.material = normalizedMaterial;
+      if (normalizedFinish.length)     filterMap.finish = normalizedFinish;
+      if (normalizedSize.length)       filterMap.size = normalizedSize;
+      if (normalizedFlow.length)       filterMap.flow = normalizedFlow;
+      if (normalizedCramps.length)     filterMap.cramps = normalizedCramps;
+      if (normalizedAllergies.length)  filterMap.allergies = normalizedAllergies;
 
-      const filterValues = [
-        type,
-        material,
-        finish,
-        size,
-        flow,
-        cramps,
-        allergies,
-      ].flat().filter(Boolean);
 
-      if (filterValues.length > 0) {
+      for (const [filterType, values] of Object.entries(filterMap)) {
+        if (values.length === 0) continue;
+
+        // One EXISTS per value, joined with OR — most reliable across Drizzle versions
+        const valueConditions = values.map(
+          (v) => sql`EXISTS (
+            SELECT 1 FROM ${productFilter}
+            WHERE ${productFilter.productId} = ${product.id}
+              AND ${productFilter.type} = ${filterType}
+              AND ${productFilter.filter} = ${v}
+          )`
+        );
+
         filters.push(
-          sql`exists (
-      select 1 from ${productFilter}
-      where ${productFilter.productId} = ${product.id}
-      and ${productFilter.filter} in (${sql.join(
-        filterValues.map((f) => sql`${f}`),
-        sql`,`,
-      )})
-      group by ${productFilter.productId}
-      having count(distinct ${productFilter.filter}) = ${filterValues.length}
-    )`,
+          valueConditions.length === 1
+            ? valueConditions[0]
+            : sql`(${sql.join(valueConditions, sql` OR `)})`
         );
       }
 
-      if (min && max) {
+      // Category filter
+      if (resolvedCategoryIds.length > 0) {
         filters.push(
-          and(
-            gte(product.basePrice, Number(min)),
-            lte(product.basePrice, Number(max)),
-          ),
+          inArray(
+            product.id,
+            db
+              .select({ productId: productCategory.productId })
+              .from(productCategory)
+              .where(inArray(productCategory.categoryId, resolvedCategoryIds))
+          )
         );
-      } else if (min) {
+      }
+
+      // Price filter
+      if (min !== "") {
         filters.push(gte(product.basePrice, Number(min)));
-      } else if (max) {
+      }
+      if (max !== "") {
         filters.push(lte(product.basePrice, Number(max)));
       }
 
-      if (stock === "true") {
+      // Stock filter
+      if (stock === "in_stock") {
         filters.push(eq(product.isInStock, true));
+      } else if (stock === "out_of_stock") {
+        filters.push(eq(product.isInStock, false));
       }
 
+      // Brand filter
       if (brand) {
-        filters.push(eq(product.brand, brand));
+        const brands = Array.isArray(brand) ? brand : [brand];
+        filters.push(inArray(product.brand, brands));
       }
 
-      if (categorySlug) {
-        const slugs = Array.isArray(categorySlug) ? categorySlug : [categorySlug];
-        const categoryIds = await db
-          .select({ id: category.id })
-          .from(category)
-          .where(inArray(category.slug, slugs));
-
-        if (categoryIds.length > 0) {
-          filters.push(
-            sql`exists (
-      select 1 from ${productCategory}
-      where ${productCategory.productId} = ${product.id}
-      and ${productCategory.categoryId} in (${sql.join(
-        categoryIds.map(c => sql`${c.id}`),
-        sql`,`,
-      )})
-    )`,
-          );
-        }
-      }
       const whereClause = filters.length ? and(...filters) : undefined;
 
-      let orderByClause: any = desc(product.createdAt);
-      if (sort === "price_asc") {
-        orderByClause = asc(product.basePrice);
-      } else if (sort === "price_desc") {
-        orderByClause = desc(product.basePrice);
-      }
+      // Sort
+      const orderBy = (() => {
+        switch (sort) {
+          case "price_asc":  return [asc(product.basePrice)];
+          case "price_desc": return [desc(product.basePrice)];
+          case "name_asc":   return [asc(product.name)];
+          case "name_desc":  return [desc(product.name)];
+          default:           return [asc(product.name)];
+        }
+      })();
 
-      const [items, total] = await Promise.all([
+      const offset = (page - 1) * pageSize;
+
+      const [countResult, products] = await Promise.all([
         db
-          .select({
-            id: product.id,
-            name: product.name,
-            slug: product.slug,
-            sku: product.sku,
-            description: product.description,
-
-            isInStock: product.isInStock,
-            hasVarientBox: product.hasVarientBox,
-            basePrice: product.basePrice,
-            strikethroughPrice: product.strikethroughPrice,
-            bannerImage: product.bannerImage,
-            createdAt: product.createdAt,
-          })
+          .select({ count: sql<number>`count(*)` })
           .from(product)
-          // .leftJoin(productCategory, eq(productCategory.productId, product.id))
+          .where(whereClause),
+        db
+          .select()
+          .from(product)
           .where(whereClause)
-          .orderBy(orderByClause)
+          .orderBy(...orderBy)
           .limit(pageSize)
           .offset(offset),
-
-        db
-          .select({ count: sql<number>`count(distinct ${product.id})` })
-          .from(product)
-          .leftJoin(productCategory, eq(productCategory.productId, product.id))
-          .leftJoin(category, eq(category.id, productCategory.categoryId))
-          .where(whereClause),
       ]);
 
-      const totalItems = Number(total[0]?.count || 0);
-      const totalPages = Math.ceil(totalItems / pageSize);
+      const total = Number(countResult[0]?.count ?? 0);
+
 
       return {
-        items,
-        totalItems,
-        totalPages,
-        page,
-      };
-    },
-    [
-      "products-list",
-      JSON.stringify({
+        products,
+        total,
         page,
         pageSize,
-        search,
-        category: categorySlug,
-        type,
-        material,
-        finish,
-        size,
-        flow,
-        cramps,
-        allergies,
-        min,
-        max,
-        stock,
-        brand,
-        sort,
-        includeHidden,
-      }),
-    ],
-    { revalidate: cacheRevalidateTime, tags: [CACHE_TAGS.products, CACHE_TAGS.categories] },
+        totalPages: Math.ceil(total / pageSize),
+      };
+    },
+    [cacheKey],
+    { revalidate: 60 }
   )();
 }
 
-// export async function getProductSimilarProducts(slug: string | any) {
-//   try {
-//     const v = await db.query.product.findFirst({
-//       where: eq(product.slug, slug),
-//     });
-//     if (!v || !v.productId) return [];
+export async function getSteelSinkSizes() {
+  const rows = await db
+    .selectDistinct({
+      label: productFilter.filter,
+      value: productFilter.filter,
+    })
+    .from(productFilter)
+    .innerJoin(
+      productCategory,
+      eq(productCategory.productId, productFilter.productId)
+    )
+    .where(
+      and(
+        eq(productFilter.type, "size"),
+        eq(
+          productCategory.categoryId,
+          "167b60cd-7144-4122-b6c9-5f8bac1202d7"
+        )
+      )
+    )
+    .orderBy(productFilter.filter);
 
-//     const productWithCategory = await db
-//       .select({ categoryId: productCategory.categoryId })
-//       .from(productCategory)
-//       .where(eq(productCategory.productId, v.productId));
+  return rows.map((row) => ({
+    label: formatSize(row.label ?? ""),
+    value: row.value,
+  }));
+}
 
-//     if (!productWithCategory.length) return [];
-
-//     const categoryId = productWithCategory[0].categoryId;
-
-//     const similars = await db
-//       .select({
-//         id: product.id,
-//         name: product.name,
-//         slug: product.slug,
-//         basePrice: product.basePrice,
-//         bannerImage: product.bannerImage,
-//         rating: product.rating,
-//       })
-//       .from(product)
-//       .innerJoin(
-//         productCategory,
-//         eq(productCategory.productId, product.productId),
-//       )
-//       .where(
-//         and(
-//           eq(productCategory.categoryId, categoryId),
-//           ne(product.productId, v.productId),
-//         ),
-//       )
-//       .limit(10);
-
-//     return similars;
-//   } catch (error) {
-//     console.error("getProductSimilarProducts failed:", error);
-//   }
-// }
 
 export async function getProductsForCart(productIds: string[]) {
   try {
@@ -1190,7 +1214,7 @@ export async function getQuizSuggestedProducts(userAnswers: any) {
 
     return products;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return [];
   }
 }
@@ -1289,34 +1313,70 @@ export async function getProductsBySlugList(slugs: string[]) {
   }
 }
 
+// export async function getProductFilterOptions() {
+//   return unstable_cache(
+//     async () => {
+//       const rows = await db
+//         .select({
+//           type: productFilter.type,
+//           filter: productFilter.filter,
+//         })
+//         .from(productFilter)
+//         .groupBy(productFilter.type, productFilter.filter);
+
+//       const makeOptions = (type: string) =>
+//         rows
+//           .filter((row) => row.type === type && row.filter)
+//           .map((row) => ({
+//             label: row.filter,
+//             value: row.filter,
+//           }));
+
+//       return {
+//         materialOptions: makeOptions("material"),
+//         finishOptions: makeOptions("finish"),
+//         sizeOptions: makeOptions("size"),
+//       };
+//     },
+//     ["product-filter-options"],
+//     { revalidate: cacheRevalidateTime, tags: [CACHE_TAGS.products] },
+//   )();
+// }
+
 export async function getProductFilterOptions() {
-  return unstable_cache(
-    async () => {
-      const rows = await db
-        .select({
-          type: productFilter.type,
-          filter: productFilter.filter,
-        })
-        .from(productFilter)
-        .groupBy(productFilter.type, productFilter.filter);
+  const rows = await db
+    .select({
+      type: productFilter.type,
+      filter: productFilter.filter,
+    })
+    .from(productFilter)
+    .groupBy(productFilter.type, productFilter.filter);
 
-      const makeOptions = (type: string) =>
-        rows
-          .filter((row) => row.type === type && row.filter)
-          .map((row) => ({
-            label: row.filter,
-            value: row.filter,
-          }));
 
-      return {
-        materialOptions: makeOptions("material"),
-        finishOptions: makeOptions("finish"),
-        sizeOptions: makeOptions("size"),
-      };
-    },
-    ["product-filter-options"],
-    { revalidate: cacheRevalidateTime, tags: [CACHE_TAGS.products] },
-  )();
+  const sizeRows = rows.filter((row) => row.type === "size");
+
+  console.table(sizeRows);
+
+  const makeOptions = (type: string) => {
+    const options = rows
+      .filter((row) => row.type === type && row.filter)
+      .map((row) => ({
+        label: row.filter,
+        value: row.filter,
+      }));
+
+    return options;
+  };
+
+  const result = {
+    materialOptions: makeOptions("material"),
+    finishOptions: makeOptions("finish"),
+    sizeOptions: makeOptions("size"),
+  };
+
+
+
+  return result;
 }
 
 export async function getSignatureProducts(limit = 8) {

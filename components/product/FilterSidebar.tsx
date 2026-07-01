@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 type Category = {
   id?: string;
@@ -19,7 +20,7 @@ type FilterSidebarProps = {
   categories: Category[];
   materialOptions?: FilterOption[];
   finishOptions?: FilterOption[];
-  sizeOptions?: FilterOption[];
+  steelSinkSizes?: FilterOption[];
 };
 
 const getPriceParams = (item: string) => {
@@ -35,11 +36,23 @@ const FilterSidebar = ({
   categories,
   materialOptions = [],
   finishOptions = [],
-  sizeOptions = [],
+  steelSinkSizes = [],
 }: FilterSidebarProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const selectedCategories = searchParams.getAll("category");
+  const [openSections, setOpenSections] = useState<string[]>([]);
+
+  const toggleSection = (id: string) => {
+    setOpenSections((prev) =>
+      prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]
+    );
+  };
+
+const showSteelSinkSizes = selectedCategories.includes(
+  "stainless-steel-sinks"
+);
 
   const filterData = [
     {
@@ -61,11 +74,15 @@ const FilterSidebar = ({
       title: "FINISH",
       items: finishOptions,
     },
-    {
-      id: "size",
-      title: "SIZE",
-      items: sizeOptions,
-    },
+   ...(showSteelSinkSizes
+  ? [
+      {
+        id: "size",
+        title: "SIZE",
+        items: steelSinkSizes,
+      },
+    ]
+  : []),
     {
       id: "price",
       title: "PRICE RANGE",
@@ -146,36 +163,51 @@ const FilterSidebar = ({
 
   return (
     <div className="w-full bg-black p-0 select-none md:block hidden">
-      {filterData.map((section) => (
-        <div key={section.id} className="mb-8">
-          <h3 className="text-sm tracking-[0.15em] font-montserrat text-white/80 uppercase mb-4">
-            {section.title}
-          </h3>
-
-          <div className="space-y-3">
-            {section.items.map((item) => (
-              <div
-                key={item.value}
-                onClick={() => updateFilter(section.id, item.value)}
-                className="flex items-center space-x-3 group cursor-pointer"
-              >
-                <Checkbox
-                  id={`${section.id}-${item.value}`}
-                  checked={isChecked(section.id, item.value)}
-                  className="w-4 h-4 border-[#CBA14D] rounded-none data-checked:!bg-[#FFBF3F] data-checked:!border-[#FFBF3F] data-checked:!text-black"
-                />
-
-                <label
-                  htmlFor={`${section.id}-${item.value}`}
-                  className="text-sm font-inter text-[#EDEBE9] cursor-pointer group-hover:text-white transition-colors"
-                >
-                  {item.label}
-                </label>
-              </div>
-            ))}
+      {filterData.map((section) => {
+        const isOpen = openSections.includes(section.id);
+        
+        return (
+        <div key={section.id} className="mb-8 border-b border-white/5 pb-4 last:border-b-0">
+          <div 
+            className="flex items-center justify-between cursor-pointer mb-4 group"
+            onClick={() => toggleSection(section.id)}
+          >
+            <h3 className="text-sm tracking-[0.15em] font-montserrat text-white/80 uppercase group-hover:text-white transition-colors">
+              {section.title}
+            </h3>
+            {isOpen ? (
+              <ChevronUp className="w-4 h-4 text-white/60 group-hover:text-white" />
+            ) : (
+              <ChevronDown className="w-4 h-4 text-white/60 group-hover:text-white" />
+            )}
           </div>
+
+          {isOpen && (
+            <div className="space-y-3">
+              {section.items.map((item) => (
+                <div
+                  key={item.value}
+                  onClick={() => updateFilter(section.id, item.value)}
+                  className="flex items-center space-x-3 group cursor-pointer"
+                >
+                  <Checkbox
+                    id={`${section.id}-${item.value}`}
+                    checked={isChecked(section.id, item.value)}
+                    className="w-4 h-4 border-[#CBA14D] rounded-none data-checked:!bg-[#FFBF3F] data-checked:!border-[#FFBF3F] data-checked:!text-black"
+                  />
+
+                  <label
+                    htmlFor={`${section.id}-${item.value}`}
+                    className="text-sm font-inter text-[#EDEBE9] cursor-pointer group-hover:text-white transition-colors"
+                  >
+                    {item.label}
+                  </label>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      ))}
+      )})}
 
       <div
         onClick={updateStock}

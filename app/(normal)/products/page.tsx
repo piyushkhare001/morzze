@@ -7,9 +7,9 @@ import Link from "@/hooks/appLink"
 import {
   getProducts,
   getProductFilterOptions,
+  getSteelSinkSizes,
 } from "@/helper/product/action";
 import { getCategories } from "@/helper";
-
 export const dynamic = "force-dynamic";
 
 interface PageProps {
@@ -34,8 +34,12 @@ const PAGE_SIZE = 20;
 const page = async ({ searchParams }: PageProps) => {
   const params = await searchParams;
 
-  const allCategories = await getCategories();
-  const filterOptions = await getProductFilterOptions();
+ const allCategories = await getCategories();
+
+const [filterOptions, steelSinkSizes] = await Promise.all([
+  getProductFilterOptions(),
+  getSteelSinkSizes(),
+]);
 
   const result = await getProducts({
     page: Number(params.page ?? "1"),
@@ -53,7 +57,7 @@ const page = async ({ searchParams }: PageProps) => {
     sort: params.sort,
   });
 
-  const products = result?.items || [];
+  const products = result?.products || [];
 
   return (
     <div className="bg-black min-h-screen">
@@ -79,12 +83,12 @@ const page = async ({ searchParams }: PageProps) => {
 
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-1/4">
-            <FilterSidebar
-              categories={allCategories}
-              materialOptions={filterOptions.materialOptions}
-              finishOptions={filterOptions.finishOptions}
-              // sizeOptions={filterOptions.sizeOptions}
-            />
+          <FilterSidebar
+  categories={allCategories}
+  materialOptions={filterOptions.materialOptions}
+  finishOptions={filterOptions.finishOptions}
+  steelSinkSizes={steelSinkSizes}
+/>
           </div>
 
           <div className="lg:w-3/4 space-y-6">

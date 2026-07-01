@@ -31,6 +31,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import ProductSpecificationSection from "../ProductSpecificationSection";
 import ProductFaqSection from "../ProductFaqSection";
+import { normalizeSize } from "@/lib/size";
 
 type ImageItem = {
   key: string;
@@ -344,9 +345,11 @@ export default function EditProduct({ productDetails }: any) {
     setOptions: React.Dispatch<React.SetStateAction<string[]>>,
     type: string
   ) => {
-    const cleaned = value.trim();
+    const raw = value.trim();
+    if (!raw) return toast.error("Enter a value first");
 
-    if (!cleaned) return toast.error("Enter a value first");
+    // Normalize size values to canonical form (e.g. "18 X 16" → "18x16")
+    const cleaned = type === "size" ? normalizeSize(raw) : raw;
 
     if (!options.some((item) => item.toLowerCase() === cleaned.toLowerCase())) {
       setOptions([...options, cleaned]);

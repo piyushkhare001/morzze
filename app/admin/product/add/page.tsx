@@ -28,6 +28,7 @@ import { apiFetch } from "@/lib/apiFetch";
 import ProductFilters from "../productFilter";
 import ProductSpecificationSection from "../ProductSpecificationSection";
 import ProductFaqSection from "../ProductFaqSection";
+import { normalizeSize } from "@/lib/size";
 
 type ImageItem = {
   key: string;
@@ -47,7 +48,8 @@ type DynamicSpecCardProps = {
     value: string,
     setValue: React.Dispatch<React.SetStateAction<string>>,
     options: string[],
-    setOptions: React.Dispatch<React.SetStateAction<string[]>>
+    setOptions: React.Dispatch<React.SetStateAction<string[]>>,
+    type?: string
   ) => void;
 };
 
@@ -80,7 +82,7 @@ const DynamicSpecCard = ({
               type="button"
               size="sm"
               onClick={() =>
-                addDynamicOption(value, setValue, options, setOptions)
+                addDynamicOption(value, setValue, options, setOptions, type)
               }
             >
               <Plus size={14} className="mr-1" />
@@ -254,11 +256,14 @@ export default function AddProductForm() {
     value: string,
     setValue: React.Dispatch<React.SetStateAction<string>>,
     options: string[],
-    setOptions: React.Dispatch<React.SetStateAction<string[]>>
+    setOptions: React.Dispatch<React.SetStateAction<string[]>>,
+    type?: string
   ) => {
-    const cleaned = value.trim();
+    const raw = value.trim();
+    if (!raw) return toast.error("Enter a value first");
 
-    if (!cleaned) return toast.error("Enter a value first");
+    // Normalize size values to canonical form (e.g. "18 X 16" → "18x16")
+    const cleaned = type === "size" ? normalizeSize(raw) : raw;
 
     if (
       options.some((item) => item.toLowerCase() === cleaned.toLowerCase())

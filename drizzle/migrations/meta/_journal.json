@@ -134,6 +134,13 @@
       "when": 1782296588815,
       "tag": "0017_nasty_rumiko_fujikawa",
       "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1782817359838,
+      "tag": "0018_shallow_warstar",
+      "breakpoints": true
     }
   ]
 }
