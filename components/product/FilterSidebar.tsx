@@ -20,8 +20,14 @@ type FilterSidebarProps = {
   categories: Category[];
   materialOptions?: FilterOption[];
   finishOptions?: FilterOption[];
-  steelSinkSizes?: FilterOption[];
+  steelSinkCategorySlugs?: string[];
 };
+
+// Static inch sizes shown for steel sink categories
+const STEEL_SINK_SIZES: FilterOption[] = Array.from({ length: 31 }, (_, i) => {
+  const inch = 15 + i;
+  return { label: `${inch}  inches`, value: String(inch) };
+});
 
 const getPriceParams = (item: string) => {
   if (item === "Under ₹5,000") return { min: "", max: "5000" };
@@ -36,7 +42,7 @@ const FilterSidebar = ({
   categories,
   materialOptions = [],
   finishOptions = [],
-  steelSinkSizes = [],
+  steelSinkCategorySlugs = ["stainless-steel-sinks", "pulse"],
 }: FilterSidebarProps) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -50,8 +56,8 @@ const FilterSidebar = ({
     );
   };
 
-const showSteelSinkSizes = selectedCategories.includes(
-  "stainless-steel-sinks"
+const showSteelSinkSizes = selectedCategories.some((cat) =>
+  steelSinkCategorySlugs.includes(cat)
 );
 
   const filterData = [
@@ -78,8 +84,8 @@ const showSteelSinkSizes = selectedCategories.includes(
   ? [
       {
         id: "size",
-        title: "SIZE",
-        items: steelSinkSizes,
+        title: "SIZE ",
+        items: STEEL_SINK_SIZES,
       },
     ]
   : []),
@@ -165,6 +171,9 @@ const showSteelSinkSizes = selectedCategories.includes(
     <div className="w-full bg-black p-0 select-none md:block hidden">
       {filterData.map((section) => {
         const isOpen = openSections.includes(section.id);
+        const selectedCount = section.items.filter((item) => 
+          isChecked(section.id, item.value)
+        ).length;
         
         return (
         <div key={section.id} className="mb-8 border-b border-white/5 pb-4 last:border-b-0">
@@ -173,7 +182,7 @@ const showSteelSinkSizes = selectedCategories.includes(
             onClick={() => toggleSection(section.id)}
           >
             <h3 className="text-sm tracking-[0.15em] font-montserrat text-white/80 uppercase group-hover:text-white transition-colors">
-              {section.title}
+              {section.title} {selectedCount > 0 && `(${selectedCount})`}
             </h3>
             {isOpen ? (
               <ChevronUp className="w-4 h-4 text-white/60 group-hover:text-white" />

@@ -380,7 +380,7 @@ export default function StoreLocatorSection({ stores }: Props) {
                     </div>
 
                     {/* FEATURES */}
-                      <div>
+                      {/* <div>
                         <p className="flex items-center gap-2 text-[#e6aa12] mb-2">
                           <Star size={14} />
                           Features
@@ -396,7 +396,7 @@ export default function StoreLocatorSection({ stores }: Props) {
                             </span>
                           ))}
                         </div>
-                      </div>
+                      </div> */}
                 </div>
               </motion.div>
             </AnimatePresence>
