@@ -917,11 +917,26 @@ export async function getProducts({
       if (normalizedType.length)       filterMap.type = normalizedType;
       if (normalizedMaterial.length)   filterMap.material = normalizedMaterial;
       if (normalizedFinish.length)     filterMap.finish = normalizedFinish;
-      if (normalizedSize.length)       filterMap.size = normalizedSize;
       if (normalizedFlow.length)       filterMap.flow = normalizedFlow;
       if (normalizedCramps.length)     filterMap.cramps = normalizedCramps;
       if (normalizedAllergies.length)  filterMap.allergies = normalizedAllergies;
 
+      // Size filter — LIKE match: selecting "18" matches "18" Top", "18"", "18x16", etc.
+      if (normalizedSize.length) {
+        const sizeConditions = normalizedSize.map(
+          (v) => sql`EXISTS (
+            SELECT 1 FROM ${productFilter}
+            WHERE ${productFilter.productId} = ${product.id}
+              AND ${productFilter.type} = ${"size"}
+              AND ${productFilter.filter} LIKE ${v + '%'}
+          )`
+        );
+        filters.push(
+          sizeConditions.length === 1
+            ? sizeConditions[0]
+            : sql`(${sql.join(sizeConditions, sql` OR `)})`
+        );
+      }
 
       for (const [filterType, values] of Object.entries(filterMap)) {
         if (values.length === 0) continue;
@@ -1022,7 +1037,64 @@ export async function getProducts({
   )();
 }
 
+export async function getSteelSinkCategorySlugs() {
+  const rows = await db
+    .select({ slug: category.slug })
+    .from(category)
+    .where(
+      or(
+        and(
+          ilike(category.name, "%sink%"),
+          or(
+            ilike(category.name, "%steel%"),
+            ilike(category.name, "%steal%"),
+            ilike(category.name, "%stainless%")
+          )
+        ),
+        and(
+          ilike(category.slug, "%sink%"),
+          or(
+            ilike(category.slug, "%steel%"),
+            ilike(category.slug, "%steal%"),
+            ilike(category.slug, "%stainless%")
+          )
+        ),
+        eq(category.slug, "pulse")
+      )
+    );
+  return rows.map((r) => r.slug);
+}
+
 export async function getSteelSinkSizes() {
+  // Resolve category IDs for steel sinks
+  const steelSinkCategories = await db
+    .select({ id: category.id })
+    .from(category)
+    .where(
+      or(
+        and(
+          ilike(category.name, "%sink%"),
+          or(
+            ilike(category.name, "%steel%"),
+            ilike(category.name, "%steal%"),
+            ilike(category.name, "%stainless%")
+          )
+        ),
+        and(
+          ilike(category.slug, "%sink%"),
+          or(
+            ilike(category.slug, "%steel%"),
+            ilike(category.slug, "%steal%"),
+            ilike(category.slug, "%stainless%")
+          )
+        ),
+        eq(category.slug, "pulse")
+      )
+    );
+
+  const categoryIds = steelSinkCategories.map((c) => c.id);
+  if (categoryIds.length === 0) return [];
+
   const rows = await db
     .selectDistinct({
       label: productFilter.filter,
@@ -1036,10 +1108,7 @@ export async function getSteelSinkSizes() {
     .where(
       and(
         eq(productFilter.type, "size"),
-        eq(
-          productCategory.categoryId,
-          "167b60cd-7144-4122-b6c9-5f8bac1202d7"
-        )
+        inArray(productCategory.categoryId, categoryIds)
       )
     )
     .orderBy(productFilter.filter);
@@ -1355,7 +1424,6 @@ export async function getProductFilterOptions() {
 
   const sizeRows = rows.filter((row) => row.type === "size");
 
-  console.table(sizeRows);
 
   const makeOptions = (type: string) => {
     const options = rows

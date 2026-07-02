@@ -37,7 +37,7 @@ const ProductGrid = ({
   currentPage,
   materialOptions = [],
   finishOptions = [],
-  sizeOptions = [],
+  steelSinkCategorySlugs = [],
 }: {
   products: any[];
   categories: any[];
@@ -45,7 +45,7 @@ const ProductGrid = ({
   currentPage: number;
   materialOptions?: FilterOption[];
   finishOptions?: FilterOption[];
-  sizeOptions?: FilterOption[];
+  steelSinkCategorySlugs?: string[];
 }) => {
   const { addToCart, getItemQuantity } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
@@ -76,7 +76,7 @@ const ProductGrid = ({
                 categories={categories}
                 materialOptions={materialOptions}
                 finishOptions={finishOptions}
-                steelSinkSizes={sizeOptions}
+                steelSinkCategorySlugs={steelSinkCategorySlugs}
               />
             </div>
           </SheetContent>
