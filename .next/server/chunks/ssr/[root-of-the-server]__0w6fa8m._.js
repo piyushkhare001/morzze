@@ -1,0 +1,3 @@
+module.exports=[193695,(a,b,c)=>{b.exports=a.x("next/dist/shared/lib/no-fallback-error.external.js",()=>require("next/dist/shared/lib/no-fallback-error.external.js"))},147005,a=>{a.n(a.i(303278))},326758,a=>{a.v("/_next/static/media/favicon.0kpjkegx5uy94.ico"+(globalThis.NEXT_CLIENT_ASSET_SUFFIX||""))},438872,a=>{"use strict";let b={src:a.i(326758).default,width:32,height:32};a.s(["default",0,b])}];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__0w6fa8m._.js.map

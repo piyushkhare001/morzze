@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(normal)/layout,_N_T_/(normal)/kitchen/layout,_N_T_/(normal)/kitchen/page,_N_T_/kitchen,categories,categories:kitchen"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KG5vcm1hbCk/kitchen/__PAGE__",
+    "/!KG5vcm1hbCk/kitchen",
+    "/!KG5vcm1hbCk",
+    "/_index",
+    "/_head"
+  ]
+}

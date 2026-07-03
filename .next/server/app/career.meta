@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(normal)/layout,_N_T_/(normal)/career/layout,_N_T_/(normal)/career/page,_N_T_/career,categories"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KG5vcm1hbCk/career/__PAGE__",
+    "/!KG5vcm1hbCk/career",
+    "/!KG5vcm1hbCk",
+    "/_index",
+    "/_head"
+  ]
+}

@@ -1,0 +1,2730 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBB-401-1729238434.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779353812377-Specification%20Sheet%20MBB-401.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBB-401-1729238434\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20and%20Maintenance%20Wash%20Basin-1729238418.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779353947039-Care%20and%20Maintenance%20Wash%20Basin%20(1).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20and%20Maintenance%20Wash%20Basin-1729238418\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Wash%20Basin%20-1729238452.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779353937951-Warranty%20Wash%20Basin%20%20(1).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Wash%20Basin%20-1729238452\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MBB-402-1729238551.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780556349508-DWG%20MBB-402-1729238551.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MBB-402-1729238551\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBB-402-1729238610.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779353942410-Specification%20Sheet%20MBB-402.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBB-402-1729238610\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MBB-403-1729238565.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780556254247-DWG%20MBB-403-1729238565.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MBB-403-1729238565\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBB-403-1729238631.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354038049-Specification%20Sheet%20MBB-403.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBB-403-1729238631\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MBB-404-1729238580.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780556061246-DWG%20MBB-404-1729238580.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MBB-404-1729238580\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBB-404-1729238651.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354177352-Specification%20Sheet%20MBB-404.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBB-404-1729238651\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MSD-601-1729240445.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780555903197-DWG%20MSD-601-1729240445.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MSD-601-1729240445\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MSD-601-1729240412.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355543560-Specification%20Sheet%20MSD-601.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MSD-601-1729240412\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20and%20Maintenance%20Floor%20Drainer-1729239524.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355645081-Care%20and%20Maintenance%20Floor%20Drainer%20(1).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20and%20Maintenance%20Floor%20Drainer-1729239524\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Floor%20Drainer-1729239541.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355649731-Warranty%20Floor%20Drainer%20(1).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Floor%20Drainer-1729239541\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MSD-602-1729240502.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355647204-Specification%20Sheet%20MSD-602.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MSD-602-1729240502\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MSD-603-1729240574.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355715387-Specification%20Sheet%20MSD-603.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MSD-603-1729240574\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MBD-604-1729239219.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780554569829-DWG%20MBD-604-1729239219.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MBD-604-1729239219\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBD-604-1729239562.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355803585-Specification%20Sheet%20MBD-604.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBD-604-1729239562\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MBD-605-1729239282.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780554286358-DWG%20MBD-605-1729239282.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MBD-605-1729239282\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBD-605-1729239669.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355842365-Specification%20Sheet%20MBD-605.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBD-605-1729239669\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBD-606-1729239695.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355890025-Specification%20Sheet%20MBD-606.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBD-606-1729239695\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBD-607-1729239714.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355931944-Specification%20Sheet%20MBD-607.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBD-607-1729239714\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBD-608-1729239730.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355978517-Specification%20Sheet%20MBD-608.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBD-608-1729239730\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBD-609-1729239757.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356030899-Specification%20Sheet%20MBD-609.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBD-609-1729239757\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBD-610-1729239773.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356075469-Specification%20Sheet%20MBD-610.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBD-610-1729239773\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBD-611-1729239797.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356154906-Specification%20Sheet%20MBD-611.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBD-611-1729239797\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBD-612-1729240135.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356254894-Specification%20Sheet%20MBD-612.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBD-612-1729240135\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBD-613-1729240156.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356299325-Specification%20Sheet%20MBD-613.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBD-613-1729240156\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MBD-614-1729240176.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356338100-Specification%20Sheet%20MBD-614.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MBD-614-1729240176\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MTW-6040-1729240972.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780552591010-DWG%20MTW-6040-1729240972.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MTW-6040-1729240972\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MTW-6040-1729240938.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355134056-Specification%20Sheet%20MTW-6040.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MTW-6040-1729240938\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20and%20Maintenance%20Towel%20Warmer-1729240922.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355181636-Care%20and%20Maintenance%20Towel%20Warmer%20(1).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20and%20Maintenance%20Towel%20Warmer-1729240922\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Towel%20Warmer%20-1729240955.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355193561-Warranty%20Towel%20Warmer%20%20(1).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Towel%20Warmer%20-1729240955\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MTW-8050-1729240988.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780551769908-DWG%20MTW-8050-1729240988.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MTW-8050-1729240988\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MTW-8050-1729241004.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355190907-Specification%20Sheet%20MTW-8050.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MTW-8050-1729241004\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MTW-12050-1729241061.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780551149344-DWG%20MTW-12050-1729241061.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MTW-12050-1729241061\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MTW-12050-1729241078.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355314772-Specification%20Sheet%20MTW-12050.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MTW-12050-1729241078\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MTW-11050-1729241044.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780551000980-DWG%20MTW-11050-1729241044.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MTW-11050-1729241044\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MTW-11050-1729241025.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355251539-Specification%20Sheet%20MTW-11050.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MTW-11050-1729241025\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG-1741158856.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780558958186-DWG-1741158856.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG-1741158856\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/SPECIFICATIONS-1741159275.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354257182-MBF-501.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/SPECIFICATIONS-1741159275\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741157507.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354837238-Care%20&%20Maintenance%20Bathroom%20Faucet%20(7).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741157507\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Bathroom%20Faucet%20-1741159082.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354675604-Warranty%20Bathroom%20Faucet%20%20(5).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Bathroom%20Faucet%20-1741159082\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG-1741159519.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780563399498-DWG-1741158856%20(1).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG-1741159519\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/SPECIFICATIONS-1741159542.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354325124-MBF-501T.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/SPECIFICATIONS-1741159542\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741159462.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354837238-Care%20&%20Maintenance%20Bathroom%20Faucet%20(7).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741159462\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Bathroom%20Faucet%20-1741159564.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354675604-Warranty%20Bathroom%20Faucet%20%20(5).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Bathroom%20Faucet%20-1741159564\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/BATHROOM-FAUCETS-DWG-1741178653.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780557285552-BATHROOM-FAUCETS-DWG-1741178653.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/BATHROOM-FAUCETS-DWG-1741178653\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/SPECIFICATIONS-1741160172.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780466563957-SPECIFICATIONS-1741160172.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/SPECIFICATIONS-1741160172\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741159883.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354670639-Care%20&%20Maintenance%20Bathroom%20Faucet%20(5).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741159883\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Bathroom%20Faucet%20-1741160191.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354675604-Warranty%20Bathroom%20Faucet%20%20(5).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Bathroom%20Faucet%20-1741160191\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/BATHROOM-FAUCETS-DWG-1741178834.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780556923168-BATHROOM-FAUCETS-DWG-1741178834.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/BATHROOM-FAUCETS-DWG-1741178834\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/SPECIFICATIONS-1741160498.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354442514-MBF-503.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/SPECIFICATIONS-1741160498\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741160452.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354837238-Care%20&%20Maintenance%20Bathroom%20Faucet%20(7).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741160452\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Bathroom%20Faucet%20-1741160514.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354675604-Warranty%20Bathroom%20Faucet%20%20(5).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Bathroom%20Faucet%20-1741160514\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/BATHROOM-FAUCETS-DWG-1741178853.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780557914119-BATHROOM-FAUCETS-DWG-1741178853%20(1).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/BATHROOM-FAUCETS-DWG-1741178853\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/SPECIFICATIONS-1741160735.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354506975-MBF-504.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/SPECIFICATIONS-1741160735\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741160697.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354837238-Care%20&%20Maintenance%20Bathroom%20Faucet%20(7).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741160697\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Bathroom%20Faucet%20-1741160751.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354675604-Warranty%20Bathroom%20Faucet%20%20(5).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Bathroom%20Faucet%20-1741160751\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/BATHROOM-FAUCETS-DWG-1741178879.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780558140130-BATHROOM-FAUCETS-DWG-1741178879.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/BATHROOM-FAUCETS-DWG-1741178879\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/SPECIFICATIONS-1741161079.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354581825-MBF-505.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/SPECIFICATIONS-1741161079\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741160993.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354837238-Care%20&%20Maintenance%20Bathroom%20Faucet%20(7).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741160993\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Bathroom%20Faucet%20-1741161097.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354675604-Warranty%20Bathroom%20Faucet%20%20(5).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Bathroom%20Faucet%20-1741161097\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/BATHROOM-FAUCETS-DWG-1741178902.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780559175509-BATHROOM-FAUCETS-DWG-1741178902.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/BATHROOM-FAUCETS-DWG-1741178902\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/SPECIFICATIONS-1741161492.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354673021-MBF-506.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/SPECIFICATIONS-1741161492\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741161423.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354761866-Care%20&%20Maintenance%20Bathroom%20Faucet%20(6).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741161423\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Bathroom%20Faucet%20-1741161512.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354844149-Warranty%20Bathroom%20Faucet%20%20(7).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Bathroom%20Faucet%20-1741161512\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/BATHROOM-FAUCETS-DWG-1741178922.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780559622169-BATHROOM-FAUCETS-DWG-1741178922.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/BATHROOM-FAUCETS-DWG-1741178922\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/SPECIFICATIONS-1741161924.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354764075-MBF-507.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/SPECIFICATIONS-1741161924\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741161874.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354837238-Care%20&%20Maintenance%20Bathroom%20Faucet%20(7).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741161874\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Bathroom%20Faucet%20-1741161943.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354844149-Warranty%20Bathroom%20Faucet%20%20(7).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Bathroom%20Faucet%20-1741161943\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/BATHROOM-FAUCETS-DWG-1741178945.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780563270478-BATHROOM-FAUCETS-DWG-1741178945.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/BATHROOM-FAUCETS-DWG-1741178945\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/SPECIFICATIONS-1741162444.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354840805-MBF-508.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/SPECIFICATIONS-1741162444\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741162398.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354438374-Care%20&%20Maintenance%20Bathroom%20Faucet%20(2).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741162398\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Bathroom%20Faucet%20-1741162463.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354424179-Warranty%20Bathroom%20Faucet%20%20(2).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Bathroom%20Faucet%20-1741162463\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/BATHROOM-FAUCETS-DWG-1741179028.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780477909641-BATHROOM-FAUCETS-DWG-1741179076.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/BATHROOM-FAUCETS-DWG-1741179028\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/SPECIFICATIONS-1741164633.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354957314-MBF-509.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/SPECIFICATIONS-1741164633\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741164569.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358797601-Care%20&%20Maintenance%20Kitchen%20Faucet.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741164569\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Bathroom%20Faucet%20-1741164651.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358795518-Warranty%20Kitchen%20Faucet.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Bathroom%20Faucet%20-1741164651\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/BATHROOM-FAUCETS-DWG-1741178974.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780558544007-BATHROOM-FAUCETS-DWG-1741178974%20(1).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/BATHROOM-FAUCETS-DWG-1741178974\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/SPECIFICATIONS-1741166117.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355014011-MBF-510.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/SPECIFICATIONS-1741166117\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741166067.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358797601-Care%20&%20Maintenance%20Kitchen%20Faucet.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741166067\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Bathroom%20Faucet%20-1741166135.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358795518-Warranty%20Kitchen%20Faucet.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Bathroom%20Faucet%20-1741166135\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30424-1729185997.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780491671519-MKF-30424-1729185997.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30424-1729185997\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30424-1729186066.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358736304-Specification%20Sheet%20MKF-30424.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30424-1729186066\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Kitchen%20Faucet-1729186099.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358797601-Care%20&%20Maintenance%20Kitchen%20Faucet.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Kitchen%20Faucet-1729186099\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Kitchen%20Faucet-1729186127.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358795518-Warranty%20Kitchen%20Faucet.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Kitchen%20Faucet-1729186127\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKFG-30426-1729186332.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780489128785-MKFG-30426-1729186332.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKFG-30426-1729186332\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKFG-30426-1729186419.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358644423-Specification%20Sheet%20MKFG-30426.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKFG-30426-1729186419\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30431-1729204668.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780488611681-MKF-30431-1729204602.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30431-1729204668\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30431-1729204744.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780488616196-Specification%20Sheet%20MKF-30431-1729204546.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30431-1729204744\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30431-1729204602.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780488611681-MKF-30431-1729204602.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30431-1729204602\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30431-1729204546.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780488616196-Specification%20Sheet%20MKF-30431-1729204546.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30431-1729204546\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30422-1729204999.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780488407129-MKF-30422-1729204999.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30422-1729204999\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30422-1729205361.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358844105-Specification%20Sheet%20MKF-30422.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30422-1729205361\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30428-1729205116.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780486782163-MKF-30428-1729205116.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30428-1729205116\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30428-1729205402.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358483763-Specification%20Sheet%20MKF-30428.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30428-1729205402\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30429-1729205164.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780486616573-MKF-30429-1729205164.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30429-1729205164\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30429-1729205448.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358237587-Specification%20Sheet%20MKF-30429.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30429-1729205448\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30430-1729205198.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780486478782-MKF-30430-1729205198.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30430-1729205198\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30430-1729205481.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358165000-Specification%20Sheet%20MKF-30430.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30430-1729205481\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKFF-30436-1729205257.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357644978-Specification%20Sheet%20MKFF-30436.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKFF-30436-1729205257\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKFF-30436-1729205512.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357644978-Specification%20Sheet%20MKFF-30436.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKFF-30436-1729205512\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKFF-30437-1729205309.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780485930069-MKFF-30437-1729205309.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKFF-30437-1729205309\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKFF-30437-1729205554.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357577250-Specification%20Sheet%20MKFF-30437.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKFF-30437-1729205554\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30423-1729205905.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780485820136-MKF-30423-1729205905.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30423-1729205905\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30423-1729205866.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358793036-Specification%20Sheet%20MKF-30423.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30423-1729205866\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30425-1729205945.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780485595315-MKF-30425-1729205945.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30425-1729205945\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30425-1729206003.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358685091-Care%20&%20Maintenance%20Kitchen%20Faucet.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30425-1729206003\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKCF-30435-1729230601.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780484781948-MKCF-30435-1729230601.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKCF-30435-1729230601\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKCF-30440-1729230979.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357440227-Specification%20Sheet%20MKCF-30440.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKCF-30440-1729230979\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKCF-30441-1729230717.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780484637393-MKCF-30441-1729230717.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKCF-30441-1729230717\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKCF-30441-1729231019.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357390796-Specification%20Sheet%20MKCF-30441.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKCF-30441-1729231019\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKFF-30438-1729231826.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780484499593-MKFF-30438-1729231826.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKFF-30438-1729231826\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKFF-30438-1729232011.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357518616-Specification%20Sheet%20MKFF-30438.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKFF-30438-1729232011\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30439-1729231896.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780484242347-MKF-30439-1729231896.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30439-1729231896\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30439-1729231960.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357478851-Specification%20Sheet%20MKF-30439.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30439-1729231960\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30421-1729233134.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780484079372-MKF-30421-1729233134.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30421-1729233134\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30421-1729233459.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.nethttp://av-morzze.s3.ap-south-1.amazonaws.com/product-documents/1779358891469-Specification%20Sheet%20MKF-30421.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30421-1729233459\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30421-1729233235.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780483878176-MKF-30421-1729233235.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30421-1729233235\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30421-1729233422.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358891469-Specification%20Sheet%20MKF-30421.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30421-1729233422\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30433-1729233194.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780483704209-MKF-30433-1729233194.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30433-1729233194\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30433-1729233684.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357809319-Specification%20Sheet%20MKF-30433.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30433-1729233684\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30427-1729233851.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780483221758-MKF-30427-1729233851.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30427-1729233851\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30427-1729233825.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358589266-Specification%20Sheet%20MKF-30427.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30427-1729233825\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30432-1729233971.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780482319171-MKF-30432-1729233971.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30432-1729233971\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30432-1729234013.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358049611-Specification%20Sheet%20MKF-30432.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30432-1729234013\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30434-1729234150.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780481521273-MKF-30434-1729234150.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30434-1729234150\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30434-1729234104.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357734700-Specification%20Sheet%20MKF-30434.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30434-1729234104\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/MKF-30442-1729234275.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780480675588-MKF-30442-1729234275.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/MKF-30442-1729234275\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30442-1729234314.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357318302-Specification%20Sheet%20MKF-30442.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30442-1729234314\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MSD-21-1729235846.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780480345027-DWG%20MSD-21-1729235846.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MSD-21-1729235846\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MSD-21-1729236114.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356866786-Specification%20Sheet%20MSD-21.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MSD-21-1729236114\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20and%20Maintenance%20MSD-21-1729235591.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356904240-Care%20and%20Maintenance%20MSD-21.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20and%20Maintenance%20MSD-21-1729235591\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Soap%20Dispenser-1729235895.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356899561-Warranty%20Soap%20Dispenser.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Soap%20Dispenser-1729235895\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MSD-22-1729236190.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780479965878-DWG%20MSD-22-1729236190.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MSD-22-1729236190\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MSD-22-1729236277.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356901606-Specification%20Sheet%20MSD-22.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MSD-22-1729236277\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20and%20Maintenance%20Soap%20Dispenser-1729236207.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356951145-Care%20and%20Maintenance%20MSD-21.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20and%20Maintenance%20Soap%20Dispenser-1729236207\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MSD-23-1729236301.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780479664464-DWG%20MSD-23-1729236301.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MSD-23-1729236301\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MSD-23-1729236358.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356957154-Specification%20Sheet%20MSD-23.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MSD-23-1729236358\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20and%20Maintenance%20Soap%20Dispenser-1729236332.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356951145-Care%20and%20Maintenance%20MSD-21.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20and%20Maintenance%20Soap%20Dispenser-1729236332\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MSS-501-1729236725.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780479306588-DWG%20MSS-501-1729236725.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MSS-501-1729236725\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MSS-501-1729236702.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357073699-Specification%20Sheet%20MSS-501.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MSS-501-1729236702\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20and%20Maintenance%20Sink%20Strainer-1729236569.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357102886-Care%20and%20Maintenance%20Sink%20Strainer.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20and%20Maintenance%20Sink%20Strainer-1729236569\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Sink%20Strainer-1729236626.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357105253-Warranty%20Sink%20Strainer.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Sink%20Strainer-1729236626\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MGS-502-1729236647.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780478874770-DWG%20MGS-502-1729236647.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MGS-502-1729236647\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MGS-502-1729236591.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357107973-Specification%20Sheet%20MGS-502.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MGS-502-1729236591\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MHS-31-1729235403.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780478649890-DWG%20MHS-31-1729235403.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MHS-31-1729235403\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MHS-31-1729235300.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356813600-Specification%20Sheet%20MHS-31.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MHS-31-1729235300\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20MHS-31-1729235279.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356810205-Care%20&%20Maintenance%20MHS-31.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20MHS-31-1729235279\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Hand%20Shower-1729235319.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356815636-Warranty%20Hand%20Shower.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Hand%20Shower-1729235319\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MDP-45-1729234547.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356468829-Specification%20Sheet%20MDP-45.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MDP-45-1729234547\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20and%20Maintenance%20Drain%20Pipe-1729234581.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356602610-Care%20and%20Maintenance%20Drain%20Pipe%20(1).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20and%20Maintenance%20Drain%20Pipe-1729234581\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Drain%20Pipe-1729234706.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356605238-Warranty%20Drain%20Pipe%20(1).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Drain%20Pipe-1729234706\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MDP-46-1729234815.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356514672-Specification%20Sheet%20MDP-46.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MDP-46-1729234815\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MDP-47-1729234841.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356558606-Specification%20Sheet%20MDP-47.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MDP-47-1729234841\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MDP-48-1729234871.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356608909-Specification%20Sheet%20MDP-48.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MDP-48-1729234871\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MDP-49-1729234903.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779356641155-Specification%20Sheet%20MDP-49.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MDP-49-1729234903\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MDP-50-1729234929.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780477875108-Specification%20Sheet%20MDP-50-1729234929.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MDP-50-1729234929\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/BATHROOM-FAUCETS-DWG-1741179052.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780557441840-BATHROOM-FAUCETS-DWG-1741179028.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/BATHROOM-FAUCETS-DWG-1741179052\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/SPECIFICATIONS-1741164871.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354957314-MBF-509.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/SPECIFICATIONS-1741164871\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741164821.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354438374-Care%20&%20Maintenance%20Bathroom%20Faucet%20(2).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741164821\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Bathroom%20Faucet%20-1741164890.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354424179-Warranty%20Bathroom%20Faucet%20%20(2).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Bathroom%20Faucet%20-1741164890\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/BATHROOM-FAUCETS-DWG-1741179076.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780477909641-BATHROOM-FAUCETS-DWG-1741179076.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/BATHROOM-FAUCETS-DWG-1741179076\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/SPECIFICATIONS-1741165268.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354957314-MBF-509.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/SPECIFICATIONS-1741165268\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741165101.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354438374-Care%20&%20Maintenance%20Bathroom%20Faucet%20(2).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741165101\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Bathroom%20Faucet%20-1741165291.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354424179-Warranty%20Bathroom%20Faucet%20%20(2).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Bathroom%20Faucet%20-1741165291\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/BATHROOM-FAUCETS-DWG-1741179004.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780477988873-BATHROOM-FAUCETS-DWG-1741179004.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/BATHROOM-FAUCETS-DWG-1741179004\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/SPECIFICATIONS-1741162933.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354957314-MBF-509.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/SPECIFICATIONS-1741162933\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741162884.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354438374-Care%20&%20Maintenance%20Bathroom%20Faucet%20(2).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Bathroom%20Faucet-1741162884\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Bathroom%20Faucet%20-1741162951.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779354424179-Warranty%20Bathroom%20Faucet%20%20(2).pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Bathroom%20Faucet%20-1741162951\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/User%20Manual%20Air%20Tap-1729238192.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779353667521-User%20Manual%20Air%20Tap.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/User%20Manual%20Air%20Tap-1729238192\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MAT-4010-1729238232.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780476959655-DWG%20MAT-4010-1729238232.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MAT-4010-1729238232\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20Air%20Tap-1729238176.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779353663291-Specification%20Sheet%20Air%20Tap.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20Air%20Tap-1729238176\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Air%20Tap-1729238211.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779353671003-Warranty%20Air%20Tap.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Air%20Tap-1729238211\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20A01-201-1729065768.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780473533726-DWG%20A01-201-1729065768.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20A01-201-1729065768\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20A01-201-1729066032.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359025883-Specification%20Sheet%20A01-201.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20A01-201-1729066032\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MSS-501-1729066093.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357073699-Specification%20Sheet%20MSS-501.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MSS-501-1729066093\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Steel%20Sink-1729066123.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357073699-Specification%20Sheet%20MSS-501.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Steel%20Sink-1729066123\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Stainless%20Steel%20Sink-1729066182.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359257069-Warranty%20Stainless%20Steel%20Sink.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Stainless%20Steel%20Sink-1729066182\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20A01-202-1729066398.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780473285057-DWG%20A01-202-1729066398.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20A01-202-1729066398\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20A01-202-1729066422.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359151651-Specification%20Sheet%20A01-202.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20A01-202-1729066422\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MSS-501-1729066447.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357073699-Specification%20Sheet%20MSS-501.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MSS-501-1729066447\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Stainless%20Steel%20Sink-1729066469.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359254859-Care%20&%20Maintenance%20Steel%20Sink.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Stainless%20Steel%20Sink-1729066469\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Stainless%20Steel%20Sink-1729066501.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359257069-Warranty%20Stainless%20Steel%20Sink.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Stainless%20Steel%20Sink-1729066501\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20A01-203-1729066583.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780473002815-DWG%20A01-203-1729066583.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20A01-203-1729066583\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20A01-203-1729066627.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359259395-Specification%20Sheet%20A01-203.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20A01-203-1729066627\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MSS-501-1729066661.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357073699-Specification%20Sheet%20MSS-501.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MSS-501-1729066661\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20&%20Maintenance%20Stainless%20Steel%20Sink-1729066689.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359254859-Care%20&%20Maintenance%20Steel%20Sink.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20&%20Maintenance%20Stainless%20Steel%20Sink-1729066689\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Stainless%20Steel%20Sink-1729066707.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359257069-Warranty%20Stainless%20Steel%20Sink.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Stainless%20Steel%20Sink-1729066707\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20A01-204-1729068110.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780472332264-DWG%20A01-204-1729068110.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20A01-204-1729068110\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20A01-204-1729068129.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359332370-Specification%20Sheet%20A01-204.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20A01-204-1729068129\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20A02-205-1729068207.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780472140377-DWG%20A02-205-1729068207.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20A02-205-1729068207\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20A02-205-1729068234.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359486011-Specification%20Sheet%20A02-205.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20A02-205-1729068234\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20A02-206-1729069487.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780471987967-DWG%20A02-206-1729069487.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20A02-206-1729069487\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20A02-206-1729069508.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359686401-Specification%20Sheet%20A02-206.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20A02-206-1729069508\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20A03-207-1729069536.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780471755599-DWG%20A01-208LX-1729069587.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20A03-207-1729069536\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20A03-207-1729069558.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.nethttp://av-morzze.s3.ap-south-1.amazonaws.com/product-documents/1779359725637-Specification%20Sheet%20A03-207.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20A03-207-1729069558\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20A01-208LX-1729069587.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780471642146-DWG%20A01-208LX-1729069587.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20A01-208LX-1729069587\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20A01-208LX-1729069657.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359779914-Specification%20Sheet%20A01-208LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20A01-208LX-1729069657\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30423-1729069680.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358793036-Specification%20Sheet%20MKF-30423.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30423-1729069680\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20A01-209LX-1729073070.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780471241789-DWG%20A01-209LX-1729073070.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20A01-209LX-1729073070\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20A01-209LX-1729073104.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359813928-Specification%20Sheet%20A01-209LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20A01-209LX-1729073104\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30423-1729073130.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358793036-Specification%20Sheet%20MKF-30423.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30423-1729073130\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20A02-210LX-1729073184.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780470976797-DWG%20A02-210LX-1729073184.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20A02-210LX-1729073184\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30423-1729073261.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358793036-Specification%20Sheet%20MKF-30423.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30423-1729073261\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20A02-210LX-1729073285.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359841049-Specification%20Sheet%20A02-210LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20A02-210LX-1729073285\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20A02-211LX-1729073582.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780470592441-DWG%20A02-211LX-1729073582.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20A02-211LX-1729073582\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20A02-211LX-1729073599.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359891939-Specification%20Sheet%20A02-211LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20A02-211LX-1729073599\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30423-1729073622.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358793036-Specification%20Sheet%20MKF-30423.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30423-1729073622\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20A02-212LX-1729073689.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780470281317-DWG%20A02-212LX-1729073689.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20A02-212LX-1729073689\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20A02-212LX-1729073714.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359921680-Specification%20Sheet%20A02-212LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20A02-212LX-1729073714\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30424-1729073744.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358736304-Specification%20Sheet%20MKF-30424.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30424-1729073744\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20A02-213LX-1729073801.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780469969206-DWG%20A02-213LX-1729073801.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20A02-213LX-1729073801\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20A02-213LX-1729073825.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779359951800-Specification%20Sheet%20A02-213LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20A02-213LX-1729073825\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKF-30424-1729074283.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358736304-Specification%20Sheet%20MKF-30424.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKF-30424-1729074283\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V01-101-1729077065.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779360668444-DWG%20V01-101.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V01-101-1729077065\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V01-101-1729077094.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779360674625-Specification%20Sheet%20V01-101.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V01-101-1729077094\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MGS-502-1729077402.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779357107973-Specification%20Sheet%20MGS-502.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MGS-502-1729077402\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Care%20and%20Maintenance%20Granite%20Sink-1729077422.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361647115-Care%20and%20Maintenance%20Granite%20Sink.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Care%20and%20Maintenance%20Granite%20Sink-1729077422\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20Granite%20Sink-1729077449.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361650962-Warranty%20Granite%20Sink.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20Granite%20Sink-1729077449\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V01-102-1729079108.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780469450874-DWG%20V01-102-1729079108.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V01-102-1729079108\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V01-102-1729079130.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779360738469-Specification%20Sheet%20V01-102.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V01-102-1729079130\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/V01-103-1729079282.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780469276864-V01-103-1729079282.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/V01-103-1729079282\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V01-103-1729079350.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779360918451-Specification%20Sheet%20V01-103.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V01-103-1729079350\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V01-104-1729079709.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780469089632-DWG%20V01-104-1729079709.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V01-104-1729079709\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V01-104-1729079515.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779360946592-Specification%20Sheet%20V01-104.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V01-104-1729079515\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V01-105-1729079894.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780468931665-DWG%20V01-105-1729079894.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V01-105-1729079894\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V01-105-1729080169.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779360996248-Specification%20Sheet%20V01-105.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V01-105-1729080169\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V01-106-1729151593.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780468793236-DWG%20V01-106-1729151593.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V01-106-1729151593\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V01-106-1729151616.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780468744345-Specification%20Sheet%20V01-106-1729151616.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V01-106-1729151616\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V02-107-1729151724.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780467728500-DWG%20V02-107-1729151724.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V02-107-1729151724\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V02-107-1729151750.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361065566-Specification%20Sheet%20V02-107.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V02-107-1729151750\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V02-108-1729151801.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780462089752-DWG%20V02-108.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V02-108-1729151801\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V02-108-1729151838.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361099549-Specification%20Sheet%20V02-108.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V02-108-1729151838\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V03-109-1729151880.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780467424911-DWG%20V03-109-1729151880.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V03-109-1729151880\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V03-109-1729151901.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361139879-Specification%20Sheet%20V03-109.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V03-109-1729151901\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V03-110-1729151938.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780467204330-DWG%20V03-110-1729151938.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V03-110-1729151938\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V03-110-1729151977.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361173903-Specification%20Sheet%20V03-110.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V03-110-1729151977\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V01-111LX-1729152713.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780466868714-DWG%20V01-111LX-1729152713.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V01-111LX-1729152713\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V01-111LX-1729152758.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361409232-Specification%20Sheet%20V01-111LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V01-111LX-1729152758\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MKFG-30426-1729152780.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779358644423-Specification%20Sheet%20MKFG-30426.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MKFG-30426-1729152780\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V01-112LX-1729153016.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780466351971-DWG%20V01-112LX-1729153016.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V01-112LX-1729153016\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V01-112LX-1729153063.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361455482-Specification%20Sheet%20V01-112LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V01-112LX-1729153063\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V01-113LX-1729153787.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780465999988-DWG%20V01-113LX-1729153787.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V01-113LX-1729153787\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V01-113LX-1729153815.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361497016-Specification%20Sheet%20V01-113LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V01-113LX-1729153815\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V01-114LX-1729153868.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780465782392-DWG%20V01-114LX-1729153868.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V01-114LX-1729153868\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V01-114LX-1729153892.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361531141-Specification%20Sheet%20V01-114LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V01-114LX-1729153892\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V02-115LX-1729153934.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780465614073-DWG%20V02-115LX-1729153934.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V02-115LX-1729153934\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V02-115LX-1729153963.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361608269-Specification%20Sheet%20V02-115LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V02-115LX-1729153963\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V02-116LX-1729153985.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780465358515-DWG%20V02-116LX-1729153985.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V02-116LX-1729153985\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V02-116LX-1729154012.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.nethttp://av-morzze.s3.ap-south-1.amazonaws.com/product-documents/1779361653169-Specification%20Sheet%20V02-116LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V02-116LX-1729154012\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V02-117LX-1729154038.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780465237207-DWG%20V02-117LX-1729154038.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V02-117LX-1729154038\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V02-117LX-1729154153.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361688086-Specification%20Sheet%20V02-117LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V02-117LX-1729154153\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V02-118LX-1729154186.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780465011118-DWG%20V02-118LX-1729154186.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V02-118LX-1729154186\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V02-118LX-1729154206.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361743383-Specification%20Sheet%20V02-118LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V02-118LX-1729154206\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V02-119LX-1729154233.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780464686888-DWG%20V02-119LX-1729154233.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V02-119LX-1729154233\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V02-119LX-1729154259.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361789042-Specification%20Sheet%20V02-119LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V02-119LX-1729154259\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20V03-120LX-1729154286.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780464130682-DWG%20V03-120LX-1729154286.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20V03-120LX-1729154286\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20V03-120LX-1729154314.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779361833518-Specification%20Sheet%20V03-120LX.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20V03-120LX-1729154314\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Food%20Waste%20Disposer%20Manual-1729237447.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355372755-Food%20Waste%20Disposer%20Manual.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Food%20Waste%20Disposer%20Manual-1729237447\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/User%20Manual%20MFD-1101-1729237496.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355378491-User%20Manual%20MFD-1101.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/User%20Manual%20MFD-1101-1729237496\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MFD-1101-1729237997.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780463166065-DWG%20MFD-1101-1729237997.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MFD-1101-1729237997\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MFD-1101-1729237473.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355375755-Specification%20Sheet%20MFD-1101.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MFD-1101-1729237473\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/User%20Manual%20MFD%201102-1729237539.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355419802-User%20Manual%20MFD%201102.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/User%20Manual%20MFD%201102-1729237539\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/DWG%20MFD-1102-1729238016.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1780462580216-DWG%20MFD-1102-1729238016.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/DWG%20MFD-1102-1729238016\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Specification%20Sheet%20MFD-1102-1729237518.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355417772-Specification%20Sheet%20MFD-1102.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Specification%20Sheet%20MFD-1102-1729237518\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/storage/download/Warranty%20MFD-1102-1729237556.pdf",
+      "destination": "https://d2icu6klh68l1z.cloudfront.net/product-documents/1779355372755-Food%20Waste%20Disposer%20Manual.pdf",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/storage/download/Warranty%20MFD-1102-1729237556\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Sinks/Granite-Sinks",
+      "destination": "/kitchen/Granite-Sinks",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Sinks/Granite-Sinks(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Sinks/Steel-Sinks",
+      "destination": "/kitchen/stainless-steel-sinks",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Sinks/Steel-Sinks(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Accessories/Drain-Pipe",
+      "destination": "/kitchen/drain-pipe",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Accessories/Drain-Pipe(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/Wall-Mounted-Maucet",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/Wall-Mounted-Maucet(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/Pull-Down--Faucet",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/Pull-Down--Faucet(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/Single-Handle-Kitchen-Faucet",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/Single-Handle-Kitchen-Faucet(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/Faucet-with-Filtered-Drinking-Water",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/Faucet-with-Filtered-Drinking-Water(?:/)?$"
+    },
+    {
+      "source": "/bathroom/Bathroom-Basin-Collection",
+      "destination": "/bathroom/Bathroom-Basins",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/bathroom/Bathroom-Basin-Collection(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Sink-Collection",
+      "destination": "/kitchen",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Sink-Collection(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Sinks",
+      "destination": "/kitchen/stainless-steel-sinks",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Sinks(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Sinks/Granite-Sinks",
+      "destination": "/kitchen/Granite-Sinks",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Sinks/Granite-Sinks(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Sinks/Steel-Sinks",
+      "destination": "/kitchen/stainless-steel-sinks",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Sinks/Steel-Sinks(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Accessories/Drain-Pipe",
+      "destination": "/kitchen/drain-pipe",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Accessories/Drain-Pipe(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Accessories/Liquid-Soap-Dispenser",
+      "destination": "/kitchen/Kitchen-Accessories",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Accessories/Liquid-Soap-Dispenser(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Accessories/Sink-Strainer",
+      "destination": "/kitchen/Kitchen-Accessories",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Accessories/Sink-Strainer(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Accessories/Sink-Strainer-Cover",
+      "destination": "/kitchen/Kitchen-Accessories",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Accessories/Sink-Strainer-Cover(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Accessories/Sink-Drainer-Adapter",
+      "destination": "/kitchen/Kitchen-Accessories",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Accessories/Sink-Drainer-Adapter(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Accessories/Hand-Shower",
+      "destination": "/kitchen/Kitchen-Accessories",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Accessories/Hand-Shower(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/Pull-Down--Faucet",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/Pull-Down--Faucet(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/Faucet-with-Filtered-Drinking-Water",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/Faucet-with-Filtered-Drinking-Water(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/Multi-Angle-Rotating-Faucet",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/Multi-Angle-Rotating-Faucet(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/Cold-Water-Faucet",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/Cold-Water-Faucet(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/Wall-Mounted-Maucet",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/Wall-Mounted-Maucet(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/Flexible-Spout-Kitchen-Faucet",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/Flexible-Spout-Kitchen-Faucet(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/Telescopic-Spout-Kitchen-Faucet",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/Telescopic-Spout-Kitchen-Faucet(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/Pull-Down-Spring-Kitchen-Faucet",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/Pull-Down-Spring-Kitchen-Faucet(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/Single-Handle-Kitchen-Faucet",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/Single-Handle-Kitchen-Faucet(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/360-Degree-Kitchen-Faucet",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/360-Degree-Kitchen-Faucet(?:/)?$"
+    },
+    {
+      "source": "/kitchen/Kitchen-Faucets/All-Faucets",
+      "destination": "/kitchen/Kitchen-Faucets",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/kitchen/Kitchen-Faucets/All-Faucets(?:/)?$"
+    }
+  ],
+  "headers": [],
+  "onMatchHeaders": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/admin/applications/[id]",
+      "regex": "^/admin/applications/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/applications/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/blog/edit/[id]",
+      "regex": "^/admin/blog/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/blog/edit/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/catalogue/edit/[id]",
+      "regex": "^/admin/catalogue/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/catalogue/edit/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/category/[id]",
+      "regex": "^/admin/category/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/category/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/coupons/edit/[id]",
+      "regex": "^/admin/coupons/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/coupons/edit/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/order/[id]",
+      "regex": "^/admin/order/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/order/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/product/[id]",
+      "regex": "^/admin/product/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/product/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/stores/edit/[id]",
+      "regex": "^/admin/stores/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/stores/edit/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/users/[userId]/orders",
+      "regex": "^/admin/users/([^/]+?)/orders(?:/)?$",
+      "routeKeys": {
+        "nxtPuserId": "nxtPuserId"
+      },
+      "namedRegex": "^/admin/users/(?<nxtPuserId>[^/]+?)/orders(?:/)?$"
+    },
+    {
+      "page": "/admin/videos/edit/[id]",
+      "regex": "^/admin/videos/edit/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/videos/edit/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/orders/[orderId]",
+      "regex": "^/api/orders/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPorderId": "nxtPorderId"
+      },
+      "namedRegex": "^/api/orders/(?<nxtPorderId>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/orders/[orderId]/invoice",
+      "regex": "^/api/orders/([^/]+?)/invoice(?:/)?$",
+      "routeKeys": {
+        "nxtPorderId": "nxtPorderId"
+      },
+      "namedRegex": "^/api/orders/(?<nxtPorderId>[^/]+?)/invoice(?:/)?$"
+    },
+    {
+      "page": "/api/shipping/track/[trackingNumber]",
+      "regex": "^/api/shipping/track/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPtrackingNumber": "nxtPtrackingNumber"
+      },
+      "namedRegex": "^/api/shipping/track/(?<nxtPtrackingNumber>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/article/[slug]",
+      "regex": "^/article/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/article/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/bathroom/[slug]",
+      "regex": "^/bathroom/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/bathroom/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/blog/[slug]",
+      "regex": "^/blog/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/blog/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/blogs/[slug]",
+      "regex": "^/blogs/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/blogs/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/category/[slug]",
+      "regex": "^/category/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/category/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/dashboard/order/[orderSlug]",
+      "regex": "^/dashboard/order/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPorderSlug": "nxtPorderSlug"
+      },
+      "namedRegex": "^/dashboard/order/(?<nxtPorderSlug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/kitchen/[slug]",
+      "regex": "^/kitchen/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/kitchen/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/orders/[id]/tracking",
+      "regex": "^/orders/([^/]+?)/tracking(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/orders/(?<nxtPid>[^/]+?)/tracking(?:/)?$"
+    },
+    {
+      "page": "/product/[productslug]",
+      "regex": "^/product/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPproductslug": "nxtPproductslug"
+      },
+      "namedRegex": "^/product/(?<nxtPproductslug>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/404",
+      "regex": "^/404(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/404(?:/)?$"
+    },
+    {
+      "page": "/about",
+      "regex": "^/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about(?:/)?$"
+    },
+    {
+      "page": "/admin",
+      "regex": "^/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin(?:/)?$"
+    },
+    {
+      "page": "/admin/applications",
+      "regex": "^/admin/applications(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/applications(?:/)?$"
+    },
+    {
+      "page": "/admin/blog",
+      "regex": "^/admin/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/blog(?:/)?$"
+    },
+    {
+      "page": "/admin/blog/new",
+      "regex": "^/admin/blog/new(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/blog/new(?:/)?$"
+    },
+    {
+      "page": "/admin/catalogue",
+      "regex": "^/admin/catalogue(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/catalogue(?:/)?$"
+    },
+    {
+      "page": "/admin/catalogue/new",
+      "regex": "^/admin/catalogue/new(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/catalogue/new(?:/)?$"
+    },
+    {
+      "page": "/admin/category",
+      "regex": "^/admin/category(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/category(?:/)?$"
+    },
+    {
+      "page": "/admin/category/add",
+      "regex": "^/admin/category/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/category/add(?:/)?$"
+    },
+    {
+      "page": "/admin/coupons",
+      "regex": "^/admin/coupons(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/coupons(?:/)?$"
+    },
+    {
+      "page": "/admin/coupons/new",
+      "regex": "^/admin/coupons/new(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/coupons/new(?:/)?$"
+    },
+    {
+      "page": "/admin/gate",
+      "regex": "^/admin/gate(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/gate(?:/)?$"
+    },
+    {
+      "page": "/admin/login",
+      "regex": "^/admin/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/login(?:/)?$"
+    },
+    {
+      "page": "/admin/order",
+      "regex": "^/admin/order(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/order(?:/)?$"
+    },
+    {
+      "page": "/admin/payment",
+      "regex": "^/admin/payment(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/payment(?:/)?$"
+    },
+    {
+      "page": "/admin/product",
+      "regex": "^/admin/product(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/product(?:/)?$"
+    },
+    {
+      "page": "/admin/product/add",
+      "regex": "^/admin/product/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/product/add(?:/)?$"
+    },
+    {
+      "page": "/admin/product/upload-csv",
+      "regex": "^/admin/product/upload\\-csv(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/product/upload\\-csv(?:/)?$"
+    },
+    {
+      "page": "/admin/register",
+      "regex": "^/admin/register(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/register(?:/)?$"
+    },
+    {
+      "page": "/admin/reviews",
+      "regex": "^/admin/reviews(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/reviews(?:/)?$"
+    },
+    {
+      "page": "/admin/settings",
+      "regex": "^/admin/settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/settings(?:/)?$"
+    },
+    {
+      "page": "/admin/stores",
+      "regex": "^/admin/stores(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/stores(?:/)?$"
+    },
+    {
+      "page": "/admin/stores/new",
+      "regex": "^/admin/stores/new(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/stores/new(?:/)?$"
+    },
+    {
+      "page": "/admin/users",
+      "regex": "^/admin/users(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/users(?:/)?$"
+    },
+    {
+      "page": "/admin/verify-otp",
+      "regex": "^/admin/verify\\-otp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/verify\\-otp(?:/)?$"
+    },
+    {
+      "page": "/admin/videos",
+      "regex": "^/admin/videos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/videos(?:/)?$"
+    },
+    {
+      "page": "/admin/videos/edit",
+      "regex": "^/admin/videos/edit(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/videos/edit(?:/)?$"
+    },
+    {
+      "page": "/admin/videos/new",
+      "regex": "^/admin/videos/new(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/videos/new(?:/)?$"
+    },
+    {
+      "page": "/api/admin/access",
+      "regex": "^/api/admin/access(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/access(?:/)?$"
+    },
+    {
+      "page": "/api/admin/login",
+      "regex": "^/api/admin/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/login(?:/)?$"
+    },
+    {
+      "page": "/api/admin/signup",
+      "regex": "^/api/admin/signup(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/signup(?:/)?$"
+    },
+    {
+      "page": "/api/admin/verify-otp",
+      "regex": "^/api/admin/verify\\-otp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/verify\\-otp(?:/)?$"
+    },
+    {
+      "page": "/api/auth/change-password",
+      "regex": "^/api/auth/change\\-password(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/change\\-password(?:/)?$"
+    },
+    {
+      "page": "/api/auth/confirm-forgot-password",
+      "regex": "^/api/auth/confirm\\-forgot\\-password(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/confirm\\-forgot\\-password(?:/)?$"
+    },
+    {
+      "page": "/api/auth/forgot-password",
+      "regex": "^/api/auth/forgot\\-password(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/forgot\\-password(?:/)?$"
+    },
+    {
+      "page": "/api/auth/logout",
+      "regex": "^/api/auth/logout(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/logout(?:/)?$"
+    },
+    {
+      "page": "/api/auth/refersh-token",
+      "regex": "^/api/auth/refersh\\-token(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/refersh\\-token(?:/)?$"
+    },
+    {
+      "page": "/api/auth/resend-otp",
+      "regex": "^/api/auth/resend\\-otp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/resend\\-otp(?:/)?$"
+    },
+    {
+      "page": "/api/auth/session",
+      "regex": "^/api/auth/session(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/session(?:/)?$"
+    },
+    {
+      "page": "/api/auth/sign-in",
+      "regex": "^/api/auth/sign\\-in(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/sign\\-in(?:/)?$"
+    },
+    {
+      "page": "/api/auth/sign-up",
+      "regex": "^/api/auth/sign\\-up(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/sign\\-up(?:/)?$"
+    },
+    {
+      "page": "/api/auth/verify-otp",
+      "regex": "^/api/auth/verify\\-otp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/verify\\-otp(?:/)?$"
+    },
+    {
+      "page": "/api/career",
+      "regex": "^/api/career(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/career(?:/)?$"
+    },
+    {
+      "page": "/api/career-enquiry",
+      "regex": "^/api/career\\-enquiry(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/career\\-enquiry(?:/)?$"
+    },
+    {
+      "page": "/api/cart/add",
+      "regex": "^/api/cart/add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/cart/add(?:/)?$"
+    },
+    {
+      "page": "/api/contact",
+      "regex": "^/api/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/contact(?:/)?$"
+    },
+    {
+      "page": "/api/coupons/validate",
+      "regex": "^/api/coupons/validate(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/coupons/validate(?:/)?$"
+    },
+    {
+      "page": "/api/cron/renew-subscription",
+      "regex": "^/api/cron/renew\\-subscription(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/cron/renew\\-subscription(?:/)?$"
+    },
+    {
+      "page": "/api/crone/cart-reminder",
+      "regex": "^/api/crone/cart\\-reminder(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/crone/cart\\-reminder(?:/)?$"
+    },
+    {
+      "page": "/api/dealer",
+      "regex": "^/api/dealer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/dealer(?:/)?$"
+    },
+    {
+      "page": "/api/newsletter",
+      "regex": "^/api/newsletter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/newsletter(?:/)?$"
+    },
+    {
+      "page": "/api/plans",
+      "regex": "^/api/plans(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/plans(?:/)?$"
+    },
+    {
+      "page": "/api/products/bulk-upload",
+      "regex": "^/api/products/bulk\\-upload(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/products/bulk\\-upload(?:/)?$"
+    },
+    {
+      "page": "/api/products/sample-csv",
+      "regex": "^/api/products/sample\\-csv(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/products/sample\\-csv(?:/)?$"
+    },
+    {
+      "page": "/api/razorpay/order",
+      "regex": "^/api/razorpay/order(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/razorpay/order(?:/)?$"
+    },
+    {
+      "page": "/api/razorpay/plans",
+      "regex": "^/api/razorpay/plans(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/razorpay/plans(?:/)?$"
+    },
+    {
+      "page": "/api/razorpay/subscriptions",
+      "regex": "^/api/razorpay/subscriptions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/razorpay/subscriptions(?:/)?$"
+    },
+    {
+      "page": "/api/razorpay/verify",
+      "regex": "^/api/razorpay/verify(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/razorpay/verify(?:/)?$"
+    },
+    {
+      "page": "/api/return-request",
+      "regex": "^/api/return\\-request(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/return\\-request(?:/)?$"
+    },
+    {
+      "page": "/api/reviews",
+      "regex": "^/api/reviews(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/reviews(?:/)?$"
+    },
+    {
+      "page": "/api/s3_upload",
+      "regex": "^/api/s3_upload(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/s3_upload(?:/)?$"
+    },
+    {
+      "page": "/api/search",
+      "regex": "^/api/search(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/search(?:/)?$"
+    },
+    {
+      "page": "/api/store-search",
+      "regex": "^/api/store\\-search(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/store\\-search(?:/)?$"
+    },
+    {
+      "page": "/api/subscription/create",
+      "regex": "^/api/subscription/create(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/subscription/create(?:/)?$"
+    },
+    {
+      "page": "/api/subscription-plans",
+      "regex": "^/api/subscription\\-plans(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/subscription\\-plans(?:/)?$"
+    },
+    {
+      "page": "/api/upload",
+      "regex": "^/api/upload(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/upload(?:/)?$"
+    },
+    {
+      "page": "/api/videos",
+      "regex": "^/api/videos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/videos(?:/)?$"
+    },
+    {
+      "page": "/api/warranty",
+      "regex": "^/api/warranty(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/warranty(?:/)?$"
+    },
+    {
+      "page": "/Architect-Data",
+      "regex": "^/Architect\\-Data(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Architect\\-Data(?:/)?$"
+    },
+    {
+      "page": "/article",
+      "regex": "^/article(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/article(?:/)?$"
+    },
+    {
+      "page": "/bathroom",
+      "regex": "^/bathroom(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/bathroom(?:/)?$"
+    },
+    {
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog(?:/)?$"
+    },
+    {
+      "page": "/blogs",
+      "regex": "^/blogs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blogs(?:/)?$"
+    },
+    {
+      "page": "/call-request",
+      "regex": "^/call\\-request(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/call\\-request(?:/)?$"
+    },
+    {
+      "page": "/career",
+      "regex": "^/career(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/career(?:/)?$"
+    },
+    {
+      "page": "/cart",
+      "regex": "^/cart(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/cart(?:/)?$"
+    },
+    {
+      "page": "/catalogue",
+      "regex": "^/catalogue(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/catalogue(?:/)?$"
+    },
+    {
+      "page": "/category",
+      "regex": "^/category(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/category(?:/)?$"
+    },
+    {
+      "page": "/checkout",
+      "regex": "^/checkout(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/checkout(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/COUPON-REDEMPTION-FORM",
+      "regex": "^/COUPON\\-REDEMPTION\\-FORM(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/COUPON\\-REDEMPTION\\-FORM(?:/)?$"
+    },
+    {
+      "page": "/dashboard",
+      "regex": "^/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard(?:/)?$"
+    },
+    {
+      "page": "/dashboard/address",
+      "regex": "^/dashboard/address(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/address(?:/)?$"
+    },
+    {
+      "page": "/dashboard/notification",
+      "regex": "^/dashboard/notification(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/notification(?:/)?$"
+    },
+    {
+      "page": "/dashboard/order",
+      "regex": "^/dashboard/order(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/order(?:/)?$"
+    },
+    {
+      "page": "/dashboard/profile",
+      "regex": "^/dashboard/profile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/profile(?:/)?$"
+    },
+    {
+      "page": "/dashboard/review-rating",
+      "regex": "^/dashboard/review\\-rating(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/review\\-rating(?:/)?$"
+    },
+    {
+      "page": "/dashboard/wishlist",
+      "regex": "^/dashboard/wishlist(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/wishlist(?:/)?$"
+    },
+    {
+      "page": "/dealer",
+      "regex": "^/dealer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dealer(?:/)?$"
+    },
+    {
+      "page": "/Dealer-Appointment-Form",
+      "regex": "^/Dealer\\-Appointment\\-Form(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Dealer\\-Appointment\\-Form(?:/)?$"
+    },
+    {
+      "page": "/faq",
+      "regex": "^/faq(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/faq(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/feedback",
+      "regex": "^/feedback(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/feedback(?:/)?$"
+    },
+    {
+      "page": "/forgot-otp",
+      "regex": "^/forgot\\-otp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/forgot\\-otp(?:/)?$"
+    },
+    {
+      "page": "/forgot-password",
+      "regex": "^/forgot\\-password(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/forgot\\-password(?:/)?$"
+    },
+    {
+      "page": "/kitchen",
+      "regex": "^/kitchen(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kitchen(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/media",
+      "regex": "^/media(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/media(?:/)?$"
+    },
+    {
+      "page": "/mediacenter",
+      "regex": "^/mediacenter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mediacenter(?:/)?$"
+    },
+    {
+      "page": "/Money-Back-Guarantee",
+      "regex": "^/Money\\-Back\\-Guarantee(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Money\\-Back\\-Guarantee(?:/)?$"
+    },
+    {
+      "page": "/new-password",
+      "regex": "^/new\\-password(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/new\\-password(?:/)?$"
+    },
+    {
+      "page": "/privacy-policy",
+      "regex": "^/privacy\\-policy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy\\-policy(?:/)?$"
+    },
+    {
+      "page": "/products",
+      "regex": "^/products(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/products(?:/)?$"
+    },
+    {
+      "page": "/promo-code",
+      "regex": "^/promo\\-code(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/promo\\-code(?:/)?$"
+    },
+    {
+      "page": "/register",
+      "regex": "^/register(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/register(?:/)?$"
+    },
+    {
+      "page": "/register-a-product",
+      "regex": "^/register\\-a\\-product(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/register\\-a\\-product(?:/)?$"
+    },
+    {
+      "page": "/return-exchange",
+      "regex": "^/return\\-exchange(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/return\\-exchange(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/service-request",
+      "regex": "^/service\\-request(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/service\\-request(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    },
+    {
+      "page": "/stores",
+      "regex": "^/stores(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/stores(?:/)?$"
+    },
+    {
+      "page": "/subscribe-us",
+      "regex": "^/subscribe\\-us(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/subscribe\\-us(?:/)?$"
+    },
+    {
+      "page": "/support",
+      "regex": "^/support(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/support(?:/)?$"
+    },
+    {
+      "page": "/terms-of-use",
+      "regex": "^/terms\\-of\\-use(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/terms\\-of\\-use(?:/)?$"
+    },
+    {
+      "page": "/verify-otp",
+      "regex": "^/verify\\-otp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/verify\\-otp(?:/)?$"
+    },
+    {
+      "page": "/videos",
+      "regex": "^/videos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/videos(?:/)?$"
+    },
+    {
+      "page": "/warranty",
+      "regex": "^/warranty(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/warranty(?:/)?$"
+    },
+    {
+      "page": "/whatsapp-chat",
+      "regex": "^/whatsapp\\-chat(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/whatsapp\\-chat(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

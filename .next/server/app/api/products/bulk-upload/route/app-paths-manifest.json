@@ -1,0 +1,3 @@
+{
+  "/api/products/bulk-upload/route": "app/api/products/bulk-upload/route.js"
+}

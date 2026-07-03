@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(normal)/layout,_N_T_/(normal)/warranty/layout,_N_T_/(normal)/warranty/page,_N_T_/warranty,categories"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KG5vcm1hbCk/warranty/__PAGE__",
+    "/!KG5vcm1hbCk/warranty",
+    "/!KG5vcm1hbCk",
+    "/_index",
+    "/_head"
+  ]
+}

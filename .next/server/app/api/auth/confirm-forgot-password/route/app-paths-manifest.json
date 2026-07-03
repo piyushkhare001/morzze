@@ -1,0 +1,3 @@
+{
+  "/api/auth/confirm-forgot-password/route": "app/api/auth/confirm-forgot-password/route.js"
+}

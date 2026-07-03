@@ -1,0 +1,3 @@
+{
+  "/(normal)/blogs/[slug]/page": "app/(normal)/blogs/[slug]/page.js"
+}

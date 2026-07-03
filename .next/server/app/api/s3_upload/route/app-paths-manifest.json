@@ -1,0 +1,3 @@
+{
+  "/api/s3_upload/route": "app/api/s3_upload/route.js"
+}
