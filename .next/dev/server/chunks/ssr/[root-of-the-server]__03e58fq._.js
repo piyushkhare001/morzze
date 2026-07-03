@@ -554,13 +554,13 @@ __turbopack_context__.s([
     "imageKitUrl",
     ()=>imageKitUrl
 ]);
-const IMAGEKIT_STATIC_URL = ("TURBOPACK compile-time value", "https://ik.imagekit.io/zwos7q4gyo/");
+const IMAGEKIT_STATIC_URL = ("TURBOPACK compile-time value", "https://d2icu6klh68l1z.cloudfront.net");
 function imageKitUrl(path) {
     if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
     ;
     const cleanBaseUrl = IMAGEKIT_STATIC_URL.replace(/\/$/, "");
     const cleanPath = path.replace(/^\//, "");
-    return `${cleanBaseUrl}/Morzze/${cleanPath}`;
+    return `${cleanBaseUrl}/${cleanPath}`;
 }
 }),
 "[project]/context/CartContext.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {

@@ -8,5 +8,5 @@ export function imageKitUrl(path: string) {
   const cleanBaseUrl = IMAGEKIT_STATIC_URL.replace(/\/$/, "");
   const cleanPath = path.replace(/^\//, "");
 
-  return `${cleanBaseUrl}/Morzze/${cleanPath}`;
+  return `${cleanBaseUrl}/${cleanPath}`;
 }

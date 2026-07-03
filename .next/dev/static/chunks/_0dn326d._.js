@@ -610,13 +610,13 @@ __turbopack_context__.s([
     ()=>imageKitUrl
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
-const IMAGEKIT_STATIC_URL = ("TURBOPACK compile-time value", "https://ik.imagekit.io/zwos7q4gyo/");
+const IMAGEKIT_STATIC_URL = ("TURBOPACK compile-time value", "https://d2icu6klh68l1z.cloudfront.net");
 function imageKitUrl(path) {
     if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
     ;
     const cleanBaseUrl = IMAGEKIT_STATIC_URL.replace(/\/$/, "");
     const cleanPath = path.replace(/^\//, "");
-    return `${cleanBaseUrl}/Morzze/${cleanPath}`;
+    return `${cleanBaseUrl}/${cleanPath}`;
 }
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);

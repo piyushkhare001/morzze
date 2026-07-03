@@ -1,1 +1,6 @@
-{}
+{
+  "/(normal)/kitchen/page": "app/(normal)/kitchen/page.js",
+  "/(normal)/page": "app/(normal)/page.js",
+  "/(normal)/product/[productslug]/page": "app/(normal)/product/[productslug]/page.js",
+  "/_not-found/page": "app/_not-found/page.js"
+}

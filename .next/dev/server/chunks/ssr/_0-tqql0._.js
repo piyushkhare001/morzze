@@ -32,7 +32,7 @@ __turbopack_context__.s([
     ()=>getImageURL
 ]);
 function getImageURL(image) {
-    const baseUrl = ("TURBOPACK compile-time value", "https://ik.imagekit.io/zwos7q4gyo/");
+    const baseUrl = ("TURBOPACK compile-time value", "https://d2icu6klh68l1z.cloudfront.net");
     if (!image) return "";
     if (image.startsWith("blob:") || image.startsWith("data:")) {
         return image;
