@@ -1,7 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /api/
-Disallow: /dashboard/
-
-Sitemap: https://morzze.com/sitemap.xml
