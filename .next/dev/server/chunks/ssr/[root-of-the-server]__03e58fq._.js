@@ -56,7 +56,7 @@ const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
 const COGNITO_CLIENT_ID = process.env.COGNITO_CLIENT_ID;
 const COGNITO_CLIENT_SECRET = process.env.COGNITO_CLIENT_SECRET;
 const USER_POOL_ID = process.env.USER_POOL_ID;
-const BASE_AUTH_API_URL = ("TURBOPACK compile-time value", "https://www.morzze.com/");
+const BASE_AUTH_API_URL = ("TURBOPACK compile-time value", "http://localhost:3000/api/auth");
 const BASE_API_URL = process.env.BASE_API_URL;
 }),
 "[project]/helper/auth/action.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {

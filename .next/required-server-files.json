@@ -117,7 +117,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/Users/ashishbishnoi/Desktop/code/av/morzze/morzze-website",
+    "outputFileTracingRoot": "/home/jatin/Code/Office/morzze-website",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -179,7 +179,7 @@
       "proxyPrefetch": "flexible",
       "optimisticClientCache": true,
       "manualClientBasePath": false,
-      "cpus": 9,
+      "cpus": 11,
       "memoryBasedWorkersCount": false,
       "imgOptConcurrency": null,
       "imgOptTimeoutInSeconds": 7,
@@ -317,7 +317,7 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.ts",
     "turbopack": {
-      "root": "/Users/ashishbishnoi/Desktop/code/av/morzze/morzze-website"
+      "root": "/home/jatin/Code/Office/morzze-website"
     },
     "distDirRoot": ".next",
     "_originalRedirects": [
@@ -1803,7 +1803,7 @@
       }
     ]
   },
-  "appDir": "/Users/ashishbishnoi/Desktop/code/av/morzze/morzze-website",
+  "appDir": "/home/jatin/Code/Office/morzze-website",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",

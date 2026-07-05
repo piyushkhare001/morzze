@@ -246,11 +246,51 @@ const FilterSidebar = ({ categories, materialOptions = [], finishOptions = [], s
             ]);
     };
     const showSteelSinkSizes = selectedCategories.some((cat)=>steelSinkCategorySlugs.includes(cat));
+    const getCategoryRank = (cat)=>{
+        const text = `${cat.name || ""} ${cat.slug || ""}`.toLowerCase().replace(/-/g, " ");
+        if (text.includes("stainless steel")) return 1;
+        if (text.includes("vertex granite")) return 6;
+        if (text.includes("granite sink") || text.includes("granite basin") || text.includes("granite")) return 2;
+        if (text.includes("edge steel")) return 3;
+        if (text.includes("neo steel")) return 4;
+        if (text.includes("pulse steel") || text.includes("pulse")) return 5;
+        if (text.includes("kitchen faucet")) return 7;
+        if (text.includes("air tap")) return 8;
+        if (text.includes("kitchen accessor")) return 9;
+        if (text.includes("liquid soap dispenser") || text.includes("soap dispenser")) return 10;
+        if (text.includes("food waste disposer") || text.includes("waste disposer")) return 11;
+        if (text.includes("sink drain adaptor") || text.includes("sink drainer adaptor") || text.includes("sink drain adapter") || text.includes("sink drainer adapter") || text.includes("drain pipe") || text.includes("sink drain")) {
+            return 12;
+        }
+        if (text.includes("sink strainer cover")) return 14;
+        if (text.includes("sink strainer")) return 13;
+        if (text.includes("wash basin") || text.includes("bathroom basin") || text.includes("vanity") || text.includes("basin")) return 15;
+        if (text.includes("bathroom faucet")) return 16;
+        if (text.includes("hand shower")) return 17;
+        if (text.includes("towel warmer") || text.includes("heated towel")) return 18;
+        if (text.includes("floor drainer") || text.includes("floor drain")) return 19;
+        if (text.includes("new arrival")) return 20;
+        if (text.includes("signature piece")) return 21;
+        if (text.includes("trending now") || text.includes("trending")) return 22;
+        // Fallbacks for generic terms if exact match didn't trigger
+        if (text.includes("steel sink")) return 1;
+        if (text.includes("sink")) return 1;
+        if (text.includes("faucet")) return 16;
+        if (text.includes("drain")) return 19;
+        return 999;
+    };
     const filterData = [
         {
             id: "category",
             title: "CATEGORY",
-            items: categories?.map((cat)=>({
+            items: categories?.filter((cat)=>!cat.name?.toLowerCase().includes("aura") && !cat.slug?.toLowerCase().includes("aura")).sort((a, b)=>{
+                const rankA = getCategoryRank(a);
+                const rankB = getCategoryRank(b);
+                if (rankA !== rankB) {
+                    return rankA - rankB;
+                }
+                return (a.name || "").localeCompare(b.name || "");
+            }).map((cat)=>({
                     label: cat.name,
                     value: cat.slug
                 })) || []
@@ -369,27 +409,27 @@ const FilterSidebar = ({ categories, materialOptions = [], finishOptions = [], s
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/product/FilterSidebar.tsx",
-                                    lineNumber: 184,
-                                    columnNumber: 13
+                                    lineNumber: 242,
+                                    columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 isOpen ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$up$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronUp$3e$__["ChevronUp"], {
                                     className: "w-4 h-4 text-white/60 group-hover:text-white"
                                 }, void 0, false, {
                                     fileName: "[project]/components/product/FilterSidebar.tsx",
-                                    lineNumber: 188,
-                                    columnNumber: 15
+                                    lineNumber: 246,
+                                    columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
                                     className: "w-4 h-4 text-white/60 group-hover:text-white"
                                 }, void 0, false, {
                                     fileName: "[project]/components/product/FilterSidebar.tsx",
-                                    lineNumber: 190,
-                                    columnNumber: 15
+                                    lineNumber: 248,
+                                    columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/product/FilterSidebar.tsx",
-                            lineNumber: 180,
-                            columnNumber: 11
+                            lineNumber: 238,
+                            columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         isOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "space-y-3",
@@ -403,8 +443,8 @@ const FilterSidebar = ({ categories, materialOptions = [], finishOptions = [], s
                                             className: "w-4 h-4 border-[#CBA14D] rounded-none data-checked:!bg-[#FFBF3F] data-checked:!border-[#FFBF3F] data-checked:!text-black"
                                         }, void 0, false, {
                                             fileName: "[project]/components/product/FilterSidebar.tsx",
-                                            lineNumber: 202,
-                                            columnNumber: 19
+                                            lineNumber: 260,
+                                            columnNumber: 21
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                             htmlFor: `${section.id}-${item.value}`,
@@ -412,25 +452,25 @@ const FilterSidebar = ({ categories, materialOptions = [], finishOptions = [], s
                                             children: item.label
                                         }, void 0, false, {
                                             fileName: "[project]/components/product/FilterSidebar.tsx",
-                                            lineNumber: 208,
-                                            columnNumber: 19
+                                            lineNumber: 266,
+                                            columnNumber: 21
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, item.value, true, {
                                     fileName: "[project]/components/product/FilterSidebar.tsx",
-                                    lineNumber: 197,
-                                    columnNumber: 17
+                                    lineNumber: 255,
+                                    columnNumber: 19
                                 }, ("TURBOPACK compile-time value", void 0)))
                         }, void 0, false, {
                             fileName: "[project]/components/product/FilterSidebar.tsx",
-                            lineNumber: 195,
-                            columnNumber: 13
+                            lineNumber: 253,
+                            columnNumber: 15
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, section.id, true, {
                     fileName: "[project]/components/product/FilterSidebar.tsx",
-                    lineNumber: 179,
-                    columnNumber: 9
+                    lineNumber: 237,
+                    columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0));
             }),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -443,7 +483,7 @@ const FilterSidebar = ({ categories, materialOptions = [], finishOptions = [], s
                         className: "w-4 h-4 border-[#CBA14D] rounded-none data-checked:!bg-[#FFBF3F] data-checked:!border-[#FFBF3F] data-checked:!text-black"
                     }, void 0, false, {
                         fileName: "[project]/components/product/FilterSidebar.tsx",
-                        lineNumber: 225,
+                        lineNumber: 284,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -452,19 +492,19 @@ const FilterSidebar = ({ categories, materialOptions = [], finishOptions = [], s
                         children: "In Stock Only"
                     }, void 0, false, {
                         fileName: "[project]/components/product/FilterSidebar.tsx",
-                        lineNumber: 231,
+                        lineNumber: 290,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/product/FilterSidebar.tsx",
-                lineNumber: 221,
+                lineNumber: 280,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/components/product/FilterSidebar.tsx",
-        lineNumber: 171,
+        lineNumber: 229,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

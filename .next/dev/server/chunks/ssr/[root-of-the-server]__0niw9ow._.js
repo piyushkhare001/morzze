@@ -736,7 +736,7 @@ async function refreshUserTokens() {
     const idToken = cookieStore.get("idToken")?.value;
     if (!refreshToken || !idToken) return null;
     try {
-        const res = await fetch(`${("TURBOPACK compile-time value", "https://www.morzze.com/")}/refersh-token`, {
+        const res = await fetch(`${("TURBOPACK compile-time value", "http://localhost:3000/api/auth")}/refersh-token`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

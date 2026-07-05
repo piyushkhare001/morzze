@@ -51,7 +51,7 @@ const AWS_SECRET_ACCESS_KEY = __TURBOPACK__imported__module__$5b$project$5d2f$no
 const COGNITO_CLIENT_ID = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.COGNITO_CLIENT_ID;
 const COGNITO_CLIENT_SECRET = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.COGNITO_CLIENT_SECRET;
 const USER_POOL_ID = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.USER_POOL_ID;
-const BASE_AUTH_API_URL = ("TURBOPACK compile-time value", "https://www.morzze.com/");
+const BASE_AUTH_API_URL = ("TURBOPACK compile-time value", "http://localhost:3000/api/auth");
 const BASE_API_URL = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.BASE_API_URL;
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);

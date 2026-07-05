@@ -914,12 +914,12 @@ export async function getProducts({
 
       // EAV filters — using = ANY(ARRAY[...]::text[]) to avoid Drizzle IN binding issues
       const filterMap: Record<string, string[]> = {};
-      if (normalizedType.length)       filterMap.type = normalizedType;
-      if (normalizedMaterial.length)   filterMap.material = normalizedMaterial;
-      if (normalizedFinish.length)     filterMap.finish = normalizedFinish;
-      if (normalizedFlow.length)       filterMap.flow = normalizedFlow;
-      if (normalizedCramps.length)     filterMap.cramps = normalizedCramps;
-      if (normalizedAllergies.length)  filterMap.allergies = normalizedAllergies;
+      if (normalizedType.length) filterMap.type = normalizedType;
+      if (normalizedMaterial.length) filterMap.material = normalizedMaterial;
+      if (normalizedFinish.length) filterMap.finish = normalizedFinish;
+      if (normalizedFlow.length) filterMap.flow = normalizedFlow;
+      if (normalizedCramps.length) filterMap.cramps = normalizedCramps;
+      if (normalizedAllergies.length) filterMap.allergies = normalizedAllergies;
 
       // Size filter — LIKE match: selecting "18" matches "18" Top", "18"", "18x16", etc.
       if (normalizedSize.length) {
@@ -997,11 +997,11 @@ export async function getProducts({
       // Sort
       const orderBy = (() => {
         switch (sort) {
-          case "price_asc":  return [asc(product.basePrice)];
+          case "price_asc": return [asc(product.basePrice)];
           case "price_desc": return [desc(product.basePrice)];
-          case "name_asc":   return [asc(product.name)];
-          case "name_desc":  return [desc(product.name)];
-          default:           return [asc(product.name)];
+          case "name_asc": return [asc(product.name)];
+          case "name_desc": return [desc(product.name)];
+          default: return [asc(product.name)];
         }
       })();
 

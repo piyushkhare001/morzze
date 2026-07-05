@@ -12,6 +12,7 @@ import TheARTSection from '@/components/home/TheARTSection'
 import TheStory from '@/components/home/TheStory'
 import TouchlessInnovation from '@/components/home/TouchlessInnovation'
 import TrustSection from '@/components/home/TrustSection'
+import ScheduleCall from '@/components/home/ScheduleCall'
 import WhereWaterMeet from '@/components/home/WhereWaterMeet'
 import { Spinner } from '@/components/ui/spinner'
 import { Suspense } from 'react'
@@ -41,7 +42,9 @@ const page = async () => {
         <ShopCategoryServer />
       </Suspense>
       <TheARTSection />
-      <TrustSection />
+      {/* <TrustSection /> */}
+      <ScheduleCall />
+
       <WhereWaterMeet />
       <Suspense fallback={<LandingSectionSkleton />}>
         <CategoryShowcaseServer />

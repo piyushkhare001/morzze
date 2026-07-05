@@ -1,6 +1,7 @@
 import FindStoreHero from "@/components/storeLocator/banner";
 import StoreLocatorSection from "@/components/storeLocator/storestabs";
 import StoreTypesSection from "@/components/storeLocator/storeTypes";
+import BecomeDealerSection from "@/components/storeLocator/becomeDealer";
 import { getActiveStores } from "@/helper/stores/action";
 import React from "react";
 
@@ -29,7 +30,8 @@ export default async function StoresPage() {
     <div>
       <FindStoreHero />
       <StoreLocatorSection stores={storesData} />
-      <StoreTypesSection />
+      {/* <StoreTypesSection /> */}
+      <BecomeDealerSection />
     </div>
   );
 }

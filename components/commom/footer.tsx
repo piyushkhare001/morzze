@@ -156,7 +156,7 @@ const Footer = async () => {
                 {[
                   {
                     label: "Steel Sinks",
-                    href: "/products?category=pulse",
+                    href: "/products?category=stainless-steel-sink&category=stainless-steel-sinks&category=pulse&category=pulse-steel-sinks&category=vertex-granite-sinks&category=vertex-granite-sink&category=neo-steel-sinks&category=neo-steel-sink&category=edge-steel-sinks&category=edge-steel-sink&category=Vertex&category=neo&category=Granite-Sinks",
                   },
                   {
                     label: "Wash Basins",

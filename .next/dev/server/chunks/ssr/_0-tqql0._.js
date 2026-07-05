@@ -456,7 +456,7 @@ const Header = ()=>{
         // { name: "Products", href: "/products" },
         {
             name: "Shop",
-            href: "/category"
+            href: "/products"
         },
         {
             name: "Kitchen",

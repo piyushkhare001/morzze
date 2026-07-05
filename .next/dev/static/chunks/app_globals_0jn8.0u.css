@@ -10314,6 +10314,12 @@
   }
 
   @media (min-width: 48rem) {
+    .md\:gap-10 {
+      gap: calc(var(--spacing) * 10);
+    }
+  }
+
+  @media (min-width: 48rem) {
     .md\:gap-11 {
       gap: calc(var(--spacing) * 11);
     }
@@ -11119,6 +11125,12 @@
   }
 
   @media (min-width: 64rem) {
+    .lg\:w-auto {
+      width: auto;
+    }
+  }
+
+  @media (min-width: 64rem) {
     .lg\:max-w-112\.5 {
       max-width: calc(var(--spacing) * 112.5);
     }
@@ -11365,6 +11377,13 @@
   @media (min-width: 64rem) {
     .lg\:pl-10 {
       padding-left: calc(var(--spacing) * 10);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .lg\:text-3xl {
+      font-size: var(--text-3xl);
+      line-height: var(--tw-leading, var(--text-3xl--line-height));
     }
   }
 

@@ -1281,7 +1281,7 @@ async function refreshUserTokens() {
     const idToken = cookieStore.get("idToken")?.value;
     if (!refreshToken || !idToken) return null;
     try {
-        const res = await fetch(`${("TURBOPACK compile-time value", "https://www.morzze.com/")}/refersh-token`, {
+        const res = await fetch(`${("TURBOPACK compile-time value", "http://localhost:3000/api/auth")}/refersh-token`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -2463,7 +2463,7 @@ const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
 const COGNITO_CLIENT_ID = process.env.COGNITO_CLIENT_ID;
 const COGNITO_CLIENT_SECRET = process.env.COGNITO_CLIENT_SECRET;
 const USER_POOL_ID = process.env.USER_POOL_ID;
-const BASE_AUTH_API_URL = ("TURBOPACK compile-time value", "https://www.morzze.com/");
+const BASE_AUTH_API_URL = ("TURBOPACK compile-time value", "http://localhost:3000/api/auth");
 const BASE_API_URL = process.env.BASE_API_URL;
 }),
 "[project]/helper/auth/action.ts [app-rsc] (ecmascript)", ((__turbopack_context__) => {
@@ -4950,7 +4950,7 @@ const Footer = async ()=>{
                                             children: [
                                                 {
                                                     label: "Steel Sinks",
-                                                    href: "/products?category=pulse"
+                                                    href: "/products?category=stainless-steel-sink&category=stainless-steel-sinks&category=pulse&category=pulse-steel-sinks&category=vertex-granite-sinks&category=vertex-granite-sink&category=neo-steel-sinks&category=neo-steel-sink&category=edge-steel-sinks&category=edge-steel-sink&category=Vertex&category=neo&category=Granite-Sinks"
                                                 },
                                                 {
                                                     label: "Wash Basins",
