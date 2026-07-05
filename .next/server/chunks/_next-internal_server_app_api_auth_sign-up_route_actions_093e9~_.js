@@ -1,3 +1,0 @@
-module.exports=[763172,(e,o,d)=>{}];
-
-//# sourceMappingURL=_next-internal_server_app_api_auth_sign-up_route_actions_093e9~_.js.map

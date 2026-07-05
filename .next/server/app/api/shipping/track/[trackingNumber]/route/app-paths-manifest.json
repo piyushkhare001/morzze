@@ -1,3 +1,0 @@
-{
-  "/api/shipping/track/[trackingNumber]/route": "app/api/shipping/track/[trackingNumber]/route.js"
-}

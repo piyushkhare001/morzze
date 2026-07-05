@@ -1,3 +1,0 @@
-module.exports=[147283,(a,b,c)=>{b.exports=a.r(496665)},229140,a=>{"use strict";var b=a.i(187924),c=a.i(572131),d=a.i(147283);a.s(["ServiceRequestFrom",0,function(){return(0,c.useEffect)(()=>{let a={formId:225979,host:"form.morz.in",formHeight:100,el:"form_225979_1",center:1,scroll:0};"function"==typeof window.createForm?window.createForm(a):(window.fdforms=window.fdforms||[],window.fdforms.push(a))},[]),(0,b.jsxs)(b.Fragment,{children:[(0,b.jsx)("div",{id:"form_225979_1"}),(0,b.jsx)(d.default,{src:"https://form.morz.in/js/iform.js?v=0.0.3",strategy:"afterInteractive"})]})}])}];
-
-//# sourceMappingURL=_0j.jszn._.js.map

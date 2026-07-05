@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../../app/%28normal%29/loading.tsx"],"sourcesContent":["import { Spinner } from '@/components/ui/spinner'\nimport React from 'react'\n\nconst Loading = () => {\n    return (\n        <div></div>\n    )\n}\n\nexport default Loading"],"names":["Loading"],"mappings":"2EAGgB,IAER,CAAA,EAAA,EAAA,GAAA,EAAC,MAAA,CAAA"}
