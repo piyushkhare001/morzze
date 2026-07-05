@@ -83,7 +83,7 @@ const CollectionHero = () => {
             variants={itemVariants}
             className="text-white/80 font-inter text-sm md:text-md leading-relaxed max-w-2xl opacity-90"
           >
-            Explore our complete range of bathroom and kitchen fittings — designed t transform your living spaces into expressions of luxury.
+            Explore our complete range of bathroom and kitchen fittings — designed to transform your living spaces into expressions of luxury.
           </motion.p>
 
           {/* --- BUTTON GROUP (Exact Sizing and Color) --- */}

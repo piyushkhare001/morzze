@@ -56,19 +56,77 @@ const FilterSidebar = ({
     );
   };
 
-const showSteelSinkSizes = selectedCategories.some((cat) =>
-  steelSinkCategorySlugs.includes(cat)
-);
+  const showSteelSinkSizes = selectedCategories.some((cat) =>
+    steelSinkCategorySlugs.includes(cat)
+  );
+
+  const getCategoryRank = (cat: { name?: string; slug?: string }) => {
+    const text = `${cat.name || ""} ${cat.slug || ""}`.toLowerCase().replace(/-/g, " ");
+
+    if (text.includes("stainless steel")) return 1;
+    if (text.includes("vertex granite")) return 6;
+    if (text.includes("granite sink") || text.includes("granite basin") || text.includes("granite")) return 2;
+    if (text.includes("edge steel")) return 3;
+    if (text.includes("neo steel")) return 4;
+    if (text.includes("pulse steel") || text.includes("pulse")) return 5;
+    if (text.includes("kitchen faucet")) return 7;
+    if (text.includes("air tap")) return 8;
+    if (text.includes("kitchen accessor")) return 9;
+    if (text.includes("liquid soap dispenser") || text.includes("soap dispenser")) return 10;
+    if (text.includes("food waste disposer") || text.includes("waste disposer")) return 11;
+    if (
+      text.includes("sink drain adaptor") ||
+      text.includes("sink drainer adaptor") ||
+      text.includes("sink drain adapter") ||
+      text.includes("sink drainer adapter") ||
+      text.includes("drain pipe") ||
+      text.includes("sink drain")
+    ) {
+      return 12;
+    }
+    if (text.includes("sink strainer cover")) return 14;
+    if (text.includes("sink strainer")) return 13;
+    if (text.includes("wash basin") || text.includes("bathroom basin") || text.includes("vanity") || text.includes("basin")) return 15;
+    if (text.includes("bathroom faucet")) return 16;
+    if (text.includes("hand shower")) return 17;
+    if (text.includes("towel warmer") || text.includes("heated towel")) return 18;
+    if (text.includes("floor drainer") || text.includes("floor drain")) return 19;
+    if (text.includes("new arrival")) return 20;
+    if (text.includes("signature piece")) return 21;
+    if (text.includes("trending now") || text.includes("trending")) return 22;
+
+    // Fallbacks for generic terms if exact match didn't trigger
+    if (text.includes("steel sink")) return 1;
+    if (text.includes("sink")) return 1;
+    if (text.includes("faucet")) return 16;
+    if (text.includes("drain")) return 19;
+
+    return 999;
+  };
 
   const filterData = [
     {
       id: "category",
       title: "CATEGORY",
       items:
-        categories?.map((cat) => ({
-          label: cat.name,
-          value: cat.slug,
-        })) || [],
+        categories
+          ?.filter(
+            (cat) =>
+              !cat.name?.toLowerCase().includes("aura") &&
+              !cat.slug?.toLowerCase().includes("aura")
+          )
+          .sort((a, b) => {
+            const rankA = getCategoryRank(a);
+            const rankB = getCategoryRank(b);
+            if (rankA !== rankB) {
+              return rankA - rankB;
+            }
+            return (a.name || "").localeCompare(b.name || "");
+          })
+          .map((cat) => ({
+            label: cat.name,
+            value: cat.slug,
+          })) || [],
     },
     {
       id: "material",
@@ -80,15 +138,15 @@ const showSteelSinkSizes = selectedCategories.some((cat) =>
       title: "FINISH",
       items: finishOptions,
     },
-   ...(showSteelSinkSizes
-  ? [
-      {
-        id: "size",
-        title: "SIZE ",
-        items: STEEL_SINK_SIZES,
-      },
-    ]
-  : []),
+    ...(showSteelSinkSizes
+      ? [
+        {
+          id: "size",
+          title: "SIZE ",
+          items: STEEL_SINK_SIZES,
+        },
+      ]
+      : []),
     {
       id: "price",
       title: "PRICE RANGE",
@@ -171,52 +229,53 @@ const showSteelSinkSizes = selectedCategories.some((cat) =>
     <div className="w-full bg-black p-0 select-none md:block hidden">
       {filterData.map((section) => {
         const isOpen = openSections.includes(section.id);
-        const selectedCount = section.items.filter((item) => 
+        const selectedCount = section.items.filter((item) =>
           isChecked(section.id, item.value)
         ).length;
-        
+
         return (
-        <div key={section.id} className="mb-8 border-b border-white/5 pb-4 last:border-b-0">
-          <div 
-            className="flex items-center justify-between cursor-pointer mb-4 group"
-            onClick={() => toggleSection(section.id)}
-          >
-            <h3 className="text-sm tracking-[0.15em] font-montserrat text-white/80 uppercase group-hover:text-white transition-colors">
-              {section.title} {selectedCount > 0 && `(${selectedCount})`}
-            </h3>
-            {isOpen ? (
-              <ChevronUp className="w-4 h-4 text-white/60 group-hover:text-white" />
-            ) : (
-              <ChevronDown className="w-4 h-4 text-white/60 group-hover:text-white" />
+          <div key={section.id} className="mb-8 border-b border-white/5 pb-4 last:border-b-0">
+            <div
+              className="flex items-center justify-between cursor-pointer mb-4 group"
+              onClick={() => toggleSection(section.id)}
+            >
+              <h3 className="text-sm tracking-[0.15em] font-montserrat text-white/80 uppercase group-hover:text-white transition-colors">
+                {section.title} {selectedCount > 0 && `(${selectedCount})`}
+              </h3>
+              {isOpen ? (
+                <ChevronUp className="w-4 h-4 text-white/60 group-hover:text-white" />
+              ) : (
+                <ChevronDown className="w-4 h-4 text-white/60 group-hover:text-white" />
+              )}
+            </div>
+
+            {isOpen && (
+              <div className="space-y-3">
+                {section.items.map((item) => (
+                  <div
+                    key={item.value}
+                    onClick={() => updateFilter(section.id, item.value)}
+                    className="flex items-center space-x-3 group cursor-pointer"
+                  >
+                    <Checkbox
+                      id={`${section.id}-${item.value}`}
+                      checked={isChecked(section.id, item.value)}
+                      className="w-4 h-4 border-[#CBA14D] rounded-none data-checked:!bg-[#FFBF3F] data-checked:!border-[#FFBF3F] data-checked:!text-black"
+                    />
+
+                    <label
+                      htmlFor={`${section.id}-${item.value}`}
+                      className="text-sm font-inter text-[#EDEBE9] cursor-pointer group-hover:text-white transition-colors"
+                    >
+                      {item.label}
+                    </label>
+                  </div>
+                ))}
+              </div>
             )}
           </div>
-
-          {isOpen && (
-            <div className="space-y-3">
-              {section.items.map((item) => (
-                <div
-                  key={item.value}
-                  onClick={() => updateFilter(section.id, item.value)}
-                  className="flex items-center space-x-3 group cursor-pointer"
-                >
-                  <Checkbox
-                    id={`${section.id}-${item.value}`}
-                    checked={isChecked(section.id, item.value)}
-                    className="w-4 h-4 border-[#CBA14D] rounded-none data-checked:!bg-[#FFBF3F] data-checked:!border-[#FFBF3F] data-checked:!text-black"
-                  />
-
-                  <label
-                    htmlFor={`${section.id}-${item.value}`}
-                    className="text-sm font-inter text-[#EDEBE9] cursor-pointer group-hover:text-white transition-colors"
-                  >
-                    {item.label}
-                  </label>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      )})}
+        )
+      })}
 
       <div
         onClick={updateStock}

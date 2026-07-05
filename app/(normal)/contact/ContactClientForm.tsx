@@ -17,7 +17,7 @@ export function ContactClientFrom() {
             host: "form.morz.in",
             formHeight: 100,
             el: "form_233940_1",
-            center: 1,
+            center: 0,
             scroll: 0,
         };
 
