@@ -39,7 +39,7 @@ function calculateDistance(
   lat1: number,
   lon1: number,
   lat2: number,
-  lon2: number
+  lon2: number,
 ) {
   const R = 6371;
 
@@ -49,9 +49,9 @@ function calculateDistance(
   const a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
     Math.cos((lat1 * Math.PI) / 180) *
-    Math.cos((lat2 * Math.PI) / 180) *
-    Math.sin(dLon / 2) *
-    Math.sin(dLon / 2);
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
 
   return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
 }
@@ -66,6 +66,7 @@ export default function StoreLocatorSection({ stores }: Props) {
 
   const [filteredStores, setFilteredStores] = useState<StoreType[]>([]);
   const [activeStore, setActiveStore] = useState<StoreType | null>(null);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const indianStates = State.getStatesOfCountry("IN");
 
@@ -76,33 +77,46 @@ export default function StoreLocatorSection({ stores }: Props) {
 
   const cityOptions = selectedState
     ? City.getCitiesOfState("IN", selectedState.value).map((city) => ({
-      value: city.name,
-      label: city.name,
-      latitude: city.latitude,
-      longitude: city.longitude,
-    }))
+        value: city.name,
+        label: city.name,
+        latitude: city.latitude,
+        longitude: city.longitude,
+      }))
     : [];
 
   const handleSearch = async () => {
     if (!selectedState || !selectedCity) return;
+    setHasSearched(true);
 
     const userLat = Number(selectedCity.latitude);
     const userLng = Number(selectedCity.longitude);
 
-    const nearestStores = stores
+    let matchedStores = stores.filter(
+      (store) => store.city.toLowerCase() === selectedCity.value.toLowerCase(),
+    );
+
+    if (matchedStores.length === 0) {
+      matchedStores = stores.filter(
+        (store) =>
+          store.state.toLowerCase() === selectedState.label.toLowerCase() ||
+          store.state.toLowerCase() === selectedState.value.toLowerCase(),
+      );
+    }
+
+    const nearestStores = matchedStores
       .map((store) => ({
         ...store,
         distance: calculateDistance(
           userLat,
           userLng,
           store.latitude,
-          store.longitude
+          store.longitude,
         ),
       }))
       .sort((a, b) => (a.distance ?? 0) - (b.distance ?? 0));
 
     setFilteredStores(nearestStores);
-    setActiveStore(nearestStores[0]);
+    setActiveStore(nearestStores[0] || null);
   };
 
   const mapUrl = useMemo(() => {
@@ -129,6 +143,7 @@ export default function StoreLocatorSection({ stores }: Props) {
               onChange={(value) => {
                 setSelectedState(value);
                 setSelectedCity(null);
+                setHasSearched(false);
               }}
               placeholder="Select State"
               className="text-black"
@@ -152,9 +167,7 @@ export default function StoreLocatorSection({ stores }: Props) {
                 }),
                 option: (base, state) => ({
                   ...base,
-                  background: state.isFocused
-                    ? "#222222"
-                    : "#111111",
+                  background: state.isFocused ? "#222222" : "#111111",
                   color: "#ffffff",
                   cursor: "pointer",
                 }),
@@ -175,7 +188,10 @@ export default function StoreLocatorSection({ stores }: Props) {
             <Select
               options={cityOptions}
               value={selectedCity}
-              onChange={(value) => setSelectedCity(value)}
+              onChange={(value) => {
+                setSelectedCity(value);
+                setHasSearched(false);
+              }}
               placeholder="Select City"
               isDisabled={!selectedState}
               className="text-black"
@@ -199,9 +215,7 @@ export default function StoreLocatorSection({ stores }: Props) {
                 }),
                 option: (base, state) => ({
                   ...base,
-                  background: state.isFocused
-                    ? "#222222"
-                    : "#111111",
+                  background: state.isFocused ? "#222222" : "#111111",
                   color: "#ffffff",
                   cursor: "pointer",
                 }),
@@ -235,6 +249,24 @@ export default function StoreLocatorSection({ stores }: Props) {
           </div>
         )}
 
+        {/* No matching stores message */}
+        {hasSearched && filteredStores.length === 0 && stores.length > 0 && (
+          <div className="text-center py-16 text-white/60">
+            <MapPin className="w-12 h-12 mx-auto mb-4 opacity-40" />
+            <p className="text-lg">No stores available in your area.</p>
+            <div className="text-sm mt-4 space-y-2">
+              <p>
+                Toll Free: <br />
+                <ContactLink type="phone" value="1800 110 123" />
+              </p>
+              <p>
+                General: <br />
+                <ContactLink type="email" value="info@morzze.com" />
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* HIDE UNTIL SEARCH */}
         {filteredStores.length > 0 && activeStore && (
           <div className="grid lg:grid-cols-[350px_1fr] gap-7">
@@ -245,10 +277,11 @@ export default function StoreLocatorSection({ stores }: Props) {
                   key={i}
                   onClick={() => setActiveStore(store)}
                   whileHover={{ x: 4 }}
-                  className={`w-full text-left bg-[#121212] border p-4 transition-all ${activeStore.name === store.name
-                    ? "border-[#e6aa12]"
-                    : "border-[#2a2a2a]"
-                    }`}
+                  className={`w-full text-left bg-[#121212] border p-4 transition-all ${
+                    activeStore.name === store.name
+                      ? "border-[#e6aa12]"
+                      : "border-[#2a2a2a]"
+                  }`}
                 >
                   <div className="flex justify-between items-start mb-3">
                     <h3 className="text-[14px] font-semibold max-w-[75%]">
@@ -270,9 +303,7 @@ export default function StoreLocatorSection({ stores }: Props) {
                     {store.city}, {store.state}
                   </p>
 
-                  <p className="text-[11px] text-[white]/80">
-                    {store.hours}
-                  </p>
+                  <p className="text-[11px] text-[white]/80">{store.hours}</p>
 
                   {store.distance && (
                     <p className="text-[#e6aa12] text-[12px] mt-2">
@@ -335,52 +366,43 @@ export default function StoreLocatorSection({ stores }: Props) {
                         {activeStore.address}
                       </p>
                     </div>
-                    </div>
+                  </div>
 
+                  {/* HOURS */}
+                  <div>
+                    <p className="flex items-center gap-2 text-[#e6aa12] mb-2">
+                      <Clock3 size={14} />
+                      Working Hours
+                    </p>
 
-                    {/* HOURS */}
-                    <div>
-                      <p className="flex items-center gap-2 text-[#e6aa12] mb-2">
-                        <Clock3 size={14} />
-                        Working Hours
-                      </p>
+                    <p className="text-[white]/80">{activeStore.hours}</p>
+                  </div>
 
-                      <p className="text-[white]/80">
-                        {activeStore.hours}
-                      </p>
-                    </div>
+                  {/* CONTACT */}
+                  <div>
+                    <p className="flex items-center gap-2 text-[#e6aa12] mb-2">
+                      <Phone size={14} />
+                      Contact
+                    </p>
 
-                    {/* CONTACT */}
-                    <div>
-                      <p className="flex items-center gap-2 text-[#e6aa12] mb-2">
-                        <Phone size={14} />
-                        Contact
-                      </p>
+                    <p className="text-[white]/80 leading-6">
+                      <ContactLink type="phone" value={activeStore.contact} />
+                      <br />
+                      <ContactLink type="email" value={activeStore.email} />
+                    </p>
 
-                      <p className="text-[white]/80 leading-6">
-                        <ContactLink
-                          type="phone"
-                          value={activeStore.contact}
-                        />
-                        <br />
-                        <ContactLink
-                          type="email"
-                          value={activeStore.email}
-                        />
-                      </p>
+                    <a
+                      href={`https://www.google.com/maps/dir/?api=1&destination=${activeStore.latitude},${activeStore.longitude}`}
+                      target="_blank"
+                      className="mt-5 w-[180px] h-11 border border-[#d39b10] text-[#d39b10] flex items-center justify-center gap-2"
+                    >
+                      <Navigation size={14} />
+                      Get Directions
+                    </a>
+                  </div>
 
-                      <a
-                        href={`https://www.google.com/maps/dir/?api=1&destination=${activeStore.latitude},${activeStore.longitude}`}
-                        target="_blank"
-                        className="mt-5 w-[180px] h-11 border border-[#d39b10] text-[#d39b10] flex items-center justify-center gap-2"
-                      >
-                        <Navigation size={14} />
-                        Get Directions
-                      </a>
-                    </div>
-
-                    {/* FEATURES */}
-                      {/* <div>
+                  {/* FEATURES */}
+                  {/* <div>
                         <p className="flex items-center gap-2 text-[#e6aa12] mb-2">
                           <Star size={14} />
                           Features
