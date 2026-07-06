@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ShoppingBag, Ticket, ScanLine, BadgeCheck } from "lucide-react";
+import { SubscribeForm } from "../SubscribeForm";
 
 const steps = [
   { icon: ShoppingBag, no: "1", text: "Add your favorite items to cart" },
@@ -15,7 +16,7 @@ export default function PromoStepsNewsletter() {
   return (
     <section className="w-full bg-black text-white border-t border-[#141414]">
       {/* How to Use */}
-      <div className="px-4 md:px-8 py-16 md:py-20 bg-[#141414]">
+      {/* <div className="px-4 md:px-8 py-16 md:py-20 bg-[#141414]">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -66,8 +67,8 @@ export default function PromoStepsNewsletter() {
           </div>
         </div>
       </div>
+      */}
 
-      {/* Newsletter */}
       <div className="px-4 md:px-8 py-16 md:py-20 text-center">
         <div className="max-w-3xl mx-auto">
           <motion.h2
@@ -91,22 +92,7 @@ export default function PromoStepsNewsletter() {
             offers and new promo codes
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row justify-center items-center gap-3 max-w-[430px] mx-auto"
-          >
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full h-11 bg-[#151515] border border-[#2c2c2c] px-4 text-[14px] text-white outline-none placeholder:text-[#666666]"
-            />
-            <button className="w-full sm:w-[120px] h-11 bg-[#e6aa12] text-black text-[13px] font-semibold rounded-[3px] hover:bg-[#d39b10] transition-colors">
-              Subscribe
-            </button>
-          </motion.div>
+          <SubscribeForm />
         </div>
       </div>
     </section>
