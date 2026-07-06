@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Link from "@/hooks/appLink"
+import Link from "@/hooks/appLink";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
@@ -68,9 +68,9 @@ const DealerHero = () => {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
             className="max-w-[860px] mx-auto font-inter text-[14px] sm:text-[15px] md:text-[18px] leading-7 md:leading-8 text-[#FFFFFFCC] mb-8 md:mb-10 px-2"
           >
-            Join our network of premium furniture dealers and bring luxury
-            living to your customers. Partner with India&apos;s fastest-growing
-            luxury furniture brand.
+            Join our network of premium kitchen and bathroom solution dealers.
+            Partner with one of India's fastest-growing brands and deliver
+            quality, innovation, and style to your customers.
           </motion.p>
 
           {/* CTA Buttons */}

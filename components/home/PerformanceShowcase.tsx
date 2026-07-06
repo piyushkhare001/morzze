@@ -1,13 +1,13 @@
-"use client"
-import React from 'react'
-import { motion } from 'framer-motion'
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
 
 // Stats Data - Direct key-value match from photo
 const statsData = [
   { value: "700+", title: "DEALER NETWORK" },
   { value: "35+", title: "YEARS OF EXCELLENCE" },
   { value: "50k+", title: "HAPPY CUSTOMERS" },
-  { value: "200+", title: "PRODUCT VARIENTS" },
+  { value: "200+", title: "PRODUCT VARIANTS" },
 ];
 
 const PerformanceShowcase = () => {
@@ -16,10 +16,7 @@ const PerformanceShowcase = () => {
       <div className="max-w-screen-2xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 items-center justify-items-center">
           {statsData.map((stat, index) => (
-            <div 
-              key={index}
-              className="w-full text-center group"
-            >
+            <div key={index} className="w-full text-center group">
               {/* Gold Stats Number */}
               {/* Cormorant Garamond gives the elegant serif look */}
               <h2 className="font-cormorant font-light text-[32px] md:text-[38px] lg:text-[46px] text-[#B6935C] leading-tight tracking-tight">
@@ -35,7 +32,7 @@ const PerformanceShowcase = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default PerformanceShowcase
+export default PerformanceShowcase;

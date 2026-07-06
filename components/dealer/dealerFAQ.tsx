@@ -7,7 +7,7 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     q: "What are the requirements to become a Morzze dealer?",
-    a: "We look for established furniture retailers, interior solution providers, and showroom owners with a strong local customer base, adequate display space, and commitment to premium product presentation.",
+    a: "We look for established kitchen and bathroom solution retailers, interior solution providers, and showroom owners with a strong local customer base, adequate display space, and commitment to premium product presentation.",
   },
   {
     q: "How long does the application process take?",

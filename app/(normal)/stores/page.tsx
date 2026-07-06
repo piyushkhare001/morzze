@@ -1,9 +1,13 @@
 import FindStoreHero from "@/components/storeLocator/banner";
 import StoreLocatorSection from "@/components/storeLocator/storestabs";
-import StoreTypesSection from "@/components/storeLocator/storeTypes";
 import BecomeDealerSection from "@/components/storeLocator/becomeDealer";
 import { getActiveStores } from "@/helper/stores/action";
-import React from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: `Find a Morzze Store Near You – Showrooms & Dealers`,
+  description: `Find Morzze stores near you – from flagship showrooms to authorised dealers across India. Experience our kitchen & bathroom collection up close before you buy.`,
+};
 
 export default async function StoresPage() {
   const dbStores = await getActiveStores();

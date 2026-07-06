@@ -10,7 +10,7 @@ import {
   IconHeart,
   IconHeartFilled,
 } from "@tabler/icons-react";
-import Link from "@/hooks/appLink"
+import Link from "@/hooks/appLink";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import Image from "next/image";
@@ -54,9 +54,13 @@ const CategoryProductsClient = ({
     (p.rateing5Star || 0);
 
   const getDiscount = (p: any) => {
-    if (p.strikethroughPrice && p.basePrice && p.strikethroughPrice > p.basePrice) {
+    if (
+      p.strikethroughPrice &&
+      p.basePrice &&
+      p.strikethroughPrice > p.basePrice
+    ) {
       return Math.round(
-        ((p.strikethroughPrice - p.basePrice) / p.strikethroughPrice) * 100
+        ((p.strikethroughPrice - p.basePrice) / p.strikethroughPrice) * 100,
       );
     }
     return 0;
@@ -87,13 +91,13 @@ const CategoryProductsClient = ({
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-12">
-        {products.map((product: any) => {
+        {products.map((product: any, idx) => {
           const rating = getAvgRating(product);
           const reviews = getTotalReviews(product);
           const discount = getDiscount(product);
 
           return (
-            <div key={product.id} className="group flex flex-col">
+            <div key={product.id + idx} className="group flex flex-col">
               <div className="relative w-full h-auto bg-[#111] overflow-hidden mb-4">
                 {discount > 0 && (
                   <div className="absolute top-2 right-3 z-20">
@@ -148,10 +152,11 @@ const CategoryProductsClient = ({
                         e.preventDefault();
                         toggleWishlist(product.slug, product.id);
                       }}
-                      className={`shrink-0 rounded-sm h-10 md:h-12 w-10 md:w-10 flex items-center justify-center transition-all ${isInWishlist(product.slug)
-                        ? "bg-[#FFBF3F] hover:bg-white "
-                        : "bg-[#FFBF3F] cursor-pointer"
-                        }`}
+                      className={`shrink-0 rounded-sm h-10 md:h-12 w-10 md:w-10 flex items-center justify-center transition-all ${
+                        isInWishlist(product.slug)
+                          ? "bg-[#FFBF3F] hover:bg-white "
+                          : "bg-[#FFBF3F] cursor-pointer"
+                      }`}
                     >
                       {isInWishlist(product.slug) ? (
                         <IconHeartFilled size={20} className="text-red-500" />
@@ -182,9 +187,7 @@ const CategoryProductsClient = ({
                     <IconStarFilled
                       key={i}
                       size={11}
-                      className={
-                        i < rating ? "text-[#CBA14D]" : "text-[#333]"
-                      }
+                      className={i < rating ? "text-[#CBA14D]" : "text-[#333]"}
                     />
                   ))}
                   <span className="text-[10px] text-[#555] ml-1">

@@ -31,9 +31,9 @@ import { useCart } from "@/context/CartContext";
 import { getImageURL } from "@/lib/getImageLin";
 
 const ProductClient = ({ product, slug, reviews }: any) => {
-  const router = useRouter()
-  const { isInWishlist, toggleWishlist } = useWishlist()
-  const { addToCart, getItemQuantity } = useCart()
+  const router = useRouter();
+  const { isInWishlist, toggleWishlist } = useWishlist();
+  const { addToCart, getItemQuantity } = useCart();
 
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedFinish, setSelectedFinish] = useState("");
@@ -52,21 +52,21 @@ const ProductClient = ({ product, slug, reviews }: any) => {
     .filter((item: any) => item.mediaType === "image")
     .map((item: any) => item.mediaURL);
 
-  const pdfDocuments = (product.productMediaRes || [])
-    .filter((item: any) => item.mediaType === "pdf");
+  const pdfDocuments = (product.productMediaRes || []).filter(
+    (item: any) => item.mediaType === "pdf",
+  );
 
-  const images = [
-    product.bannerImage,
-    product.image,
-    ...mediaImages,
-  ].filter(Boolean);
+  const images = [product.bannerImage, product.image, ...mediaImages].filter(
+    Boolean,
+  );
 
   // When a colour variant is selected, prepend its image to the images array
-  const displayImages = selectedVariant !== null && colourVariants[selectedVariant]?.image
-    ? [colourVariants[selectedVariant].image, ...images]
-    : images;
+  const displayImages =
+    selectedVariant !== null && colourVariants[selectedVariant]?.image
+      ? [colourVariants[selectedVariant].image, ...images]
+      : images;
 
-  const wishlisted = isInWishlist(slug)
+  const wishlisted = isInWishlist(slug);
 
   // The image that should be shown as the hero (cart will also use this)
   const currentHeroImage = displayImages[selectedImage] || product.bannerImage;
@@ -82,12 +82,17 @@ const ProductClient = ({ product, slug, reviews }: any) => {
   // const tabAccessories = attributes.find((a: any) => a.attribute === "Accessories Included")?.value;
   // const tabDocumentation = attributes.find((a: any) => a.attribute === "Documentation")?.value;
 
-
   // Extract filters by type from product.filters
   const filters = product.filters || [];
-  const finishFilters = filters.filter((f: any) => f.type === "finish").map((f: any) => f.filter);
-  const sizeFilters = filters.filter((f: any) => f.type === "size").map((f: any) => f.filter);
-  const materialFilters = filters.filter((f: any) => f.type === "material").map((f: any) => f.filter);
+  const finishFilters = filters
+    .filter((f: any) => f.type === "finish")
+    .map((f: any) => f.filter);
+  const sizeFilters = filters
+    .filter((f: any) => f.type === "size")
+    .map((f: any) => f.filter);
+  const materialFilters = filters
+    .filter((f: any) => f.type === "material")
+    .map((f: any) => f.filter);
 
   const handleVariantClick = (index: number) => {
     if (selectedVariant === index) {
@@ -104,7 +109,6 @@ const ProductClient = ({ product, slug, reviews }: any) => {
     <>
       <div className="min-h-screen bg-black text-white p-4 md:p-10 font-inter">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-
           {/* LEFT - IMAGES */}
           <div className="space-y-6">
             <div className="relative aspect-square bg-[#1A1A1A] overflow-hidden group">
@@ -125,7 +129,9 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                   <button
                     onClick={() =>
                       setSelectedImage(
-                        (prev) => (prev - 1 + displayImages.length) % displayImages.length
+                        (prev) =>
+                          (prev - 1 + displayImages.length) %
+                          displayImages.length,
                       )
                     }
                     className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100"
@@ -136,7 +142,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                   <button
                     onClick={() =>
                       setSelectedImage(
-                        (prev) => (prev + 1) % displayImages.length
+                        (prev) => (prev + 1) % displayImages.length,
                       )
                     }
                     className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100"
@@ -157,7 +163,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                     "w-20 h-20 border-2",
                     selectedImage === i
                       ? "border-[#FFBF3F]"
-                      : "border-white/10"
+                      : "border-white/10",
                   )}
                 >
                   <Image
@@ -170,25 +176,21 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                   />
                 </button>
               ))}
-
             </div>
           </div>
 
           {/* RIGHT - DETAILS */}
           <div className="flex flex-col space-y-6">
-
             <div>
               <p className="text-[11px] tracking-[0.3em] text-white/80 uppercase font-bold mb-2">
-                mORzee
+                Morzze
               </p>
 
               <h1 className="text-2xl md:text-3xl font-medium">
                 {product.name}
               </h1>
 
-              <p className="text-xs text-white/65 mt-2">
-                {product.sku}
-              </p>
+              <p className="text-xs text-white/65 mt-2">{product.sku}</p>
             </div>
 
             {/* RATING */}
@@ -202,7 +204,9 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                   />
                 ))}
               </div>
-              <span className="text-sm text-white/80">({product.reviews} Reviews)</span>
+              <span className="text-sm text-white/80">
+                ({product.reviews} Reviews)
+              </span>
             </div>
 
             {/* PRICE */}
@@ -242,7 +246,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                         "relative group/variant flex items-center gap-2 px-3 py-2 border rounded-md transition-all duration-200",
                         selectedVariant === index
                           ? "border-[#FFBF3F] bg-[#FFBF3F]/10"
-                          : "border-white/10 hover:border-white/30"
+                          : "border-white/10 hover:border-white/30",
                       )}
                     >
                       {variant.image && (
@@ -261,7 +265,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                           "text-sm font-medium",
                           selectedVariant === index
                             ? "text-[#FFBF3F]"
-                            : "text-white/85"
+                            : "text-white/85",
                         )}
                       >
                         {variant.name}
@@ -284,7 +288,10 @@ const ProductClient = ({ product, slug, reviews }: any) => {
             {finishFilters.length > 0 && (
               <div>
                 <p className="text-sm text-white/90 mb-2 uppercase tracking-widest font-bold">
-                  Finish: <span className="text-[#FFBF3F]">{selectedFinish || "Select"}</span>
+                  Finish:{" "}
+                  <span className="text-[#FFBF3F]">
+                    {selectedFinish || "Select"}
+                  </span>
                 </p>
 
                 <div className="flex gap-2 flex-wrap">
@@ -296,7 +303,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                         "px-4 py-2 border text-sm rounded-md transition-all",
                         selectedFinish === finish
                           ? "border-yellow-400 text-yellow-400 bg-yellow-400/10"
-                          : "border-white/10 text-white/85 hover:border-white/30"
+                          : "border-white/10 text-white/85 hover:border-white/30",
                       )}
                     >
                       {finish}
@@ -310,7 +317,10 @@ const ProductClient = ({ product, slug, reviews }: any) => {
             {sizeFilters.length > 0 && (
               <div>
                 <p className="text-sm text-white/90 mb-2 uppercase tracking-widest font-bold">
-                  Size: <span className="text-[#FFBF3F]">{selectedSize || "Select"}</span>
+                  Size:{" "}
+                  <span className="text-[#FFBF3F]">
+                    {selectedSize || "Select"}
+                  </span>
                 </p>
 
                 <div className="flex gap-2 flex-wrap">
@@ -322,7 +332,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                         "px-4 py-2 border text-sm rounded-md transition-all",
                         selectedSize === size
                           ? "border-yellow-400 text-yellow-400 bg-yellow-400/10"
-                          : "border-white/10 text-white/85 hover:border-white/30"
+                          : "border-white/10 text-white/85 hover:border-white/30",
                       )}
                     >
                       {size}
@@ -336,7 +346,10 @@ const ProductClient = ({ product, slug, reviews }: any) => {
             {materialFilters.length > 0 && (
               <div>
                 <p className="text-sm text-white/90 mb-2 uppercase tracking-widest font-bold">
-                  Material: <span className="text-[#FFBF3F]">{selectedMaterial || "Select"}</span>
+                  Material:{" "}
+                  <span className="text-[#FFBF3F]">
+                    {selectedMaterial || "Select"}
+                  </span>
                 </p>
 
                 <div className="flex gap-2 flex-wrap">
@@ -348,7 +361,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                         "px-4 py-2 border text-sm rounded-md transition-all",
                         selectedMaterial === material
                           ? "border-yellow-400 text-yellow-400 bg-yellow-400/10"
-                          : "border-white/10 text-white/85 hover:border-white/30"
+                          : "border-white/10 text-white/85 hover:border-white/30",
                       )}
                     >
                       {material}
@@ -360,20 +373,19 @@ const ProductClient = ({ product, slug, reviews }: any) => {
 
             {/* QUANTITY */}
             <div className="flex items-center gap-4">
-              <button onClick={() => setQuantity(q => Math.max(1, q - 1))}>
+              <button onClick={() => setQuantity((q) => Math.max(1, q - 1))}>
                 <IconMinus />
               </button>
 
               <span>{quantity}</span>
 
-              <button onClick={() => setQuantity(q => q + 1)}>
+              <button onClick={() => setQuantity((q) => q + 1)}>
                 <IconPlus />
               </button>
             </div>
 
             {/* BUTTONS */}
             <div className="flex gap-3">
-
               <Button
                 type="button"
                 onClick={() => {
@@ -390,9 +402,13 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                 className="flex-1 py-5 bg-[#FDB813] hover:text-[#FDB813] text-black disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {getItemQuantity(product.slug) > 0 ? (
-                  <><IconShoppingBag size={18} /> In Cart ✓</>
+                  <>
+                    <IconShoppingBag size={18} /> In Cart ✓
+                  </>
                 ) : (
-                  <><IconShoppingBag size={18} /> Add to cart</>
+                  <>
+                    <IconShoppingBag size={18} /> Add to cart
+                  </>
                 )}
               </Button>
 
@@ -420,7 +436,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                 onClick={() => toggleWishlist(slug, product.id)}
                 className={cn(
                   "bg-[#FFBF3F] border-[#2E2E2E] transition-all",
-                  wishlisted && "border-red-500/50 bg-[#FFBF3F] "
+                  wishlisted && "border-red-500/50 bg-[#FFBF3F] ",
                 )}
               >
                 {wishlisted ? (
@@ -436,7 +452,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                 { label: "Free Shipping", icon: "•" },
                 { label: "12-Month Warranty", icon: "•" },
                 { label: "Easy Returns", icon: "•" },
-                { label: "Quality Assured", icon: "•" }
+                { label: "Quality Assured", icon: "•" },
               ].map((feature, i) => (
                 <div
                   key={i}
@@ -452,30 +468,33 @@ const ProductClient = ({ product, slug, reviews }: any) => {
           </div>
         </div>
       </div>
-    
-    {productVideos.map((video: string, index: number) => (
-  <div
-    key={index}
-    className="flex justify-center items-center bg-black py-8"
-  >
-    <video
-      autoPlay
-      muted
-      loop
-      playsInline
-      controls={false}
-      preload="auto"
-      className="max-h-[80vh] w-auto object-contain"
-    >
-      <source
-        src={`${process.env.NEXT_PUBLIC_IMAGEKIT_URL}/${video}?tr=orig`}
-        type="video/mp4"
-      />
-    </video>
-  </div>
-))}
+
+      {productVideos.map((video: string, index: number) => (
+        <div
+          key={index}
+          className="flex justify-center items-center bg-black py-8"
+        >
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls={false}
+            preload="auto"
+            className="max-h-[80vh] w-auto object-contain"
+          >
+            <source
+              src={`${process.env.NEXT_PUBLIC_IMAGEKIT_URL}/${video}?tr=orig`}
+              type="video/mp4"
+            />
+          </video>
+        </div>
+      ))}
       {/* EXTRA SECTIONS */}
-      <DescriptionTabs productAttributeRes={product?.productAttributeRes} pdfDocuments={pdfDocuments} />
+      <DescriptionTabs
+        productAttributeRes={product?.productAttributeRes}
+        pdfDocuments={pdfDocuments}
+      />
       <SpecificationsTabs productAttributeRes={product?.productAttributeRes} />
       <ReviewsTab reviews={reviews} />
       {/* <ProductComparison /> */}

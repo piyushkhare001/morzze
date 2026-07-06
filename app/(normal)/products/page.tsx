@@ -2,14 +2,14 @@ import ProductBanner from "@/components/product/ProductBanner";
 import FilterSidebar from "@/components/product/FilterSidebar";
 import ProductGrid from "@/components/product/ProductGrid";
 import SortDropdown from "@/components/product/SortDropdown";
-import React from "react";
-import Link from "@/hooks/appLink"
+import Link from "@/hooks/appLink";
 import {
   getProducts,
   getProductFilterOptions,
   getSteelSinkCategorySlugs,
 } from "@/helper/product/action";
 import { getCategories } from "@/helper";
+import { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 interface PageProps {
@@ -30,6 +30,11 @@ interface PageProps {
 }
 
 const PAGE_SIZE = 20;
+
+export const metadata: Metadata = {
+  title: `Premium Kitchen & Bathroom Products Online in India | Morzze`,
+  description: `Shop premium kitchen and bathroom products by Morzze, including kitchen sinks, faucets, accessories, wash basins, and more designed for modern spaces.`,
+};
 
 const page = async ({ searchParams }: PageProps) => {
   const params = await searchParams;
@@ -95,9 +100,7 @@ const page = async ({ searchParams }: PageProps) => {
             <div className="flex justify-between items-center mb-8">
               <div className="text-sm text-zinc-400 font-inter">
                 Showing{" "}
-                <span className="text-white font-bold">
-                  {products.length}
-                </span>{" "}
+                <span className="text-white font-bold">{products.length}</span>{" "}
                 products
               </div>
 

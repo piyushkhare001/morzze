@@ -53,8 +53,8 @@ export default function FindStoreHero() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-[13px] md:text-[18px] leading-7 text-[#efefef]/90"
         >
-          Visit our flagship stores, experience centers, and authorized dealers
-          across India. Experience Morzze furniture in person
+          Locate an authorized Morzze dealer near you and explore our premium
+          kitchen and bathroom solutions.
         </motion.p>
       </div>
     </section>
