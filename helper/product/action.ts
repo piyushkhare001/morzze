@@ -923,7 +923,23 @@ export async function getProducts({
 
       // Size filter — LIKE match: selecting "18" matches "18" Top", "18"", "18x16", etc.
       if (normalizedSize.length) {
-        const sizeConditions = normalizedSize.map(
+        const expandedSizes: string[] = [];
+        for (const v of normalizedSize) {
+          if (v.includes("-")) {
+            const [min, max] = v.split("-").map(Number);
+            if (!isNaN(min) && !isNaN(max)) {
+              for (let i = min; i <= max; i++) {
+                expandedSizes.push(String(i));
+              }
+            } else {
+              expandedSizes.push(v);
+            }
+          } else {
+            expandedSizes.push(v);
+          }
+        }
+
+        const sizeConditions = expandedSizes.map(
           (v) => sql`EXISTS (
             SELECT 1 FROM ${productFilter}
             WHERE ${productFilter.productId} = ${product.id}

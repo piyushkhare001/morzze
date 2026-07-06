@@ -25,10 +25,14 @@ type FilterSidebarProps = {
 };
 
 // Static inch sizes shown for steel sink categories
-const STEEL_SINK_SIZES: FilterOption[] = Array.from({ length: 31 }, (_, i) => {
-  const inch = 15 + i;
-  return { label: `${inch}  inches`, value: String(inch) };
-});
+const STEEL_SINK_SIZES: FilterOption[] = [
+  { label: '15–19"', value: "15-19" },
+  { label: '20–24"', value: "20-24" },
+  { label: '25–29"', value: "25-29" },
+  { label: '30–34"', value: "30-34" },
+  { label: '35–39"', value: "35-39" },
+  { label: '40–45"', value: "40-45" },
+];
 
 const getPriceParams = (item: string) => {
   if (item === "Under ₹5,000") return { min: "", max: "5000" };
@@ -54,28 +58,36 @@ const FilterSidebar = ({
 
   const toggleSection = (id: string) => {
     setOpenSections((prev) =>
-      prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id],
     );
   };
 
-  const showSteelSinkSizes = 
-    (currentCategorySlug && steelSinkCategorySlugs.includes(currentCategorySlug)) ||
-    selectedCategories.some((cat) => steelSinkCategorySlugs.includes(cat));
-
   const getCategoryRank = (cat: { name?: string; slug?: string }) => {
-    const text = `${cat.name || ""} ${cat.slug || ""}`.toLowerCase().replace(/-/g, " ");
+    const text = `${cat.name || ""} ${cat.slug || ""}`
+      .toLowerCase()
+      .replace(/-/g, " ");
 
     if (text.includes("stainless steel")) return 1;
     if (text.includes("vertex granite")) return 6;
-    if (text.includes("granite sink") || text.includes("granite basin") || text.includes("granite")) return 2;
+    if (
+      text.includes("granite sink") ||
+      text.includes("granite basin") ||
+      text.includes("granite")
+    )
+      return 2;
     if (text.includes("edge steel")) return 3;
     if (text.includes("neo steel")) return 4;
     if (text.includes("pulse steel") || text.includes("pulse")) return 5;
     if (text.includes("kitchen faucet")) return 7;
     if (text.includes("air tap")) return 8;
     if (text.includes("kitchen accessor")) return 9;
-    if (text.includes("liquid soap dispenser") || text.includes("soap dispenser")) return 10;
-    if (text.includes("food waste disposer") || text.includes("waste disposer")) return 11;
+    if (
+      text.includes("liquid soap dispenser") ||
+      text.includes("soap dispenser")
+    )
+      return 10;
+    if (text.includes("food waste disposer") || text.includes("waste disposer"))
+      return 11;
     if (
       text.includes("sink drain adaptor") ||
       text.includes("sink drainer adaptor") ||
@@ -88,11 +100,19 @@ const FilterSidebar = ({
     }
     if (text.includes("sink strainer cover")) return 14;
     if (text.includes("sink strainer")) return 13;
-    if (text.includes("wash basin") || text.includes("bathroom basin") || text.includes("vanity") || text.includes("basin")) return 15;
+    if (
+      text.includes("wash basin") ||
+      text.includes("bathroom basin") ||
+      text.includes("vanity") ||
+      text.includes("basin")
+    )
+      return 15;
     if (text.includes("bathroom faucet")) return 16;
     if (text.includes("hand shower")) return 17;
-    if (text.includes("towel warmer") || text.includes("heated towel")) return 18;
-    if (text.includes("floor drainer") || text.includes("floor drain")) return 19;
+    if (text.includes("towel warmer") || text.includes("heated towel"))
+      return 18;
+    if (text.includes("floor drainer") || text.includes("floor drain"))
+      return 19;
     if (text.includes("new arrival")) return 20;
     if (text.includes("signature piece")) return 21;
     if (text.includes("trending now") || text.includes("trending")) return 22;
@@ -115,7 +135,7 @@ const FilterSidebar = ({
           ?.filter(
             (cat) =>
               !cat.name?.toLowerCase().includes("aura") &&
-              !cat.slug?.toLowerCase().includes("aura")
+              !cat.slug?.toLowerCase().includes("aura"),
           )
           .sort((a, b) => {
             const rankA = getCategoryRank(a);
@@ -140,15 +160,11 @@ const FilterSidebar = ({
       title: "FINISH",
       items: finishOptions,
     },
-    ...(showSteelSinkSizes
-      ? [
-        {
-          id: "size",
-          title: "SIZE ",
-          items: STEEL_SINK_SIZES,
-        },
-      ]
-      : []),
+    {
+      id: "size",
+      title: "SIZE ",
+      items: STEEL_SINK_SIZES,
+    },
     {
       id: "price",
       title: "PRICE RANGE",
@@ -232,11 +248,14 @@ const FilterSidebar = ({
       {filterData.map((section) => {
         const isOpen = openSections.includes(section.id);
         const selectedCount = section.items.filter((item) =>
-          isChecked(section.id, item.value)
+          isChecked(section.id, item.value),
         ).length;
 
         return (
-          <div key={section.id} className="mb-8 border-b border-white/5 pb-4 last:border-b-0">
+          <div
+            key={section.id}
+            className="mb-8 border-b border-white/5 pb-4 last:border-b-0"
+          >
             <div
               className="flex items-center justify-between cursor-pointer mb-4 group"
               onClick={() => toggleSection(section.id)}
@@ -276,10 +295,10 @@ const FilterSidebar = ({
               </div>
             )}
           </div>
-        )
+        );
       })}
 
-      <div
+      {/* <div
         onClick={updateStock}
         className="flex items-center space-x-3 mt-4 group cursor-pointer border-t border-white/5 pt-6"
       >
@@ -295,7 +314,7 @@ const FilterSidebar = ({
         >
           In Stock Only
         </label>
-      </div>
+      </div> */}
     </div>
   );
 };
