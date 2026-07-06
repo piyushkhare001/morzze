@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getAllProductsByCategorySlug, getCategoryBySlug } from "@/helper/category/action";
+import { getCategoryBySlug } from "@/helper/category/action";
+import { getProducts, getProductFilterOptions, getSteelSinkCategorySlugs } from "@/helper/product/action";
 import Link from "@/hooks/appLink"
 import CategoryProductsClient from "../../category/[slug]/CategoryProductsClient";
+import FilterSidebar from "@/components/product/FilterSidebar";
 import { getImageURL } from "@/lib/getImageLin";
 import { metaTags } from "@/const/metaTags";
 import { Metadata, ResolvingMetadata } from "next";
@@ -48,15 +50,31 @@ export async function generateMetadata(
 
 export default async function CategoryPage({
     params,
+    searchParams,
 }: {
     params: Promise<{ slug: string }>;
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
     const { slug } = await params;
+    const sParams = await searchParams;
 
-    const [categoryData, products] = await Promise.all([
+    const [categoryData, filterOptions, steelSinkCategorySlugs, productsResult] = await Promise.all([
         getCategoryBySlug(slug),
-        getAllProductsByCategorySlug(slug),
+        getProductFilterOptions(),
+        getSteelSinkCategorySlugs(),
+        getProducts({
+            category: slug,
+            size: sParams.size as string | string[],
+            material: sParams.material as string | string[],
+            finish: sParams.finish as string | string[],
+            min: sParams.min as string,
+            max: sParams.max as string,
+            page: 1,
+            pageSize: 100,
+        }),
     ]);
+    
+    const products = productsResult?.products || [];
 
     if (!categoryData) {
         notFound();
@@ -113,21 +131,34 @@ export default async function CategoryPage({
 
             {/* Products */}
             <section className="max-w-screen-2xl mx-auto px-6 md:px-10 py-12 md:py-16">
-                {products.length === 0 ? (
-                    <div className="text-center py-20">
-                        <p className="text-white/40 text-lg font-inter">
-                            No products found in this category.
-                        </p>
-                        <Link
-                            href="/category"
-                            className="inline-block mt-6 text-[#FFBF3F] text-sm uppercase tracking-widest hover:underline font-inter"
-                        >
-                            ← Browse other categories
-                        </Link>
+                <div className="flex flex-col lg:flex-row gap-8">
+                    <div className="lg:w-1/4">
+                        <FilterSidebar
+                            categories={[]}
+                            materialOptions={[]}
+                            finishOptions={[]}
+                            steelSinkCategorySlugs={steelSinkCategorySlugs}
+                            currentCategorySlug={slug}
+                        />
                     </div>
-                ) : (
-                    <CategoryProductsClient products={products} categoryName={categoryData.name ?? ""} />
-                )}
+                    <div className="lg:w-3/4">
+                        {products.length === 0 ? (
+                            <div className="text-center py-20">
+                                <p className="text-white/40 text-lg font-inter">
+                                    No products found in this category.
+                                </p>
+                                <Link
+                                    href="/category"
+                                    className="inline-block mt-6 text-[#FFBF3F] text-sm uppercase tracking-widest hover:underline font-inter"
+                                >
+                                    ← Browse other categories
+                                </Link>
+                            </div>
+                        ) : (
+                            <CategoryProductsClient products={products} categoryName={categoryData.name ?? ""} />
+                        )}
+                    </div>
+                </div>
             </section>
         </div>
     );

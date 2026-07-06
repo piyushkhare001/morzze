@@ -21,6 +21,7 @@ type FilterSidebarProps = {
   materialOptions?: FilterOption[];
   finishOptions?: FilterOption[];
   steelSinkCategorySlugs?: string[];
+  currentCategorySlug?: string;
 };
 
 // Static inch sizes shown for steel sink categories
@@ -43,6 +44,7 @@ const FilterSidebar = ({
   materialOptions = [],
   finishOptions = [],
   steelSinkCategorySlugs = ["stainless-steel-sinks", "pulse"],
+  currentCategorySlug,
 }: FilterSidebarProps) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -56,9 +58,9 @@ const FilterSidebar = ({
     );
   };
 
-  const showSteelSinkSizes = selectedCategories.some((cat) =>
-    steelSinkCategorySlugs.includes(cat)
-  );
+  const showSteelSinkSizes = 
+    (currentCategorySlug && steelSinkCategorySlugs.includes(currentCategorySlug)) ||
+    selectedCategories.some((cat) => steelSinkCategorySlugs.includes(cat));
 
   const getCategoryRank = (cat: { name?: string; slug?: string }) => {
     const text = `${cat.name || ""} ${cat.slug || ""}`.toLowerCase().replace(/-/g, " ");
