@@ -87,7 +87,7 @@ const page = async ({ searchParams }: PageProps) => {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="lg:w-1/4">
+          <div className="hidden lg:block lg:w-1/4">
             <FilterSidebar
               categories={allCategories}
               materialOptions={filterOptions.materialOptions}

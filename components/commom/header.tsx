@@ -324,6 +324,7 @@ const Header = () => {
           <button
             className="text-white hover:text-[#B88E2F] transition-colors"
             onClick={() => setIsMenuOpen(true)}
+            aria-label="Open menu"
           >
             <IconMenu2 size={26} stroke={1.5} />
           </button>
@@ -399,6 +400,7 @@ const Header = () => {
               <button
                 onClick={clearSearch}
                 className="absolute inset-y-0 right-2 flex items-center text-zinc-600 hover:text-white transition-colors"
+                aria-label="Clear search"
               >
                 <IconX size={14} />
               </button>
@@ -522,6 +524,7 @@ const Header = () => {
                       handleMobileSearchToggle();
                     }}
                     className="absolute inset-y-0 right-3 flex items-center text-zinc-500 hover:text-[#B88E2F] transition-colors"
+                    aria-label="Clear search"
                   >
                     <IconX size={16} stroke={1.5} />
                   </button>
@@ -676,7 +679,7 @@ const Header = () => {
               {/* Mobile Menu Header */}
               <div className="h-20 flex items-center justify-between px-6 border-b border-zinc-900">
                 <Image src={imageKitUrl("logo.png")} alt="Morzze" width={110} height={35} />
-                <button onClick={() => setIsMenuOpen(false)} className="text-white">
+                <button onClick={() => setIsMenuOpen(false)} className="text-white" aria-label="Close menu">
                   <IconX size={28} />
                 </button>
               </div>
@@ -721,6 +724,7 @@ const Header = () => {
                     setIsMenuOpen(false);
                     setTimeout(() => handleMobileSearchToggle(), 300);
                   }}
+                  aria-label="Open search"
                 >
                   <IconSearch size={24} className="text-zinc-400 hover:text-[#B88E2F] transition-colors" />
                 </button>

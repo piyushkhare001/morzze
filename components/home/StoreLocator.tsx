@@ -30,10 +30,10 @@ const StoreLocator = () => {
             transition={{ duration: 0.8 }}
             className="max-w-xl"
           >
-            <h2 className="font-montserrat text-2xl md:text-2xl font-medium text-white leading-tight">
+            <h3 className="font-montserrat text-2xl md:text-2xl font-medium text-white leading-tight">
               Find the nearest store and explore our
               products
-            </h2>
+            </h3>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 30 }}

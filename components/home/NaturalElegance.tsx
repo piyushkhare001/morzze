@@ -64,9 +64,9 @@ const NaturalElegance = () => {
               Natural Elegance
             </span>
 
-            <h1 className="font-montserrat text-3xl md:text-5xl font-bold text-white leading-tight">
+            <h2 className="font-montserrat text-3xl md:text-5xl font-bold text-white leading-tight">
               Onyx Granite Basin
-            </h1>
+            </h2>
 
             <p className="font-inter text-[#FEFFF1] text-base md:text-md leading-relaxed max-w-2xl">
               Experience the perfect water flow with our flagship kitchen faucet, featuring 360-degree swivel and precision temperature control.

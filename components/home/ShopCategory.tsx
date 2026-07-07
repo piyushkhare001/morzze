@@ -95,9 +95,9 @@ const ShopCategory = ({ categories = [] }: ShopCategoryProps) => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent" />
 
                     <div className="absolute bottom-6 left-6 right-6 z-10">
-                      <h3 className="text-xl md:text-2xl font-medium text-white transition-colors duration-300 group-hover:text-[#FFBF3F]">
+                      <h4 className="text-xl md:text-2xl font-medium text-white transition-colors duration-300 group-hover:text-[#FFBF3F]">
                         {cat.name}
-                      </h3>
+                      </h4>
                       {cat.description && (
                         <p className="text-white/50 text-xs md:text-sm mt-2 font-inter line-clamp-2">
                           {cat.description}

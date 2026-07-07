@@ -52,9 +52,9 @@ const TestimonialSlider = () => {
           <span className="block font-montserrat text-xs md:text-sm font-bold text-[#CBA14D] uppercase tracking-[0.4em]">
             CLIENT STORIES
           </span>
-          <h2 className="font-montserrat text-4xl md:text-5xl font-medium text-white leading-tight">
+          <h3 className="font-montserrat text-4xl md:text-5xl font-medium text-white leading-tight">
             Words of <span className="text-[#CBA14D]">Trust</span>
-          </h2>
+          </h3>
         </div>
 
         {/* 5 Star Rating */}
@@ -80,9 +80,9 @@ const TestimonialSlider = () => {
               </p>
               
               <div className="space-y-1">
-                <h4 className="font-montserrat text-white text-lg font-semibold">
+                <span className="font-montserrat text-white text-lg font-semibold">
                   {testimonials[currentIndex].name}
-                </h4>
+                </span>
                 <p className="font-inter text-white/80 text-sm tracking-wide">
                   {testimonials[currentIndex].location}
                 </p>

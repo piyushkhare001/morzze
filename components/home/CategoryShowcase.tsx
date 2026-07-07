@@ -46,11 +46,11 @@ const CategoryShowcase = ({
                 <div
                   className={`h-[24px] w-[2px] bg-[#CBA14D] transition-all duration-500 ${activeTab.id === cat.id ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"}`}
                 />
-                <span
+                <h4
                   className={`font-montserrat text-lg md:text-xl tracking-wide transition-colors duration-300 ${activeTab.id === cat.id ? "text-white" : "text-[white]/70 hover:text-white/60"}`}
                 >
                   {cat.name}
-                </span>
+                </h4>
               </button>
 
               <AnimatePresence>

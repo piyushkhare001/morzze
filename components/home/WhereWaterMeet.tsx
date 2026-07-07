@@ -41,7 +41,7 @@ const WhereWaterMeet = () => {
         >
 
           {/* Main Heading Reveal - Montserrat Font with Color Gradient blend */}
-          <motion.h1
+          <motion.h2
             variants={{
               initial: { opacity: 0, y: 40 },
               animate: { opacity: 1, y: 0 }
@@ -51,7 +51,7 @@ const WhereWaterMeet = () => {
           >
             Where Water Meets <br />
             <span className="text-[#CBA14D]">Artistry</span>
-          </motion.h1>
+          </motion.h2>
 
           {/* Description Reveal - Inter Font */}
           <motion.p

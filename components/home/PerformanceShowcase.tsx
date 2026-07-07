@@ -19,9 +19,9 @@ const PerformanceShowcase = () => {
             <div key={index} className="w-full text-center group">
               {/* Gold Stats Number */}
               {/* Cormorant Garamond gives the elegant serif look */}
-              <h2 className="font-cormorant font-light text-[32px] md:text-[38px] lg:text-[46px] text-[#B6935C] leading-tight tracking-tight">
+              <span className="font-cormorant font-light text-[32px] md:text-[38px] lg:text-[46px] text-[#B6935C] leading-tight tracking-tight">
                 {stat.value}
-              </h2>
+              </span>
 
               {/* White Title with Subdued Opacity and Montserrat font */}
               <p className="font-montserrat text-[9px] md:text-[10px] lg:text-[11px] font-semibold text-white/50 group-hover:text-white group-hover:tracking-[0.3em] transition-all duration-700 tracking-[0.2em] uppercase mt-2 pt-1 border-t border-transparent md:max-w-none mx-auto">
