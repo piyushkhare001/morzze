@@ -86,6 +86,7 @@ function SearchResults({
                     key={cat.id}
                     href={`/category`}
                     onClick={onNavigate}
+                    aria-label={`Go to ${cat.name} category`}
                     className="flex items-center gap-3 px-2 py-2 rounded-md hover:bg-zinc-800/60 transition-colors group"
                   >
                     {cat.bannerImage ? (
@@ -132,6 +133,7 @@ function SearchResults({
                     key={p.id}
                     href={`/product/${p.slug}`}
                     onClick={onNavigate}
+                    aria-label={`View product ${p.name ?? p.slug}`}
                     className="flex items-center gap-3 px-2 py-2 rounded-md hover:bg-zinc-800/60 transition-colors group"
                   >
                     {p.bannerImage ? (
@@ -180,6 +182,7 @@ function SearchResults({
           <Link
             href={`/products?q=${encodeURIComponent(query)}`}
             onClick={onNavigate}
+            aria-label={`View all search results for ${query}`}
             className="flex items-center justify-center gap-1.5 py-3 border-t border-zinc-800/60 text-xs text-[#FFBF3F] font-semibold font-montserrat uppercase tracking-widest hover:bg-zinc-800/30 transition-colors"
           >
             View all results
@@ -332,7 +335,7 @@ const Header = () => {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="cursor-pointer"
         >
-          <Link href={"/"}>
+          <Link href={"/"} aria-label="Go to Morzze homepage">
             <Image
               src={imageKitUrl("logo.png")}
               alt="Morzze Logo"
@@ -364,6 +367,7 @@ const Header = () => {
               <li key={link.name}>
                 <Link
                   href={link.href}
+                  aria-label={`Go to ${link.name}`}
                   className="hover:text-[#B88E2F] transition-all duration-300"
                 >
                   {link.name}
@@ -450,8 +454,8 @@ const Header = () => {
           {/* Icons Actions */}
           <div className="flex items-center space-x-4">
             <div className="relative hidden lg:block">
-              <Link href={"/dashboard/wishlist"} aria-label={`Wishlist, ${wishlistItems} items`}>
-                <button className="hover:text-[#B88E2F] transition-colors flex items-center justify-center" tabIndex={-1}>
+              <Link href={"/dashboard/wishlist"} aria-label="Go to Wishlist">
+                <button className="hover:text-[#B88E2F] transition-colors flex items-center justify-center">
                   <IconHeart size={20} stroke={1.5} />
                 </button>
               </Link>
@@ -463,8 +467,8 @@ const Header = () => {
 
             {/* Cart with Badge */}
             <div className="relative">
-              <Link href={"/cart"} aria-label={`Shopping cart, ${totalItems} items`}>
-                <button className="text-white hover:text-[#B88E2F] transition-colors flex items-center justify-center" tabIndex={-1}>
+              <Link href={"/cart"} aria-label="Go to Cart">
+                <button className="text-white hover:text-[#B88E2F] transition-colors flex items-center justify-center">
                   <IconShoppingBag size={20} stroke={1.5} />
                 </button>
               </Link>
@@ -473,13 +477,13 @@ const Header = () => {
               </span>
             </div>
             {isAuthenticated ? (
-              <Link href={"/dashboard/profile"} aria-label="User profile">
-                <button className="hover:text-[#B88E2F] transition-colors" tabIndex={-1}>
+              <Link href={"/dashboard/profile"} aria-label="Go to Profile">
+                <button className="hover:text-[#B88E2F] transition-colors">
                   <IconUser size={20} stroke={1.5} />
                 </button>
               </Link>
             ) : (
-              <Link href={"/login"}>
+              <Link href={"/login"} aria-label="Go to Login">
                 <button className="text-sm sm:px-3 py-2 sm:border border-zinc-700 rounded-md hover:border-[#B88E2F] hover:text-[#B88E2F] transition-colors">
                   <LogIn className="block sm:hidden " /> <p className=" hidden sm:block">Login</p>
                 </button>
@@ -557,6 +561,7 @@ const Header = () => {
                                   key={cat.id}
                                   href={`/category`}
                                   onClick={handleResultNavigate}
+                                  aria-label={`Go to ${cat.name} category`}
                                   className="flex items-center gap-3 px-2 py-2 rounded-md hover:bg-zinc-800/60 transition-colors group"
                                 >
                                   {cat.bannerImage ? (
@@ -598,6 +603,7 @@ const Header = () => {
                                   key={p.id}
                                   href={`/product/${p.slug}`}
                                   onClick={handleResultNavigate}
+                                  aria-label={`View product ${p.name ?? p.slug}`}
                                   className="flex items-center gap-3 px-2 py-2 rounded-md hover:bg-zinc-800/60 transition-colors group"
                                 >
                                   {p.bannerImage ? (
@@ -642,6 +648,7 @@ const Header = () => {
                           <Link
                             href={`/products?q=${encodeURIComponent(searchQuery)}`}
                             onClick={handleResultNavigate}
+                            aria-label={`View all search results for ${searchQuery}`}
                             className="flex items-center justify-center gap-1.5 py-3 border-t border-zinc-800/60 text-xs text-[#FFBF3F] font-semibold font-montserrat uppercase tracking-widest hover:bg-zinc-800/30 transition-colors"
                           >
                             View all results
@@ -689,6 +696,7 @@ const Header = () => {
                     <Link
                       href={link.href}
                       onClick={() => setIsMenuOpen(false)}
+                      aria-label={`Go to ${link.name}`}
                       className="text-2xl font-light text-zinc-300 hover:text-[#B88E2F] flex justify-between items-center group"
                     >
                       {link.name}
@@ -701,14 +709,14 @@ const Header = () => {
               {/* Bottom Actions for Mobile */}
               <div className="mt-auto p-8 border-t border-zinc-900 bg-zinc-950 flex justify-around">
                 <div className="relative">
-                  <Link href="/dashboard/wishlist" onClick={() => setIsMenuOpen(false)} aria-label={`Wishlist, ${wishlistItems} items`}>
+                  <Link href="/dashboard/wishlist" onClick={() => setIsMenuOpen(false)} aria-label="Go to Wishlist">
                     <IconHeart size={24} className="text-zinc-400 hover:text-[#B88E2F] transition-colors" />
                   </Link>
                   <span className="absolute -top-2 -right-2 bg-[#B88E2F] text-black text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-zinc-950">
                     {wishlistItems}
                   </span>
                 </div>
-                <Link href="/dashboard/profile" onClick={() => setIsMenuOpen(false)} aria-label="User profile">
+                <Link href="/dashboard/profile" onClick={() => setIsMenuOpen(false)} aria-label="Go to Profile">
                   <IconUser size={24} className="text-zinc-400 hover:text-[#B88E2F] transition-colors" />
                 </Link>
                 <button

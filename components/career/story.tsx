@@ -21,22 +21,21 @@ export default function CareersStorySection() {
           </p>
 
           <h2 className="text-[48px] md:text-[68px] lg:text-[76px] leading-[0.95] font-semibold italic tracking-[-0.04em] mb-8">
-            Let&apos;s unite <br />
-            and conquer <br />
-            <span className="text-[#b25d12]">together</span>
+            Build the Future of <br />
+            <span className="text-[#b25d12]">Luxury Living</span>
           </h2>
 
           <div className="space-y-6 max-w-[540px] text-[14px] md:text-[15px] leading-8 text-white/70">
             <p>
-              At Morzze, we don&apos;t just make furniture — we shape spaces
-              where life happens. Since 2008, we&apos;ve been building
-              India&apos;s most celebrated luxury furniture brand, one
-              handcrafted piece at a time.
+              At Morzze, we don't simply create kitchen and bathroom solutions -
+              we craft experiences that redefine modern living. Every faucet,
+              basin, sink, and fitting reflects precision engineering, timeless
+              design, and uncompromising quality.
             </p>
             <p>
-              Our team of designers, craftspeople, and innovators share one
-              obsession: creating objects of extraordinary beauty that stand the
-              test of time. If that sounds like you, we want to hear from you.
+              If you believe excellence lives in the smallest details and aspire
+              to create products that inspire beautiful spaces, we'd love to
+              build the future with you.
             </p>
           </div>
         </motion.div>

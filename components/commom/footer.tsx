@@ -44,7 +44,7 @@ const Footer = async () => {
         <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
           {/* Logo & Description Section */}
           <div className="text-left">
-            <Link href="/" className="inline-block cursor-pointer">
+            <Link href="/" aria-label="Go to Morzze homepage" className="inline-block cursor-pointer">
               <div className="relative w-40 h-16 md:w-48 md:h-20">
                 <Image
                   src={imageKitUrl("logo.png")}
@@ -69,6 +69,7 @@ const Footer = async () => {
                 href="http://instagram.com/morzzeindia/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit our Instagram page"
               >
                 <IconBrandInstagram
                   size={22}
@@ -80,6 +81,7 @@ const Footer = async () => {
                 href="https://in.pinterest.com/morzzeindia"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit our Pinterest page"
               >
                 <IconBrandPinterest
                   size={22}
@@ -91,6 +93,7 @@ const Footer = async () => {
                 href="https://x.com/Morzzeindia"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit our X (Twitter) page"
               >
                 <IconBrandX
                   size={22}
@@ -103,6 +106,7 @@ const Footer = async () => {
                 href="https://www.facebook.com/Morzzeindia/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit our Facebook page"
               >
                 <IconBrandFacebook
                   size={22}
@@ -115,6 +119,7 @@ const Footer = async () => {
                 href="https://www.youtube.com/@MorzzeIndia"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit our YouTube channel"
               >
                 <IconBrandYoutube
                   size={22}
@@ -127,6 +132,7 @@ const Footer = async () => {
                 href="https://www.linkedin.com/company/morzzeindia/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit our LinkedIn page"
               >
                 <IconBrandLinkedin
                   size={22}
@@ -175,6 +181,7 @@ const Footer = async () => {
                   <li key={item.label}>
                     <Link
                       href={item.href}
+                      aria-label={`Go to ${item.label}`}
                       className="text-sm text-white/70 hover:text-[#CBA14D] font-inter transition-colors block"
                     >
                       {item.label}
@@ -195,6 +202,7 @@ const Footer = async () => {
                   <li key={item.name}>
                     <Link
                       href={item.href}
+                      aria-label={`Go to ${item.name}`}
                       className="text-sm text-white/70 hover:text-[#CBA14D] font-inter transition-colors block"
                     >
                       {item.name}
@@ -223,6 +231,7 @@ const Footer = async () => {
                 <li key={item.name}>
                   <Link
                     href={item.link}
+                    aria-label={`Go to ${item.name}`}
                     className="text-sm text-white/70 hover:text-[#CBA14D] font-inter transition-colors block"
                   >
                     {item.name}
@@ -245,6 +254,7 @@ const Footer = async () => {
             <Link
               href="/privacy-policy"
               target="_blank"
+              aria-label="Read our Privacy Policy"
               className="text-white/80 hover:text-white transition-colors"
             >
               Privacy Policy
@@ -253,6 +263,7 @@ const Footer = async () => {
             <Link
               href="/terms-of-use"
               target="_blank"
+              aria-label="Read our Terms of Service"
               className="text-white/80 hover:text-white transition-colors"
             >
               Terms of Service
@@ -269,6 +280,7 @@ const Footer = async () => {
             <Link
               href="/return-exchange"
               target="_blank"
+              aria-label="Read our Return Policy"
               className="text-white/80 hover:text-white transition-colors"
             >
               Return Policy
