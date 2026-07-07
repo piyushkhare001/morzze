@@ -1,19 +1,13 @@
 "use client";
-import React from "react";
 import { useSearchParams } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  IconPhoneCall,
-  IconQuestionMark,
   IconSettings,
   IconBrandWhatsapp,
   IconPhoneFilled,
 } from "@tabler/icons-react";
-import CallbackForm from "./CallbackForm";
-import FAQSection from "./FAQSection";
-import ServiceRequest from "./ServiceRequest";
-import WhatsappChat from "./WhatsappChat";
-import Link from "@/hooks/appLink"
+
+import Link from "@/hooks/appLink";
 
 const SupportTabs = () => {
   const searchParams = useSearchParams();
@@ -35,10 +29,7 @@ const SupportTabs = () => {
         >
           {/* Tab 1: Callback */}
           <Link href="/call-request" className="flex w-full">
-            <TabsTrigger
-              value="callback"
-              className="group p-0 border-none  "
-            >
+            <TabsTrigger value="callback" className="group p-0 border-none  ">
               <div
                 className="
       bg-[#111] w-full aspect-square p-6 flex flex-col justify-between  relative overflow-hidden
@@ -197,23 +188,14 @@ const SupportTabs = () => {
 
         {/* --- TABS CONTENT --- */}
         <div className="md:mt-50 mt-70 ">
-          <TabsContent value="callback">
-            {/* <CallbackForm /> */}
-          </TabsContent>
+          <TabsContent value="callback">{/* <CallbackForm /> */}</TabsContent>
 
           <Link href="/faq">
-            <TabsContent value="faq">
-              {/* <FAQSection /> */}
-            </TabsContent>
-
+            <TabsContent value="faq">{/* <FAQSection /> */}</TabsContent>
           </Link>
-          <TabsContent value="service">
-            {/* <ServiceRequest /> */}
-          </TabsContent>
+          <TabsContent value="service">{/* <ServiceRequest /> */}</TabsContent>
 
-          <TabsContent value="whatsapp">
-            {/* <WhatsappChat /> */}
-          </TabsContent>
+          <TabsContent value="whatsapp">{/* <WhatsappChat /> */}</TabsContent>
         </div>
       </Tabs>
     </section>

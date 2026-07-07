@@ -60,7 +60,7 @@ export default function MorzzePartnerSection() {
           </h2>
           <p className="mt-3 text-sm md:text-base text-zinc-400 max-w-2xl mx-auto">
             We provide comprehensive support to help your business thrive in the
-            luxury furniture market
+            luxury bathroom and kitchen solutions.
           </p>
         </motion.div>
 

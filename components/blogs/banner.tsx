@@ -45,8 +45,8 @@ export default function BlogFeatureHero() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-[13px] sm:text-[15px] md:text-[19px] text-[#ededed]/90 leading-7"
         >
-          Discover how minimalist furniture choices can transform your home into
-          a sanctuary of calm and purpose.
+          Explore expert insights on luxury kitchens, modern bathrooms, timeless
+          design, and creating spaces that inspire everyday living.
         </motion.p>
       </div>
     </section>

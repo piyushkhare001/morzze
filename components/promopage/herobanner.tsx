@@ -50,17 +50,6 @@ export default function PromoCodesOfferHero() {
         >
           Get Discount on Our Products
         </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mx-auto text-[14px] md:text-[17px] text-[#f1f1f1]/90 leading-7"
-        >
-          Unlock exclusive savings on luxury furniture. Copy a code and apply at
-          checkout.
-        </motion.p>
       </div>
     </section>
   );
