@@ -22,7 +22,7 @@ const LookbookSection = () => {
         {/* -- ANIMATED GRID -- */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* 1. LEFT IMAGE: Niche se upar aayegi */}
-          <Link href={"/category?type=bathroom"}>
+          <Link href={"/bathroom"}>
             <motion.div
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ const LookbookSection = () => {
                 className="w-full h-full relative"
               >
                 <Image
-                  src={imageKitUrl("lookbook1.png")}
+                  src={imageKitUrl("lookbook2.png")}
                   alt="Bathroom Design"
                   height={500}
                   width={500}
@@ -58,7 +58,7 @@ const LookbookSection = () => {
           </Link>
 
           {/* 2. RIGHT IMAGE: Uper se niche aayegi */}
-          <Link href={"/category?type=kitchen"}>
+          <Link href={"/kitchen"}>
             <motion.div
               initial={{ opacity: 0, y: -100 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ const LookbookSection = () => {
                 className="w-full h-full relative"
               >
                 <Image
-                  src={imageKitUrl("lookbook2.png")}
+                  src={imageKitUrl("lookbook1.png")}
                   alt="Kitchen Design"
                   height={500}
                   width={500}

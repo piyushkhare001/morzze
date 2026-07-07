@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import Link from "@/hooks/appLink"
+import Link from "@/hooks/appLink";
 import { motion } from "framer-motion";
 import { IconArrowRight } from "@tabler/icons-react";
 import { getImageURL } from "@/lib/getImageLin";
@@ -31,7 +31,7 @@ const SPAN_PATTERNS = [
 ];
 
 const ShopCategory = ({ categories = [] }: ShopCategoryProps) => {
-  const visibleCategories = categories
+  const visibleCategories = categories;
   return (
     <section className="bg-black text-white py-12 md:py-24 px-6 md:px-10 overflow-hidden font-montserrat">
       <div className="max-w-screen-2xl mx-auto">
@@ -51,16 +51,6 @@ const ShopCategory = ({ categories = [] }: ShopCategoryProps) => {
               Shop by Category
             </h2>
           </motion.div>
-
-          <div className="hidden md:block absolute right-0 bottom-2">
-            <Link
-              href="/category#category-section"
-              className="flex items-center gap-2 text-[10px] font-bold text-[#EDEBE980] hover:text-[#CBA14D] transition-colors uppercase tracking-widest group"
-            >
-              VIEW ALL{" "}
-              <IconArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
         </div>
 
         {/* --- BENTO GRID (same layout as category page) --- */}
@@ -71,7 +61,8 @@ const ShopCategory = ({ categories = [] }: ShopCategoryProps) => {
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 auto-rows-[300px]">
             {visibleCategories.map((cat, index) => {
-              const spanClass = SPAN_PATTERNS[index] ?? "lg:col-span-3 md:col-span-6";
+              const spanClass =
+                SPAN_PATTERNS[index] ?? "lg:col-span-3 md:col-span-6";
 
               return (
                 <motion.div

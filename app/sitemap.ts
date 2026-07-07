@@ -65,12 +65,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/category`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/catalogue`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -177,10 +171,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   categories.forEach((cat) => {
     if (!cat.slug) return;
 
-    let route = "category";
+    let route : string | undefined;
 
     if (cat.type === "kitchen") route = "kitchen";
     else if (cat.type === "bathroom") route = "bathroom";
+
+    if(!route) return;
 
     const path = `${route}/${cat.slug}`;
 

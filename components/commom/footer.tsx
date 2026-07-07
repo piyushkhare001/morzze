@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "@/hooks/appLink"
+import Link from "@/hooks/appLink";
 import {
   IconBrandInstagram,
   IconBrandFacebook,
@@ -8,12 +8,10 @@ import {
   IconBrandPinterest,
   IconBrandX,
 } from "@tabler/icons-react";
-import { getCategories } from "@/helper";
 import { imageKitUrl } from "@/lib/imagekit-url";
 const companyLinks = [
   { name: "About Us", href: "/about" },
   { name: "Coupons", href: "/promo-code" },
-  // { name: "Find a Store", href: "/stores" },
   { name: "Videos", href: "/videos" },
   { name: "Catalogue", href: "/catalogue" },
   { name: "Media", href: "/media" },
@@ -23,8 +21,6 @@ const companyLinks = [
 ];
 
 const Footer = async () => {
-  const categories = await getCategories();
-
   const currentYear = new Date().getFullYear();
 
   return (
@@ -48,10 +44,7 @@ const Footer = async () => {
         <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
           {/* Logo & Description Section */}
           <div className="text-left">
-            <Link
-              href="/"
-              className="inline-block cursor-pointer"
-            >
+            <Link href="/" className="inline-block cursor-pointer">
               <div className="relative w-40 h-16 md:w-48 md:h-20">
                 <Image
                   src={imageKitUrl("logo.png")}
@@ -155,28 +148,28 @@ const Footer = async () => {
               <ul className="space-y-3">
                 {[
                   {
-                    label: "Steel Sinks",
-                    href: "/products?category=stainless-steel-sink&category=stainless-steel-sinks&category=pulse&category=pulse-steel-sinks&category=vertex-granite-sinks&category=vertex-granite-sink&category=neo-steel-sinks&category=neo-steel-sink&category=edge-steel-sinks&category=edge-steel-sink&category=Vertex&category=neo&category=Granite-Sinks",
+                    label: "Stainless Steel Sinks",
+                    href: "/kitchen/stainless-steel-sinks",
                   },
                   {
                     label: "Wash Basins",
-                    href: "/products?category=Bathroom-Basins",
+                    href: "/bathroom/Bathroom-Basins",
                   },
                   {
                     label: "Air Taps",
-                    href: "/products?category=Air-Tap",
+                    href: "/kitchen/Air-Tap",
                   },
                   {
                     label: "Floor Drainers",
-                    href: "/products?category=Floor-Drainers",
+                    href: "/bathroom/Floor-Drainers",
                   },
                   {
                     label: "Towel Warmers",
-                    href: "/products?category=Towel-Warmer",
+                    href: "/bathroom/Towel-Warmers",
                   },
                   {
                     label: "Bathroom Faucets",
-                    href: "/products?category=Bathroom-Faucets",
+                    href: "/bathroom/Bathroom-Faucets",
                   },
                 ].map((item) => (
                   <li key={item.label}>

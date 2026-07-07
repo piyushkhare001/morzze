@@ -7,13 +7,13 @@ import {
   getSteelSinkCategorySlugs,
 } from "@/helper/product/action";
 import Link from "@/hooks/appLink";
-import CategoryProductsClient from "../../category/[slug]/CategoryProductsClient";
 import FilterSidebar from "@/components/product/FilterSidebar";
 import { getImageURL } from "@/lib/getImageLin";
 import { Metadata, ResolvingMetadata } from "next";
 import { db } from "@/db";
 import { category } from "@/db/schema";
 import { eq } from "drizzle-orm";
+import CategoryProductsClient from "@/components/commom/CategoryProductsClient";
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
   parent: ResolvingMetadata,
@@ -154,10 +154,10 @@ export default async function CategoryPage({
                   No products found in this category.
                 </p>
                 <Link
-                  href="/category"
+                  href="/"
                   className="inline-block mt-6 text-[#FFBF3F] text-sm uppercase tracking-widest hover:underline font-inter"
                 >
-                  ← Browse other categories
+                  Browse to home page
                 </Link>
               </div>
             ) : (
