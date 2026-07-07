@@ -26,6 +26,9 @@ export async function generateMetadata({
   return {
     title: categoryData.metaTitle || `${categoryData.name} | Morzze`,
     description: categoryData.metaDescription || categoryData.description || `Browse ${categoryData.name} products at Morzze.`,
+    alternates: {
+      canonical: `/bathroom/${slug}`,
+    },
   };
 }
 

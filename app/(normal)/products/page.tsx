@@ -34,6 +34,9 @@ const PAGE_SIZE = 20;
 export const metadata: Metadata = {
   title: `Premium Kitchen & Bathroom Products Online in India | Morzze`,
   description: `Shop premium kitchen and bathroom products by Morzze, including kitchen sinks, faucets, accessories, wash basins, and more designed for modern spaces.`,
+  alternates: {
+    canonical: '/products',
+  },
 };
 
 const page = async ({ searchParams }: PageProps) => {

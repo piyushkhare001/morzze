@@ -244,7 +244,7 @@ const FilterSidebar = ({
   };
 
   return (
-    <div className="w-full bg-black p-0 select-none">
+    <div className="w-full bg-transparent p-0 select-none">
       {filterData.map((section) => {
         const isOpen = openSections.includes(section.id);
         const selectedCount = section.items.filter((item) =>

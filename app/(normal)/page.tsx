@@ -27,6 +27,9 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: `India's Top Premium Kitchen and Bathroom Sinks Manufacturer | Morzze`,
   description: 'Morzze offers a diverse range of high-quality kitchen and bathroom sinks. Our range of stylish and functional sinks is designed to complement any decor. Explore our collection today and transform your space.',
+  alternates: {
+    canonical: '/',
+  },
 }
 
 const page = async () => {

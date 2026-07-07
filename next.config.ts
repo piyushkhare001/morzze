@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/kitchen/Kitchen-Accessories/Drain-Pipe',
-        destination: '/kitchen/drain-pipe',
+        destination: '/kitchen/Kitchen-Accessories',
         permanent: true,
       },
       {
@@ -63,7 +63,7 @@ const nextConfig: NextConfig = {
       // { source: '/kitchen/Pulse', destination: '/kitchen/pulse', permanent: true },
 
       // Accessories
-      { source: '/kitchen/Kitchen-Accessories/Drain-Pipe', destination: '/kitchen/drain-pipe', permanent: true },
+      { source: '/kitchen/Kitchen-Accessories/Drain-Pipe', destination: '/kitchen/Kitchen-Accessories', permanent: true },
       { source: '/kitchen/Kitchen-Accessories/Liquid-Soap-Dispenser', destination: '/kitchen/Kitchen-Accessories', permanent: true },
       { source: '/kitchen/Kitchen-Accessories/Sink-Strainer', destination: '/kitchen/Kitchen-Accessories', permanent: true },
       { source: '/kitchen/Kitchen-Accessories/Sink-Strainer-Cover', destination: '/kitchen/Kitchen-Accessories', permanent: true },
