@@ -29,7 +29,7 @@ const page = async () => {
         />
         <CategorySection categories={filteredCat} />
       </Suspense>
-      <SimpleCategoryBanner />
+      <SimpleCategoryBanner imageUrl="faucet_banner_horizontal.jpg" />
       <ScrollingRibbon />
     </div>
   );

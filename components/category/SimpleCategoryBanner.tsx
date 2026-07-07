@@ -4,21 +4,21 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { imageKitUrl } from "@/lib/imagekit-url";
 
-const FullHorizontalBanner = () => {
+const FullHorizontalBanner = ({ imageUrl }: { imageUrl?: string }) => {
   return (
     <section className="relative w-full  overflow-hidden">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
         className="w-full h-auto"
       >
         <Image
-          src={imageKitUrl("category-view.png")}
+          src={imageKitUrl(imageUrl ?? "category-view.png")}
           alt="Category Full View"
-          width={1920} 
-          height={600}  
-          className="w-full h-auto object-contain" 
+          width={1920}
+          height={600}
+          className="w-full h-auto object-contain"
           priority
         />
       </motion.div>
