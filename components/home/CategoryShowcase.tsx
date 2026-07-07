@@ -1,9 +1,9 @@
-"use client"
-import React, { useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
-import { getImageURL } from '@/lib/getImageLin'
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { getImageURL } from "@/lib/getImageLin";
 
 interface CategoryProduct {
   id: string;
@@ -18,12 +18,17 @@ interface CategoryWithProducts {
   id: string;
   name: string | null;
   slug: string | null;
+  type: string | null;
   bannerImage: string | null;
   description: string | null;
   products: CategoryProduct[];
 }
 
-const CategoryShowcase = ({ categories }: { categories: CategoryWithProducts[] }) => {
+const CategoryShowcase = ({
+  categories,
+}: {
+  categories: CategoryWithProducts[];
+}) => {
   const [activeTab, setActiveTab] = useState(categories[0]);
 
   if (!categories || categories.length === 0) return null;
@@ -38,8 +43,12 @@ const CategoryShowcase = ({ categories }: { categories: CategoryWithProducts[] }
                 onClick={() => setActiveTab(cat)}
                 className="w-full text-left flex items-center gap-4 group focus:outline-none"
               >
-                <div className={`h-[24px] w-[2px] bg-[#CBA14D] transition-all duration-500 ${activeTab.id === cat.id ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'}`} />
-                <span className={`font-montserrat text-lg md:text-xl tracking-wide transition-colors duration-300 ${activeTab.id === cat.id ? 'text-white' : 'text-[white]/70 hover:text-white/60'}`}>
+                <div
+                  className={`h-[24px] w-[2px] bg-[#CBA14D] transition-all duration-500 ${activeTab.id === cat.id ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"}`}
+                />
+                <span
+                  className={`font-montserrat text-lg md:text-xl tracking-wide transition-colors duration-300 ${activeTab.id === cat.id ? "text-white" : "text-[white]/70 hover:text-white/60"}`}
+                >
                   {cat.name}
                 </span>
               </button>
@@ -55,11 +64,15 @@ const CategoryShowcase = ({ categories }: { categories: CategoryWithProducts[] }
                   >
                     <div className="pl-5 mt-4">
                       <div className="bg-[#141414]/50 p-6 border-l border-[#CBA14D]/20">
-
                         {cat.description && (
-                          <p className="font-inter text-sm text-white/80 leading-relaxed mb-6 max-w-sm">{cat.description}</p>
+                          <p className="font-inter text-sm text-white/80 leading-relaxed mb-6 max-w-sm">
+                            {cat.description}
+                          </p>
                         )}
-                        <Link href={`/category/${cat.slug}`} className="inline-block font-montserrat text-[10px] font-bold text-[#CBA14D] uppercase tracking-widest border-b border-transparent hover:border-[#CBA14D] transition-all">
+                        <Link
+                          href={`/${cat.type}/${cat.slug}`}
+                          className="inline-block font-montserrat text-[10px] font-bold text-[#CBA14D] uppercase tracking-widest border-b border-transparent hover:border-[#CBA14D] transition-all"
+                        >
                           EXPLORE COLLECTION +
                         </Link>
                       </div>
@@ -85,13 +98,17 @@ const CategoryShowcase = ({ categories }: { categories: CategoryWithProducts[] }
                   transition={{
                     duration: 1.2,
                     delay: index * 0.15,
-                    ease: [0.16, 1, 0.3, 1]
+                    ease: [0.16, 1, 0.3, 1],
                   }}
-                  className={`relative overflow-hidden bg-zinc-900 w-full rounded-sm shadow-2xl ${index === 0 ? 'aspect-square mt-0' :
-                    index === 1 ? 'aspect-square mt-10' :
-                      index === 2 ? 'aspect-square -mt-10' :
-                        'aspect-square mt-0'
-                    }`}
+                  className={`relative overflow-hidden bg-zinc-900 w-full rounded-sm shadow-2xl ${
+                    index === 0
+                      ? "aspect-square mt-0"
+                      : index === 1
+                        ? "aspect-square mt-10"
+                        : index === 2
+                          ? "aspect-square -mt-10"
+                          : "aspect-square mt-0"
+                  }`}
                 >
                   <Link href={`/product/${prod.slug}`}>
                     <Image
@@ -103,9 +120,13 @@ const CategoryShowcase = ({ categories }: { categories: CategoryWithProducts[] }
                     />
                     {/* Product name overlay */}
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <p className="text-xs text-white/90 font-inter line-clamp-1">{prod.name}</p>
+                      <p className="text-xs text-white/90 font-inter line-clamp-1">
+                        {prod.name}
+                      </p>
                       {prod.basePrice && (
-                        <p className="text-xs text-[#CBA14D] font-semibold mt-0.5">₹{prod.basePrice}</p>
+                        <p className="text-xs text-[#CBA14D] font-semibold mt-0.5">
+                          ₹{prod.basePrice}
+                        </p>
                       )}
                     </div>
                   </Link>
@@ -114,10 +135,7 @@ const CategoryShowcase = ({ categories }: { categories: CategoryWithProducts[] }
             </motion.div>
           </AnimatePresence>
         </div>
-
       </div>
-
-
 
       <div className="lg:hidden block max-w-screen-2xl mx-auto space-y-8">
         {categories.slice(0, 4).map((cat) => (
@@ -127,8 +145,12 @@ const CategoryShowcase = ({ categories }: { categories: CategoryWithProducts[] }
               onClick={() => setActiveTab(cat)}
               className="w-full text-left flex items-center gap-4 group focus:outline-none"
             >
-              <div className={`h-[24px] w-[2px] bg-[#CBA14D] transition-all duration-500 ${activeTab.id === cat.id ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'}`} />
-              <span className={`font-montserrat text-lg md:text-xl tracking-wide transition-colors duration-300 ${activeTab.id === cat.id ? 'text-white' : 'text-[white]/70 hover:text-white/60'}`}>
+              <div
+                className={`h-[24px] w-[2px] bg-[#CBA14D] transition-all duration-500 ${activeTab.id === cat.id ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"}`}
+              />
+              <span
+                className={`font-montserrat text-lg md:text-xl tracking-wide transition-colors duration-300 ${activeTab.id === cat.id ? "text-white" : "text-[white]/70 hover:text-white/60"}`}
+              >
                 {cat.name}
               </span>
             </button>
@@ -157,9 +179,13 @@ const CategoryShowcase = ({ categories }: { categories: CategoryWithProducts[] }
                       className="object-cover transition-transform duration-1000 hover:scale-105"
                     />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-2">
-                      <p className="text-xs text-white/90 font-inter line-clamp-1">{prod.name}</p>
+                      <p className="text-xs text-white/90 font-inter line-clamp-1">
+                        {prod.name}
+                      </p>
                       {prod.basePrice && (
-                        <p className="text-xs text-[#CBA14D] font-semibold mt-0.5">₹{prod.basePrice}</p>
+                        <p className="text-xs text-[#CBA14D] font-semibold mt-0.5">
+                          ₹{prod.basePrice}
+                        </p>
                       )}
                     </div>
                   </Link>
@@ -178,9 +204,14 @@ const CategoryShowcase = ({ categories }: { categories: CategoryWithProducts[] }
               <div className="pl-5 mt-4">
                 <div className="bg-[#141414]/50 p-6 border-l border-[#CBA14D]/20">
                   {cat.description && (
-                    <p className="font-inter text-sm text-white/80 leading-relaxed mb-6 max-w-sm">{cat.description}</p>
+                    <p className="font-inter text-sm text-white/80 leading-relaxed mb-6 max-w-sm">
+                      {cat.description}
+                    </p>
                   )}
-                  <Link href={`/category/${cat.slug}`} className="inline-block font-montserrat text-[10px] font-bold text-[#CBA14D] uppercase tracking-widest border-b border-transparent hover:border-[#CBA14D] transition-all">
+                  <Link
+                    href={`/category/${cat.slug}`}
+                    className="inline-block font-montserrat text-[10px] font-bold text-[#CBA14D] uppercase tracking-widest border-b border-transparent hover:border-[#CBA14D] transition-all"
+                  >
                     EXPLORE COLLECTION +
                   </Link>
                 </div>
@@ -190,7 +221,7 @@ const CategoryShowcase = ({ categories }: { categories: CategoryWithProducts[] }
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default CategoryShowcase
+export default CategoryShowcase;

@@ -1,7 +1,7 @@
 "use client";
 import { allowedCategoryNames } from "@/const/globalconst";
 import Image from "next/image";
-import Link from "@/hooks/appLink"
+import Link from "@/hooks/appLink";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { getImageURL } from "@/lib/getImageLin";
@@ -21,19 +21,18 @@ interface CategorySectionProps {
 
 // Grid span patterns for the bento layout — cycles every 9 items
 const SPAN_PATTERNS = [
-  "lg:col-span-5 lg:row-span-2",  // 0 – hero (big card)
-  "lg:col-span-4 lg:row-span-1",  // 1
-  "lg:col-span-3 lg:row-span-1",  // 2
-  "lg:col-span-3 lg:row-span-1",  // 3
-  "lg:col-span-4 lg:row-span-1",  // 4
-  "lg:col-span-4 md:col-span-6",  // 5
-  "lg:col-span-2 md:col-span-6",  // 6
-  "lg:col-span-2 md:col-span-6",  // 7
-  "lg:col-span-4 md:col-span-6",  // 8
+  "lg:col-span-5 lg:row-span-2", // 0 – hero (big card)
+  "lg:col-span-4 lg:row-span-1", // 1
+  "lg:col-span-3 lg:row-span-1", // 2
+  "lg:col-span-3 lg:row-span-1", // 3
+  "lg:col-span-4 lg:row-span-1", // 4
+  "lg:col-span-4 md:col-span-6", // 5
+  "lg:col-span-2 md:col-span-6", // 6
+  "lg:col-span-2 md:col-span-6", // 7
+  "lg:col-span-4 md:col-span-6", // 8
 ];
 
 const CategorySection = ({ categories }: CategorySectionProps) => {
-
   return (
     <section
       id="category-section"
@@ -50,9 +49,8 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
               href="/category"
               className="hover:text-[#EDEBE9] transition-colors"
             >
-              Category
+              {categories[0]?.type}
             </Link>
-            <span>&gt;</span>
           </nav>
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[#EDEBE9]">
             Browse by Category
