@@ -261,6 +261,9 @@ const FAQSection = () => {
 
   return (
     <div className="space-y-16 bg-black py-10">
+      <h1 className="text-3xl md:text-5xl font-bold text-center text-white font-montserrat uppercase tracking-tight">
+        Frequently Asked Questions
+      </h1>
       <div className="flex justify-center gap-3 flex-wrap">
         {categories.map((cat) => (
           <button

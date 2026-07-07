@@ -9,6 +9,8 @@ import {
 import Link from "@/hooks/appLink";
 import FilterSidebar from "@/components/product/FilterSidebar";
 import { getImageURL } from "@/lib/getImageLin";
+import { IconAdjustmentsHorizontal } from "@tabler/icons-react";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Metadata, ResolvingMetadata } from "next";
 import { db } from "@/db";
 import { category } from "@/db/schema";
@@ -43,6 +45,9 @@ export async function generateMetadata(
     return {
       title: productRes.title || `${productRes.name} | Morzze`,
       description: productRes.description || `Browse ${productRes.name} products at Morzze.`,
+      alternates: {
+        canonical: `/kitchen/${slug}`,
+      },
       openGraph: {
         images,
       },
@@ -149,6 +154,40 @@ export default async function CategoryPage({
             />
           </div>
           <div className="lg:w-3/4">
+            {/* Mobile Filter Button */}
+            <div className="flex lg:hidden items-center justify-between pb-6 border-b border-white/5 mb-6">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <button className="flex items-center gap-2.5 text-[13px] text-[#EDEBE9] font-inter uppercase tracking-[0.15em] font-medium">
+                    <IconAdjustmentsHorizontal size={20} className="text-[#FFBF3F]" />
+                    Filters
+                  </button>
+                </SheetTrigger>
+                <SheetContent
+                  side="left"
+                  className="bg-[#0A0A0A] border-r border-white/10 w-[300px] text-white p-0 overflow-y-auto custom-scrollbar"
+                >
+                  <SheetHeader className="p-6 border-b border-white/5 text-left">
+                    <SheetTitle className="text-white font-inter text-lg tracking-tight uppercase">
+                      Product Filters
+                    </SheetTitle>
+                  </SheetHeader>
+                  <div className="px-6 pb-10">
+                    <FilterSidebar
+                      categories={[]}
+                      materialOptions={[]}
+                      finishOptions={[]}
+                      steelSinkCategorySlugs={steelSinkCategorySlugs}
+                      currentCategorySlug={slug}
+                    />
+                  </div>
+                </SheetContent>
+              </Sheet>
+              <span className="text-[10px] text-[#555] uppercase tracking-widest font-inter">
+                {products.length} Results
+              </span>
+            </div>
+
             {products.length === 0 ? (
               <div className="text-center py-20">
                 <p className="text-white/40 text-lg font-inter">

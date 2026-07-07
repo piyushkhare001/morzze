@@ -8,6 +8,7 @@ import ScrollToTop from "@/components/commom/ScrollToTop";
 import Script from "next/script";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.morzze.com"),
   title: "Morzze - Kitchen & Bathroom Accessories",
   description: "Morzze - Premium Kitchen & Bathroom Accessories",
   icons: {
