@@ -33,10 +33,10 @@ const FeaturedInnovation = () => {
           transition={{ duration: 0.8 }}
           className="space-y-6"
         >
-          <h2 className="font-montserrat text-4xl md:text-5xl font-medium text-white leading-tight">
+          <h3 className="font-montserrat text-4xl md:text-5xl font-medium text-white leading-tight">
             Featured <br />
             <span className="text-white">Innovation</span>
-          </h2>
+          </h3>
           <p className="font-inter text-white/80 text-sm md:text-md leading-relaxed text-justify">
             The <span className="text-white font-bold">Air Tap</span> is a sleek and
             innovative hand dryer designed for modern, eco-conscious spaces. Its
@@ -83,9 +83,9 @@ const FeaturedInnovation = () => {
               <div className="w-[3px] h-12 bg-[#CBA14D]" />
 
               <div className="flex flex-row items-center gap-12">
-                <h3 className="font-montserrat text-4xl md:text-5xl font-medium text-white tracking-wide">
-                  {stat.value}
-                </h3>
+                <p className="font-montserrat text-4xl md:text-5xl font-medium text-white tracking-wide">
+                {stat.value}
+                </p>
                 <p className="font-montserrat text-[10px] md:text-xs font-bold text-white uppercase tracking-[0.2em] leading-tight max-w-[80px]">
                   {stat.label}
                 </p>

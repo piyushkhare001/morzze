@@ -14,9 +14,9 @@ const LookbookSection = () => {
           <span className="block font-inter text-xs md:text-sm font-bold text-[#CBA14D] uppercase tracking-[0.5em]">
             INSPIRATION
           </span>
-          <h2 className="font-montserrat text-4xl md:text-5xl font-medium tracking-tight text-white uppercase">
+          <h3 className="font-montserrat text-4xl md:text-5xl font-medium tracking-tight text-white uppercase">
             The Lookbook
-          </h2>
+          </h3>
         </div>
 
         {/* -- ANIMATED GRID -- */}

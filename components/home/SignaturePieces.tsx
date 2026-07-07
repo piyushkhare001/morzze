@@ -132,9 +132,9 @@ const SignaturePieces = ({ products }: { products: SignatureProduct[] }) => {
                 </p>
 
                 <Link href={`/product/${product.slug}`}>
-                  <h3 className="text-sm md:text-[15px] font-inter text-[#EDEBE9] group-hover:text-[#FFBF3F] transition-colors line-clamp-1 cursor-pointer">
+                  <h4 className="text-sm md:text-[15px] font-inter text-[#EDEBE9] group-hover:text-[#FFBF3F] transition-colors line-clamp-1 cursor-pointer">
                     {product.name}
-                  </h3>
+                  </h4>
                 </Link>
 
                 {/* <div className="flex items-center gap-1 py-0.5">

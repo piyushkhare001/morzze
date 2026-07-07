@@ -141,9 +141,9 @@ const Footer = async () => {
           <div className="grid grid-cols-2 gap-8 md:contents">
             {/* Shop Section */}
             <div className="text-left">
-              <h4 className="font-montserrat text-sm font-bold text-white uppercase tracking-[0.15em] mb-6 border-b border-white/10 pb-2 md:border-none">
+              <span className="font-montserrat text-sm font-bold text-white uppercase tracking-[0.15em] mb-6 border-b border-white/10 pb-2 md:border-none">
                 Shop
-              </h4>
+              </span>
 
               <ul className="space-y-3">
                 {[
@@ -186,9 +186,9 @@ const Footer = async () => {
 
             {/* Company Section */}
             <div className="text-left">
-              <h4 className="font-montserrat text-sm font-bold text-white uppercase tracking-[0.15em] mb-6 border-b border-white/10 pb-2 md:border-none">
+              <span className="font-montserrat text-sm font-bold text-white uppercase tracking-[0.15em] mb-6 border-b border-white/10 pb-2 md:border-none">
                 Company
-              </h4>
+              </span>
 
               <ul className="space-y-3">
                 {companyLinks.map((item) => (
@@ -207,9 +207,9 @@ const Footer = async () => {
 
           {/* Support Section */}
           <div className="text-left">
-            <h4 className="font-montserrat text-sm font-bold text-white uppercase tracking-[0.15em] mb-6 border-b border-white/10 pb-2 md:border-none">
+            <span className="font-montserrat text-sm font-bold text-white uppercase tracking-[0.15em] mb-6 border-b border-white/10 pb-2 md:border-none">
               Support
-            </h4>
+            </span>
 
             <ul className="space-y-3">
               {[

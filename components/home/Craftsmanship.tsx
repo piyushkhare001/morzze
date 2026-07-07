@@ -40,9 +40,9 @@ const VertexShowcase = () => {
               Precision Engineering
             </span>
 
-            <h1 className="font-montserrat text-3xl md:text-5xl font-bold text-white leading-tight">
+            <h2 className="font-montserrat text-3xl md:text-5xl font-bold text-white leading-tight">
               Vertex Pro Faucet
-            </h1>
+            </h2>
 
             <p className="font-inter text-[#D1D1D1] text-base md:text-md leading-relaxed max-w-2xl">
               Experience the perfect water flow with our flagship kitchen faucet,

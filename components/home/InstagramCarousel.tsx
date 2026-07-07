@@ -25,7 +25,7 @@ export default function InstagramCarousel() {
 
       <div className="absolute inset-0 -z-10">
         <Image
-          src={imageKitUrl("insta-bg.png")}
+          src={imageKitUrl("insta-bg-v2.png")}
           alt="background"
           height={1000}
           width={1000}
@@ -43,9 +43,9 @@ export default function InstagramCarousel() {
             @MORZZEINDIA
           </span>
 
-          <h2 className="font-montserrat text-3xl md:text-5xl font-medium uppercase tracking-tight">
+          <h3 className="font-montserrat text-3xl md:text-5xl font-medium uppercase tracking-tight">
             FOLLOW US ON <span className="text-[#CBA14D]">INSTAGRAM</span>
-          </h2>
+          </h3>
 
           <p className="font-inter text-white/80 text-sm md:text-md max-w-2xl mx-auto leading-relaxed">
             Get inspired by our latest designs and see how our customers

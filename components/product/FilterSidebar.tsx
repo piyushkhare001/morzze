@@ -244,7 +244,7 @@ const FilterSidebar = ({
   };
 
   return (
-    <div className="w-full bg-black p-0 select-none md:block hidden">
+    <div className="w-full bg-black p-0 select-none">
       {filterData.map((section) => {
         const isOpen = openSections.includes(section.id);
         const selectedCount = section.items.filter((item) =>
@@ -259,6 +259,9 @@ const FilterSidebar = ({
             <div
               className="flex items-center justify-between cursor-pointer mb-4 group"
               onClick={() => toggleSection(section.id)}
+              role="button"
+              aria-expanded={isOpen}
+              aria-label={`Toggle ${section.title} filter section`}
             >
               <h3 className="text-sm tracking-[0.15em] font-montserrat text-white/80 uppercase group-hover:text-white transition-colors">
                 {section.title} {selectedCount > 0 && `(${selectedCount})`}

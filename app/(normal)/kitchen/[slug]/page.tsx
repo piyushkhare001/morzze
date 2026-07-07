@@ -24,7 +24,8 @@ export async function generateMetadata(
     const [productRes] = await db
       .select({
         title: category.metaTitle,
-        description: category.metaTitle,
+        description: category.metaDescription,
+        name: category.name,
         image: category.bannerImage,
       })
       .from(category)
@@ -40,8 +41,8 @@ export async function generateMetadata(
     const images: string = productRes.image!;
 
     return {
-      title: productRes.title,
-      description: productRes.description,
+      title: productRes.title || `${productRes.name} | Morzze`,
+      description: productRes.description || `Browse ${productRes.name} products at Morzze.`,
       openGraph: {
         images,
       },
@@ -138,7 +139,7 @@ export default async function CategoryPage({
       {/* Products */}
       <section className="max-w-screen-2xl mx-auto px-6 md:px-10 py-12 md:py-16">
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="lg:w-1/4">
+          <div className="hidden lg:block lg:w-1/4">
             <FilterSidebar
               categories={[]}
               materialOptions={[]}

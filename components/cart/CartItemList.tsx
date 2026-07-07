@@ -82,6 +82,7 @@ const CartItemList = () => {
                   <button
                     onClick={() => updateQuantity(item, item.quantity - 1)}
                     className="text-zinc-500 hover:text-white transition-colors"
+                    aria-label="Decrease quantity"
                   >
                     <Minus size={14} />
                   </button>
@@ -91,6 +92,7 @@ const CartItemList = () => {
                   <button
                     onClick={() => updateQuantity(item, item.quantity + 1)}
                     className="text-zinc-500 hover:text-white transition-colors"
+                    aria-label="Increase quantity"
                   >
                     <Plus size={14} />
                   </button>
@@ -109,6 +111,7 @@ const CartItemList = () => {
                   <button
                     onClick={() => removeFromCart(item)}
                     className="text-red-500/80 hover:text-red-500 transition-colors"
+                    aria-label="Remove item"
                   >
                     <Trash2 size={16} />
                   </button>
@@ -174,6 +177,7 @@ const CartItemList = () => {
                 <button
                   onClick={() => updateQuantity(item, item.quantity + 1)}
                   className="w-8 h-8 flex items-center justify-center bg-[#141414] rounded-full text-zinc-400"
+                  aria-label="Increase quantity"
                 >
                   <Plus size={14} />
                 </button>
@@ -183,6 +187,7 @@ const CartItemList = () => {
                 <button
                   onClick={() => updateQuantity(item, item.quantity - 1)}
                   className="w-8 h-8 flex items-center justify-center bg-[#141414] rounded-full text-zinc-400"
+                  aria-label="Decrease quantity"
                 >
                   <Minus size={14} />
                 </button>
@@ -192,6 +197,7 @@ const CartItemList = () => {
               <button
                 onClick={() => removeFromCart(item)}
                 className="absolute -top-1 -right-1 p-1 text-red-500/50 hover:text-red-500 transition-colors"
+                aria-label="Remove item"
               >
                 <Trash2 size={14} />
               </button>

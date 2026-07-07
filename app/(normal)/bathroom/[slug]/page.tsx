@@ -7,6 +7,27 @@ import {
 import Link from "@/hooks/appLink";
 import { getImageURL } from "@/lib/getImageLin";
 import CategoryProductsClient from "@/components/commom/CategoryProductsClient";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const categoryData = await getCategoryBySlug(slug);
+
+  if (!categoryData) {
+    return {
+      title: "Category Not Found | Morzze",
+    };
+  }
+
+  return {
+    title: categoryData.metaTitle || `${categoryData.name} | Morzze`,
+    description: categoryData.metaDescription || categoryData.description || `Browse ${categoryData.name} products at Morzze.`,
+  };
+}
 
 export default async function CategoryPage({
   params,

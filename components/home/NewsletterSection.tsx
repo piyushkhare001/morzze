@@ -66,9 +66,9 @@ const NewsletterSection = () => {
               STAY UPDATED
             </motion.span>
 
-            <h2 className="font-montserrat text-4xl md:text-5xl font-medium text-white tracking-tight leading-tight">
+            <h3 className="font-montserrat text-4xl md:text-5xl font-medium text-white tracking-tight leading-tight">
               Join the World of Style
-            </h2>
+            </h3>
 
             <p className="font-inter text-white/80 text-sm md:text-md max-w-xl mx-auto leading-relaxed">
               Be the first to discover new collections, exclusive offers, and design inspiration.
