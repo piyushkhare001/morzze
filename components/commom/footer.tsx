@@ -244,8 +244,8 @@ const Footer = async () => {
       </div>
 
       {/* Bottom Bar: Mobile Optimized Layout */}
-      <div className="relative z-10 border-t border-white/40 mx-4 md:mx-10 bg-black/60 backdrop-blur-sm">
-        <div className="max-w-screen-2xl mx-auto px-4 py-8 flex flex-col items-center space-y-6 md:flex-row md:justify-between md:space-y-0">
+      <div className="relative z-10 border-t border-white/40 w-full bg-black/60 backdrop-blur-sm">
+        <div className="max-w-screen-2xl mx-auto px-4 md:px-14 py-8 flex flex-col items-center space-y-6 md:flex-row md:justify-between md:space-y-0">
           <p className="text-[11px] text-white/60 font-inter tracking-wide order-3 md:order-1">
             © {currentYear} Morzze. All Rights Reserved.
           </p>

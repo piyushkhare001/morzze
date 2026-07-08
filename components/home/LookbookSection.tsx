@@ -40,7 +40,7 @@ const LookbookSection = () => {
                   alt="Bathroom Design"
                   height={500}
                   width={500}
-                  className="object-cover"
+                  className="object-cover w-full h-full"
                 />
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-all duration-500" />
               </motion.div>
@@ -76,7 +76,7 @@ const LookbookSection = () => {
                   alt="Kitchen Design"
                   height={500}
                   width={500}
-                  className="object-cover"
+                  className="object-cover w-full h-full"
                 />
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-all duration-500" />
               </motion.div>
