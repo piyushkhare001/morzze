@@ -44,7 +44,11 @@ const Footer = async () => {
         <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
           {/* Logo & Description Section */}
           <div className="text-left">
-            <Link href="/" aria-label="Go to Morzze homepage" className="inline-block cursor-pointer">
+            <Link
+              href="/"
+              aria-label="Go to Morzze homepage"
+              className="inline-block cursor-pointer"
+            >
               <div className="relative w-40 h-16 md:w-48 md:h-20">
                 <Image
                   src={imageKitUrl("logo.png")}
@@ -151,7 +155,7 @@ const Footer = async () => {
                 Shop
               </span>
 
-              <ul className="space-y-3">
+              <ul className="space-y-3 mt-3">
                 {[
                   {
                     label: "Stainless Steel Sinks",
@@ -197,7 +201,7 @@ const Footer = async () => {
                 Company
               </span>
 
-              <ul className="space-y-3">
+              <ul className="space-y-3 mt-3">
                 {companyLinks.map((item) => (
                   <li key={item.name}>
                     <Link
@@ -219,7 +223,7 @@ const Footer = async () => {
               Support
             </span>
 
-            <ul className="space-y-3">
+            <ul className="space-y-3 mt-3">
               {[
                 { name: "Contact Us", link: "/contact" },
                 { name: "Warranty", link: "/warranty" },

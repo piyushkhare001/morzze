@@ -35,9 +35,13 @@ const ProductClient = ({ product, slug, reviews }: any) => {
   const { isInWishlist, toggleWishlist } = useWishlist();
   const { addToCart, getItemQuantity } = useCart();
 
+  const isSingleSize = product.filters.find(
+    (it: any) => it.type === "size",
+  ).filter;
+
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedFinish, setSelectedFinish] = useState("");
-  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedSize, setSelectedSize] = useState(isSingleSize);
   const [selectedMaterial, setSelectedMaterial] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -284,6 +288,37 @@ const ProductClient = ({ product, slug, reviews }: any) => {
               </div>
             )}
 
+            {/* SIZE */}
+            {sizeFilters.length > 0 && (
+              <div>
+                <p className="text-sm text-white/90 mb-2 uppercase tracking-widest font-bold">
+                  Size:{" "}
+                  <span className="text-[#FFBF3F]">
+                    {selectedSize || "Select"}
+                  </span>
+                </p>
+
+                {sizeFilters.length > 1 && (
+                  <div className="flex gap-2 flex-wrap">
+                    {sizeFilters.map((size: string) => (
+                      <button
+                        key={size}
+                        onClick={() => setSelectedSize(size)}
+                        className={cn(
+                          "px-4 py-2 border text-sm rounded-md transition-all",
+                          selectedSize === size
+                            ? "border-yellow-400 text-yellow-400 bg-yellow-400/10"
+                            : "border-white/10 text-white/85 hover:border-white/30",
+                        )}
+                      >
+                        {size}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* FINISH */}
             {finishFilters.length > 0 && (
               <div>
@@ -307,35 +342,6 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                       )}
                     >
                       {finish}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* SIZE */}
-            {sizeFilters.length > 0 && (
-              <div>
-                <p className="text-sm text-white/90 mb-2 uppercase tracking-widest font-bold">
-                  Size:{" "}
-                  <span className="text-[#FFBF3F]">
-                    {selectedSize || "Select"}
-                  </span>
-                </p>
-
-                <div className="flex gap-2 flex-wrap">
-                  {sizeFilters.map((size: string) => (
-                    <button
-                      key={size}
-                      onClick={() => setSelectedSize(size)}
-                      className={cn(
-                        "px-4 py-2 border text-sm rounded-md transition-all",
-                        selectedSize === size
-                          ? "border-yellow-400 text-yellow-400 bg-yellow-400/10"
-                          : "border-white/10 text-white/85 hover:border-white/30",
-                      )}
-                    >
-                      {size}
                     </button>
                   ))}
                 </div>
