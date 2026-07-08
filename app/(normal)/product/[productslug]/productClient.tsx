@@ -35,9 +35,9 @@ const ProductClient = ({ product, slug, reviews }: any) => {
   const { isInWishlist, toggleWishlist } = useWishlist();
   const { addToCart, getItemQuantity } = useCart();
 
-  const isSingleSize = product.filters.find(
+  const isSingleSize = product?.filters?.find(
     (it: any) => it.type === "size",
-  ).filter;
+  )?.filter;
 
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedFinish, setSelectedFinish] = useState("");
@@ -405,7 +405,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
                   });
                 }}
                 disabled={getItemQuantity(product.slug) > 0}
-                className="flex-1 py-5 bg-[#FDB813] hover:text-[#FDB813] text-black disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 py-5 bg-[#FDB813] hover:ring-[#FDB813] hover:ring hover:text-[#FDB813] text-black disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {getItemQuantity(product.slug) > 0 ? (
                   <>
@@ -438,10 +438,9 @@ const ProductClient = ({ product, slug, reviews }: any) => {
 
               <Button
                 type="button"
-                variant="outline"
                 onClick={() => toggleWishlist(slug, product.id)}
                 className={cn(
-                  "bg-[#FFBF3F] border-[#2E2E2E] transition-all",
+                  "bg-[#FFBF3F] border-[#2E2E2E] text-black hover:ring-[#FDB813] hover:ring transition-all hover:text-[#FDB813]",
                   wishlisted && "border-red-500/50 bg-[#FFBF3F] ",
                 )}
               >
