@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { IconBrandFacebook, IconBrandLinkedin } from "@tabler/icons-react";
 import { getImageURL } from "@/lib/getImageLin";
 import Image from "next/image";
+import { SubscribeForm } from "../SubscribeForm";
 
 export default function BlogDetailPage({
   blog,
@@ -250,7 +251,8 @@ export default function BlogDetailPage({
                 Get design tips and inspiration delivered to your inbox.
               </p>
 
-              <input
+                 <SubscribeForm />
+              {/* <input
                 type="email"
                 placeholder="Your email"
                 value={email}
@@ -264,7 +266,7 @@ export default function BlogDetailPage({
                 className="w-full h-10 bg-[#e6aa12] text-black text-[12px] font-semibold disabled:opacity-50"
               >
                 {loading ? "Subscribing..." : "Subscribe"}
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
