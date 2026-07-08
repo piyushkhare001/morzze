@@ -266,7 +266,7 @@ export async function getAllProductsByCategorySlug(slug: string) {
               eq(category.slug, slug),
               or(eq(product.isHidden, false), isNull(product.isHidden))
             )
-          );
+          ).orderBy(asc(product.sku))
 
         return products;
       } catch (error) {

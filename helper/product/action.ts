@@ -1032,7 +1032,7 @@ export async function getProducts({
           .select()
           .from(product)
           .where(whereClause)
-          .orderBy(...orderBy)
+          .orderBy(...orderBy, asc(product.sku))
           .limit(pageSize)
           .offset(offset),
       ]);

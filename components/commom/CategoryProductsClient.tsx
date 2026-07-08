@@ -177,7 +177,7 @@ const CategoryProductsClient = ({
                 </p>
 
                 <Link href={`/product/${product.slug}`}>
-                  <h3 className="text-sm md:text-[15px] font-inter text-[#EDEBE9] group-hover:text-[#FFBF3F] transition-colors line-clamp-1 cursor-pointer">
+                  <h3 className="text-sm md:text-[15px] font-inter text-[#EDEBE9] group-hover:text-[#FFBF3F] transition-colors cursor-pointer">
                     {product.name}
                   </h3>
                 </Link>
