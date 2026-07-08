@@ -47,13 +47,13 @@ export default function ContactCTASection() {
           </motion.a>
 
           <motion.a
-            href="tel:+911244678900"
+            href="tel:+1800 110 123"
             whileHover={{ y: -3, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="w-full sm:w-[255px] h-[48px] rounded-[6px] border border-[#b07b12] text-[#e6aa12] flex items-center justify-center gap-3 text-[14px] font-semibold hover:bg-[#1a1407] transition-colors duration-500"
           >
             <Phone size={15} />
-            +91 124 467 8900
+            1800 110 123
           </motion.a>
         </div>
       </motion.div>

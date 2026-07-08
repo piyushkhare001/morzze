@@ -255,7 +255,6 @@ const Page = () => {
         </div>
         <div className=" space-y-4  max-w-2xl mx-auto  justify-center text-left items-center my-auto">
           <div className="absolute  -top-20 right-0 w-40 h-40 blur-[110px] bg-[#FFDD00]"></div>
-          <div className="absolute bottom-0 middle-0 w-40 h-40 blur-[110px] bg-[#FFDD00]"></div>
           <div className="lg:hidden flex items-center gap-2 text-sm text-white mb-3">
             <button
               type="button"

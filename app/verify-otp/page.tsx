@@ -212,7 +212,6 @@ const VerifyOtpContent = () => {
         </div>
         <div className=" space-y-4  max-w-2xl mx-auto  justify-center text-left items-center my-auto">
           <div className="absolute  -top-20 right-0 w-40 h-40 blur-[110px] bg-[#FFDD00]"></div>
-          <div className="absolute bottom-0 middle-0 w-40 h-40 blur-[110px] bg-[#FFDD00]"></div>
           <h1 className="text-4xl font-bold p-0">Welcome Back</h1>
           <p className="text-sm -mt-5  ">Sign In To Your Account</p>
           <div className="w-full text-center z-10">
