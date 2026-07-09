@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/article',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
         source: '/kitchen/Kitchen-Sinks/Steel-Sinks',
         destination: '/kitchen/stainless-steel-sinks',
         permanent: true,
