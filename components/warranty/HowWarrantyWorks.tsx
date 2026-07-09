@@ -42,7 +42,7 @@ const steps = [
   {
     icon: <IconShieldCheck size={32} stroke={1.5} />,
     title: "Protected",
-    desc: "Enjoy 7-10 years of comprehensive warranty coverage",
+    desc: "Enjoy comprehensive warranty coverage",
   },
   {
     icon: <IconHeadset size={32} stroke={1.5} />,

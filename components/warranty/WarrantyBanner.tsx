@@ -57,12 +57,12 @@ const WarrantyBanner = () => {
           className="max-w-3xl mx-auto space-y-4"
         >
           {/* Sub-label */}
-          <motion.span
+          {/* <motion.span
             variants={itemVariants}
             className="block text-[10px] md:text-xs font-bold text-[#CBA14D] uppercase tracking-[0.4em]"
           >
-            7-10 Year Warranty
-          </motion.span>
+             Warranty
+          </motion.span> */}
 
           {/* Main Heading */}
           <motion.h1
