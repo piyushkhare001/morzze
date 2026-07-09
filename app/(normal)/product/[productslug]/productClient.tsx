@@ -228,18 +228,15 @@ const ProductClient = ({ product, slug, reviews }: any) => {
             </div>
 
             {/* DESC */}
-            <p
-              className="text-white/90 text-base cursor-pointer hover:text-white transition-colors"
+            <a
+              href="#description-tabs"
+              className="text-white/90 text-base cursor-pointer hover:text-white transition-colors block"
               onClick={() => {
                 descriptionTabsRef.current?.setActiveTab(0);
-                // Also scroll down to it so the user can see the tab change
-                setTimeout(() => {
-                  window.scrollBy({ top: 700, behavior: "smooth" });
-                }, 100);
               }}
             >
               {product.description}
-            </p>
+            </a>
 
             {/* COLOUR VARIANTS */}
             {colourVariants.length > 0 && (
@@ -508,11 +505,13 @@ const ProductClient = ({ product, slug, reviews }: any) => {
         </div>
       ))}
       {/* EXTRA SECTIONS */}
-      <DescriptionTabs
-        ref={descriptionTabsRef}
-        productAttributeRes={product?.productAttributeRes}
-        pdfDocuments={pdfDocuments}
-      />
+      <div id="description-tabs" className="scroll-mt-20">
+        <DescriptionTabs
+          ref={descriptionTabsRef}
+          productAttributeRes={product?.productAttributeRes}
+          pdfDocuments={pdfDocuments}
+        />
+      </div>
       <SpecificationsTabs productAttributeRes={product?.productAttributeRes} />
       <ReviewsTab reviews={reviews} />
       {/* <ProductComparison /> */}
