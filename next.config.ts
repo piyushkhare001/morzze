@@ -51,6 +51,7 @@ const nextConfig: NextConfig = {
 
       // 23_June_redirects
       { source: '/bathroom/Bathroom-Basin-Collection', destination: '/bathroom/Bathroom-Basins', permanent: true },
+      { source: '/granite-sinks', destination: '/kitchen/Granite-Sinks', permanent: true },
 
       // Kitchen Sinks
       { source: '/kitchen/Kitchen-Sink-Collection', destination: '/kitchen', permanent: true },

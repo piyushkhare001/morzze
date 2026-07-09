@@ -1,9 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { forwardRef, useImperativeHandle, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { sanitizeRichText } from "@/lib/sanitizeRichText";
 import { getImageURL } from "@/lib/getImageLin";
+
+export type ChildRef = {
+  setActiveTab: (tab: number) => void;
+};
 
 type ProductAttribute = {
   attribute: string;
@@ -34,10 +38,10 @@ type DescriptionTabsProps = {
   pdfDocuments?: PdfDocument[];
 };
 
-const DescriptionTabs = ({
+const DescriptionTabs = forwardRef<ChildRef, DescriptionTabsProps>(({
   productAttributeRes,
   pdfDocuments,
-}: DescriptionTabsProps) => {
+}, ref) => {
   // HTML CONTENT TABS
   const tabKeys = [
     { key: "DESCRIPTION", label: "DESCRIPTION" },
@@ -52,30 +56,39 @@ const DescriptionTabs = ({
 
     return found
       ? [
-        {
-          type: "html",
-          label: tab.label,
-          content: found.value,
-        },
-      ]
+          {
+            type: "html",
+            label: tab.label,
+            content: found.value,
+          },
+        ]
       : [];
   });
 
   const availableTabs: ProductTab[] = pdfDocuments?.length
     ? [
-      ...htmlTabs,
-      {
-        type: "pdf",
-        label: "DOCUMENTATION",
-        documents: pdfDocuments,
-      },
-    ]
+        ...htmlTabs,
+        {
+          type: "pdf",
+          label: "DOCUMENTATION",
+          documents: pdfDocuments,
+        },
+      ]
     : htmlTabs;
 
   const [activeTab, setActiveTab] = useState(0);
 
+  useImperativeHandle(ref, () => ({
+    setActiveTab: (tab: number) => {
+      setActiveTab(tab);
+    },
+  }));
+
   // HIDE COMPONENT IF NO DATA
   if (!availableTabs.length) return null;
+
+  console.log(availableTabs);
+
   const currentTab = availableTabs[activeTab];
   return (
     <div className="w-full bg-black py-10 p-4 md:p-10 font-inter border-t border-zinc-900">
@@ -86,10 +99,11 @@ const DescriptionTabs = ({
             <button
               key={index}
               onClick={() => setActiveTab(index)}
-              className={`pb-4 text-xs tracking-[0.25em] font-semibold relative whitespace-nowrap transition-colors ${activeTab === index
+              className={`pb-4 text-xs tracking-[0.25em] font-semibold relative whitespace-nowrap transition-colors ${
+                activeTab === index
                   ? "text-white"
                   : "text-zinc-400 hover:text-zinc-200"
-                }`}
+              }`}
             >
               {tab.label}
 
@@ -106,8 +120,8 @@ const DescriptionTabs = ({
             {/* PDF SECTION */}
             {availableTabs[activeTab]?.type === "pdf" ? (
               <div className="space-y-4">
-                {currentTab.type === "pdf" && currentTab.documents.map(
-                  (doc, index) => (
+                {currentTab.type === "pdf" &&
+                  currentTab.documents.map((doc, index) => (
                     <a
                       key={index}
                       href={getImageURL(doc.mediaURL)}
@@ -139,7 +153,9 @@ const DescriptionTabs = ({
                           <p className="text-white text-sm font-medium leading-snug">
                             {doc.title?.trim() || "Product Document"}
                           </p>
-                          <p className="text-zinc-500 text-xs mt-0.5 uppercase tracking-wider">PDF</p>
+                          <p className="text-zinc-500 text-xs mt-0.5 uppercase tracking-wider">
+                            PDF
+                          </p>
                         </div>
                       </div>
 
@@ -150,8 +166,7 @@ const DescriptionTabs = ({
                         View PDF
                       </Button>
                     </a>
-                  ),
-                )}
+                  ))}
               </div>
             ) : (
               // HTML CONTENT
@@ -169,6 +184,6 @@ const DescriptionTabs = ({
       </div>
     </div>
   );
-};
+});
 
 export default DescriptionTabs;

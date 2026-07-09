@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   IconStarFilled,
@@ -17,7 +17,9 @@ import {
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-import DescriptionTabs from "@/components/product/DescriptionTabs";
+import DescriptionTabs, {
+  ChildRef,
+} from "@/components/product/DescriptionTabs";
 import SpecificationsTabs from "@/components/product/SpecificationsTabs";
 // import ProductComparison from "@/components/product/ProductComparison";
 import CareAndMaintenance from "@/components/product/CareAndMaintenance";
@@ -32,6 +34,7 @@ import { getImageURL } from "@/lib/getImageLin";
 
 const ProductClient = ({ product, slug, reviews }: any) => {
   const router = useRouter();
+  const descriptionTabsRef = useRef<ChildRef>(null);
   const { isInWishlist, toggleWishlist } = useWishlist();
   const { addToCart, getItemQuantity } = useCart();
 
@@ -225,7 +228,16 @@ const ProductClient = ({ product, slug, reviews }: any) => {
             </div>
 
             {/* DESC */}
-            <p className="text-white/90 text-base leading-7">
+            <p
+              className="text-white/90 text-base cursor-pointer hover:text-white transition-colors"
+              onClick={() => {
+                descriptionTabsRef.current?.setActiveTab(0);
+                // Also scroll down to it so the user can see the tab change
+                setTimeout(() => {
+                  window.scrollBy({ top: 700, behavior: "smooth" });
+                }, 100);
+              }}
+            >
               {product.description}
             </p>
 
@@ -497,6 +509,7 @@ const ProductClient = ({ product, slug, reviews }: any) => {
       ))}
       {/* EXTRA SECTIONS */}
       <DescriptionTabs
+        ref={descriptionTabsRef}
         productAttributeRes={product?.productAttributeRes}
         pdfDocuments={pdfDocuments}
       />

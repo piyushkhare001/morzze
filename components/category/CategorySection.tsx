@@ -46,7 +46,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
             </Link>
             <span>&gt;</span>
             <Link
-              href="/category"
+              href={`/${categories[0]?.type}`}
               className="hover:text-[#EDEBE9] transition-colors"
             >
               {categories[0]?.type}
