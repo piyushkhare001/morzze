@@ -9,10 +9,13 @@ import { Metadata, ResolvingMetadata } from "next";
 
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
-  parent: ResolvingMetadata
+  parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const { slug } = await params;
   const currentBlog = await getBlogBySlug(slug);
+
+  console.log(currentBlog);
+  console.log("Blog titlee");
 
   if (!currentBlog) {
     return {
@@ -25,21 +28,19 @@ export async function generateMetadata(
 
   return {
     title: currentBlog.title || "Blog | Morzze",
-    description: currentBlog.metaDescription || `Read about ${currentBlog.title} on the Morzze blog.`,
+    description:
+      currentBlog.metaDescription ||
+      `Read about ${currentBlog.title} on the Morzze blog.`,
     alternates: {
       canonical: `/blog/${slug}`,
     },
     openGraph: {
       images,
-    }
+    },
   };
 }
 
-const page = async ({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) => {
+const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
 
   const currentBlog = await getBlogBySlug(slug);
@@ -48,36 +49,33 @@ const page = async ({
     notFound();
   }
 
-  const allBlogs = await db.select().from(blog).where(ne(blog.slug, slug)).limit(3);
+  const allBlogs = await db
+    .select()
+    .from(blog)
+    .where(ne(blog.slug, slug))
+    .limit(3);
 
   const sameCategoryBlogs = allBlogs.filter(
     (item: any) =>
       item.blogCategory === currentBlog.blogCategory &&
       item.slug !== currentBlog.slug &&
-      item.isVisible !== false
+      item.isVisible !== false,
   );
 
   const fallbackBlogs = allBlogs.filter(
-    (item: any) =>
-      item.slug !== currentBlog.slug &&
-      item.isVisible !== false
+    (item: any) => item.slug !== currentBlog.slug && item.isVisible !== false,
   );
 
   const shuffledFallbackBlogs = [...fallbackBlogs].sort(
-    () => Math.random() - 0.5
+    () => Math.random() - 0.5,
   );
 
   const relatedBlogs =
-    sameCategoryBlogs.length > 0
-      ? sameCategoryBlogs
-      : shuffledFallbackBlogs;
+    sameCategoryBlogs.length > 0 ? sameCategoryBlogs : shuffledFallbackBlogs;
 
   return (
     <div>
-      <BlogDetailPage
-        blog={currentBlog}
-        relatedBlogs={allBlogs}
-      />
+      <BlogDetailPage blog={currentBlog} relatedBlogs={allBlogs} />
 
       {/* <MoreToExploreSection /> */}
     </div>
