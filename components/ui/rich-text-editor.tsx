@@ -62,7 +62,7 @@ export default function RichTextEditor({ value, onChange }: Props) {
   }
 
   const setLink = () => {
-    const previousUrl = editor.getAttributes("link").url;
+    const previousUrl = editor.getAttributes("link").href;
     const url = window.prompt("URL:", previousUrl);
 
     if (url === null) {
@@ -74,7 +74,7 @@ export default function RichTextEditor({ value, onChange }: Props) {
       return;
     }
 
-    editor.chain().focus().extendMarkRange("link").setLink({ url }).run();
+    editor.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
   };
 
   const HeadingSelector = () => {
