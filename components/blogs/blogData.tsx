@@ -105,8 +105,18 @@ export default function BlogDetailPage({
             </motion.div>
 
             <div
-              className="space-y-6 text-[14px] md:text-[15px] leading-8 text-[#d0d0d0]"
-              dangerouslySetInnerHTML={{ __html: blog.data }}
+              className="blog-content"
+              dangerouslySetInnerHTML={{
+                __html: blog.data
+                  ? blog.data
+                      .replace(/<div[^>]*>\s*<br\s*\/?>\s*<\/div>/gi, "")
+                      .replace(/<p[^>]*>\s*<br\s*\/?>\s*<\/p>/gi, "")
+                      .replace(/<div[^>]*>\s*<span[^>]*>\s*<br\s*\/?>\s*<\/span>\s*<\/div>/gi, "")
+                      .replace(/<p[^>]*>\s*<span[^>]*>\s*<br\s*\/?>\s*<\/span>\s*<\/p>/gi, "")
+                      .replace(/<div[^>]*>\s*&nbsp;\s*<\/div>/gi, "")
+                      .replace(/<p[^>]*>\s*&nbsp;\s*<\/p>/gi, "")
+                  : "",
+              }}
             />
 
             <div className="border-t border-[#1f1f1f] mt-10 pt-8">
