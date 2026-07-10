@@ -4,7 +4,37 @@ import { blog } from "@/db/schema";
 import { getBlogBySlug, getBlogs } from "@/helper/blog/action";
 import { eq, ne } from "drizzle-orm";
 import { notFound } from "next/navigation";
+import { Metadata, ResolvingMetadata } from "next";
 
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> },
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const { slug } = await params;
+  const currentBlog = await getBlogBySlug(slug);
+
+  if (!currentBlog) {
+    return {
+      title: "Article Not Found | Morzze",
+      description: "The requested article could not be found.",
+    };
+  }
+
+  const images = currentBlog.image ? [currentBlog.image] : [];
+
+  return {
+    title: currentBlog.title || "Article | Morzze",
+    description:
+      currentBlog.metaDescription ||
+      `Read about ${currentBlog.title} on Morzze.`,
+    alternates: {
+      canonical: `/article/${slug}`,
+    },
+    openGraph: {
+      images,
+    },
+  };
+}
 const page = async ({
   params,
 }: {

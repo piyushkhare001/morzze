@@ -981,6 +981,7 @@ function getVideoURL(path: string | null | undefined) {
                   <span className="flex items-center gap-2">Colour Variants</span>
 
                   <Checkbox
+                 className="border border-gray-400 bg-white !block"
                     checked={varientBox}
                     onCheckedChange={(val) => setVarientBox(!!val)}
                   />
