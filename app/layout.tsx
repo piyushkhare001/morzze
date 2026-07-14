@@ -48,6 +48,10 @@ export default function RootLayout({
             })(window,"script");
           `}
         </Script>
+        <meta
+          name="google-site-verification"
+          content="b9KwjnmXHFhRXZiqY4pmHzQ4cKppjKF67DPMXmI_cbs"
+        />
       </head>
 
       <body className="min-h-screen font-[var(--font-montserrat)]">
@@ -72,7 +76,6 @@ export default function RootLayout({
             <Toaster theme="dark" position="top-right" richColors />
           </WishlistProvider>
         </CartProvider>
-
 
         <Script id="zoho-salesiq-config" strategy="afterInteractive">
           {`
