@@ -45,7 +45,7 @@ export default function RichTextEditor({ value, onChange }: Props) {
     },
     editorProps: {
       attributes: {
-        class: "focus:outline-none min-h-[250px] max-h-[500px] overflow-y-auto px-4 py-3 text-black bg-white focus:ring-0 w-full ProseMirror",
+        class: "focus:outline-none min-h-[250px] max-h-[500px] overflow-y-auto px-4 py-3 text-zinc-100 bg-zinc-950 focus:ring-0 w-full ProseMirror",
       },
     },
   });
@@ -58,7 +58,7 @@ export default function RichTextEditor({ value, onChange }: Props) {
   }, [value, editor]);
 
   if (!editor) {
-    return <div className="animate-pulse bg-slate-100 h-10 w-full rounded-md mt-2 border" />;
+    return <div className="animate-pulse bg-zinc-900 h-10 w-full rounded-md mt-2 border border-zinc-800" />;
   }
 
   const setLink = () => {
@@ -100,7 +100,7 @@ export default function RichTextEditor({ value, onChange }: Props) {
       <select
         value={getActiveValue()}
         onChange={handleHeadingChange}
-        className="h-8 rounded border border-input bg-background px-2 text-xs outline-none cursor-pointer focus:ring-1 focus:ring-ring text-slate-800 font-medium"
+        className="h-8 rounded border border-zinc-800 bg-zinc-900 px-2 text-xs outline-none cursor-pointer focus:ring-1 focus:ring-ring text-zinc-100 font-medium"
       >
         <option value="paragraph">Paragraph</option>
         <option value="h1">Heading 1</option>
@@ -114,14 +114,14 @@ export default function RichTextEditor({ value, onChange }: Props) {
   };
 
   return (
-    <div className="bg-white rounded-md mt-2 border overflow-hidden flex flex-col min-h-[300px]">
+    <div className="bg-zinc-950 rounded-md mt-2 border border-zinc-800 overflow-hidden flex flex-col min-h-[300px]">
       {/* Toolbar */}
-      <div className="flex flex-wrap items-center gap-1.5 p-2 bg-slate-50 border-b select-none">
+      <div className="flex flex-wrap items-center gap-1.5 p-2 bg-zinc-900 border-b border-zinc-800 select-none">
         <button
           type="button"
           onClick={() => editor.chain().focus().undo().run()}
           disabled={!editor.can().undo()}
-          className="p-1.5 rounded hover:bg-slate-200 text-slate-700 disabled:opacity-40"
+          className="p-1.5 rounded hover:bg-zinc-800 text-zinc-400 hover:text-zinc-100 disabled:opacity-40"
           title="Undo"
         >
           <Undo size={16} />
@@ -130,19 +130,19 @@ export default function RichTextEditor({ value, onChange }: Props) {
           type="button"
           onClick={() => editor.chain().focus().redo().run()}
           disabled={!editor.can().redo()}
-          className="p-1.5 rounded hover:bg-slate-200 text-slate-700 disabled:opacity-40"
+          className="p-1.5 rounded hover:bg-zinc-800 text-zinc-400 hover:text-zinc-100 disabled:opacity-40"
           title="Redo"
         >
           <Redo size={16} />
         </button>
 
-        <div className="w-px h-5 bg-slate-300 mx-1" />
+        <div className="w-px h-5 bg-zinc-800 mx-1" />
 
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBold().run()}
-          className={`p-1.5 rounded text-slate-700 hover:bg-slate-200 ${
-            editor.isActive("bold") ? "bg-slate-250 bg-slate-200 font-bold" : ""
+          className={`p-1.5 rounded text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 ${
+            editor.isActive("bold") ? "bg-zinc-800 text-zinc-100 font-bold" : ""
           }`}
           title="Bold"
         >
@@ -151,8 +151,8 @@ export default function RichTextEditor({ value, onChange }: Props) {
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={`p-1.5 rounded text-slate-700 hover:bg-slate-200 ${
-            editor.isActive("italic") ? "bg-slate-200" : ""
+          className={`p-1.5 rounded text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 ${
+            editor.isActive("italic") ? "bg-zinc-800 text-zinc-100" : ""
           }`}
           title="Italic"
         >
@@ -161,8 +161,8 @@ export default function RichTextEditor({ value, onChange }: Props) {
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleUnderline().run()}
-          className={`p-1.5 rounded text-slate-700 hover:bg-slate-200 ${
-            editor.isActive("underline") ? "bg-slate-200" : ""
+          className={`p-1.5 rounded text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 ${
+            editor.isActive("underline") ? "bg-zinc-800 text-zinc-100" : ""
           }`}
           title="Underline"
         >
@@ -171,21 +171,21 @@ export default function RichTextEditor({ value, onChange }: Props) {
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleStrike().run()}
-          className={`p-1.5 rounded text-slate-700 hover:bg-slate-200 ${
-            editor.isActive("strike") ? "bg-slate-200" : ""
+          className={`p-1.5 rounded text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 ${
+            editor.isActive("strike") ? "bg-zinc-800 text-zinc-100" : ""
           }`}
           title="Strike-through"
         >
           <Strikethrough size={16} />
         </button>
 
-        <div className="w-px h-5 bg-slate-300 mx-1" />
+        <div className="w-px h-5 bg-zinc-800 mx-1" />
 
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
-          className={`p-1.5 rounded text-slate-700 hover:bg-slate-200 ${
-            editor.isActive("bulletList") ? "bg-slate-200" : ""
+          className={`p-1.5 rounded text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 ${
+            editor.isActive("bulletList") ? "bg-zinc-800 text-zinc-100" : ""
           }`}
           title="Bullet List"
         >
@@ -194,21 +194,21 @@ export default function RichTextEditor({ value, onChange }: Props) {
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
-          className={`p-1.5 rounded text-slate-700 hover:bg-slate-200 ${
-            editor.isActive("orderedList") ? "bg-slate-200" : ""
+          className={`p-1.5 rounded text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 ${
+            editor.isActive("orderedList") ? "bg-zinc-800 text-zinc-100" : ""
           }`}
           title="Numbered List"
         >
           <ListOrdered size={16} />
         </button>
 
-        <div className="w-px h-5 bg-slate-300 mx-1" />
+        <div className="w-px h-5 bg-zinc-800 mx-1" />
 
         <button
           type="button"
           onClick={setLink}
-          className={`p-1.5 rounded text-slate-700 hover:bg-slate-200 ${
-            editor.isActive("link") ? "bg-slate-200" : ""
+          className={`p-1.5 rounded text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 ${
+            editor.isActive("link") ? "bg-zinc-800 text-zinc-100" : ""
           }`}
           title="Insert Link"
         >
@@ -218,19 +218,19 @@ export default function RichTextEditor({ value, onChange }: Props) {
           type="button"
           onClick={() => editor.chain().focus().unsetLink().run()}
           disabled={!editor.isActive("link")}
-          className="p-1.5 rounded hover:bg-slate-200 text-slate-700 disabled:opacity-40"
+          className="p-1.5 rounded hover:bg-zinc-800 text-zinc-400 hover:text-zinc-100 disabled:opacity-40"
           title="Remove Link"
         >
           <Link2Off size={16} />
         </button>
 
-        <div className="w-px h-5 bg-slate-300 mx-1" />
+        <div className="w-px h-5 bg-zinc-800 mx-1" />
 
         <HeadingSelector />
       </div>
 
       {/* Editor Content Area */}
-      <div className="flex-1 w-full border-t min-h-[250px] relative">
+      <div className="flex-1 w-full border-t border-zinc-800 min-h-[250px] relative">
         <EditorContent editor={editor} />
       </div>
     </div>
