@@ -63,9 +63,8 @@ export async function createBlog(blogData: any) {
   try {
     const slugInput = blogData.slug || blogData.title;
     const slug = slugInput
-      .toLowerCase()
       .trim()
-      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/[^a-zA-Z0-9]+/g, "-")
       .replace(/(^-|-$)+/g, "");
 
     // Check if slug is unique
@@ -123,9 +122,8 @@ export async function updateBlog(blogId: string, blogData: any) {
     
     const slugInput = blogData.slug || existingSlug;
     const formattedSlug = slugInput
-      .toLowerCase()
       .trim()
-      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/[^a-zA-Z0-9]+/g, "-")
       .replace(/(^-|-$)+/g, "");
 
     // If slug is changing, verify it is unique
