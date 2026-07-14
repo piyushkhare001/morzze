@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/admin/', '/api/', '/dashboard/'],
+      disallow: ['/admin/', '/api/', '/dashboard/', '/cart', '/login', '/register', '/forgot-password'],
     },
     sitemap: 'https://morzze.com/sitemap.xml',
   }

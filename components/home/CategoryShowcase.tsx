@@ -209,7 +209,7 @@ const CategoryShowcase = ({
                     </p>
                   )}
                   <Link
-                    href={`/category/${cat.slug}`}
+                    href={`/${cat.type}/${cat.slug}`}
                     className="inline-block font-montserrat text-[10px] font-bold text-[#CBA14D] uppercase tracking-widest border-b border-transparent hover:border-[#CBA14D] transition-all"
                   >
                     EXPLORE COLLECTION +

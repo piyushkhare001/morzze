@@ -45,7 +45,8 @@ export default function RichTextEditor({ value, onChange }: Props) {
     },
     editorProps: {
       attributes: {
-        class: "focus:outline-none min-h-[250px] max-h-[500px] overflow-y-auto px-4 py-3 text-zinc-100 bg-zinc-950 focus:ring-0 w-full ProseMirror",
+        class:
+          "focus:outline-none min-h-[250px] max-h-[500px] overflow-y-auto px-4 py-3 text-zinc-100 bg-zinc-950 focus:ring-0 w-full ProseMirror",
       },
     },
   });
@@ -58,7 +59,9 @@ export default function RichTextEditor({ value, onChange }: Props) {
   }, [value, editor]);
 
   if (!editor) {
-    return <div className="animate-pulse bg-zinc-900 h-10 w-full rounded-md mt-2 border border-zinc-800" />;
+    return (
+      <div className="animate-pulse bg-zinc-900 h-10 w-full rounded-md mt-2 border border-zinc-800" />
+    );
   }
 
   const setLink = () => {

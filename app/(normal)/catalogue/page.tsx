@@ -2,6 +2,12 @@ import ProductCatalogueHero from "@/components/catalogue/banner";
 import CatalogueGridDownloads from "@/components/catalogue/cataloguegrid";
 import { CatalogueForm } from "@/components/CatalogueForm";
 import { getActiveCatalogues } from "@/helper/catalogue/action";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: `Morzze Catalogue | Premium Kitchen & Bathroom Solutions`,
+  description: `Explore Morzze's comprehensive catalogue featuring high-quality kitchen and bathroom products, including faucets, Sinks, and other accessories.`,
+};
 
 const page = async () => {
   const rows = await getActiveCatalogues();

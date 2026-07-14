@@ -33,6 +33,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const excludedCategoryUrls = new Set([
     "kitchen/Aura",
     "bathroom/Liquid-Soap-Dispenser",
+    "kitchen/Hand-Shower",
+    "kitchen/signature-pieces",
+    "kitchen/Sink-Strainer-Cover",
+    "kitchen/Sink-Drainer-Adapter",
+    "kitchen/Sink-Strainer"
   ]);
 
   const excludedProducts = new Set([
