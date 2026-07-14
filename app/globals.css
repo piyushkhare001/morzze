@@ -282,6 +282,35 @@ textarea {
   margin-bottom: 1.5rem;
 }
 
+/* Blog Content Table Styling */
+.blog-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+  font-size: 0.9375rem;
+}
+
+.blog-content th,
+.blog-content td {
+  border: 1px solid #1f1f1f;
+  padding: 10px 14px;
+  text-align: left;
+}
+
+.blog-content th {
+  background-color: #121212;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.blog-content td {
+  color: #d0d0d0;
+}
+
+.blog-content tr:nth-child(even) {
+  background-color: #080808;
+}
+
 /* Styles for Tiptap editor container and contenteditable text field inside admin panel */
 .ProseMirror {
   background-color: #09090b !important;
@@ -335,6 +364,36 @@ textarea {
   margin-bottom: 0.25rem !important;
   color: #d4d4d8 !important;
 }
+
+/* Tiptap Table Styling inside editor */
+.ProseMirror table {
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.ProseMirror th,
+.ProseMirror td {
+  border: 1px solid #27272a;
+  padding: 8px 12px;
+  min-width: 80px;
+  text-align: left;
+}
+
+.ProseMirror th {
+  background-color: #18181b;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.ProseMirror td {
+  color: #d4d4d8;
+}
+
+.ProseMirror tr:nth-child(even) {
+  background-color: #0c0c0e;
+}
+
 
 
 

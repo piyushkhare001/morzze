@@ -3,8 +3,12 @@
 import React, { useEffect } from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import Underline from "@tiptap/extension-underline";
-import Link from "@tiptap/extension-link";
+import { Underline } from "@tiptap/extension-underline";
+import { Link } from "@tiptap/extension-link";
+import { Table } from "@tiptap/extension-table";
+import { TableRow } from "@tiptap/extension-table-row";
+import { TableCell } from "@tiptap/extension-table-cell";
+import { TableHeader } from "@tiptap/extension-table-header";
 import {
   Bold,
   Italic,
@@ -38,6 +42,12 @@ export default function RichTextEditor({ value, onChange }: Props) {
           class: "text-[#e6aa12] underline cursor-pointer",
         },
       }),
+      Table.configure({
+        resizable: true,
+      }),
+      TableRow,
+      TableHeader,
+      TableCell,
     ],
     content: value || "",
     onUpdate: ({ editor }) => {
@@ -112,6 +122,59 @@ export default function RichTextEditor({ value, onChange }: Props) {
         <option value="h4">Heading 4</option>
         <option value="h5">Heading 5</option>
         <option value="h6">Heading 6</option>
+      </select>
+    );
+  };
+
+  const TableDropdown = () => {
+    const handleTableAction = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const action = e.target.value;
+      if (action === "insert") {
+        editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run();
+      } else if (action === "addRowBefore") {
+        editor.chain().focus().addRowBefore().run();
+      } else if (action === "addRowAfter") {
+        editor.chain().focus().addRowAfter().run();
+      } else if (action === "addColumnBefore") {
+        editor.chain().focus().addColumnBefore().run();
+      } else if (action === "addColumnAfter") {
+        editor.chain().focus().addColumnAfter().run();
+      } else if (action === "deleteRow") {
+        editor.chain().focus().deleteRow().run();
+      } else if (action === "deleteColumn") {
+        editor.chain().focus().deleteColumn().run();
+      } else if (action === "deleteTable") {
+        editor.chain().focus().deleteTable().run();
+      } else if (action === "toggleHeaderCell") {
+        editor.chain().focus().toggleHeaderCell().run();
+      }
+      e.target.value = ""; // Reset dropdown selection
+    };
+
+    return (
+      <select
+        onChange={handleTableAction}
+        defaultValue=""
+        className="h-8 rounded border border-zinc-800 bg-zinc-900 px-2 text-xs outline-none cursor-pointer focus:ring-1 focus:ring-ring text-zinc-100 font-medium"
+      >
+        <option value="" disabled hidden>
+          Table
+        </option>
+        {!editor.isActive("table") && <option value="insert">Insert Table (3x3)</option>}
+        {editor.isActive("table") && (
+          <>
+            <option value="addRowBefore">Add Row Above</option>
+            <option value="addRowAfter">Add Row Below</option>
+            <option value="addColumnBefore">Add Col Left</option>
+            <option value="addColumnAfter">Add Col Right</option>
+            <option value="deleteRow">Delete Row</option>
+            <option value="deleteColumn">Delete Col</option>
+            <option value="toggleHeaderCell">Toggle Header Cell</option>
+            <option value="deleteTable" className="text-red-500 font-semibold">
+              Delete Table 🗑️
+            </option>
+          </>
+        )}
       </select>
     );
   };
@@ -230,6 +293,10 @@ export default function RichTextEditor({ value, onChange }: Props) {
         <div className="w-px h-5 bg-zinc-800 mx-1" />
 
         <HeadingSelector />
+
+        <div className="w-px h-5 bg-zinc-800 mx-1" />
+
+        <TableDropdown />
       </div>
 
       {/* Editor Content Area */}
