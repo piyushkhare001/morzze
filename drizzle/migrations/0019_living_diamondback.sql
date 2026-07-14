@@ -1,0 +1,1 @@
+ALTER TABLE "blog" ADD COLUMN "meta_title" varchar;

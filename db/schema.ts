@@ -85,6 +85,7 @@ export const address = pgTable("address", {
 export const blog = pgTable("blog", {
   id: uuid("id").primaryKey().defaultRandom(),
   title: varchar("title"),
+  metaTitle: varchar("meta_title"),
   metaDescription: varchar("meta_description"),
   blogCategory: varchar("blog_category"),
   image: varchar("image"),

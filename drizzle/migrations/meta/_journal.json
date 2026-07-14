@@ -141,6 +141,13 @@
       "when": 1782817359838,
       "tag": "0018_shallow_warstar",
       "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1784024172430,
+      "tag": "0019_living_diamondback",
+      "breakpoints": true
     }
   ]
 }

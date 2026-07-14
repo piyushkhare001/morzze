@@ -4,7 +4,7 @@
 import { blog } from "@/db/schema"; 
 import { db } from "@/lib/db";
 
-import { and, desc, eq, ilike, or } from "drizzle-orm";
+import { and, desc, eq, ilike, or, ne } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 export async function getBlogs(search = "") {
   const filters = [];
@@ -61,20 +61,33 @@ export async function getBlogBySlug(slug: string) {
 
 export async function createBlog(blogData: any) {
   try {
-    const slug = blogData.title
+    const slugInput = blogData.slug || blogData.title;
+    const slug = slugInput
       .toLowerCase()
       .trim()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)+/g, "");
 
+    // Check if slug is unique
+    const existing = await db
+      .select({ id: blog.id })
+      .from(blog)
+      .where(eq(blog.slug, slug))
+      .limit(1);
+
+    if (existing.length > 0) {
+      return { success: false, error: "slug_exists", message: "This slug is already in use. Please choose a unique slug." };
+    }
+
     await db.insert(blog).values({
       title: blogData.title,
+      metaTitle: blogData.metaTitle,
       metaDescription: blogData.metaDescription,
       blogCategory: blogData.blogCategory,
       image: blogData.image,
       userImage: blogData.userImage,
       userName: blogData.userName,
-      textArea:blogData.textArea,
+      textArea: blogData.textArea,
       date: blogData.date,
       data: blogData.data, 
       slug: slug,
@@ -92,18 +105,47 @@ export async function createBlog(blogData: any) {
     return { success: false, message: error.message };
   }
 }
+
 export async function updateBlog(blogId: string, blogData: any) {
   try {
-    const slug = blogData.title
+    // Fetch the existing blog to get its current slug
+    const currentBlog = await db
+      .select({ slug: blog.slug })
+      .from(blog)
+      .where(eq(blog.id, blogId))
+      .limit(1);
+
+    if (currentBlog.length === 0) {
+      return { success: false, message: "Blog not found." };
+    }
+
+    const existingSlug = currentBlog[0].slug;
+    
+    const slugInput = blogData.slug || existingSlug;
+    const formattedSlug = slugInput
       .toLowerCase()
       .trim()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)+/g, "");
 
+    // If slug is changing, verify it is unique
+    if (formattedSlug !== existingSlug) {
+      const duplicate = await db
+        .select({ id: blog.id })
+        .from(blog)
+        .where(and(eq(blog.slug, formattedSlug), ne(blog.id, blogId)))
+        .limit(1);
+
+      if (duplicate.length > 0) {
+        return { success: false, error: "slug_exists", message: "This slug is already in use by another blog. Please choose a unique slug." };
+      }
+    }
+
     await db
       .update(blog)
       .set({
         title: blogData.title,
+        metaTitle: blogData.metaTitle,
         metaDescription: blogData.metaDescription,
         blogCategory: blogData.blogCategory,
         image: blogData.image,
@@ -112,7 +154,7 @@ export async function updateBlog(blogId: string, blogData: any) {
         textArea: blogData.textArea,
         date: blogData.date,
         data: blogData.data,
-        slug: slug,
+        slug: formattedSlug,
         tags: Array.isArray(blogData.tags) 
           ? blogData.tags 
           : (blogData.tags ? blogData.tags.split(',').map((t: string) => t.trim()) : []),
@@ -120,7 +162,14 @@ export async function updateBlog(blogId: string, blogData: any) {
       .where(eq(blog.id, blogId));
 
     revalidatePath("/admin/blog");
-    revalidatePath(`/blog/${slug}`); 
+    if (existingSlug) {
+      revalidatePath(`/blog/${existingSlug}`);
+      revalidatePath(`/article/${existingSlug}`);
+    }
+    if (formattedSlug !== existingSlug) {
+      revalidatePath(`/blog/${formattedSlug}`);
+      revalidatePath(`/article/${formattedSlug}`);
+    }
     return { success: true };
   } catch (error) {
     console.error("Update Blog Error:", error);

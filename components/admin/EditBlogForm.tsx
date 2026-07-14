@@ -26,6 +26,8 @@ export default function EditBlogForm({ initialData }: { initialData: any }) {
 
   const [formData, setFormData] = useState({
     title: initialData.title || "",
+    slug: initialData.slug || "",
+    metaTitle: initialData.metaTitle || "",
     metaDescription: initialData.metaDescription || "",
     blogCategory: initialData.blogCategory || "",
     image: initialData.image || "",
@@ -96,6 +98,8 @@ export default function EditBlogForm({ initialData }: { initialData: any }) {
     if (res.success) {
       router.push("/admin/blog");
       router.refresh();
+    } else if (res.error === "slug_exists") {
+      alert("Error: " + res.message);
     } else {
       alert("Something went wrong!");
     }
@@ -121,6 +125,20 @@ export default function EditBlogForm({ initialData }: { initialData: any }) {
                 setFormData({ ...formData, title: e.target.value })
               }
               placeholder="Enter catchy title"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="text-sm font-semibold text-gray-700">
+              Blog Slug (URL Path)
+            </label>
+            <Input
+              value={formData.slug}
+              onChange={(e) =>
+                setFormData({ ...formData, slug: e.target.value })
+              }
+              placeholder="e.g. custom-url-path"
               required
             />
           </div>
@@ -247,6 +265,19 @@ export default function EditBlogForm({ initialData }: { initialData: any }) {
                 </div>
               )}
             </div>
+          </div>
+
+          <div>
+            <label className="text-sm font-semibold text-gray-700">
+              Meta Title (for SEO)
+            </label>
+            <Input
+              value={formData.metaTitle}
+              onChange={(e) =>
+                setFormData({ ...formData, metaTitle: e.target.value })
+              }
+              placeholder="Enter meta title for SEO"
+            />
           </div>
 
           <div>

@@ -19,6 +19,8 @@ export default function BlogForm() {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
+    slug: "",
+    metaTitle: "",
     metaDescription: "",
     blogCategory: "",
     date: new Date().toISOString().split("T")[0],
@@ -94,6 +96,8 @@ export default function BlogForm() {
       alert("Blog Published Successfully!");
       router.push("/admin/blog");
       router.refresh();
+    } else if (res.error === "slug_exists") {
+      alert("Error: " + res.message);
     } else {
       alert("Error: Database connection failed. Run 'npx drizzle-kit push'.");
     }
@@ -144,6 +148,19 @@ export default function BlogForm() {
                 <option value="Towel Warmer">Towel Warmer</option>
               </select>
 
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <Label className="font-medium">Blog Slug (URL Path)</Label>
+              <Input
+                placeholder="e.g. custom-url-path (auto-generated from title if blank)"
+                value={formData.slug}
+                onChange={(e) =>
+                  setFormData({ ...formData, slug: e.target.value })
+                }
+              />
             </div>
           </div>
 
@@ -238,6 +255,17 @@ export default function BlogForm() {
                 setFormData({ ...formData, textArea: e.target.value })
               }
 
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label className="font-medium">Meta Title (for SEO)</Label>
+            <Input
+              placeholder="Enter SEO meta title"
+              value={formData.metaTitle}
+              onChange={(e) =>
+                setFormData({ ...formData, metaTitle: e.target.value })
+              }
             />
           </div>
 
