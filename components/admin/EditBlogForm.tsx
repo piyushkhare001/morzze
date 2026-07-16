@@ -78,11 +78,11 @@ export default function EditBlogForm({ initialData }: { initialData: any }) {
     if (!file) return;
 
     try {
-      const { fileUrl } = await upload(file, "blog");
+      const { fileKey } = await upload(file, "blog");
 
       setFormData((prev) => ({
         ...prev,
-        [field]: fileUrl, // ✅ DB + preview same
+        [field]: fileKey, // ✅ store key in DB
       }));
     } catch (error) {
       console.error("Upload failed", error);
@@ -255,7 +255,7 @@ export default function EditBlogForm({ initialData }: { initialData: any }) {
               {formData.userImage && (
                 <div className="mt-2 relative h-24 w-24 rounded-full overflow-hidden border">
                   <Image
-                    src={formData.userImage}
+                    src={getImageUrl(formData.userImage)}
                     alt="Author"
                     height={500}
                     width={500}

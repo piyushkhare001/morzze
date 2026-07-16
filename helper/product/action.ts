@@ -1017,7 +1017,7 @@ export async function getProducts({
           case "price_desc": return [desc(product.basePrice)];
           case "name_asc": return [asc(product.name)];
           case "name_desc": return [desc(product.name)];
-          default: return [asc(product.name)];
+          default: return [asc(product.sku)];
         }
       })();
 
@@ -1032,10 +1032,12 @@ export async function getProducts({
           .select()
           .from(product)
           .where(whereClause)
-          .orderBy(...orderBy, asc(product.sku))
+          .orderBy(...orderBy)
           .limit(pageSize)
           .offset(offset),
       ]);
+
+      products.map((product) => console.log(product.sku))
 
       const total = Number(countResult[0]?.count ?? 0);
 

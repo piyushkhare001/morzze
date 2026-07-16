@@ -12,6 +12,7 @@ import { createBlog } from "@/helper/blog/action";
 import { useRouter } from "next/navigation";
 import RichTextEditor from "@/components/ui/rich-text-editor";
 import { useFileUpload } from "@/helper";
+import { getImageUrl } from "@/helper/getimageUrl";
 
 export default function BlogForm() {
   const router = useRouter();
@@ -69,11 +70,11 @@ export default function BlogForm() {
     if (!file) return;
 
     try {
-      const { fileUrl } = await upload(file, "blog");
+      const { fileKey } = await upload(file, "blog");
 
       setFormData((prev) => ({
         ...prev,
-        [field]: fileUrl, // ✅ DB + preview same
+        [field]: fileKey, // ✅ store key in DB
       }));
     } catch (error) {
       console.error("Upload failed", error);
@@ -209,7 +210,7 @@ export default function BlogForm() {
             {
               formData.image &&
               <Image
-                src={formData.image}
+                src={getImageUrl(formData.image)}
                 alt="Blog banner preview"
                 width={1200}
                 height={600}
