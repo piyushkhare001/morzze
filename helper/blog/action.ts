@@ -80,7 +80,7 @@ export async function createBlog(blogData: any) {
 
     await db.insert(blog).values({
       title: blogData.title,
-      metaTitle: blogData.metaTitle,
+      metaTitle: blogData.metaTitle || blogData.title,
       metaDescription: blogData.metaDescription,
       blogCategory: blogData.blogCategory,
       image: blogData.image,
@@ -143,7 +143,7 @@ export async function updateBlog(blogId: string, blogData: any) {
       .update(blog)
       .set({
         title: blogData.title,
-        metaTitle: blogData.metaTitle,
+        metaTitle: blogData.metaTitle || blogData.title,
         metaDescription: blogData.metaDescription,
         blogCategory: blogData.blogCategory,
         image: blogData.image,

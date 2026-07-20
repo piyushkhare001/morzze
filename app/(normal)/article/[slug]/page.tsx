@@ -23,7 +23,7 @@ export async function generateMetadata(
   const images = currentBlog.image ? [currentBlog.image] : [];
 
   return {
-    title: currentBlog.title || "Article | Morzze",
+    title: currentBlog.metaTitle || currentBlog.title || "Article | Morzze",
     description:
       currentBlog.metaDescription ||
       `Read about ${currentBlog.title} on Morzze.`,
