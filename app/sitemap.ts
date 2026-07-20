@@ -42,6 +42,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const excludedProducts = new Set([
     "Kitchen-Accessories-MDA-901",
+    "BATHROOM-FAUCETS--MBF-501-11111",
+    "BATHROOM-FAUCETS--MBF-501T-11111",
+    "BATHROOM-FAUCETS--MBF-503-11111",
+    "BATHROOM-FAUCET-MBF-505-11111",
+    "BATHROOM-FAUCETS-MBF-506-11111",
+    "BATHROOM-FAUCETS-MBF-507-11111",
+    "BATHROOM-FAUCETS-MBF-508-11111",
+    "BATHROOM-FAUCETS-MBF-509-11111",
+    "Wash-Basin-MBB-403",
   ]);
 
   const sitemapUrls: MetadataRoute.Sitemap = [
@@ -170,6 +179,60 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/product/bathroom-faucets-mbf-501-11111`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/product/bathroom-faucets-mbf-501T-11111`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/product/bathroom-faucets-mbf-503-11111`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/product/bathroom-faucets-mbf-504-11111`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/product/bathroom-faucets-mbf-505-11111`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/product/bathroom-faucets-mbf-506-11111`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/product/bathroom-faucets-mbf-507-11111`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/product/bathroom-faucets-mbf-508-11111`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/product/bathroom-faucets-mbf-509-11111`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.6,
     },
   ];
 

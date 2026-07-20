@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     return [
       // links for Documents need to redirect
       ...redirectLinks.map(({ oldUrl, newUrl, permanent }) => ({
-        source: oldUrl.replace("https://www.morzze.com", ""),
+        source: decodeURIComponent(oldUrl.replace("https://www.morzze.com", "")),
         destination: "https://d2icu6klh68l1z.cloudfront.net" + newUrl,
         permanent: permanent,
       })),
