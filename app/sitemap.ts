@@ -64,6 +64,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Database check matched version
     "BATHROOM-FAUCET--MBF-502-11111",
     "Wash-Basin-MBB-403",
+    "Granite-Wash-Basin-MBB-403",
   ]);
 
   const sitemapUrls: MetadataRoute.Sitemap = [
