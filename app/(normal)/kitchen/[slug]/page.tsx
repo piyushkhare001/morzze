@@ -3,22 +3,30 @@ import { notFound } from "next/navigation";
 import { getCategoryBySlug } from "@/helper/category/action";
 import {
   getProducts,
-  getProductFilterOptions,
   getSteelSinkCategorySlugs,
 } from "@/helper/product/action";
 import Link from "@/hooks/appLink";
 import FilterSidebar from "@/components/product/FilterSidebar";
 import { getImageURL } from "@/lib/getImageLin";
 import { IconAdjustmentsHorizontal } from "@tabler/icons-react";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Metadata, ResolvingMetadata } from "next";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Metadata } from "next";
 import { db } from "@/db";
 import { category } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import CategoryProductsClient from "@/components/commom/CategoryProductsClient";
+
+export const dynamic = "force-static";
+export const revalidate = 86400;
+
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
-  parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const { slug } = await params;
 
@@ -44,7 +52,9 @@ export async function generateMetadata(
 
     return {
       title: productRes.title || `${productRes.name} | Morzze`,
-      description: productRes.description || `Browse ${productRes.name} products at Morzze.`,
+      description:
+        productRes.description ||
+        `Browse ${productRes.name} products at Morzze.`,
       alternates: {
         canonical: `/kitchen/${slug}`,
       },
@@ -52,7 +62,7 @@ export async function generateMetadata(
         images,
       },
     };
-  } catch (error) {
+  } catch {
     return {
       title: "Category Not Found | Morzze",
       description: "The requested category could not be found.",
@@ -70,10 +80,9 @@ export default async function CategoryPage({
   const { slug } = await params;
   const sParams = await searchParams;
 
-  const [categoryData, filterOptions, steelSinkCategorySlugs, productsResult] =
+  const [categoryData, steelSinkCategorySlugs, productsResult] =
     await Promise.all([
       getCategoryBySlug(slug),
-      getProductFilterOptions(),
       getSteelSinkCategorySlugs(),
       getProducts({
         category: slug,
@@ -159,7 +168,10 @@ export default async function CategoryPage({
               <Sheet>
                 <SheetTrigger asChild>
                   <button className="flex items-center gap-2.5 text-[13px] text-[#EDEBE9] font-inter uppercase tracking-[0.15em] font-medium">
-                    <IconAdjustmentsHorizontal size={20} className="text-[#FFBF3F]" />
+                    <IconAdjustmentsHorizontal
+                      size={20}
+                      className="text-[#FFBF3F]"
+                    />
                     Filters
                   </button>
                 </SheetTrigger>
